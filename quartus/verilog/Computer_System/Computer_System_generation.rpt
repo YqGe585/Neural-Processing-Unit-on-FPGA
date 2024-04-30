@@ -1,0 +1,260 @@
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\yg585\Desktop\NPU\quartus\verilog\Computer_System.qsys --synthesis=VERILOG --output-directory=C:\Users\yg585\Desktop\NPU\quartus\verilog\Computer_System\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading verilog/Computer_System.qsys
+Progress: Reading input file
+Progress: Adding ARM_A9_HPS [altera_hps 18.1]
+Progress: Parameterizing module ARM_A9_HPS
+Progress: Adding System_PLL [altera_up_avalon_sys_sdram_pll 18.0]
+Progress: Parameterizing module System_PLL
+Progress: Adding inst_sram [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module inst_sram
+Progress: Adding pll_0 [altera_pll 18.1]
+Progress: Parameterizing module pll_0
+Progress: Adding sram_0 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_0
+Progress: Adding sram_1 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_1
+Progress: Adding sram_10 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_10
+Progress: Adding sram_11 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_11
+Progress: Adding sram_12 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_12
+Progress: Adding sram_13 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_13
+Progress: Adding sram_14 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_14
+Progress: Adding sram_15 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_15
+Progress: Adding sram_16 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_16
+Progress: Adding sram_17 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_17
+Progress: Adding sram_18 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_18
+Progress: Adding sram_19 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_19
+Progress: Adding sram_2 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_2
+Progress: Adding sram_3 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_3
+Progress: Adding sram_4 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_4
+Progress: Adding sram_5 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_5
+Progress: Adding sram_6 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_6
+Progress: Adding sram_7 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_7
+Progress: Adding sram_8 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_8
+Progress: Adding sram_9 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module sram_9
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Computer_System.ARM_A9_HPS: HPS Main PLL counter settings: n = 0  m = 73
+Info: Computer_System.ARM_A9_HPS: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: Computer_System.ARM_A9_HPS: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: Computer_System.ARM_A9_HPS: "QSPI clock frequency" (desired_qspi_clk_mhz) requested 400.0 MHz, but only achieved 370.0 MHz
+Warning: Computer_System.ARM_A9_HPS: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Info: Computer_System.System_PLL: Refclk Freq: 50.0
+Info: Computer_System.pll_0: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Info: Computer_System.pll_0: Able to implement PLL with user settings
+Warning: Computer_System.: You have exported the interface inst_sram.s1 but not its associated clock interface.  Export the driver of inst_sram.clk1
+Warning: Computer_System.: You have exported the interface inst_sram.s1 but not its associated reset interface.  Export the driver(s) of inst_sram.reset1
+Warning: Computer_System.: You have exported the interface sram_0.s1 but not its associated clock interface.  Export the driver of sram_0.clk1
+Warning: Computer_System.: You have exported the interface sram_0.s1 but not its associated reset interface.  Export the driver(s) of sram_0.reset1
+Warning: Computer_System.: You have exported the interface sram_10.s1 but not its associated clock interface.  Export the driver of sram_10.clk1
+Warning: Computer_System.: You have exported the interface sram_10.s1 but not its associated reset interface.  Export the driver(s) of sram_10.reset1
+Warning: Computer_System.: You have exported the interface sram_11.s1 but not its associated clock interface.  Export the driver of sram_11.clk1
+Warning: Computer_System.: You have exported the interface sram_11.s1 but not its associated reset interface.  Export the driver(s) of sram_11.reset1
+Warning: Computer_System.: You have exported the interface sram_12.s1 but not its associated clock interface.  Export the driver of sram_12.clk1
+Warning: Computer_System.: You have exported the interface sram_12.s1 but not its associated reset interface.  Export the driver(s) of sram_12.reset1
+Warning: Computer_System.: You have exported the interface sram_13.s1 but not its associated clock interface.  Export the driver of sram_13.clk1
+Warning: Computer_System.: You have exported the interface sram_13.s1 but not its associated reset interface.  Export the driver(s) of sram_13.reset1
+Warning: Computer_System.: You have exported the interface sram_14.s1 but not its associated clock interface.  Export the driver of sram_14.clk1
+Warning: Computer_System.: You have exported the interface sram_14.s1 but not its associated reset interface.  Export the driver(s) of sram_14.reset1
+Warning: Computer_System.: You have exported the interface sram_15.s1 but not its associated clock interface.  Export the driver of sram_15.clk1
+Warning: Computer_System.: You have exported the interface sram_15.s1 but not its associated reset interface.  Export the driver(s) of sram_15.reset1
+Warning: Computer_System.: You have exported the interface sram_16.s1 but not its associated clock interface.  Export the driver of sram_16.clk1
+Warning: Computer_System.: You have exported the interface sram_16.s1 but not its associated reset interface.  Export the driver(s) of sram_16.reset1
+Warning: Computer_System.: You have exported the interface sram_17.s1 but not its associated clock interface.  Export the driver of sram_17.clk1
+Warning: Computer_System.: You have exported the interface sram_17.s1 but not its associated reset interface.  Export the driver(s) of sram_17.reset1
+Warning: Computer_System.: You have exported the interface sram_18.s1 but not its associated clock interface.  Export the driver of sram_18.clk1
+Warning: Computer_System.: You have exported the interface sram_18.s1 but not its associated reset interface.  Export the driver(s) of sram_18.reset1
+Warning: Computer_System.: You have exported the interface sram_19.s1 but not its associated clock interface.  Export the driver of sram_19.clk1
+Warning: Computer_System.: You have exported the interface sram_19.s1 but not its associated reset interface.  Export the driver(s) of sram_19.reset1
+Warning: Computer_System.: You have exported the interface sram_1.s1 but not its associated clock interface.  Export the driver of sram_1.clk1
+Warning: Computer_System.: You have exported the interface sram_1.s1 but not its associated reset interface.  Export the driver(s) of sram_1.reset1
+Warning: Computer_System.: You have exported the interface sram_2.s1 but not its associated clock interface.  Export the driver of sram_2.clk1
+Warning: Computer_System.: You have exported the interface sram_2.s1 but not its associated reset interface.  Export the driver(s) of sram_2.reset1
+Warning: Computer_System.: You have exported the interface sram_3.s1 but not its associated clock interface.  Export the driver of sram_3.clk1
+Warning: Computer_System.: You have exported the interface sram_3.s1 but not its associated reset interface.  Export the driver(s) of sram_3.reset1
+Warning: Computer_System.: You have exported the interface sram_4.s1 but not its associated clock interface.  Export the driver of sram_4.clk1
+Warning: Computer_System.: You have exported the interface sram_4.s1 but not its associated reset interface.  Export the driver(s) of sram_4.reset1
+Warning: Computer_System.: You have exported the interface sram_5.s1 but not its associated clock interface.  Export the driver of sram_5.clk1
+Warning: Computer_System.: You have exported the interface sram_5.s1 but not its associated reset interface.  Export the driver(s) of sram_5.reset1
+Warning: Computer_System.: You have exported the interface sram_6.s1 but not its associated clock interface.  Export the driver of sram_6.clk1
+Warning: Computer_System.: You have exported the interface sram_6.s1 but not its associated reset interface.  Export the driver(s) of sram_6.reset1
+Warning: Computer_System.: You have exported the interface sram_7.s1 but not its associated clock interface.  Export the driver of sram_7.clk1
+Warning: Computer_System.: You have exported the interface sram_7.s1 but not its associated reset interface.  Export the driver(s) of sram_7.reset1
+Warning: Computer_System.: You have exported the interface sram_8.s1 but not its associated clock interface.  Export the driver of sram_8.clk1
+Warning: Computer_System.: You have exported the interface sram_8.s1 but not its associated reset interface.  Export the driver(s) of sram_8.reset1
+Warning: Computer_System.: You have exported the interface sram_9.s1 but not its associated clock interface.  Export the driver of sram_9.clk1
+Warning: Computer_System.: You have exported the interface sram_9.s1 but not its associated reset interface.  Export the driver(s) of sram_9.reset1
+Info: Computer_System: Generating Computer_System "Computer_System" for QUARTUS_SYNTH
+Warning: ARM_A9_HPS.f2h_irq0: Cannot connect clock for irq_mapper.sender
+Warning: ARM_A9_HPS.f2h_irq0: Cannot connect reset for irq_mapper.sender
+Warning: ARM_A9_HPS.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
+Warning: ARM_A9_HPS.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+Info: ARM_A9_HPS: "Running  for module: ARM_A9_HPS"
+Info: ARM_A9_HPS: HPS Main PLL counter settings: n = 0  m = 73
+Info: ARM_A9_HPS: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: ARM_A9_HPS: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: ARM_A9_HPS: "QSPI clock frequency" (desired_qspi_clk_mhz) requested 400.0 MHz, but only achieved 370.0 MHz
+Warning: ARM_A9_HPS: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Info: ARM_A9_HPS: "Computer_System" instantiated altera_hps "ARM_A9_HPS"
+Info: System_PLL: "Computer_System" instantiated altera_up_avalon_sys_sdram_pll "System_PLL"
+Info: inst_sram: Starting RTL generation for module 'Computer_System_inst_sram'
+Info: inst_sram:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_inst_sram --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0002_inst_sram_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0002_inst_sram_gen//Computer_System_inst_sram_component_configuration.pl  --do_build_sim=0  ]
+Info: inst_sram: Done RTL generation for module 'Computer_System_inst_sram'
+Info: inst_sram: "Computer_System" instantiated altera_avalon_onchip_memory2 "inst_sram"
+Info: pll_0: "Computer_System" instantiated altera_pll "pll_0"
+Info: sram_0: Starting RTL generation for module 'Computer_System_sram_0'
+Info: sram_0:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_0 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0004_sram_0_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0004_sram_0_gen//Computer_System_sram_0_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_0: Done RTL generation for module 'Computer_System_sram_0'
+Info: sram_0: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_0"
+Info: sram_1: Starting RTL generation for module 'Computer_System_sram_1'
+Info: sram_1:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_1 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0005_sram_1_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0005_sram_1_gen//Computer_System_sram_1_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_1: Done RTL generation for module 'Computer_System_sram_1'
+Info: sram_1: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_1"
+Info: sram_10: Starting RTL generation for module 'Computer_System_sram_10'
+Info: sram_10:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_10 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0006_sram_10_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0006_sram_10_gen//Computer_System_sram_10_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_10: Done RTL generation for module 'Computer_System_sram_10'
+Info: sram_10: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_10"
+Info: sram_11: Starting RTL generation for module 'Computer_System_sram_11'
+Info: sram_11:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_11 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0007_sram_11_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0007_sram_11_gen//Computer_System_sram_11_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_11: Done RTL generation for module 'Computer_System_sram_11'
+Info: sram_11: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_11"
+Info: sram_12: Starting RTL generation for module 'Computer_System_sram_12'
+Info: sram_12:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_12 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0008_sram_12_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0008_sram_12_gen//Computer_System_sram_12_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_12: Done RTL generation for module 'Computer_System_sram_12'
+Info: sram_12: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_12"
+Info: sram_13: Starting RTL generation for module 'Computer_System_sram_13'
+Info: sram_13:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_13 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0009_sram_13_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0009_sram_13_gen//Computer_System_sram_13_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_13: Done RTL generation for module 'Computer_System_sram_13'
+Info: sram_13: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_13"
+Info: sram_14: Starting RTL generation for module 'Computer_System_sram_14'
+Info: sram_14:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_14 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0010_sram_14_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0010_sram_14_gen//Computer_System_sram_14_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_14: Done RTL generation for module 'Computer_System_sram_14'
+Info: sram_14: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_14"
+Info: sram_15: Starting RTL generation for module 'Computer_System_sram_15'
+Info: sram_15:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_15 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0011_sram_15_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0011_sram_15_gen//Computer_System_sram_15_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_15: Done RTL generation for module 'Computer_System_sram_15'
+Info: sram_15: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_15"
+Info: sram_16: Starting RTL generation for module 'Computer_System_sram_16'
+Info: sram_16:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_16 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0012_sram_16_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0012_sram_16_gen//Computer_System_sram_16_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_16: Done RTL generation for module 'Computer_System_sram_16'
+Info: sram_16: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_16"
+Info: sram_17: Starting RTL generation for module 'Computer_System_sram_17'
+Info: sram_17:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_17 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0013_sram_17_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0013_sram_17_gen//Computer_System_sram_17_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_17: Done RTL generation for module 'Computer_System_sram_17'
+Info: sram_17: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_17"
+Info: sram_18: Starting RTL generation for module 'Computer_System_sram_18'
+Info: sram_18:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_18 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0014_sram_18_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0014_sram_18_gen//Computer_System_sram_18_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_18: Done RTL generation for module 'Computer_System_sram_18'
+Info: sram_18: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_18"
+Info: sram_19: Starting RTL generation for module 'Computer_System_sram_19'
+Info: sram_19:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_19 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0015_sram_19_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0015_sram_19_gen//Computer_System_sram_19_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_19: Done RTL generation for module 'Computer_System_sram_19'
+Info: sram_19: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_19"
+Info: sram_2: Starting RTL generation for module 'Computer_System_sram_2'
+Info: sram_2:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_2 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0016_sram_2_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0016_sram_2_gen//Computer_System_sram_2_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_2: Done RTL generation for module 'Computer_System_sram_2'
+Info: sram_2: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_2"
+Info: sram_3: Starting RTL generation for module 'Computer_System_sram_3'
+Info: sram_3:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_3 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0017_sram_3_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0017_sram_3_gen//Computer_System_sram_3_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_3: Done RTL generation for module 'Computer_System_sram_3'
+Info: sram_3: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_3"
+Info: sram_4: Starting RTL generation for module 'Computer_System_sram_4'
+Info: sram_4:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_4 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0018_sram_4_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0018_sram_4_gen//Computer_System_sram_4_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_4: Done RTL generation for module 'Computer_System_sram_4'
+Info: sram_4: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_4"
+Info: sram_5: Starting RTL generation for module 'Computer_System_sram_5'
+Info: sram_5:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_5 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0019_sram_5_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0019_sram_5_gen//Computer_System_sram_5_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_5: Done RTL generation for module 'Computer_System_sram_5'
+Info: sram_5: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_5"
+Info: sram_6: Starting RTL generation for module 'Computer_System_sram_6'
+Info: sram_6:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_6 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0020_sram_6_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0020_sram_6_gen//Computer_System_sram_6_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_6: Done RTL generation for module 'Computer_System_sram_6'
+Info: sram_6: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_6"
+Info: sram_7: Starting RTL generation for module 'Computer_System_sram_7'
+Info: sram_7:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_7 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0021_sram_7_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0021_sram_7_gen//Computer_System_sram_7_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_7: Done RTL generation for module 'Computer_System_sram_7'
+Info: sram_7: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_7"
+Info: sram_8: Starting RTL generation for module 'Computer_System_sram_8'
+Info: sram_8:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_8 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0022_sram_8_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0022_sram_8_gen//Computer_System_sram_8_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_8: Done RTL generation for module 'Computer_System_sram_8'
+Info: sram_8: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_8"
+Info: sram_9: Starting RTL generation for module 'Computer_System_sram_9'
+Info: sram_9:   Generation command is [exec C:/programs/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I C:/programs/intelfpga/18.1/quartus/bin64/perl/lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/europa -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I C:/programs/intelfpga/18.1/quartus/sopc_builder/bin -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/programs/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_sram_9 --dir=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0023_sram_9_gen/ --quartus_dir=C:/programs/intelfpga/18.1/quartus --verilog --config=C:/Users/yg585/AppData/Local/Temp/alt9841_6320930787789853374.dir/0023_sram_9_gen//Computer_System_sram_9_component_configuration.pl  --do_build_sim=0  ]
+Info: sram_9: Done RTL generation for module 'Computer_System_sram_9'
+Info: sram_9: "Computer_System" instantiated altera_avalon_onchip_memory2 "sram_9"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_011: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_012: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_013: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_014: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_015: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_016: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_017: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_018: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_019: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_020: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "Computer_System" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "Computer_System" instantiated altera_reset_controller "rst_controller"
+Info: fpga_interfaces: "ARM_A9_HPS" instantiated altera_interface_generator "fpga_interfaces"
+Info: hps_io: "ARM_A9_HPS" instantiated altera_hps_io "hps_io"
+Info: sys_pll: "System_PLL" instantiated altera_pll "sys_pll"
+Info: reset_from_locked: "System_PLL" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
+Info: inst_sram_s2_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "inst_sram_s2_translator"
+Info: ARM_A9_HPS_h2f_axi_master_agent: "mm_interconnect_0" instantiated altera_merlin_axi_master_ni "ARM_A9_HPS_h2f_axi_master_agent"
+Info: inst_sram_s2_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "inst_sram_s2_agent"
+Info: inst_sram_s2_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "inst_sram_s2_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: ARM_A9_HPS_h2f_axi_master_wr_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "ARM_A9_HPS_h2f_axi_master_wr_limiter"
+Info: Reusing file C:/Users/yg585/Desktop/NPU/quartus/verilog/Computer_System/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: inst_sram_s2_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "inst_sram_s2_burst_adapter"
+Info: Reusing file C:/Users/yg585/Desktop/NPU/quartus/verilog/Computer_System/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/yg585/Desktop/NPU/quartus/verilog/Computer_System/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/yg585/Desktop/NPU/quartus/verilog/Computer_System/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sram_0_s2_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sram_0_s2_rsp_width_adapter"
+Info: Reusing file C:/Users/yg585/Desktop/NPU/quartus/verilog/Computer_System/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/yg585/Desktop/NPU/quartus/verilog/Computer_System/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
+Info: Computer_System: Done "Computer_System" with 51 modules, 131 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

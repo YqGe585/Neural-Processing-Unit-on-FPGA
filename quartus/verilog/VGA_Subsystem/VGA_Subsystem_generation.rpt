@@ -1,0 +1,414 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate G:\From_web_page\computer_15_640_video_mod\DE1-SoC_Computer_15_640_current\DE1-SoC_Computer_15_640_current\verilog\Computer_System.qsys --block-symbol-file --output-directory=G:\From_web_page\computer_15_640_video_mod\DE1-SoC_Computer_15_640_current\DE1-SoC_Computer_15_640_current\verilog\VGA_Subsystem --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading verilog/Computer_System.qsys
+Progress: Reading input file
+Progress: Adding ARM_A9_HPS [altera_hps 15.0]
+Progress: Parameterizing module ARM_A9_HPS
+Progress: Adding AV_Config [altera_up_avalon_audio_and_video_config 15.0]
+Progress: Parameterizing module AV_Config
+Progress: Adding Audio_Subsystem [Audio_Subsystem 1.0]
+Progress: Parameterizing module Audio_Subsystem
+Progress: Adding Expansion_JP1 [altera_avalon_pio 15.0]
+Progress: Parameterizing module Expansion_JP1
+Progress: Adding Expansion_JP2 [altera_avalon_pio 15.0]
+Progress: Parameterizing module Expansion_JP2
+Progress: Adding F2H_Mem_Window_00000000 [altera_address_span_extender 15.0]
+Progress: Parameterizing module F2H_Mem_Window_00000000
+Progress: Adding F2H_Mem_Window_FF600000 [altera_address_span_extender 15.0]
+Progress: Parameterizing module F2H_Mem_Window_FF600000
+Progress: Adding F2H_Mem_Window_FF800000 [altera_address_span_extender 15.0]
+Progress: Parameterizing module F2H_Mem_Window_FF800000
+Progress: Adding HEX3_HEX0 [altera_avalon_pio 15.0]
+Progress: Parameterizing module HEX3_HEX0
+Progress: Adding HEX5_HEX4 [altera_avalon_pio 15.0]
+Progress: Parameterizing module HEX5_HEX4
+Progress: Adding Interval_Timer [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer
+Progress: Adding Interval_Timer_2 [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer_2
+Progress: Adding Interval_Timer_2nd_Core [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer_2nd_Core
+Progress: Adding Interval_Timer_2nd_Core_2 [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer_2nd_Core_2
+Progress: Adding IrDA [altera_up_avalon_irda 15.0]
+Progress: Parameterizing module IrDA
+Progress: Adding JTAG_UART [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART
+Progress: Adding JTAG_UART_2nd_Core [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART_2nd_Core
+Progress: Adding JTAG_UART_for_ARM_0 [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART_for_ARM_0
+Progress: Adding JTAG_UART_for_ARM_1 [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART_for_ARM_1
+Progress: Adding JTAG_to_FPGA_Bridge [altera_jtag_avalon_master 15.0]
+Progress: Parameterizing module JTAG_to_FPGA_Bridge
+Progress: Adding JTAG_to_HPS_Bridge [altera_jtag_avalon_master 15.0]
+Progress: Parameterizing module JTAG_to_HPS_Bridge
+Progress: Adding LEDs [altera_avalon_pio 15.0]
+Progress: Parameterizing module LEDs
+Progress: Adding Nios2 [altera_nios2_gen2 15.0]
+Progress: Parameterizing module Nios2
+Progress: Adding Nios2_2nd_Core [altera_nios2_gen2 15.0]
+Progress: Parameterizing module Nios2_2nd_Core
+Progress: Adding Nios2_Floating_Point [altera_nios_custom_instr_floating_point 15.0]
+Progress: Parameterizing module Nios2_Floating_Point
+Progress: Adding Nios2_Floating_Point_2nd_Core [altera_nios_custom_instr_floating_point 15.0]
+Progress: Parameterizing module Nios2_Floating_Point_2nd_Core
+Progress: Adding Onchip_SRAM [altera_avalon_onchip_memory2 15.0]
+Progress: Parameterizing module Onchip_SRAM
+Progress: Adding PS2_Port [altera_up_avalon_ps2 15.0]
+Progress: Parameterizing module PS2_Port
+Progress: Adding PS2_Port_Dual [altera_up_avalon_ps2 15.0]
+Progress: Parameterizing module PS2_Port_Dual
+Progress: Adding Pixel_DMA_Addr_Translation [altera_up_avalon_video_dma_ctrl_addr_trans 15.0]
+Progress: Parameterizing module Pixel_DMA_Addr_Translation
+Progress: Adding Pushbuttons [altera_avalon_pio 15.0]
+Progress: Parameterizing module Pushbuttons
+Progress: Adding SDRAM [altera_avalon_new_sdram_controller 15.0]
+Progress: Parameterizing module SDRAM
+Progress: Adding Slider_Switches [altera_avalon_pio 15.0]
+Progress: Parameterizing module Slider_Switches
+Progress: Adding SysID [altera_avalon_sysid_qsys 15.0]
+Progress: Parameterizing module SysID
+Progress: Adding System_PLL [altera_up_avalon_sys_sdram_pll 15.0]
+Progress: Parameterizing module System_PLL
+Progress: Adding VGA_Subsystem [VGA_Subsystem 1.0]
+Progress: Parameterizing module VGA_Subsystem
+Progress: Adding Video_In_DMA_Addr_Translation [altera_up_avalon_video_dma_ctrl_addr_trans 15.0]
+Progress: Parameterizing module Video_In_DMA_Addr_Translation
+Progress: Adding Video_In_Subsystem [Video_In_Subsystem 1.0]
+Progress: Parameterizing module Video_In_Subsystem
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Computer_System.ARM_A9_HPS: HPS Main PLL counter settings: n = 0  m = 73
+Info: Computer_System.ARM_A9_HPS: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: Computer_System.ARM_A9_HPS: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: Computer_System.ARM_A9_HPS: "QSPI clock frequency" (desired_qspi_clk_mhz) requested 400.0 MHz, but only achieved 370.0 MHz
+Warning: Computer_System.ARM_A9_HPS: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Warning: Computer_System.Pixel_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Info: Computer_System.SysID: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: Computer_System.SysID: Time stamp will be automatically updated when this component is generated.
+Info: Computer_System.VGA_Subsystem.VGA_Char_Buffer: Character Resolution: 80 x 60
+Info: Computer_System.VGA_Subsystem.VGA_Controller: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Info: Computer_System.VGA_Subsystem.VGA_Pixel_RGB_Resampler: RGB Resampling: 8 (bits) x 1 (planes) -> 10 (bits) x 3 (planes)
+Warning: Computer_System.Video_In_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Info: Computer_System.Video_In_Subsystem.Edge_Detection_Subsystem.Chroma_Filter: Chroma Resampling: 8 (bits) x 3 (planes) -> 8 (bits) x 1 (planes)
+Info: Computer_System.Video_In_Subsystem.Edge_Detection_Subsystem.Chroma_Upsampler: Chroma Resampling: 8 (bits) x 1 (planes) -> 8 (bits) x 3 (planes)
+Info: Computer_System.Video_In_Subsystem.Video_In: Video In Stream: Format: 720 x 244 (Odd Frames) or 720 x 243 (Even Frames) with Colour: 8 (bits) x 2 (planes) (YCrCb 4:2:2)
+Info: Computer_System.Video_In_Subsystem.Video_In_CSC: Colour Space Conversion: 8 (bits) x 3 (planes) (444 YCrCb) -> 8 (bits) x 3 (planes) (24-bit RGB)
+Info: Computer_System.Video_In_Subsystem.Video_In_Chroma_Resampler: Chroma Resampling: 8 (bits) x 2 (planes) -> 8 (bits) x 3 (planes)
+Info: Computer_System.Video_In_Subsystem.Video_In_Clipper: Change in Resolution: 720 x 244 -> 640 x 240
+Info: Computer_System.Video_In_Subsystem.Video_In_RGB_Resampler: RGB Resampling: 8 (bits) x 3 (planes) -> 8 (bits) x 1 (planes)
+Info: Computer_System.Video_In_Subsystem.Video_In_Scaler: Change in Resolution: 640 x 240 -> 320 x 480
+Warning: Computer_System.F2H_Mem_Window_00000000: F2H_Mem_Window_00000000.windowed_slave must be connected to an Avalon-MM master
+Warning: Computer_System.F2H_Mem_Window_FF600000: F2H_Mem_Window_FF600000.windowed_slave must be connected to an Avalon-MM master
+Warning: Computer_System.F2H_Mem_Window_FF800000: F2H_Mem_Window_FF800000.windowed_slave must be connected to an Avalon-MM master
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate G:\From_web_page\computer_15_640_video_mod\DE1-SoC_Computer_15_640_current\DE1-SoC_Computer_15_640_current\verilog\Computer_System.qsys --synthesis=VERILOG --output-directory=G:\From_web_page\computer_15_640_video_mod\DE1-SoC_Computer_15_640_current\DE1-SoC_Computer_15_640_current\verilog\VGA_Subsystem\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading verilog/Computer_System.qsys
+Progress: Reading input file
+Progress: Adding ARM_A9_HPS [altera_hps 15.0]
+Progress: Parameterizing module ARM_A9_HPS
+Progress: Adding AV_Config [altera_up_avalon_audio_and_video_config 15.0]
+Progress: Parameterizing module AV_Config
+Progress: Adding Audio_Subsystem [Audio_Subsystem 1.0]
+Progress: Parameterizing module Audio_Subsystem
+Progress: Adding Expansion_JP1 [altera_avalon_pio 15.0]
+Progress: Parameterizing module Expansion_JP1
+Progress: Adding Expansion_JP2 [altera_avalon_pio 15.0]
+Progress: Parameterizing module Expansion_JP2
+Progress: Adding F2H_Mem_Window_00000000 [altera_address_span_extender 15.0]
+Progress: Parameterizing module F2H_Mem_Window_00000000
+Progress: Adding F2H_Mem_Window_FF600000 [altera_address_span_extender 15.0]
+Progress: Parameterizing module F2H_Mem_Window_FF600000
+Progress: Adding F2H_Mem_Window_FF800000 [altera_address_span_extender 15.0]
+Progress: Parameterizing module F2H_Mem_Window_FF800000
+Progress: Adding HEX3_HEX0 [altera_avalon_pio 15.0]
+Progress: Parameterizing module HEX3_HEX0
+Progress: Adding HEX5_HEX4 [altera_avalon_pio 15.0]
+Progress: Parameterizing module HEX5_HEX4
+Progress: Adding Interval_Timer [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer
+Progress: Adding Interval_Timer_2 [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer_2
+Progress: Adding Interval_Timer_2nd_Core [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer_2nd_Core
+Progress: Adding Interval_Timer_2nd_Core_2 [altera_avalon_timer 15.0]
+Progress: Parameterizing module Interval_Timer_2nd_Core_2
+Progress: Adding IrDA [altera_up_avalon_irda 15.0]
+Progress: Parameterizing module IrDA
+Progress: Adding JTAG_UART [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART
+Progress: Adding JTAG_UART_2nd_Core [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART_2nd_Core
+Progress: Adding JTAG_UART_for_ARM_0 [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART_for_ARM_0
+Progress: Adding JTAG_UART_for_ARM_1 [altera_avalon_jtag_uart 15.0]
+Progress: Parameterizing module JTAG_UART_for_ARM_1
+Progress: Adding JTAG_to_FPGA_Bridge [altera_jtag_avalon_master 15.0]
+Progress: Parameterizing module JTAG_to_FPGA_Bridge
+Progress: Adding JTAG_to_HPS_Bridge [altera_jtag_avalon_master 15.0]
+Progress: Parameterizing module JTAG_to_HPS_Bridge
+Progress: Adding LEDs [altera_avalon_pio 15.0]
+Progress: Parameterizing module LEDs
+Progress: Adding Nios2 [altera_nios2_gen2 15.0]
+Progress: Parameterizing module Nios2
+Progress: Adding Nios2_2nd_Core [altera_nios2_gen2 15.0]
+Progress: Parameterizing module Nios2_2nd_Core
+Progress: Adding Nios2_Floating_Point [altera_nios_custom_instr_floating_point 15.0]
+Progress: Parameterizing module Nios2_Floating_Point
+Progress: Adding Nios2_Floating_Point_2nd_Core [altera_nios_custom_instr_floating_point 15.0]
+Progress: Parameterizing module Nios2_Floating_Point_2nd_Core
+Progress: Adding Onchip_SRAM [altera_avalon_onchip_memory2 15.0]
+Progress: Parameterizing module Onchip_SRAM
+Progress: Adding PS2_Port [altera_up_avalon_ps2 15.0]
+Progress: Parameterizing module PS2_Port
+Progress: Adding PS2_Port_Dual [altera_up_avalon_ps2 15.0]
+Progress: Parameterizing module PS2_Port_Dual
+Progress: Adding Pixel_DMA_Addr_Translation [altera_up_avalon_video_dma_ctrl_addr_trans 15.0]
+Progress: Parameterizing module Pixel_DMA_Addr_Translation
+Progress: Adding Pushbuttons [altera_avalon_pio 15.0]
+Progress: Parameterizing module Pushbuttons
+Progress: Adding SDRAM [altera_avalon_new_sdram_controller 15.0]
+Progress: Parameterizing module SDRAM
+Progress: Adding Slider_Switches [altera_avalon_pio 15.0]
+Progress: Parameterizing module Slider_Switches
+Progress: Adding SysID [altera_avalon_sysid_qsys 15.0]
+Progress: Parameterizing module SysID
+Progress: Adding System_PLL [altera_up_avalon_sys_sdram_pll 15.0]
+Progress: Parameterizing module System_PLL
+Progress: Adding VGA_Subsystem [VGA_Subsystem 1.0]
+Progress: Parameterizing module VGA_Subsystem
+Progress: Adding Video_In_DMA_Addr_Translation [altera_up_avalon_video_dma_ctrl_addr_trans 15.0]
+Progress: Parameterizing module Video_In_DMA_Addr_Translation
+Progress: Adding Video_In_Subsystem [Video_In_Subsystem 1.0]
+Progress: Parameterizing module Video_In_Subsystem
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: Computer_System.ARM_A9_HPS: HPS Main PLL counter settings: n = 0  m = 73
+Info: Computer_System.ARM_A9_HPS: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: Computer_System.ARM_A9_HPS: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: Computer_System.ARM_A9_HPS: "QSPI clock frequency" (desired_qspi_clk_mhz) requested 400.0 MHz, but only achieved 370.0 MHz
+Warning: Computer_System.ARM_A9_HPS: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Warning: Computer_System.Pixel_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Info: Computer_System.SysID: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: Computer_System.SysID: Time stamp will be automatically updated when this component is generated.
+Info: Computer_System.VGA_Subsystem.VGA_Char_Buffer: Character Resolution: 80 x 60
+Info: Computer_System.VGA_Subsystem.VGA_Controller: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Info: Computer_System.VGA_Subsystem.VGA_Pixel_RGB_Resampler: RGB Resampling: 8 (bits) x 1 (planes) -> 10 (bits) x 3 (planes)
+Warning: Computer_System.Video_In_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Info: Computer_System.Video_In_Subsystem.Edge_Detection_Subsystem.Chroma_Filter: Chroma Resampling: 8 (bits) x 3 (planes) -> 8 (bits) x 1 (planes)
+Info: Computer_System.Video_In_Subsystem.Edge_Detection_Subsystem.Chroma_Upsampler: Chroma Resampling: 8 (bits) x 1 (planes) -> 8 (bits) x 3 (planes)
+Info: Computer_System.Video_In_Subsystem.Video_In: Video In Stream: Format: 720 x 244 (Odd Frames) or 720 x 243 (Even Frames) with Colour: 8 (bits) x 2 (planes) (YCrCb 4:2:2)
+Info: Computer_System.Video_In_Subsystem.Video_In_CSC: Colour Space Conversion: 8 (bits) x 3 (planes) (444 YCrCb) -> 8 (bits) x 3 (planes) (24-bit RGB)
+Info: Computer_System.Video_In_Subsystem.Video_In_Chroma_Resampler: Chroma Resampling: 8 (bits) x 2 (planes) -> 8 (bits) x 3 (planes)
+Info: Computer_System.Video_In_Subsystem.Video_In_Clipper: Change in Resolution: 720 x 244 -> 640 x 240
+Info: Computer_System.Video_In_Subsystem.Video_In_RGB_Resampler: RGB Resampling: 8 (bits) x 3 (planes) -> 8 (bits) x 1 (planes)
+Info: Computer_System.Video_In_Subsystem.Video_In_Scaler: Change in Resolution: 640 x 240 -> 320 x 480
+Warning: Computer_System.F2H_Mem_Window_00000000: F2H_Mem_Window_00000000.windowed_slave must be connected to an Avalon-MM master
+Warning: Computer_System.F2H_Mem_Window_FF600000: F2H_Mem_Window_FF600000.windowed_slave must be connected to an Avalon-MM master
+Warning: Computer_System.F2H_Mem_Window_FF800000: F2H_Mem_Window_FF800000.windowed_slave must be connected to an Avalon-MM master
+Info: Computer_System: Generating Computer_System "Computer_System" for QUARTUS_SYNTH
+Info: Interconnect is inserted between master Pixel_DMA_Addr_Translation.master and slave VGA_Subsystem.pixel_dma_control_slave because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master Video_In_DMA_Addr_Translation.master and slave Video_In_Subsystem.video_in_dma_control_slave because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master Video_In_Subsystem.video_in_dma_master and slave Onchip_SRAM.s1 because the master has address signal 32 bit wide, but the slave is 16 bit wide.
+Info: Interconnect is inserted between master Video_In_Subsystem.video_in_dma_master and slave Onchip_SRAM.s1 because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master Video_In_Subsystem.video_in_dma_master and slave Onchip_SRAM.s1 because the master has writedata signal 8 bit wide, but the slave is 32 bit wide.
+Warning: ARM_A9_HPS.f2h_irq0: Cannot connect clock for irq_mapper.sender
+Warning: ARM_A9_HPS.f2h_irq0: Cannot connect reset for irq_mapper.sender
+Warning: ARM_A9_HPS.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
+Warning: ARM_A9_HPS.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+Info: ARM_A9_HPS: "Running  for module: ARM_A9_HPS"
+Info: ARM_A9_HPS: HPS Main PLL counter settings: n = 0  m = 73
+Info: ARM_A9_HPS: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: ARM_A9_HPS: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: ARM_A9_HPS: "QSPI clock frequency" (desired_qspi_clk_mhz) requested 400.0 MHz, but only achieved 370.0 MHz
+Warning: ARM_A9_HPS: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Info: ARM_A9_HPS: "Computer_System" instantiated altera_hps "ARM_A9_HPS"
+Info: AV_Config: Starting Generation of Audio and Video Config
+Info: AV_Config: "Computer_System" instantiated altera_up_avalon_audio_and_video_config "AV_Config"
+Info: Audio_Subsystem: "Computer_System" instantiated Audio_Subsystem "Audio_Subsystem"
+Info: F2H_Mem_Window_00000000: "Computer_System" instantiated altera_address_span_extender "F2H_Mem_Window_00000000"
+Info: HEX3_HEX0: Starting RTL generation for module 'Computer_System_HEX3_HEX0'
+Info: HEX3_HEX0:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Computer_System_HEX3_HEX0 --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0401_HEX3_HEX0_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0401_HEX3_HEX0_gen//Computer_System_HEX3_HEX0_component_configuration.pl  --do_build_sim=0  ]
+Info: HEX3_HEX0: Done RTL generation for module 'Computer_System_HEX3_HEX0'
+Info: HEX3_HEX0: "Computer_System" instantiated altera_avalon_pio "HEX3_HEX0"
+Info: LEDs: Starting RTL generation for module 'Computer_System_LEDs'
+Info: LEDs:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Computer_System_LEDs --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0402_LEDs_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0402_LEDs_gen//Computer_System_LEDs_component_configuration.pl  --do_build_sim=0  ]
+Info: LEDs: Done RTL generation for module 'Computer_System_LEDs'
+Info: LEDs: "Computer_System" instantiated altera_avalon_pio "LEDs"
+Info: Onchip_SRAM: Starting RTL generation for module 'Computer_System_Onchip_SRAM'
+Info: Onchip_SRAM:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Computer_System_Onchip_SRAM --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0403_Onchip_SRAM_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0403_Onchip_SRAM_gen//Computer_System_Onchip_SRAM_component_configuration.pl  --do_build_sim=0  ]
+Info: Onchip_SRAM: Done RTL generation for module 'Computer_System_Onchip_SRAM'
+Info: Onchip_SRAM: "Computer_System" instantiated altera_avalon_onchip_memory2 "Onchip_SRAM"
+Info: Pixel_DMA_Addr_Translation: "Computer_System" instantiated altera_up_avalon_video_dma_ctrl_addr_trans "Pixel_DMA_Addr_Translation"
+Info: Pushbuttons: Starting RTL generation for module 'Computer_System_Pushbuttons'
+Info: Pushbuttons:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Computer_System_Pushbuttons --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0405_Pushbuttons_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0405_Pushbuttons_gen//Computer_System_Pushbuttons_component_configuration.pl  --do_build_sim=0  ]
+Info: Pushbuttons: Done RTL generation for module 'Computer_System_Pushbuttons'
+Info: Pushbuttons: "Computer_System" instantiated altera_avalon_pio "Pushbuttons"
+Info: SDRAM: Starting RTL generation for module 'Computer_System_SDRAM'
+Info: SDRAM:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Computer_System_SDRAM --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0406_SDRAM_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0406_SDRAM_gen//Computer_System_SDRAM_component_configuration.pl  --do_build_sim=0  ]
+Info: SDRAM: Done RTL generation for module 'Computer_System_SDRAM'
+Info: SDRAM: "Computer_System" instantiated altera_avalon_new_sdram_controller "SDRAM"
+Info: Slider_Switches: Starting RTL generation for module 'Computer_System_Slider_Switches'
+Info: Slider_Switches:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Computer_System_Slider_Switches --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0407_Slider_Switches_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0407_Slider_Switches_gen//Computer_System_Slider_Switches_component_configuration.pl  --do_build_sim=0  ]
+Info: Slider_Switches: Done RTL generation for module 'Computer_System_Slider_Switches'
+Info: Slider_Switches: "Computer_System" instantiated altera_avalon_pio "Slider_Switches"
+Info: SysID: "Computer_System" instantiated altera_avalon_sysid_qsys "SysID"
+Info: System_PLL: "Computer_System" instantiated altera_up_avalon_sys_sdram_pll "System_PLL"
+Info: VGA_Subsystem: "Computer_System" instantiated VGA_Subsystem "VGA_Subsystem"
+Info: Video_In_Subsystem: "Computer_System" instantiated Video_In_Subsystem "Video_In_Subsystem"
+Info: mm_interconnect_0: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_1: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_2: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: mm_interconnect_3: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_3"
+Info: mm_interconnect_4: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_4"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_5: "Computer_System" instantiated altera_mm_interconnect "mm_interconnect_5"
+Info: irq_mapper: "Computer_System" instantiated altera_irq_mapper "irq_mapper"
+Info: irq_mapper_001: "Computer_System" instantiated altera_irq_mapper "irq_mapper_001"
+Info: rst_controller: "Computer_System" instantiated altera_reset_controller "rst_controller"
+Info: fpga_interfaces: "ARM_A9_HPS" instantiated altera_interface_generator "fpga_interfaces"
+Info: hps_io: "ARM_A9_HPS" instantiated altera_hps_io "hps_io"
+Info: Audio: Starting Generation of Audio Controller
+Info: Audio: "Audio_Subsystem" instantiated altera_up_avalon_audio "Audio"
+Info: Audio_PLL: "Audio_Subsystem" instantiated altera_up_avalon_audio_pll "Audio_PLL"
+Info: sys_pll: "System_PLL" instantiated altera_pll "sys_pll"
+Info: reset_from_locked: "System_PLL" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
+Info: VGA_Alpha_Blender: Starting Generation of the Alpha Blender
+Info: VGA_Alpha_Blender: "VGA_Subsystem" instantiated altera_up_avalon_video_alpha_blender "VGA_Alpha_Blender"
+Info: VGA_Char_Buffer: Starting Generation of Character Buffer
+Info: VGA_Char_Buffer: "VGA_Subsystem" instantiated altera_up_avalon_video_character_buffer_with_dma "VGA_Char_Buffer"
+Info: VGA_Controller: Starting Generation of VGA Controller
+Info: VGA_Controller: "VGA_Subsystem" instantiated altera_up_avalon_video_vga_controller "VGA_Controller"
+Info: VGA_Dual_Clock_FIFO: Starting Generation of the Dual Clock Buffer
+Info: VGA_Dual_Clock_FIFO: "VGA_Subsystem" instantiated altera_up_avalon_video_dual_clock_buffer "VGA_Dual_Clock_FIFO"
+Info: VGA_PLL: "VGA_Subsystem" instantiated altera_up_avalon_video_pll "VGA_PLL"
+Info: VGA_Pixel_DMA: Starting Generation of VGA Pixel Buffer
+Info: VGA_Pixel_DMA: "VGA_Subsystem" instantiated altera_up_avalon_video_pixel_buffer_dma "VGA_Pixel_DMA"
+Info: VGA_Pixel_FIFO: Starting Generation of the Dual Clock Buffer
+Info: VGA_Pixel_FIFO: "VGA_Subsystem" instantiated altera_up_avalon_video_dual_clock_buffer "VGA_Pixel_FIFO"
+Info: VGA_Pixel_RGB_Resampler: Starting Generation of Video RGB Resampler
+Info: VGA_Pixel_RGB_Resampler: "VGA_Subsystem" instantiated altera_up_avalon_video_rgb_resampler "VGA_Pixel_RGB_Resampler"
+Info: Edge_Detection_Subsystem: "Video_In_Subsystem" instantiated Edge_Detection_Subsystem "Edge_Detection_Subsystem"
+Info: Video_In: Starting Generation of Video In Decoder
+Info: Video_In: "Video_In_Subsystem" instantiated altera_up_avalon_video_decoder "Video_In"
+Info: Video_In_CSC: Starting Generation of Colour Space Converter
+Info: Video_In_CSC: "Video_In_Subsystem" instantiated altera_up_avalon_video_csc "Video_In_CSC"
+Info: Video_In_Chroma_Resampler: Starting Generation of Chroma Resampler
+Info: Video_In_Chroma_Resampler: "Video_In_Subsystem" instantiated altera_up_avalon_video_chroma_resampler "Video_In_Chroma_Resampler"
+Info: Video_In_Clipper: Starting generation of the video clipper
+Info: Video_In_Clipper: "Video_In_Subsystem" instantiated altera_up_avalon_video_clipper "Video_In_Clipper"
+Info: Video_In_DMA: Starting Generation of Video DMA Controller
+Info: Video_In_DMA: "Video_In_Subsystem" instantiated altera_up_avalon_video_dma_controller "Video_In_DMA"
+Info: Video_In_RGB_Resampler: Starting Generation of Video RGB Resampler
+Info: Video_In_RGB_Resampler: "Video_In_Subsystem" instantiated altera_up_avalon_video_rgb_resampler "Video_In_RGB_Resampler"
+Info: Video_In_Scaler: Starting Generation of Video Scaler
+Info: Video_In_Scaler: "Video_In_Subsystem" instantiated altera_up_avalon_video_scaler "Video_In_Scaler"
+Info: F2H_Mem_Window_00000000_expanded_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "F2H_Mem_Window_00000000_expanded_master_translator"
+Info: F2H_Mem_Window_00000000_expanded_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "F2H_Mem_Window_00000000_expanded_master_agent"
+Info: ARM_A9_HPS_f2h_axi_slave_agent: "mm_interconnect_0" instantiated altera_merlin_axi_slave_ni "ARM_A9_HPS_f2h_axi_slave_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: F2H_Mem_Window_00000000_expanded_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "F2H_Mem_Window_00000000_expanded_master_limiter"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: ARM_A9_HPS_f2h_axi_slave_wr_cmd_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "ARM_A9_HPS_f2h_axi_slave_wr_cmd_width_adapter"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: VGA_Subsystem_char_buffer_slave_translator: "mm_interconnect_1" instantiated altera_merlin_slave_translator "VGA_Subsystem_char_buffer_slave_translator"
+Info: ARM_A9_HPS_h2f_axi_master_agent: "mm_interconnect_1" instantiated altera_merlin_axi_master_ni "ARM_A9_HPS_h2f_axi_master_agent"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: VGA_Subsystem_char_buffer_slave_agent: "mm_interconnect_1" instantiated altera_merlin_slave_agent "VGA_Subsystem_char_buffer_slave_agent"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: VGA_Subsystem_char_buffer_slave_agent_rsp_fifo: "mm_interconnect_1" instantiated altera_avalon_sc_fifo "VGA_Subsystem_char_buffer_slave_agent_rsp_fifo"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_1" instantiated altera_merlin_router "router_003"
+Info: router_004: "mm_interconnect_1" instantiated altera_merlin_router "router_004"
+Info: router_005: "mm_interconnect_1" instantiated altera_merlin_router "router_005"
+Info: VGA_Subsystem_char_buffer_slave_burst_adapter: "mm_interconnect_1" instantiated altera_merlin_burst_adapter "VGA_Subsystem_char_buffer_slave_burst_adapter"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_002"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_001: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_002: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_002: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux_002"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_1" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "mm_interconnect_1" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: avalon_st_adapter_002: "mm_interconnect_1" instantiated altera_avalon_st_adapter "avalon_st_adapter_002"
+Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_2" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: router: "mm_interconnect_5" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_5" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_5" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_5" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux: "mm_interconnect_5" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file G:/From_web_page/computer_15_640_video_mod/DE1-SoC_Computer_15_640_current/DE1-SoC_Computer_15_640_current/verilog/VGA_Subsystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: audio_pll: "Audio_PLL" instantiated altera_pll "audio_pll"
+Info: video_pll: "VGA_PLL" instantiated altera_pll "video_pll"
+Info: Chroma_Filter: Starting Generation of Chroma Resampler
+Info: Chroma_Filter: "Edge_Detection_Subsystem" instantiated altera_up_avalon_video_chroma_resampler "Chroma_Filter"
+Info: Chroma_Upsampler: Starting Generation of Chroma Resampler
+Info: Chroma_Upsampler: "Edge_Detection_Subsystem" instantiated altera_up_avalon_video_chroma_resampler "Chroma_Upsampler"
+Info: Edge_Detection: Starting Generation of Video In Edge Detection
+Info: Edge_Detection: "Edge_Detection_Subsystem" instantiated altera_up_avalon_video_edge_detection "Edge_Detection"
+Info: Edge_Detection_Router_Controller: Starting RTL generation for module 'Computer_System_Video_In_Subsystem_Edge_Detection_Subsystem_Edge_Detection_Router_Controller'
+Info: Edge_Detection_Router_Controller:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=Computer_System_Video_In_Subsystem_Edge_Detection_Subsystem_Edge_Detection_Router_Controller --dir=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0476_Edge_Detection_Router_Controller_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/brl4/AppData/Local/Temp/alt7213_6601672968628167404.dir/0476_Edge_Detection_Router_Controller_gen//Computer_System_Video_In_Subsystem_Edge_Detection_Subsystem_Edge_Detection_Router_Controller_component_configuration.pl  --do_build_sim=0  ]
+Info: Edge_Detection_Router_Controller: Done RTL generation for module 'Computer_System_Video_In_Subsystem_Edge_Detection_Subsystem_Edge_Detection_Router_Controller'
+Info: Edge_Detection_Router_Controller: "Edge_Detection_Subsystem" instantiated altera_avalon_pio "Edge_Detection_Router_Controller"
+Info: Video_Stream_Merger: Starting Generation of Video In Stream Router
+Info: Video_Stream_Merger: "Edge_Detection_Subsystem" instantiated altera_up_avalon_video_stream_router "Video_Stream_Merger"
+Info: Video_Stream_Splitter: Starting Generation of Video In Stream Router
+Info: Video_Stream_Splitter: "Edge_Detection_Subsystem" instantiated altera_up_avalon_video_stream_router "Video_Stream_Splitter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_002" instantiated error_adapter "error_adapter_0"
+Info: Computer_System: Done "Computer_System" with 104 modules, 212 files
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

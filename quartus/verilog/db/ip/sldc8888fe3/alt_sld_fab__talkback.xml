@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProgramExecution>
+ <SOPCSystem>
+  <CompileID>0</CompileID>
+  <DeviceFamily>UNKNOWN</DeviceFamily>
+  <HDLLanguage></HDLLanguage>
+  <Qsys>0</Qsys>
+  <SOPCModule>
+   <C>1</C>
+   <ModuleType>alt_sld_fab</ModuleType>
+   <SOPCModuleParameter>
+    <C>2</C>
+    <Name>DESIGN_HASH</Name>
+    <Value>2572ae5733a557547ed3</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>3</C>
+    <Name>NODE_COUNT</Name>
+    <Value>8</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>4</C>
+    <Name>MAX_WIDTH</Name>
+    <Value>26</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>5</C>
+    <Name>SETTINGS</Name>
+    <Value>{fabric sld dir agent mfr_code 110 type_code 128 version 1 instance -1 ir_width 1 prefer_host { } psig f63706bb} {fabric sld dir agent mfr_code 110 type_code 128 version 1 instance -1 ir_width 1 prefer_host { } psig f63706bb} {fabric sld dir agent mfr_code 110 type_code 128 version 1 instance -1 ir_width 1 prefer_host { } psig f63706bb} {fabric sld dir agent mfr_code 110 type_code 128 version 1 instance -1 ir_width 1 prefer_host { } psig f63706bb} {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance 0 ir_width 3 psig f63706bb} {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance 1 ir_width 3 psig f63706bb} {fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 psig f63706bb} {fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 1 ir_width 2 psig f63706bb} </Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>6</C>
+    <Name>CLOCKS</Name>
+    <Value>{id {} } {id {} } {id {} } {id {} } {id {} } {id {} } {id {} } {id {} } </Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>7</C>
+    <Name>AGENTS</Name>
+    <Value></Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>8</C>
+    <Name>EP_INFOS</Name>
+    <Value>{hpath {Computer_System:The_System|Computer_System_JTAG_UART:jtag_uart|alt_jtag_atlantic:Computer_System_JTAG_UART_alt_jtag_atlantic|altera_sld_agent_endpoint:inst|altera_fabric_endpoint:ep} } {hpath {Computer_System:The_System|Computer_System_JTAG_UART:jtag_uart_2nd_core|alt_jtag_atlantic:Computer_System_JTAG_UART_alt_jtag_atlantic|altera_sld_agent_endpoint:inst|altera_fabric_endpoint:ep} } {hpath {Computer_System:The_System|Computer_System_JTAG_UART:jtag_uart_for_arm_0|alt_jtag_atlantic:Computer_System_JTAG_UART_alt_jtag_atlantic|altera_sld_agent_endpoint:inst|altera_fabric_endpoint:ep} } {hpath {Computer_System:The_System|Computer_System_JTAG_UART:jtag_uart_for_arm_1|alt_jtag_atlantic:Computer_System_JTAG_UART_alt_jtag_atlantic|altera_sld_agent_endpoint:inst|altera_fabric_endpoint:ep} } {hpath {Computer_System:The_System|Computer_System_JTAG_to_FPGA_Bridge:jtag_to_fpga_bridge|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_sld_node:node|sld_virtual_jtag_basic:sld_virtual_jtag_component|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {Computer_System:The_System|Computer_System_JTAG_to_FPGA_Bridge:jtag_to_hps_bridge|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_sld_node:node|sld_virtual_jtag_basic:sld_virtual_jtag_component|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {Computer_System:The_System|Computer_System_Nios2:nios2|Computer_System_Nios2_cpu:cpu|Computer_System_Nios2_cpu_nios2_oci:the_Computer_System_Nios2_cpu_nios2_oci|Computer_System_Nios2_cpu_debug_slave_wrapper:the_Computer_System_Nios2_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:Computer_System_Nios2_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {Computer_System:The_System|Computer_System_Nios2_2nd_Core:nios2_2nd_core|Computer_System_Nios2_2nd_Core_cpu:cpu|Computer_System_Nios2_2nd_Core_cpu_nios2_oci:the_Computer_System_Nios2_2nd_Core_cpu_nios2_oci|Computer_System_Nios2_2nd_Core_cpu_debug_slave_wrapper:the_Computer_System_Nios2_2nd_Core_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:Computer_System_Nios2_2nd_Core_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } </Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>9</C>
+    <Name>MIRROR</Name>
+    <Value>0</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>10</C>
+    <Name>TOP_HUB</Name>
+    <Value>1</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>11</C>
+    <Name>COMPOSED_SETTINGS</Name>
+    <Value>{fabric sld dir agent mfr_code 110 type_code 128 version 1 instance 0 ir_width 1 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 128 version 1 instance 1 ir_width 1 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 128 version 1 instance 2 ir_width 1 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 128 version 1 instance 3 ir_width 1 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance 0 ir_width 3 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance 1 ir_width 3 prefer_host {} } {fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 prefer_host {} } {fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 1 ir_width 2 prefer_host {} } </Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>12</C>
+    <Name>DEVICE_FAMILY</Name>
+    <Value>Cyclone V</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>13</C>
+    <Name>AUTO_DEVICE</Name>
+    <Value>Unknown</Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>14</C>
+    <Name>AUTO_DEVICE_SPEEDGRADE</Name>
+    <Value>Unknown</Value>
+   </SOPCModuleParameter>
+  </SOPCModule>
+  <SystemID>353083281</SystemID>
+ </SOPCSystem>
+ <SchemaVersion>schema_2013-01-18</SchemaVersion>
+</ProgramExecution>

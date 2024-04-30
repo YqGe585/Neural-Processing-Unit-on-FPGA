@@ -1,0 +1,214 @@
+vsim work.matrix_addition_tb
+# vsim work.matrix_addition_tb 
+# Start time: 11:21:08 on Apr 28,2024
+# Loading work.matrix_addition_tb
+# Loading work.matrix_addition
+# Loading work.M10K_source1_sram
+log * -r
+run 150us
+# Test completed. Final address and data: 0080, 0392
+# ** Note: $finish    : C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(124)
+#    Time: 124980 ns  Iteration: 0  Instance: /matrix_addition_tb
+# 1
+# Break in Module matrix_addition_tb at C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v line 124
+add wave -position insertpoint  \
+sim:/matrix_addition_tb/uut/clk \
+sim:/matrix_addition_tb/uut/col_count \
+sim:/matrix_addition_tb/uut/dest_address \
+sim:/matrix_addition_tb/uut/dest_data \
+sim:/matrix_addition_tb/uut/dest_start_address \
+sim:/matrix_addition_tb/uut/dest_write_en \
+sim:/matrix_addition_tb/uut/done \
+sim:/matrix_addition_tb/uut/reset \
+sim:/matrix_addition_tb/uut/row_count \
+sim:/matrix_addition_tb/uut/src1_address \
+sim:/matrix_addition_tb/uut/src1_col_size \
+sim:/matrix_addition_tb/uut/src1_data \
+sim:/matrix_addition_tb/uut/src1_row_size \
+sim:/matrix_addition_tb/uut/src1_start_address \
+sim:/matrix_addition_tb/uut/src1_write_en \
+sim:/matrix_addition_tb/uut/src2_address \
+sim:/matrix_addition_tb/uut/src2_col_size \
+sim:/matrix_addition_tb/uut/src2_data \
+sim:/matrix_addition_tb/uut/src2_row_size \
+sim:/matrix_addition_tb/uut/src2_start_address \
+sim:/matrix_addition_tb/uut/src2_write_en \
+sim:/matrix_addition_tb/uut/start \
+sim:/matrix_addition_tb/uut/state
+# Compile of Processor.v failed with 1 errors.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 1 failed with 1 error.
+# Compile of Processor.v failed with 44 errors.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 1 failed with 44 errors.
+# Compile of Processor.v failed with 44 errors.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 1 failed with 44 errors.
+# Compile of Processor.v failed with 36 errors.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 1 failed with 36 errors.
+# Compile of Processor.v failed with 1 errors.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 1 failed with 1 error.
+# Compile of Processor.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 0 failed with no errors.
+# Compile of Processor.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v failed with 1 errors.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 1 failed with 1 error.
+# Compile of Processor.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim work.matrix_addition_tb
+# End time: 18:31:13 on Apr 28,2024, Elapsed time: 7:10:05
+# Errors: 0, Warnings: 0
+# vsim work.matrix_addition_tb 
+# Start time: 18:31:13 on Apr 28,2024
+# Loading work.matrix_addition_tb
+# Loading work.matrix_addition
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src2_start_address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(8).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src2_address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(20).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(33): [PCDPC] - Port size (16) does not match connection size (1) for port 'dest_writedata'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v(23).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(59): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/src1 File: C:/Users/yg585/Desktop/NPU/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(67): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/src2 File: C:/Users/yg585/Desktop/NPU/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(75): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/dest File: C:/Users/yg585/Desktop/NPU/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_addition_tb/uut/clk \
+sim:/matrix_addition_tb/uut/col_count \
+sim:/matrix_addition_tb/uut/dest_address \
+sim:/matrix_addition_tb/uut/dest_readdata \
+sim:/matrix_addition_tb/uut/dest_start_address \
+sim:/matrix_addition_tb/uut/dest_write_en \
+sim:/matrix_addition_tb/uut/dest_writedata \
+sim:/matrix_addition_tb/uut/done \
+sim:/matrix_addition_tb/uut/reset \
+sim:/matrix_addition_tb/uut/row_count \
+sim:/matrix_addition_tb/uut/src1_address \
+sim:/matrix_addition_tb/uut/src1_col_size \
+sim:/matrix_addition_tb/uut/src1_readdata \
+sim:/matrix_addition_tb/uut/src1_row_size \
+sim:/matrix_addition_tb/uut/src1_start_address \
+sim:/matrix_addition_tb/uut/src1_write_en \
+sim:/matrix_addition_tb/uut/src1_writedata \
+sim:/matrix_addition_tb/uut/src2_address \
+sim:/matrix_addition_tb/uut/src2_col_size \
+sim:/matrix_addition_tb/uut/src2_readdata \
+sim:/matrix_addition_tb/uut/src2_row_size \
+sim:/matrix_addition_tb/uut/src2_start_address \
+sim:/matrix_addition_tb/uut/src2_write_en \
+sim:/matrix_addition_tb/uut/src2_writedata \
+sim:/matrix_addition_tb/uut/start \
+sim:/matrix_addition_tb/uut/state
+run 150us
+# Test completed. Final address and data: z080, zzzz
+# ** Note: $finish    : C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v(127)
+#    Time: 124980 ns  Iteration: 0  Instance: /matrix_addition_tb
+# 1
+# Break in Module matrix_addition_tb at C:/Users/yg585/Desktop/NPU/modelsim/tb_ADD.v line 127
+# Compile of Processor.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim work.NPU
+# End time: 18:58:18 on Apr 28,2024, Elapsed time: 0:27:05
+# Errors: 0, Warnings: 10
+# vsim work.NPU 
+# Start time: 18:58:18 on Apr 28,2024
+# Loading work.NPU
+# ** Error: (vsim-3037) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(24): Missing instance name in instantiation of 'M10K_inst_sram'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU File: C:/Users/yg585/Desktop/NPU/modelsim/Processor.v
+# Loading work.matrix_addition
+# Error loading design
+# End time: 18:58:19 on Apr 28,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of Processor.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of ADD.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of sram.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim work.NPU
+# vsim work.NPU 
+# Start time: 18:58:57 on Apr 28,2024
+# Loading work.NPU
+# Loading work.M10K_inst_sram
+# Loading work.matrix_addition
+# Loading work.M10K_sram
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(18): Illegal output or inout port connection for port 'q'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/inst_sram File: C:/Users/yg585/Desktop/NPU/modelsim/inst_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(18): [PCDPC] - Port size (9) does not match connection size (7) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/inst_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/inst_sram File: C:/Users/yg585/Desktop/NPU/modelsim/inst_sram.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'done'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'src1_address'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'src1_writedata'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'src1_write_en'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'src2_address'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'src2_writedata'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'src2_write_en'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'dest_address'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'dest_writedata'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/NPU/modelsim/Processor.v(50): Illegal output or inout port connection for port 'dest_write_en'.
+#    Time: 0 ps  Iteration: 0  Instance: /NPU/matrix_add_instance File: C:/Users/yg585/Desktop/NPU/modelsim/ADD.v
+# Error loading design
+# End time: 18:58:57 on Apr 28,2024, Elapsed time: 0:00:00
+# Errors: 11, Warnings: 1

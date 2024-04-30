@@ -1,0 +1,10 @@
+PLL_Name	Computer_System:The_System|Computer_System_System_PLL:system_pll|Computer_System_System_PLL_sys_pll:sys_pll|altera_pll:altera_pll_i|general[0].gpll~FRACTIONAL_PLL
+PLLJITTER	26
+PLLSPEmax	100
+PLLSPEmin	-100
+
+PLL_Name	Computer_System:The_System|Computer_System_System_PLL:system_pll|Computer_System_System_PLL_sys_pll:sys_pll|altera_pll:altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+

@@ -1,0 +1,85 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\brl4\Documents\DE1_SOC\DE1-SoC_Computer_15_local\verilog\VGA_Subsystem.qsys --block-symbol-file --output-directory=C:\Users\brl4\Documents\DE1_SOC\DE1-SoC_Computer_15_local\verilog\VGA_Subsystem --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading verilog/VGA_Subsystem.qsys
+Progress: Reading input file
+Progress: Adding Sys_Clk [clock_source 15.1]
+Progress: Parameterizing module Sys_Clk
+Progress: Adding VGA_Alpha_Blender [altera_up_avalon_video_alpha_blender 15.1]
+Progress: Parameterizing module VGA_Alpha_Blender
+Progress: Adding VGA_Char_Buffer [altera_up_avalon_video_character_buffer_with_dma 15.1]
+Progress: Parameterizing module VGA_Char_Buffer
+Progress: Adding VGA_Controller [altera_up_avalon_video_vga_controller 15.1]
+Progress: Parameterizing module VGA_Controller
+Progress: Adding VGA_Dual_Clock_FIFO [altera_up_avalon_video_dual_clock_buffer 15.1]
+Progress: Parameterizing module VGA_Dual_Clock_FIFO
+Progress: Adding VGA_PLL [altera_up_avalon_video_pll 15.1]
+Progress: Parameterizing module VGA_PLL
+Progress: Adding VGA_Pixel_DMA [altera_up_avalon_video_pixel_buffer_dma 15.1]
+Progress: Parameterizing module VGA_Pixel_DMA
+Progress: Adding VGA_Pixel_FIFO [altera_up_avalon_video_dual_clock_buffer 15.1]
+Progress: Parameterizing module VGA_Pixel_FIFO
+Progress: Adding VGA_Pixel_RGB_Resampler [altera_up_avalon_video_rgb_resampler 15.1]
+Progress: Parameterizing module VGA_Pixel_RGB_Resampler
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: VGA_Subsystem.Sys_Clk: The input clock frequency must be known or set by the parent if this is a subsystem.
+Info: VGA_Subsystem.VGA_Char_Buffer: Character Resolution: 80 x 60
+Info: VGA_Subsystem.VGA_Controller: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Info: VGA_Subsystem.VGA_Pixel_RGB_Resampler: RGB Resampling: 8 (bits) x 1 (planes) -> 10 (bits) x 3 (planes)
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\brl4\Documents\DE1_SOC\DE1-SoC_Computer_15_local\verilog\VGA_Subsystem.qsys --synthesis=VERILOG --output-directory=C:\Users\brl4\Documents\DE1_SOC\DE1-SoC_Computer_15_local\verilog\VGA_Subsystem\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading verilog/VGA_Subsystem.qsys
+Progress: Reading input file
+Progress: Adding Sys_Clk [clock_source 15.1]
+Progress: Parameterizing module Sys_Clk
+Progress: Adding VGA_Alpha_Blender [altera_up_avalon_video_alpha_blender 15.1]
+Progress: Parameterizing module VGA_Alpha_Blender
+Progress: Adding VGA_Char_Buffer [altera_up_avalon_video_character_buffer_with_dma 15.1]
+Progress: Parameterizing module VGA_Char_Buffer
+Progress: Adding VGA_Controller [altera_up_avalon_video_vga_controller 15.1]
+Progress: Parameterizing module VGA_Controller
+Progress: Adding VGA_Dual_Clock_FIFO [altera_up_avalon_video_dual_clock_buffer 15.1]
+Progress: Parameterizing module VGA_Dual_Clock_FIFO
+Progress: Adding VGA_PLL [altera_up_avalon_video_pll 15.1]
+Progress: Parameterizing module VGA_PLL
+Progress: Adding VGA_Pixel_DMA [altera_up_avalon_video_pixel_buffer_dma 15.1]
+Progress: Parameterizing module VGA_Pixel_DMA
+Progress: Adding VGA_Pixel_FIFO [altera_up_avalon_video_dual_clock_buffer 15.1]
+Progress: Parameterizing module VGA_Pixel_FIFO
+Progress: Adding VGA_Pixel_RGB_Resampler [altera_up_avalon_video_rgb_resampler 15.1]
+Progress: Parameterizing module VGA_Pixel_RGB_Resampler
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: VGA_Subsystem.Sys_Clk: The input clock frequency must be known or set by the parent if this is a subsystem.
+Info: VGA_Subsystem.VGA_Char_Buffer: Character Resolution: 80 x 60
+Info: VGA_Subsystem.VGA_Controller: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Info: VGA_Subsystem.VGA_Pixel_RGB_Resampler: RGB Resampling: 8 (bits) x 1 (planes) -> 10 (bits) x 3 (planes)
+Info: VGA_Subsystem: Generating VGA_Subsystem "VGA_Subsystem" for QUARTUS_SYNTH
+Info: VGA_Alpha_Blender: Starting Generation of the Alpha Blender
+Info: VGA_Alpha_Blender: "VGA_Subsystem" instantiated altera_up_avalon_video_alpha_blender "VGA_Alpha_Blender"
+Info: VGA_Char_Buffer: Starting Generation of Character Buffer
+Info: VGA_Char_Buffer: "VGA_Subsystem" instantiated altera_up_avalon_video_character_buffer_with_dma "VGA_Char_Buffer"
+Info: VGA_Controller: Starting Generation of VGA Controller
+Info: VGA_Controller: "VGA_Subsystem" instantiated altera_up_avalon_video_vga_controller "VGA_Controller"
+Info: VGA_Dual_Clock_FIFO: Starting Generation of the Dual Clock Buffer
+Info: VGA_Dual_Clock_FIFO: "VGA_Subsystem" instantiated altera_up_avalon_video_dual_clock_buffer "VGA_Dual_Clock_FIFO"
+Info: VGA_PLL: "VGA_Subsystem" instantiated altera_up_avalon_video_pll "VGA_PLL"
+Info: VGA_Pixel_DMA: Starting Generation of VGA Pixel Buffer
+Info: VGA_Pixel_DMA: "VGA_Subsystem" instantiated altera_up_avalon_video_pixel_buffer_dma "VGA_Pixel_DMA"
+Info: VGA_Pixel_FIFO: Starting Generation of the Dual Clock Buffer
+Info: VGA_Pixel_FIFO: "VGA_Subsystem" instantiated altera_up_avalon_video_dual_clock_buffer "VGA_Pixel_FIFO"
+Info: VGA_Pixel_RGB_Resampler: Starting Generation of Video RGB Resampler
+Info: VGA_Pixel_RGB_Resampler: "VGA_Subsystem" instantiated altera_up_avalon_video_rgb_resampler "VGA_Pixel_RGB_Resampler"
+Info: rst_controller: "VGA_Subsystem" instantiated altera_reset_controller "rst_controller"
+Info: video_pll: "VGA_PLL" instantiated altera_pll "video_pll"
+Info: reset_from_locked: "VGA_PLL" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
+Info: VGA_Subsystem: Done "VGA_Subsystem" with 12 modules, 22 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

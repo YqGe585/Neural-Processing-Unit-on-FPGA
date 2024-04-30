@@ -1,0 +1,224 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/yg585/Desktop/lab3/Multiprocessor-Drum-Synthesis/modelsim
+vdemux1to16
+Z0 !s110 1714448778
+!i10b 1
+!s100 7K>6z1Plk;Y??h@gd^Xf]2
+I5K[V9cYQ?jgzUJP`TmRoF3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/intelFPGA_lite/NPU/modelsim
+w1714444949
+8C:/intelFPGA_lite/NPU/modelsim/demux1to16.v
+FC:/intelFPGA_lite/NPU/modelsim/demux1to16.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1714448778.000000
+!s107 C:/intelFPGA_lite/NPU/modelsim/demux1to16.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/demux1to16.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vM10K_inst_sram
+Z7 !s110 1714448777
+!i10b 1
+!s100 CRbA]f<Dm9ZaW`>Ne=eMk2
+IFO@22SIIk8:=3Z3^acQ4F3
+R1
+R2
+w1714437186
+8C:/intelFPGA_lite/NPU/modelsim/inst_sram.v
+FC:/intelFPGA_lite/NPU/modelsim/inst_sram.v
+L0 1
+R3
+r1
+!s85 0
+31
+Z8 !s108 1714448777.000000
+!s107 C:/intelFPGA_lite/NPU/modelsim/inst_sram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/inst_sram.v|
+!i113 1
+R5
+R6
+n@m10@k_inst_sram
+vM10K_source1_sram
+!s110 1714261078
+!i10b 1
+!s100 @VXMzNA@zOTmlJA9cH^]e2
+I?lkXa2iiB2KoiP@7[[kU00
+R1
+dC:/Users/yg585/Desktop/NPU/modelsim
+w1714259393
+8C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v
+FC:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1714261078.000000
+!s107 C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v|
+!i113 1
+R5
+R6
+n@m10@k_source1_sram
+vM10K_sram
+R0
+!i10b 1
+!s100 R:f4iH9b]LSK22Kgl=@U[2
+IWA2GA_aV^SZLck7QRRb1j3
+R1
+R2
+w1714334110
+8C:/intelFPGA_lite/NPU/modelsim/sram.v
+FC:/intelFPGA_lite/NPU/modelsim/sram.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/intelFPGA_lite/NPU/modelsim/sram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/sram.v|
+!i113 1
+R5
+R6
+n@m10@k_sram
+vmatrix_addition
+R7
+!i10b 1
+!s100 oEdA>Z2KZJHz0ME@bOGMS0
+InV9[g0Wd?K0LUoU0?TzfB3
+R1
+R2
+w1714339382
+8C:/intelFPGA_lite/NPU/modelsim/ADD.v
+FC:/intelFPGA_lite/NPU/modelsim/ADD.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/intelFPGA_lite/NPU/modelsim/ADD.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/ADD.v|
+!i113 1
+R5
+R6
+vmatrix_addition_tb
+R0
+!i10b 1
+!s100 9UfR;i2c]6XznQT7SA^o<3
+IfQZE2l1coem>_18f;3U7L2
+R1
+R2
+w1714339808
+8C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v
+FC:/intelFPGA_lite/NPU/modelsim/tb_ADD.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v|
+!i113 1
+R5
+R6
+vmux24to1
+R0
+!i10b 1
+!s100 4FzgzYOagLNJh7_WRh37>0
+Ize8hX^oYZiAU7Cb6]_RJ60
+R1
+R2
+w1714445017
+8C:/intelFPGA_lite/NPU/modelsim/mux24to1.v
+FC:/intelFPGA_lite/NPU/modelsim/mux24to1.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/intelFPGA_lite/NPU/modelsim/mux24to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/mux24to1.v|
+!i113 1
+R5
+R6
+vmux8to1
+R0
+!i10b 1
+!s100 IWY0=>0l>XklC<D729nN53
+IMe=6kFfX_mcX<4PHd@HkZ2
+R1
+R2
+w1714418151
+8C:/intelFPGA_lite/NPU/modelsim/mux8to1.v
+FC:/intelFPGA_lite/NPU/modelsim/mux8to1.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/intelFPGA_lite/NPU/modelsim/mux8to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/mux8to1.v|
+!i113 1
+R5
+R6
+vNPU
+R0
+!i10b 1
+!s100 iJRj0?O6l?5KIFOa5=fS@3
+IzdkVCI1bi23m?_:hY8mFd1
+R1
+R2
+w1714448718
+8C:/intelFPGA_lite/NPU/modelsim/Processor.v
+FC:/intelFPGA_lite/NPU/modelsim/Processor.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/intelFPGA_lite/NPU/modelsim/Processor.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/Processor.v|
+!i113 1
+R5
+R6
+n@n@p@u
+vtb_proc
+R7
+!i10b 1
+!s100 idde^a2]JfS9;U0N<AJ4K3
+I9HV5o^fc^i<7O?zd3o;=I1
+R1
+R2
+w1714345088
+8C:/intelFPGA_lite/NPU/modelsim/tb_proc.v
+FC:/intelFPGA_lite/NPU/modelsim/tb_proc.v
+L0 3
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/intelFPGA_lite/NPU/modelsim/tb_proc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/intelFPGA_lite/NPU/modelsim/tb_proc.v|
+!i113 1
+R5
+R6

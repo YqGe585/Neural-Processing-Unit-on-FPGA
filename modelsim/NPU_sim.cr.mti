@@ -1,0 +1,57 @@
+C:/intelFPGA_lite/NPU/modelsim/sram.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/sram.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module M10K_sram
+
+Top level modules:
+	M10K_sram
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/inst_sram.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/inst_sram.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module M10K_inst_sram
+
+Top level modules:
+	M10K_inst_sram
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/mux24to1.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/mux24to1.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mux24to1
+
+Top level modules:
+	mux24to1
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/tb_proc.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/tb_proc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_proc
+
+Top level modules:
+	tb_proc
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/ADD.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/ADD.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_addition
+
+Top level modules:
+	matrix_addition
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_addition_tb
+
+Top level modules:
+	matrix_addition_tb
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/mux8to1.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/mux8to1.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mux8to1
+
+Top level modules:
+	mux8to1
+
+} {} {}} C:/intelFPGA_lite/NPU/modelsim/demux1to16.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/demux1to16.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module demux1to16
+
+Top level modules:
+	demux1to16
+
+} {} {}}
