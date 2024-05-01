@@ -7,18 +7,13 @@ module M10K_inst_sram(
 	 // force M10K ram style
     reg [127:0] mem [511:0]  /* synthesis ramstyle = "no_rw_check, M10K" */;
 
-    // integer i;
-    // initial begin
-    //     for (i = 0; i <= 511; i = i + 1) begin
-    //         mem[i] = $random;
-    //     end
-    // end
     integer i;
     initial begin
         for (i = 0; i <= 511; i = i + 1) begin
             mem[i] = 128'd0;
         end
         mem[0] = 128'h10002020000022100000240800180c00;
+        mem[1] = 128'h80001800000000000000240800d06842;
     end
 	 
     always @ (posedge clk) begin
