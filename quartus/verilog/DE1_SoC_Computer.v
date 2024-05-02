@@ -357,7 +357,7 @@ output					HPS_USB_STP;
 //  REG/WIRE declarations
 //=======================================================
 
-wire			[15: 0]	hex3_hex0;
+reg			[15: 0]	hex3_hex0;
 //wire			[15: 0]	hex5_hex4;
 
 //assign HEX0 = ~hex3_hex0[ 6: 0]; // hex3_hex0[ 6: 0]; 
@@ -374,44 +374,755 @@ HexDigit Digit3(HEX3, hex3_hex0[15:12]);
 
 wire [127:0] inst_sram_readdata ;
 reg [127:0] inst_sram_writedata;
-reg [6:0] inst_sram_address = 7'd0; 
-reg inst_sram_write;
+reg [8:0] inst_sram_address = 9'd0; 
+reg inst_sram_write = 0;
 wire inst_sram_clken = 1'b1;
 wire inst_sram_chipselect = 1'b1;
 
 wire [15:0] sram_readdata [19:0];
-reg [15:0] sram_writedata [19:0];
-reg [11:0] sram_address [19:0]; 
-reg sram_write [19:0]; 
+wire [15:0] sram_writedata [19:0];
+wire [11:0] sram_address [19:0]; 
+wire [19:0] sram_write; 
 wire [19:0] sram_clken = 20'hFFFFF;
 wire [19:0] sram_chipselect = 20'hFFFFF;
 
-reg [15:0] HEX_temp;
-assign hex3_hex0 = HEX_temp;
+wire [127:0] inst_done_sram_readdata ;
+reg [127:0] inst_done_sram_writedata ;
+reg [8:0] inst_done_sram_address = 9'd0; 
+reg inst_done_sram_write = 0;
+wire inst_done_sram_clken = 1'b1;
+wire inst_done_sram_chipselect = 1'b1;
 
-always @(posedge CLOCK_50) begin
-	
-	if(sram_address[0][9:0] == SW[9:0]) begin
-		HEX_temp[3:0] <= sram_readdata[0][3:0];
-		HEX_temp[7:4] <= sram_readdata[0][7:4];
-		HEX_temp[11:8] <= sram_readdata[0][11:8];
-		HEX_temp[15:12] <= sram_readdata[0][15:12];
-	end
-	if(sram_address[0] < 14'd100) begin
-		sram_address[0] <= sram_address[0] + 1;
+wire reset;
+
+assign reset = ~KEY[0];
+
+//assign hex3_hex0[11:0] =sram_address[SW[4:0]];
+
+always @(*) begin
+	if(~KEY[1]) begin
+		hex3_hex0[11:0] =sram_address[SW[4:0]];
 	end
 	else begin
-		sram_address[0] <= 14'd0;
+		hex3_hex0[11:0] =sram_readdata[SW[4:0]];
 	end
 end
 
-always @(posedge CLOCK_50) begin
-	inst_sram_address <= SW[6:0];
-	inst_sram_write <= ~KEY[0];
-	inst_sram_writedata <= {64{KEY[2:1]}};
-end
 
 
+//=======================================================
+// Processor
+//=======================================================
+    parameter SRAM_NUM = 5'd19;
+    // all modules are instantiated here
+
+    // add module
+    wire [11:0] add_src1_address, add_src2_address, add_dest_address;
+    reg [11:0] add_src1_start_address, add_src2_start_address, add_dest_start_address;
+    wire [15:0] add_dest_readdata; 
+    wire [15:0] add_src1_readdata;
+    wire [15:0] add_src2_readdata ;
+    wire [15:0] add_dest_writedata, add_src1_writedata, add_src2_writedata ;
+    reg [5:0] add_src1_row_size;
+    reg [5:0] add_src1_col_size;
+    reg [5:0] add_src2_row_size;
+    reg [5:0] add_src2_col_size;
+    wire add_src1_write_en, add_src2_write_en, add_dest_write_en;
+    wire add_start,add_done;
+
+    matrix_addition matrix_add_instance (
+        .clk(CLOCK_50),
+        .reset(reset),
+        .start(add_start),
+        .done(add_done),
+        .src1_start_address(add_src1_start_address),
+        .src2_start_address(add_src2_start_address),
+        .src1_address(add_src1_address),
+        .src1_readdata(add_src1_readdata),
+        .src1_writedata(add_src1_writedata),
+        .src1_write_en(add_src1_write_en),
+        .src2_address(add_src2_address),
+        .src2_readdata(add_src2_readdata),
+        .src2_writedata(add_src2_writedata),
+        .src2_write_en(add_src2_write_en),
+        .src1_row_size(add_src1_row_size),
+        .src1_col_size(add_src1_col_size),
+        .src2_row_size(add_src2_row_size),
+        .src2_col_size(add_src2_col_size),
+        .dest_start_address(add_dest_start_address),
+        .dest_address(add_dest_address),
+        .dest_readdata(add_dest_readdata),
+        .dest_writedata(add_dest_writedata),
+        .dest_write_en(add_dest_write_en)
+    );
+
+    // pooling module
+    wire [11:0] pool_src1_address, pool_src2_address, pool_dest_address;
+    reg [11:0] pool_src1_start_address, pool_src2_start_address, pool_dest_start_address;
+    wire [15:0] pool_dest_readdata; 
+    wire [15:0] pool_src1_readdata;
+    wire [15:0] pool_src2_readdata ;
+    wire [15:0] pool_dest_writedata, pool_src1_writedata, pool_src2_writedata ;
+    reg [5:0] pool_src1_row_size;
+    reg [5:0] pool_src1_col_size;
+    reg [5:0] pool_src2_row_size;
+    reg [5:0] pool_src2_col_size;
+    wire pool_src1_write_en, pool_src2_write_en, pool_dest_write_en;
+    wire pool_start,pool_done;
+
+    matrix_maxpool matrix_pooling_instance (
+        .clk(CLOCK_50),
+        .reset(reset),
+        .start(pool_start),
+        .done(pool_done),
+        .src1_start_address(pool_src1_start_address),
+        .src1_address(pool_src1_address),
+        .src1_readdata(pool_src1_readdata),
+        .src1_write_en(pool_src1_write_en),
+        .src1_row_size(pool_src1_row_size),
+        .src1_col_size(pool_src1_col_size),
+        .src2_row_size(pool_src2_row_size),
+        .src2_col_size(pool_src2_col_size),
+        .dest_start_address(pool_dest_start_address),
+        .dest_address(pool_dest_address),
+        .dest_writedata(pool_dest_writedata),
+        .dest_write_en(pool_dest_write_en)
+    );
+
+    // Single Fetch Signle Issue Superscalar Out of Order Processor starts here
+
+    //---------------------------------------------------
+    // Fetch
+    //---------------------------------------------------
+    reg [127:0] inst_D ;
+
+    always @(posedge CLOCK_50) begin
+        if(reset) begin
+            inst_D <= 0;
+            inst_sram_address <= 9'b0;
+        end
+        else begin
+            if(inst_sram_readdata == 128'd0) begin
+                inst_sram_address <= inst_sram_address;
+                inst_D <= 128'd0;
+            end
+            else begin
+                inst_sram_address <= inst_sram_address + 1;
+                inst_D <= inst_sram_readdata;
+            end
+        end
+    end
+
+
+    //---------------------------------------------------
+    // Decode
+    //---------------------------------------------------
+    reg [11:0] src1_address_D; //sram offset
+    reg [11:0] src2_address_D;
+    reg [11:0] dest_address_D;
+    reg [4:0] src1_sram_num_D; // sram number(use for select)
+    reg [4:0] src2_sram_num_D;
+    reg [4:0] dest_sram_num_D;
+    reg [9:0] src1_row_D;
+    reg [9:0] src1_col_D;
+    reg [4:0] src2_row_D;
+    reg [4:0] src2_col_D;
+    reg [3:0] sel_D;
+    reg [4:0] sel_address_mux_D[19:0];
+    reg [4:0] sel_writedata_mux_D[19:0];
+    reg [4:0] sel_write_en_mux_D[19:0];
+    reg [4:0] sel_readdata_mux_D[19:0];
+    // reg [4:0] sel_add_src1_readdata_mux_D;
+    // reg [4:0] sel_add_src2_readdata_mux_D;
+
+    reg [11:0] src1_sram_num;
+    reg [11:0] src2_sram_num;
+    reg [11:0] dest_sram_num;
+
+    // always @(posedge CLOCK_50) begin
+    //     if(reset) begin
+    //         inst_D <= 128'd0;
+    //     end
+    //     else begin
+    //         inst_D <= inst_sram_writedata;
+    //     end
+    // end
+
+    // assign inst_D = inst_sram_readdata;
+    integer i0;
+
+    always @(*) begin
+        src1_sram_num = SRAM_NUM - (inst_D[111:104]>>1);
+        src2_sram_num = SRAM_NUM - (inst_D[79:72]>>1);
+        dest_sram_num = SRAM_NUM - (inst_D[47:40]>>1);
+    end
+
+    always @(posedge CLOCK_50) begin
+        if(reset) begin
+            src1_address_D <= 12'd0;
+            src2_address_D <= 12'd0;
+            dest_address_D <= 12'd0;
+            src1_sram_num_D <= 5'd0;
+            src2_sram_num_D <= 5'd0;
+            dest_sram_num_D <= 5'd0;
+            src1_row_D <= 10'd0;
+            src1_col_D <= 10'd0;
+            src2_row_D <= 5'd0;
+            src2_col_D <= 5'd0;
+            sel_D <= 4'b0000;
+            sel_address_mux_D[src1_sram_num_D] <= 5'd31;
+            sel_address_mux_D[src2_sram_num_D] <= 5'd31;
+            sel_address_mux_D[dest_sram_num_D] <= 5'd31;
+            sel_writedata_mux_D[src1_sram_num] <= 5'd31;
+            sel_writedata_mux_D[src2_sram_num] <= 5'd31;
+            sel_writedata_mux_D[dest_sram_num] <= 5'd31;
+            sel_write_en_mux_D[src1_sram_num] <= 5'd31;
+            sel_write_en_mux_D[src2_sram_num] <= 5'd31;
+            sel_write_en_mux_D[dest_sram_num] <= 5'd31;
+            for (i0 = 0; i0 < 20; i0 = i0 + 1) begin
+                sel_readdata_mux_D[i0] <= 5'd0;
+            end
+        end
+        else begin
+            case(inst_D[127:124])
+                4'b0001: begin // add
+                    src1_address_D <= inst_D[103:92];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= 5'd0;
+                    src2_col_D <= 5'd0;
+                    sel_D <= 4'b0001;
+                    sel_address_mux_D[src1_sram_num] <= 5'd0;
+                    sel_address_mux_D[src2_sram_num] <= 5'd1;
+                    sel_address_mux_D[dest_sram_num] <= 5'd2;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd0;
+                    sel_writedata_mux_D[src2_sram_num] <= 5'd1;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd2;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd0;
+                    sel_write_en_mux_D[src2_sram_num] <= 5'd1;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd2;
+                    sel_readdata_mux_D[0] <= src1_sram_num;
+                    sel_readdata_mux_D[1] <= src2_sram_num;
+                end
+                4'b0111: begin // conv
+                    // src1_address_D <= inst_D[123:92];
+                    // src2_address_D <= inst_D[91:60];
+                    // dest_address_D <= inst_D[59:28];
+                    src1_address_D <= inst_D[103:92];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= inst_D[9:5];
+                    src2_col_D <= inst_D[4:0];
+                    sel_address_mux_D[src1_sram_num] <= 5'd0;
+                    sel_address_mux_D[2] <= src1_sram_num;
+                    sel_address_mux_D[3] <= src2_sram_num;
+                end
+                4'b1000: begin // pool
+                    // src1_address_D <= inst_D[123:92];
+                    // src2_address_D <= inst_D[91:60];
+                    // dest_address_D <= inst_D[59:28];
+                    src1_address_D <= inst_D[103:92];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= inst_D[9:5];
+                    src2_col_D <= inst_D[4:0];
+                    sel_D <= 4'b1000;
+                    sel_address_mux_D[src1_sram_num] <= 5'd6;
+                    // sel_address_mux_D[src2_sram_num] <= 5'd7;
+                    sel_address_mux_D[dest_sram_num] <= 5'd7;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd6;
+                    // sel_writedata_mux_D[src2_sram_num] <= 5'd7;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd7;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd6;
+                    // sel_write_en_mux_D[src2_sram_num] <= 5'd7;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd7;
+                    sel_readdata_mux_D[4] <= src1_sram_num;
+                    // sel_readdata_mux_D[5] <= src2_sram_num;
+                end
+                4'b1010: begin // Relu
+                    // src1_address_D <= inst_D[123:92];
+                    // src2_address_D <= inst_D[91:60];
+                    // dest_address_D <= inst_D[59:28];
+                    src1_address_D <= inst_D[103:92];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= inst_D[9:5];
+                    src2_col_D <= inst_D[4:0];
+                    sel_address_mux_D[src1_sram_num] <= 5'd0;
+                    sel_address_mux_D[src2_sram_num] <= 5'd1;
+                    sel_address_mux_D[dest_sram_num] <= 5'd2;
+                end
+                default: begin 
+                    src1_address_D <= 12'd0;
+                    src2_address_D <= 12'd0;
+                    dest_address_D <= 12'd0;
+                    src1_sram_num_D <= 5'd0;
+                    src2_sram_num_D <= 5'd0;
+                    dest_sram_num_D <= 5'd0;
+                    src1_row_D <= 10'd0;
+                    src1_col_D <= 10'd0;
+                    src2_row_D <= 5'd0;
+                    src2_col_D <= 5'd0;
+                    sel_D <= 4'b0000;
+                    sel_address_mux_D[src1_sram_num_D] <= sel_address_mux_D[src1_sram_num_D];
+                    sel_address_mux_D[src2_sram_num_D] <= sel_address_mux_D[src2_sram_num_D];
+                    sel_address_mux_D[dest_sram_num_D] <= sel_address_mux_D[dest_sram_num_D];
+                end
+            endcase
+        end
+    end
+
+    //---------------------------------------------------
+    // Issue
+    //---------------------------------------------------
+    reg [11:0] src1_address_I;
+    reg [11:0] src2_address_I;
+    reg [11:0] dest_address_I;
+    reg [4:0] src1_sram_num_I; // sram number(use for select)
+    reg [4:0] src2_sram_num_I;
+    reg [4:0] dest_sram_num_I;
+    reg [9:0] src1_row_I;
+    reg [9:0] src1_col_I;
+    reg [4:0] src2_row_I;
+    reg [4:0] src2_col_I;
+    reg [3:0] sel_I;
+    reg add_start_I;
+    reg pool_start_I;
+    reg [4:0] sel_address_mux_I[19:0];
+    reg [4:0] sel_writedata_mux_I[19:0];
+    reg [4:0] sel_write_en_mux_I[19:0];
+    reg [4:0] sel_readdata_mux_I[19:0];
+
+
+    genvar j;
+    generate
+        for (j = 0; j < 20; j = j + 1) begin : pipeline_register_I
+            always @(posedge CLOCK_50) begin
+                sel_address_mux_I[j]<= sel_address_mux_D[j];
+                sel_writedata_mux_I[j]<= sel_writedata_mux_D[j];
+                sel_write_en_mux_I[j]<= sel_write_en_mux_D[j];
+                sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
+            end
+        end
+    endgenerate
+
+    //pipeline register
+    always @(posedge CLOCK_50) begin
+        if(reset) begin
+            sel_I <= 4'd0;
+            src1_address_I <= 12'd0;
+            src2_address_I <= 12'd0;
+            dest_address_I <= 12'd0;
+            src1_sram_num_I <= 5'd0;
+            src2_sram_num_I <= 5'd0;
+            dest_sram_num_I <= 5'd0;
+            src1_row_I <= 5'd0;
+            src1_col_I <= 5'd0;
+            src2_row_I <= 5'd0;
+            src2_col_I <= 5'd0;
+        end
+        else begin
+            sel_I <= sel_D;
+            src1_address_I <= src1_address_D;
+            src2_address_I <= src2_address_D;
+            dest_address_I <= dest_address_D;
+            src1_sram_num_I <= src1_sram_num_D;
+            src2_sram_num_I <= src2_sram_num_D;
+            dest_sram_num_I <= dest_sram_num_D;
+            src1_row_I <= src1_row_D;
+            src1_col_I <= src1_col_D;
+            src2_row_I <= src2_row_D;
+            src2_col_I <= src2_col_D;
+        end
+    end
+
+    always @(posedge CLOCK_50) begin
+	 if (reset) begin
+		   add_start_I <= 0;
+         pool_start_I <= 0;
+	 end
+	 else begin
+        case(sel_D)
+            4'b0001:begin // issue add
+                add_start_I <= 1;
+                pool_start_I <= 0;
+                add_src1_start_address <= src1_address_D;
+                add_src2_start_address <= src2_address_D;
+                add_dest_start_address <= dest_address_D;
+
+                // sram_address[src1_sram_num_D] <= add_src1_address;
+                // add_src1_readdata <= sram_readdata[src1_sram_num_D];
+                // sram_writedata[src1_sram_num_D] <= add_src1_writedata;
+                // sram_write[src1_sram_num_D] <= add_src1_write_en;
+
+                // add_src2_address <= sram_address[src2_sram_num_D];
+                // add_src2_readdata <= sram_readdata[src2_sram_num_D];
+                // add_src2_writedata <= sram_writedata[src2_sram_num_D];
+                // add_src2_write_en <= sram_write[src2_sram_num_D];
+
+                add_src1_row_size <= src1_row_D;
+                add_src1_col_size <= src1_col_D;
+                add_src2_row_size <= src2_row_D;
+                add_src2_col_size <= src2_col_D;
+
+                // add_dest_address <= sram_address[dest_sram_num_D];
+                // add_dest_readdata <= sram_readdata[dest_sram_num_D];
+                // add_dest_writedata <= sram_writedata[dest_sram_num_D];
+                // add_dest_write_en <= sram_write[dest_sram_num_D];
+            
+            end 
+            4'b1000: begin
+                add_start_I <= 0;
+                pool_start_I <= 1;
+                pool_src1_start_address <= src1_address_D;
+                // pool_src2_start_address <= src2_address_D;
+                pool_dest_start_address <= dest_address_D;
+
+                pool_src1_row_size <= src1_row_D;
+                pool_src1_col_size <= src1_col_D;
+                pool_src2_row_size <= src2_row_D;
+                pool_src2_col_size <= src2_col_D;
+            end
+
+            default: begin
+                add_start_I <= 0;
+                pool_start_I <= 0;
+                // add_src1_start_address <= 11'd0;
+                // add_src2_start_address <= 11'd0;
+
+                // add_src1_address <= 11'd0;
+                // add_src1_readdata <= 16'd0;
+                // add_src1_writedata <= 16'd0;
+                // add_src1_write_en <= 0;
+
+                // add_src2_address <= 11'd0;
+                // add_src2_readdata <= 16'd0;
+                // add_src2_writedata <= 16'd0;
+                // add_src2_write_en <= 0;
+
+                // add_src1_row_size <= 5'd0;
+                // add_src1_col_size <= 5'd0;
+                // add_src2_row_size <= 5'd0;
+                // add_src2_col_size <= 5'd0;
+
+                // add_dest_address <= 11'd0;
+                // add_dest_readdata <= 16'd0;
+                // add_dest_writedata <= 16'd0;
+                // add_dest_write_en <= 0;
+            end
+        endcase
+	 end
+    end
+
+    //---------------------------------------------------
+    // execute
+    //---------------------------------------------------
+    reg add_start_E;
+    reg pool_start_E;
+    reg [4:0] sel_address_mux_E[19:0];
+    reg [4:0] sel_writedata_mux_E[19:0];
+    reg [4:0] sel_write_en_mux_E[19:0];
+    reg [4:0] sel_readdata_mux_E[19:0];
+
+    assign add_start = add_start_E;
+    assign pool_start = pool_start_E;
+    
+    always @(posedge CLOCK_50) begin
+        if(reset)begin
+            add_start_E <=0;
+            pool_start_E <=0;
+        end
+        else begin
+            add_start_E<=add_start_I;
+            pool_start_E<=pool_start_I;
+        end
+    end
+
+    genvar m;
+    generate
+        for (m = 0; m < 20; m = m + 1) begin : pipeline_register_E
+            always @(posedge CLOCK_50) begin
+                sel_address_mux_E[m]<= sel_address_mux_I[m];
+                sel_writedata_mux_E[m]<= sel_writedata_mux_I[m];
+                sel_write_en_mux_E[m]<= sel_write_en_mux_I[m];
+                sel_readdata_mux_E[m]<= sel_readdata_mux_I[m];
+            end
+        end
+    endgenerate
+
+    genvar i;
+    generate
+        for (i = 0; i < 20; i = i + 1) begin : mux_gen
+            mux24to1 #(.DATA_WIDTH(12)) address_mux (
+                .in0(add_src1_address),
+                .in1(add_src2_address),
+                .in2(add_dest_address),
+                .in3(),
+                .in4(),
+                .in5(),
+                .in6(pool_src1_address),
+                .in7(pool_dest_address),
+                .in8(),
+                .in9(),
+                .in10(),
+                .in11(),
+                .in12(),
+                .in13(),
+                .in14(),
+                .in15(),
+                .in16(),
+                .in17(),
+                .in18(),
+                .in19(),
+                .in20(),
+                .in21(),
+                .in22(),
+                .in23(),
+                .sel(sel_address_mux_I[i]),
+                .out(sram_address[i]),
+					 .reset(reset)
+            );
+
+            mux24to1 #(.DATA_WIDTH(16)) writedata_mux(
+                .in0(add_src1_writedata),
+                .in1(add_src2_writedata),
+                .in2(add_dest_writedata),
+                .in3(),
+                .in4(),
+                .in5(),
+                .in6(pool_src1_writedata),
+                .in7(pool_dest_writedata),
+                .in8(),
+                .in9(),
+                .in10(),
+                .in11(),
+                .in12(),
+                .in13(),
+                .in14(),
+                .in15(),
+                .in16(),
+                .in17(),
+                .in18(),
+                .in19(),
+                .in20(),
+                .in21(),
+                .in22(),
+                .in23(),
+                .sel(sel_writedata_mux_I[i]),
+                .out(sram_writedata[i]),
+					 .reset(reset)
+            );
+
+            mux24to1 #(.DATA_WIDTH(1)) write_en_mux(
+                .in0(add_src1_write_en),
+                .in1(add_src2_write_en),
+                .in2(add_dest_write_en),
+                .in3(),
+                .in4(),
+                .in5(),
+                .in6(pool_src1_write_en),
+                .in7(pool_dest_write_en),
+                .in8(),
+                .in9(),
+                .in10(),
+                .in11(),
+                .in12(),
+                .in13(),
+                .in14(),
+                .in15(),
+                .in16(),
+                .in17(),
+                .in18(),
+                .in19(),
+                .in20(),
+                .in21(),
+                .in22(),
+                .in23(),
+                .sel(sel_write_en_mux_I[i]),
+                .out(sram_write[i]),
+					 .reset(reset)
+            );
+
+        end
+    endgenerate
+
+    mux24to1 #(.DATA_WIDTH(16)) add_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(sram_readdata[12]),
+        .in13(sram_readdata[13]),
+        .in14(sram_readdata[14]),
+        .in15(sram_readdata[15]),
+        .in16(sram_readdata[16]),
+        .in17(sram_readdata[17]),
+        .in18(sram_readdata[18]),
+        .in19(sram_readdata[19]),
+        .in20(),
+        .in21(),
+        .in22(),
+        .in23(),
+        .sel(sel_readdata_mux_I[0]),
+        .out(add_src1_readdata),
+		  .reset(reset)
+    );
+
+    mux24to1 #(.DATA_WIDTH(16)) add_src2_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(sram_readdata[12]),
+        .in13(sram_readdata[13]),
+        .in14(sram_readdata[14]),
+        .in15(sram_readdata[15]),
+        .in16(sram_readdata[16]),
+        .in17(sram_readdata[17]),
+        .in18(sram_readdata[18]),
+        .in19(sram_readdata[19]),
+        .in20(),
+        .in21(),
+        .in22(),
+        .in23(),
+        .sel(sel_readdata_mux_I[1]),
+        .out(add_src2_readdata),
+		  .reset(reset)
+    );
+
+    mux24to1 #(.DATA_WIDTH(16)) pool_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(sram_readdata[12]),
+        .in13(sram_readdata[13]),
+        .in14(sram_readdata[14]),
+        .in15(sram_readdata[15]),
+        .in16(sram_readdata[16]),
+        .in17(sram_readdata[17]),
+        .in18(sram_readdata[18]),
+        .in19(sram_readdata[19]),
+        .in20(),
+        .in21(),
+        .in22(),
+        .in23(),
+        .sel(sel_readdata_mux_I[4]),
+        .out(pool_src1_readdata),
+		  .reset(reset)
+    );
+
+	 //---------------------------------------------------
+    // Commit
+    //---------------------------------------------------
+	 
+	 reg add_done_prev;
+    reg pool_done_prev;
+
+    always @ (posedge CLOCK_50) begin
+        if(reset) begin
+            add_done_prev <= 0;
+            pool_done_prev <= 0;
+        end
+        else begin
+            add_done_prev <= add_done;
+            pool_done_prev <= pool_done;
+        end
+    end
+
+    always @(posedge CLOCK_50) begin
+        if(reset) begin
+            inst_done_sram_address <= 9'd0;
+            inst_done_sram_writedata <= 8'b01111111;
+            inst_done_sram_write <=0;
+        end
+        else begin
+            if(~add_done_prev && add_done) begin
+                inst_done_sram_address <= 9'd0;
+                inst_done_sram_writedata <= 8'b11111111;
+                inst_done_sram_write <=1;
+            end
+            else if(~pool_done_prev && pool_done)begin
+                inst_done_sram_address <= 9'd2;
+                inst_done_sram_writedata <= 8'b11111111;
+                inst_done_sram_write <=1;
+            end
+            else begin
+                inst_done_sram_write <=0;
+            end
+            
+        end
+    end
+//	 always @ (posedge CLOCK_50) begin
+//		 if(reset)begin
+//			sram_address[3] <= 0;
+//			sram_write[3] <= 0;
+//			sram_writedata[3] <= 0;
+//			sram_address[2] <= 0;
+//			sram_write[2] <= 0;
+//		 end
+//		 else begin
+//				if(sram_address[3] < 12'd100 ) begin
+//					sram_address[3] <= sram_address[3]+1;
+//					sram_write[3] <= 1;
+//					sram_writedata[3] <= sram_readdata[2];
+//					sram_address[2] <= sram_address[2]+1;
+//				end 
+//				else begin
+//					sram_address[3]<=sram_address[3];
+//					sram_write[3] <= 0;
+//					sram_writedata[3] <= sram_readdata[2] ;
+//					sram_address[2] <= sram_address[2];
+//				end
+//		 end
+//	 end
+	 
+
+	
 
 //=======================================================
 //  Structural coding
@@ -597,8 +1308,14 @@ Computer_System The_System (
    .sram_19_s1_readdata   (sram_readdata[19]), // readdata
    .sram_19_s1_writedata  (sram_writedata[19]), // writedata
    .sram_19_s1_byteenable (2'b11), // byteenable
-
-
+	
+	.done_sram_s1_address    (inst_done_sram_address), // address
+   .done_sram_s1_clken      (inst_done_sram_clken), // clken
+   .done_sram_s1_chipselect (inst_done_sram_chipselect), // chipselect
+   .done_sram_s1_write      (inst_done_sram_write), // write
+   .done_sram_s1_readdata   (inst_done_sram_readdata), // readdata
+   .done_sram_s1_writedata  (inst_done_sram_writedata), // writedata
+   
 	////////////////////////////////////
 	// HPS Side
 	////////////////////////////////////
@@ -705,5 +1422,304 @@ Computer_System The_System (
 );
 endmodule // end top level
 
+
+
+// module mux24to1
+module mux24to1 #(
+    parameter DATA_WIDTH = 12
+)(
+    input wire [DATA_WIDTH-1:0] in0,
+    input wire [DATA_WIDTH-1:0] in1,
+    input wire [DATA_WIDTH-1:0] in2,
+    input wire [DATA_WIDTH-1:0] in3,
+    input wire [DATA_WIDTH-1:0] in4,
+    input wire [DATA_WIDTH-1:0] in5,
+    input wire [DATA_WIDTH-1:0] in6,
+    input wire [DATA_WIDTH-1:0] in7,
+    input wire [DATA_WIDTH-1:0] in8,
+    input wire [DATA_WIDTH-1:0] in9,
+    input wire [DATA_WIDTH-1:0] in10,
+    input wire [DATA_WIDTH-1:0] in11,
+    input wire [DATA_WIDTH-1:0] in12,
+    input wire [DATA_WIDTH-1:0] in13,
+    input wire [DATA_WIDTH-1:0] in14,
+    input wire [DATA_WIDTH-1:0] in15,
+    input wire [DATA_WIDTH-1:0] in16,
+    input wire [DATA_WIDTH-1:0] in17,
+    input wire [DATA_WIDTH-1:0] in18,
+    input wire [DATA_WIDTH-1:0] in19,
+    input wire [DATA_WIDTH-1:0] in20,
+    input wire [DATA_WIDTH-1:0] in21,
+    input wire [DATA_WIDTH-1:0] in22,
+    input wire [DATA_WIDTH-1:0] in23,
+    input wire [4:0] sel,
+    output reg [DATA_WIDTH-1:0] out,
+	 input wire reset
+);
+
+always @(*) begin
+if(reset) begin
+	out = {DATA_WIDTH{1'b0}};
+end
+else begin
+    case (sel)
+        5'd0:  out = in0;
+        5'd1:  out = in1;
+        5'd2:  out = in2;
+        5'd3:  out = in3;
+        5'd4:  out = in4;
+        5'd5:  out = in5;
+        5'd6:  out = in6;
+        5'd7:  out = in7;
+        5'd8:  out = in8;
+        5'd9:  out = in9;
+        5'd10: out = in10;
+        5'd11: out = in11;
+        5'd12: out = in12;
+        5'd13: out = in13;
+        5'd14: out = in14;
+        5'd15: out = in15;
+        5'd16: out = in16;
+        5'd17: out = in17;
+        5'd18: out = in18;
+        5'd19: out = in19;
+        5'd20: out = in20;
+        5'd21: out = in21;
+        5'd22: out = in22;
+        5'd23: out = in23;
+        default: out = {DATA_WIDTH{1'b0}};
+    endcase
+end
+end
+
+endmodule
+
+
+
+
+// module matrix_addition
+module matrix_addition(
+    input clk,
+    input reset,
+    input start,
+    output reg done,
+    input wire [11:0] src1_start_address,
+    input wire [11:0] src2_start_address,
+    output reg [11:0] src1_address,
+    input wire [15:0] src1_readdata,
+    output reg [15:0] src1_writedata,
+    output wire src1_write_en,
+    output reg [11:0] src2_address,
+    input wire [15:0] src2_readdata,
+    output reg [15:0] src2_writedata,
+    output wire src2_write_en,
+    input wire [5:0] src1_row_size,
+    input wire [5:0] src1_col_size,
+    input wire [5:0] src2_row_size,
+    input wire [5:0] src2_col_size,
+    input wire [11:0] dest_start_address,
+    output reg [11:0] dest_address,
+    input wire [15:0] dest_readdata,
+    output reg [15:0] dest_writedata,
+    output reg dest_write_en
+);
+    reg [5:0] row_count;
+    reg [5:0] col_count;
+    
+    assign src1_write_en = 0;
+    assign src2_write_en = 0;
+    reg [1:0] state = 2'd2;
+
+    always @(posedge clk) begin
+    if(reset) begin
+        state <= 2'd2;
+        row_count<=0;
+        col_count<=0;
+        src1_address<=src1_start_address;
+        src2_address<=src2_start_address;
+        dest_address<=dest_start_address;
+        done<=1;
+    end
+    else begin
+        case (state)
+            2'd0: begin
+                src1_address<=src1_start_address;
+                src2_address<=src2_start_address;
+                dest_address<=dest_start_address-1;
+                state<=2'd1;
+            end 
+            2'd1: begin
+                if(row_count < src1_row_size-1) begin
+                    src1_address <= src1_address + 1;
+                    src2_address <= src2_address + 1;
+                    row_count <= row_count+1;
+                    dest_address <= dest_address + 1;
+                    dest_writedata <= src1_readdata + src2_readdata;
+                    dest_write_en <= 1;
+                end
+                else if (col_count < src1_col_size-1) begin
+                    src1_address <= src1_address + 1;
+                    src2_address <= src2_address + 1;
+                    col_count <= col_count+1;
+                    row_count <= 0;
+                    dest_address <= dest_address + 1;
+                    dest_writedata <= src1_readdata + src2_readdata;
+                end
+                else begin
+                    dest_address<=dest_address + 1;
+                    dest_writedata <= src1_readdata + src2_readdata;
+                    state <= 2'd2;
+                end
+            end
+            2'd2: begin
+                if(start == 1) begin
+                    state <= 2'd0;
+                    done <= 0;
+                end
+                else begin
+                    dest_write_en <= 0;
+                    row_count<=0;
+                    col_count<=0;
+                    src1_address<=src1_start_address;
+                    src2_address<=src2_start_address;
+                    dest_address<=dest_start_address;
+                    done<=1;
+                end
+            end
+            default: begin
+                row_count<=0;
+                col_count<=0;
+                src1_address<=src1_start_address;
+                src2_address<=src2_start_address;
+                dest_address<=dest_start_address;
+                done<=1;
+            end
+        endcase
+    end
+    end
+endmodule
+
+
+
+// module matrix_maxpool
+module matrix_maxpool(
+    input clk,
+    input reset,
+    input start,
+    output reg done,
+    input wire [11:0] src1_start_address,
+    output reg [11:0] src1_address,
+    input wire signed [15:0] src1_readdata,
+    output wire src1_write_en,
+    input wire [5:0] src1_row_size,
+    input wire [5:0] src1_col_size,
+    input wire [5:0] src2_row_size,
+    input wire [5:0] src2_col_size,
+    input wire [11:0] dest_start_address,
+    output reg [11:0] dest_address,
+    output reg signed [15:0] dest_writedata,
+    output reg dest_write_en
+);
+    reg [5:0] row_count;
+    reg [5:0] col_count;
+    reg [5:0] row_index;
+    reg [5:0] col_index;
+    reg signed [15:0] max_pool=0;
+   
+    assign src1_write_en = 0;
+    reg [1:0] state = 2'd2;
+    reg [5:0] val = 1;
+
+    always @(posedge clk) begin
+    if(reset) begin
+        state <= 2'd2;
+        row_count<=0;
+        col_count<=0;
+        row_index <=0;
+        col_index <= 0;
+        src1_address<=src1_start_address;
+        dest_address<=dest_start_address;
+        done<=1;
+    end
+    else begin
+        case (state)
+            2'd0: begin
+                src1_address<=src1_start_address;
+                dest_address<=dest_start_address-1;
+                max_pool <= 0;
+                state<=2'd1;
+            end
+            2'd1: begin
+                if(row_count < src2_row_size-1) begin
+                    src1_address <= src1_address + 1;
+                    row_count <= row_count+1;
+                    if (src1_readdata > max_pool)
+                      max_pool <= src1_readdata;
+                    dest_write_en <= 0;
+                end
+                else if (col_count < src2_col_size-1) begin
+                    src1_address <= src1_address + 1;
+                    col_count <= col_count+1;
+                    row_count <= 0;
+                    if (src1_readdata > max_pool)
+                      max_pool <= src1_readdata;
+                    dest_write_en <= 0;
+                end
+                else begin
+                    dest_write_en <= 0;
+                    if (src1_readdata > max_pool)
+                      max_pool <= src1_readdata;              
+                    state <= 2'd3;
+                end
+            end
+            2'd3: begin
+                      src1_address <= src1_address + 1;
+                      dest_writedata <= max_pool;
+                      dest_write_en <= 1;
+                      dest_address <= dest_address + 1;
+                      val <= val + 1;
+                      row_count <= 0;
+                      col_count <= 0;
+                      max_pool <=0;
+                   
+ 
+                    if(val == ((src1_col_size/src2_col_size)*(src1_col_size/src2_col_size)))
+                        state <= 2'd2; // Processing complete
+                    else
+                        state <= 2'd1; // Continue processing next block
+                   
+                end            
+           
+           
+            2'd2: begin
+                if(start == 1) begin
+                    state <= 2'd0;
+                    dest_write_en <= 0;
+                    done <= 0;
+                end
+                else begin
+                    dest_write_en <= 0;
+                    row_count<=0;
+                    col_count<=0;
+                    row_index <= 0;
+                    col_index <=0;
+                    src1_address<=src1_start_address;
+                    dest_address<=dest_start_address;
+                    done<=1;
+                end
+            end
+            default: begin
+                row_count<=0;
+                col_count<=0;
+                row_index <= 0;
+                col_index <=0;                
+                src1_address<=src1_start_address;
+                dest_address<=dest_start_address;
+                done<=1;
+            end
+        endcase
+    end
+    end
+endmodule
 
 /// end /////////////////////////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 module NPU(
     input CLOCK_50,
-    input CLOCK_300,
+    input CLOCK_250,
     input reset
 );
     parameter SRAM_NUM = 5'd19;
@@ -8,19 +8,32 @@ module NPU(
     wire [15:0] sram_readdata [19:0];
     wire [15:0] sram_writedata [19:0];
     wire [11:0] sram_address [19:0]; 
-    wire sram_write [19:0];  
+    wire [19:0] sram_write;  
 
     wire [127:0] inst_sram_readdata ;
     reg [127:0] inst_sram_writedata ;
     reg [8:0] inst_sram_address = 9'd0; 
     reg inst_sram_write = 0;
+
+    wire [127:0] inst_done_sram_readdata ;
+    reg [127:0] inst_done_sram_writedata ;
+    reg [8:0] inst_done_sram_address = 9'd0; 
+    reg inst_done_sram_write = 0;
     
     M10K_inst_sram inst_sram(
-        .clk(CLOCK_300),
+        .clk(CLOCK_250),
         .q(inst_sram_readdata),
         .d(inst_sram_writedata),
         .address(inst_sram_address),
         .we(inst_sram_write)
+    );
+
+    M10K_inst_done_sram inst_done_sram(
+        .clk(CLOCK_250),
+        .q(inst_done_sram_readdata),
+        .d(inst_done_sram_writedata),
+        .address(inst_done_sram_address),
+        .we(inst_done_sram_write)
     );
 
     genvar k;
@@ -31,7 +44,7 @@ module NPU(
                 .d(sram_writedata[k]),
                 .address(sram_address[k]),
                 .we(sram_write[k]),
-                .clk(CLOCK_300)
+                .clk(CLOCK_250)
             );
         end
     endgenerate
@@ -97,7 +110,7 @@ module NPU(
         .done(pool_done),
         .src1_start_address(pool_src1_start_address),
         .src1_address(pool_src1_address),
-        .src1_readdata(pool_src1_data),
+        .src1_readdata(pool_src1_readdata),
         .src1_write_en(pool_src1_write_en),
         .src1_row_size(pool_src1_row_size),
         .src1_col_size(pool_src1_col_size),
@@ -105,7 +118,7 @@ module NPU(
         .src2_col_size(pool_src2_col_size),
         .dest_start_address(pool_dest_start_address),
         .dest_address(pool_dest_address),
-        .dest_writedata(pool_dest_data),
+        .dest_writedata(pool_dest_writedata),
         .dest_write_en(pool_dest_write_en)
     );
 
@@ -119,12 +132,12 @@ module NPU(
     always @(posedge CLOCK_50) begin
         if(reset) begin
             inst_D <= 0;
-            inst_sram_address <= 128'b0;
+            inst_sram_address <= 9'b0;
         end
         else begin
             if(inst_sram_readdata == 128'd0) begin
                 inst_sram_address <= inst_sram_address;
-                inst_D <= 128'b0;
+                inst_D <= 9'b0;
             end
             else begin
                 inst_sram_address <= inst_sram_address + 1;
@@ -207,8 +220,8 @@ module NPU(
             case(inst_D[127:124])
                 4'b0001: begin // add
                     src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[72:60];
-                    dest_address_D <= inst_D[47:28];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -234,8 +247,8 @@ module NPU(
                     // src2_address_D <= inst_D[91:60];
                     // dest_address_D <= inst_D[59:28];
                     src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[72:60];
-                    dest_address_D <= inst_D[47:28];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -252,8 +265,8 @@ module NPU(
                     // src2_address_D <= inst_D[91:60];
                     // dest_address_D <= inst_D[59:28];
                     src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[72:60];
-                    dest_address_D <= inst_D[47:28];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -279,8 +292,8 @@ module NPU(
                     // src2_address_D <= inst_D[91:60];
                     // dest_address_D <= inst_D[59:28];
                     src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[72:60];
-                    dest_address_D <= inst_D[47:28];
+                    src2_address_D <= inst_D[71:60];
+                    dest_address_D <= inst_D[37:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -377,9 +390,15 @@ module NPU(
     end
 
     always @(posedge CLOCK_50) begin
+	 if (reset) begin
+		   add_start_I <= 0;
+         pool_start_I <= 0;
+	 end
+	 else begin
         case(sel_D)
             4'b0001:begin // issue add
                 add_start_I <= 1;
+                pool_start_I <= 0;
                 add_src1_start_address <= src1_address_D;
                 add_src2_start_address <= src2_address_D;
                 add_dest_start_address <= dest_address_D;
@@ -406,6 +425,7 @@ module NPU(
             
             end 
             4'b1000: begin
+                add_start_I <= 0;
                 pool_start_I <= 1;
                 pool_src1_start_address <= src1_address_D;
                 // pool_src2_start_address <= src2_address_D;
@@ -444,6 +464,7 @@ module NPU(
                 // add_dest_write_en <= 0;
             end
         endcase
+	 end
     end
 
     //---------------------------------------------------
@@ -457,6 +478,7 @@ module NPU(
     reg [4:0] sel_readdata_mux_E[19:0];
 
     assign add_start = add_start_E;
+    assign pool_start = pool_start_E;
     
     always @(posedge CLOCK_50) begin
         if(reset)begin
@@ -465,7 +487,7 @@ module NPU(
         end
         else begin
             add_start_E<=add_start_I;
-            pool_start_E<=pool_start_E;
+            pool_start_E<=pool_start_I;
         end
     end
 
@@ -510,7 +532,8 @@ module NPU(
                 .in22(),
                 .in23(),
                 .sel(sel_address_mux_I[i]),
-                .out(sram_address[i])
+                .out(sram_address[i]),
+					 .reset(reset)
             );
 
             mux24to1 #(.DATA_WIDTH(16)) writedata_mux(
@@ -520,8 +543,8 @@ module NPU(
                 .in3(),
                 .in4(),
                 .in5(),
-                .in6(pool_src1_address),
-                .in7(pool_dest_address),
+                .in6(pool_src1_writedata),
+                .in7(pool_dest_writedata),
                 .in8(),
                 .in9(),
                 .in10(),
@@ -539,7 +562,8 @@ module NPU(
                 .in22(),
                 .in23(),
                 .sel(sel_writedata_mux_I[i]),
-                .out(sram_writedata[i])
+                .out(sram_writedata[i]),
+					 .reset(reset)
             );
 
             mux24to1 #(.DATA_WIDTH(1)) write_en_mux(
@@ -549,8 +573,8 @@ module NPU(
                 .in3(),
                 .in4(),
                 .in5(),
-                .in6(pool_src1_address),
-                .in7(pool_dest_address),
+                .in6(pool_src1_write_en),
+                .in7(pool_dest_write_en),
                 .in8(),
                 .in9(),
                 .in10(),
@@ -568,7 +592,8 @@ module NPU(
                 .in22(),
                 .in23(),
                 .sel(sel_write_en_mux_I[i]),
-                .out(sram_write[i])
+                .out(sram_write[i]),
+					 .reset(reset)
             );
 
         end
@@ -600,7 +625,8 @@ module NPU(
         .in22(),
         .in23(),
         .sel(sel_readdata_mux_I[0]),
-        .out(add_src1_readdata)
+        .out(add_src1_readdata),
+		  .reset(reset)
     );
 
     mux24to1 #(.DATA_WIDTH(16)) add_src2_mux(
@@ -629,7 +655,8 @@ module NPU(
         .in22(),
         .in23(),
         .sel(sel_readdata_mux_I[1]),
-        .out(add_src2_readdata)
+        .out(add_src2_readdata),
+		  .reset(reset)
     );
 
     mux24to1 #(.DATA_WIDTH(16)) pool_src1_mux(
@@ -657,13 +684,52 @@ module NPU(
         .in21(),
         .in22(),
         .in23(),
-        .sel(sel_readdata_mux_I[1]),
-        .out(pool_src1_readdata)
+        .sel(sel_readdata_mux_I[4]),
+        .out(pool_src1_readdata),
+		.reset(reset)
     );
 
     //---------------------------------------------------
     // Commit
     //---------------------------------------------------
+
+    reg add_done_prev;
+    reg pool_done_prev;
+
+    always @ (posedge CLOCK_50) begin
+        if(reset) begin
+            add_done_prev <= 0;
+            pool_done_prev <= 0;
+        end
+        else begin
+            add_done_prev <= add_done;
+            pool_done_prev <= pool_done;
+        end
+    end
+
+    always @(posedge CLOCK_50) begin
+        if(reset) begin
+            inst_done_sram_address <= 9'd0;
+            inst_done_sram_writedata <= 8'b11111111;
+            inst_done_sram_write <=0;
+        end
+        else begin
+            if(~add_done_prev && add_done) begin
+                inst_done_sram_address <= 9'd0;
+                inst_done_sram_writedata <= 8'b11111111;
+                inst_done_sram_write <=1;
+            end
+            else if(~pool_done_prev && pool_done)begin
+                inst_done_sram_address <= 9'd2;
+                inst_done_sram_writedata <= 8'b11111111;
+                inst_done_sram_write <=1;
+            end
+            else begin
+                inst_done_sram_write <=0;
+            end
+            
+        end
+    end
 
 
 

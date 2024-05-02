@@ -222,6 +222,12 @@
 		.sram_9_s1_writedata             (<connected-to-sram_9_s1_writedata>),             //                     .writedata
 		.sram_9_s1_byteenable            (<connected-to-sram_9_s1_byteenable>),            //                     .byteenable
 		.system_pll_ref_clk_clk          (<connected-to-system_pll_ref_clk_clk>),          //   system_pll_ref_clk.clk
-		.system_pll_ref_reset_reset      (<connected-to-system_pll_ref_reset_reset>)       // system_pll_ref_reset.reset
+		.system_pll_ref_reset_reset      (<connected-to-system_pll_ref_reset_reset>),      // system_pll_ref_reset.reset
+		.done_sram_s1_address            (<connected-to-done_sram_s1_address>),            //         done_sram_s1.address
+		.done_sram_s1_clken              (<connected-to-done_sram_s1_clken>),              //                     .clken
+		.done_sram_s1_chipselect         (<connected-to-done_sram_s1_chipselect>),         //                     .chipselect
+		.done_sram_s1_write              (<connected-to-done_sram_s1_write>),              //                     .write
+		.done_sram_s1_readdata           (<connected-to-done_sram_s1_readdata>),           //                     .readdata
+		.done_sram_s1_writedata          (<connected-to-done_sram_s1_writedata>)           //                     .writedata
 	);
 

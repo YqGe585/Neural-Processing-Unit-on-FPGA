@@ -1,57 +1,113 @@
-C:/intelFPGA_lite/NPU/modelsim/sram.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/sram.v
+C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module M10K_sram
 
 Top level modules:
 	M10K_sram
 
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/inst_sram.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/inst_sram.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module M10K_inst_sram
-
-Top level modules:
-	M10K_inst_sram
-
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/mux24to1.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/mux24to1.v
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/mux24to1.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/mux24to1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module mux24to1
 
 Top level modules:
 	mux24to1
 
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/tb_proc.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/tb_proc.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module tb_proc
-
-Top level modules:
-	tb_proc
-
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/ADD.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/ADD.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module matrix_addition
-
-Top level modules:
-	matrix_addition
-
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/tb_ADD.v
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module matrix_addition_tb
 
 Top level modules:
 	matrix_addition_tb
 
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/mux8to1.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/mux8to1.v
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/mux8to1.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/mux8to1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module mux8to1
 
 Top level modules:
 	mux8to1
 
-} {} {}} C:/intelFPGA_lite/NPU/modelsim/demux1to16.v {1 {vlog -work work -stats=none C:/intelFPGA_lite/NPU/modelsim/demux1to16.v
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module NPU
+
+Top level modules:
+	NPU
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module M10K_inst_done_sram
+
+Top level modules:
+	M10K_inst_done_sram
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_addition
+
+Top level modules:
+	matrix_addition
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/fixed_point_mult.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/fixed_point_mult.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module signed_mult
+
+Top level modules:
+	signed_mult
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/MULT.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/MULT.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_multiply
+
+Top level modules:
+	matrix_multiply
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_maxpool_tb
+
+Top level modules:
+	matrix_maxpool_tb
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/demux1to16.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/demux1to16.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module demux1to16
 
 Top level modules:
 	demux1to16
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_MULT.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_MULT.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_multiply_tb
+
+Top level modules:
+	matrix_multiply_tb
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/DOT.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/DOT.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_dot
+
+Top level modules:
+	matrix_dot
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/inst_sram.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/inst_sram.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module M10K_inst_sram
+
+Top level modules:
+	M10K_inst_sram
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v {1 {vlog -work work -stats=none {C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\pooling.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module matrix_maxpool
+
+Top level modules:
+	matrix_maxpool
+
+} {} {}} C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_proc.v {1 {vlog -work work -stats=none C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_proc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_proc
+
+Top level modules:
+	tb_proc
 
 } {} {}}

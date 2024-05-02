@@ -3,24 +3,24 @@ module matrix_maxpool(
     input reset,
     input start,
     output reg done,
-    input reg [11:0] src1_start_address,
+    input wire [11:0] src1_start_address,
     output reg [11:0] src1_address,
-    input reg [15:0] src1_readdata,
+    input wire signed [15:0] src1_readdata,
     output wire src1_write_en,
-    input reg [5:0] src1_row_size,
-    input reg [5:0] src1_col_size,
-    input reg [5:0] src2_row_size,
-    input reg [5:0] src2_col_size,
-    input reg [11:0] dest_start_address,
+    input wire [5:0] src1_row_size,
+    input wire [5:0] src1_col_size,
+    input wire [5:0] src2_row_size,
+    input wire [5:0] src2_col_size,
+    input wire [11:0] dest_start_address,
     output reg [11:0] dest_address,
-    output reg [15:0] dest_writedata,
+    output reg signed [15:0] dest_writedata,
     output reg dest_write_en
 );
     reg [5:0] row_count;
     reg [5:0] col_count;
     reg [5:0] row_index;
     reg [5:0] col_index;
-    reg [15:0] max_pool=0;
+    reg signed [15:0] max_pool=0;
    
     assign src1_write_en = 0;
     reg [1:0] state = 2'd2;
@@ -81,9 +81,9 @@ module matrix_maxpool(
  
                     if(val == ((src1_col_size/src2_col_size)*(src1_col_size/src2_col_size)))
                         state <= 2'd2; // Processing complete
-                    else 
+                    else
                         state <= 2'd1; // Continue processing next block
-                    
+                   
                 end            
            
            

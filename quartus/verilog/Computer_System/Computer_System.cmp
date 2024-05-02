@@ -1,5 +1,11 @@
 	component Computer_System is
 		port (
+			done_sram_s1_address            : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
+			done_sram_s1_clken              : in    std_logic                      := 'X';             -- clken
+			done_sram_s1_chipselect         : in    std_logic                      := 'X';             -- chipselect
+			done_sram_s1_write              : in    std_logic                      := 'X';             -- write
+			done_sram_s1_readdata           : out   std_logic_vector(7 downto 0);                      -- readdata
+			done_sram_s1_writedata          : in    std_logic_vector(7 downto 0)   := (others => 'X'); -- writedata
 			hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                         -- hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0   : out   std_logic;                                         -- hps_io_emac1_inst_TXD0
 			hps_io_hps_io_emac1_inst_TXD1   : out   std_logic;                                         -- hps_io_emac1_inst_TXD1

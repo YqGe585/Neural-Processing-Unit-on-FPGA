@@ -1,5 +1,5 @@
 Assembler report for DE1_SoC_Computer
-Sun Apr 28 15:22:14 2024
+Wed May 01 22:35:59 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/yg585/Desktop/NPU/quartus/verilog/DE1_SoC_Computer.sof
+  5. Assembler Device Options: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/quartus/verilog/DE1_SoC_Computer.sof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Apr 28 15:22:14 2024 ;
+; Assembler Status      ; Successful - Wed May 01 22:35:59 2024 ;
 ; Revision Name         ; DE1_SoC_Computer                      ;
 ; Top-level Entity Name ; DE1_SoC_Computer                      ;
 ; Family                ; Cyclone V                             ;
@@ -52,23 +52,23 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
-+-----------------------------------------------------------------+
-; Assembler Generated Files                                       ;
-+-----------------------------------------------------------------+
-; File Name                                                       ;
-+-----------------------------------------------------------------+
-; C:/Users/yg585/Desktop/NPU/quartus/verilog/DE1_SoC_Computer.sof ;
-+-----------------------------------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                  ;
++--------------------------------------------------------------------------------------------+
+; File Name                                                                                  ;
++--------------------------------------------------------------------------------------------+
+; C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/quartus/verilog/DE1_SoC_Computer.sof ;
++--------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/yg585/Desktop/NPU/quartus/verilog/DE1_SoC_Computer.sof ;
-+----------------+--------------------------------------------------------------------------+
-; Option         ; Setting                                                                  ;
-+----------------+--------------------------------------------------------------------------+
-; JTAG usercode  ; 0x055AC2AC                                                               ;
-; Checksum       ; 0x055AC2AC                                                               ;
-+----------------+--------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/quartus/verilog/DE1_SoC_Computer.sof ;
++----------------+-----------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                             ;
++----------------+-----------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x05D053EF                                                                                          ;
+; Checksum       ; 0x05D053EF                                                                                          ;
++----------------+-----------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -77,14 +77,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Apr 28 15:22:02 2024
+    Info: Processing started: Wed May 01 22:35:48 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DE1_SoC_Computer -c DE1_SoC_Computer
 Info (115030): Assembler is generating device programming files
 Info (11878): Hard Processor Subsystem configuration has not changed and a Preloader software update is not required
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 5048 megabytes
-    Info: Processing ended: Sun Apr 28 15:22:14 2024
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 5088 megabytes
+    Info: Processing ended: Wed May 01 22:35:59 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:11
 
 

@@ -4,6 +4,12 @@
 
 `timescale 1 ps / 1 ps
 module Computer_System (
+		input  wire [8:0]   done_sram_s1_address,            //         done_sram_s1.address
+		input  wire         done_sram_s1_clken,              //                     .clken
+		input  wire         done_sram_s1_chipselect,         //                     .chipselect
+		input  wire         done_sram_s1_write,              //                     .write
+		output wire [7:0]   done_sram_s1_readdata,           //                     .readdata
+		input  wire [7:0]   done_sram_s1_writedata,          //                     .writedata
 		output wire         hps_io_hps_io_emac1_inst_TX_CLK, //               hps_io.hps_io_emac1_inst_TX_CLK
 		output wire         hps_io_hps_io_emac1_inst_TXD0,   //                     .hps_io_emac1_inst_TXD0
 		output wire         hps_io_hps_io_emac1_inst_TXD1,   //                     .hps_io_emac1_inst_TXD1
@@ -230,8 +236,8 @@ module Computer_System (
 		input  wire         system_pll_ref_reset_reset       // system_pll_ref_reset.reset
 	);
 
-	wire          pll_0_outclk0_clk;                         // pll_0:outclk_0 -> [inst_sram:clk, rst_controller:clk, sram_0:clk, sram_10:clk, sram_11:clk, sram_12:clk, sram_13:clk, sram_14:clk, sram_15:clk, sram_16:clk, sram_17:clk, sram_18:clk, sram_19:clk, sram_1:clk, sram_2:clk, sram_3:clk, sram_4:clk, sram_5:clk, sram_6:clk, sram_7:clk, sram_8:clk, sram_9:clk]
-	wire          system_pll_sys_clk_clk;                    // System_PLL:sys_clk_clk -> [ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, inst_sram:clk2, mm_interconnect_0:System_PLL_sys_clk_clk, rst_controller_001:clk, rst_controller_002:clk, sram_0:clk2, sram_10:clk2, sram_11:clk2, sram_12:clk2, sram_13:clk2, sram_14:clk2, sram_15:clk2, sram_16:clk2, sram_17:clk2, sram_18:clk2, sram_19:clk2, sram_1:clk2, sram_2:clk2, sram_3:clk2, sram_4:clk2, sram_5:clk2, sram_6:clk2, sram_7:clk2, sram_8:clk2, sram_9:clk2]
+	wire          pll_0_outclk0_clk;                         // pll_0:outclk_0 -> [done_sram:clk, inst_sram:clk, rst_controller:clk, sram_0:clk, sram_10:clk, sram_11:clk, sram_12:clk, sram_13:clk, sram_14:clk, sram_15:clk, sram_16:clk, sram_17:clk, sram_18:clk, sram_19:clk, sram_1:clk, sram_2:clk, sram_3:clk, sram_4:clk, sram_5:clk, sram_6:clk, sram_7:clk, sram_8:clk, sram_9:clk]
+	wire          system_pll_sys_clk_clk;                    // System_PLL:sys_clk_clk -> [ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, done_sram:clk2, inst_sram:clk2, mm_interconnect_0:System_PLL_sys_clk_clk, rst_controller_001:clk, rst_controller_002:clk, sram_0:clk2, sram_10:clk2, sram_11:clk2, sram_12:clk2, sram_13:clk2, sram_14:clk2, sram_15:clk2, sram_16:clk2, sram_17:clk2, sram_18:clk2, sram_19:clk2, sram_1:clk2, sram_2:clk2, sram_3:clk2, sram_4:clk2, sram_5:clk2, sram_6:clk2, sram_7:clk2, sram_8:clk2, sram_9:clk2]
 	wire    [1:0] arm_a9_hps_h2f_axi_master_awburst;         // ARM_A9_HPS:h2f_AWBURST -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_awburst
 	wire    [3:0] arm_a9_hps_h2f_axi_master_arlen;           // ARM_A9_HPS:h2f_ARLEN -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_arlen
 	wire   [15:0] arm_a9_hps_h2f_axi_master_wstrb;           // ARM_A9_HPS:h2f_WSTRB -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_wstrb
@@ -415,14 +421,20 @@ module Computer_System (
 	wire          mm_interconnect_0_sram_19_s2_write;        // mm_interconnect_0:sram_19_s2_write -> sram_19:write2
 	wire   [15:0] mm_interconnect_0_sram_19_s2_writedata;    // mm_interconnect_0:sram_19_s2_writedata -> sram_19:writedata2
 	wire          mm_interconnect_0_sram_19_s2_clken;        // mm_interconnect_0:sram_19_s2_clken -> sram_19:clken2
+	wire          mm_interconnect_0_done_sram_s2_chipselect; // mm_interconnect_0:done_sram_s2_chipselect -> done_sram:chipselect2
+	wire    [7:0] mm_interconnect_0_done_sram_s2_readdata;   // done_sram:readdata2 -> mm_interconnect_0:done_sram_s2_readdata
+	wire    [8:0] mm_interconnect_0_done_sram_s2_address;    // mm_interconnect_0:done_sram_s2_address -> done_sram:address2
+	wire          mm_interconnect_0_done_sram_s2_write;      // mm_interconnect_0:done_sram_s2_write -> done_sram:write2
+	wire    [7:0] mm_interconnect_0_done_sram_s2_writedata;  // mm_interconnect_0:done_sram_s2_writedata -> done_sram:writedata2
+	wire          mm_interconnect_0_done_sram_s2_clken;      // mm_interconnect_0:done_sram_s2_clken -> done_sram:clken2
 	wire   [31:0] arm_a9_hps_f2h_irq0_irq;                   // irq_mapper:sender_irq -> ARM_A9_HPS:f2h_irq_p0
 	wire   [31:0] arm_a9_hps_f2h_irq1_irq;                   // irq_mapper_001:sender_irq -> ARM_A9_HPS:f2h_irq_p1
-	wire          rst_controller_reset_out_reset;            // rst_controller:reset_out -> [inst_sram:reset, sram_0:reset, sram_10:reset, sram_11:reset, sram_12:reset, sram_13:reset, sram_14:reset, sram_15:reset, sram_16:reset, sram_17:reset, sram_18:reset, sram_19:reset, sram_1:reset, sram_2:reset, sram_3:reset, sram_4:reset, sram_5:reset, sram_6:reset, sram_7:reset, sram_8:reset, sram_9:reset]
-	wire          rst_controller_reset_out_reset_req;        // rst_controller:reset_req -> [inst_sram:reset_req, sram_0:reset_req, sram_10:reset_req, sram_11:reset_req, sram_12:reset_req, sram_13:reset_req, sram_14:reset_req, sram_15:reset_req, sram_16:reset_req, sram_17:reset_req, sram_18:reset_req, sram_19:reset_req, sram_1:reset_req, sram_2:reset_req, sram_3:reset_req, sram_4:reset_req, sram_5:reset_req, sram_6:reset_req, sram_7:reset_req, sram_8:reset_req, sram_9:reset_req]
+	wire          rst_controller_reset_out_reset;            // rst_controller:reset_out -> [done_sram:reset, inst_sram:reset, sram_0:reset, sram_10:reset, sram_11:reset, sram_12:reset, sram_13:reset, sram_14:reset, sram_15:reset, sram_16:reset, sram_17:reset, sram_18:reset, sram_19:reset, sram_1:reset, sram_2:reset, sram_3:reset, sram_4:reset, sram_5:reset, sram_6:reset, sram_7:reset, sram_8:reset, sram_9:reset]
+	wire          rst_controller_reset_out_reset_req;        // rst_controller:reset_req -> [done_sram:reset_req, inst_sram:reset_req, sram_0:reset_req, sram_10:reset_req, sram_11:reset_req, sram_12:reset_req, sram_13:reset_req, sram_14:reset_req, sram_15:reset_req, sram_16:reset_req, sram_17:reset_req, sram_18:reset_req, sram_19:reset_req, sram_1:reset_req, sram_2:reset_req, sram_3:reset_req, sram_4:reset_req, sram_5:reset_req, sram_6:reset_req, sram_7:reset_req, sram_8:reset_req, sram_9:reset_req]
 	wire          arm_a9_hps_h2f_reset_reset;                // ARM_A9_HPS:h2f_rst_n -> [rst_controller:reset_in0, rst_controller_001:reset_in0, rst_controller_002:reset_in0]
 	wire          system_pll_reset_source_reset;             // System_PLL:reset_source_reset -> [rst_controller:reset_in1, rst_controller_001:reset_in1]
-	wire          rst_controller_001_reset_out_reset;        // rst_controller_001:reset_out -> [inst_sram:reset2, mm_interconnect_0:inst_sram_reset2_reset_bridge_in_reset_reset, sram_0:reset2, sram_10:reset2, sram_11:reset2, sram_12:reset2, sram_13:reset2, sram_14:reset2, sram_15:reset2, sram_16:reset2, sram_17:reset2, sram_18:reset2, sram_19:reset2, sram_1:reset2, sram_2:reset2, sram_3:reset2, sram_4:reset2, sram_5:reset2, sram_6:reset2, sram_7:reset2, sram_8:reset2, sram_9:reset2]
-	wire          rst_controller_001_reset_out_reset_req;    // rst_controller_001:reset_req -> [inst_sram:reset_req2, sram_0:reset_req2, sram_10:reset_req2, sram_11:reset_req2, sram_12:reset_req2, sram_13:reset_req2, sram_14:reset_req2, sram_15:reset_req2, sram_16:reset_req2, sram_17:reset_req2, sram_18:reset_req2, sram_19:reset_req2, sram_1:reset_req2, sram_2:reset_req2, sram_3:reset_req2, sram_4:reset_req2, sram_5:reset_req2, sram_6:reset_req2, sram_7:reset_req2, sram_8:reset_req2, sram_9:reset_req2]
+	wire          rst_controller_001_reset_out_reset;        // rst_controller_001:reset_out -> [done_sram:reset2, inst_sram:reset2, mm_interconnect_0:inst_sram_reset2_reset_bridge_in_reset_reset, sram_0:reset2, sram_10:reset2, sram_11:reset2, sram_12:reset2, sram_13:reset2, sram_14:reset2, sram_15:reset2, sram_16:reset2, sram_17:reset2, sram_18:reset2, sram_19:reset2, sram_1:reset2, sram_2:reset2, sram_3:reset2, sram_4:reset2, sram_5:reset2, sram_6:reset2, sram_7:reset2, sram_8:reset2, sram_9:reset2]
+	wire          rst_controller_001_reset_out_reset_req;    // rst_controller_001:reset_req -> [done_sram:reset_req2, inst_sram:reset_req2, sram_0:reset_req2, sram_10:reset_req2, sram_11:reset_req2, sram_12:reset_req2, sram_13:reset_req2, sram_14:reset_req2, sram_15:reset_req2, sram_16:reset_req2, sram_17:reset_req2, sram_18:reset_req2, sram_19:reset_req2, sram_1:reset_req2, sram_2:reset_req2, sram_3:reset_req2, sram_4:reset_req2, sram_5:reset_req2, sram_6:reset_req2, sram_7:reset_req2, sram_8:reset_req2, sram_9:reset_req2]
 	wire          rst_controller_002_reset_out_reset;        // rst_controller_002:reset_out -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 
 	Computer_System_ARM_A9_HPS #(
@@ -625,6 +637,28 @@ module Computer_System (
 		.sys_clk_clk        (system_pll_sys_clk_clk),        //      sys_clk.clk
 		.sdram_clk_clk      (sdram_clk_clk),                 //    sdram_clk.clk
 		.reset_source_reset (system_pll_reset_source_reset)  // reset_source.reset
+	);
+
+	Computer_System_done_sram done_sram (
+		.clk         (pll_0_outclk0_clk),                         //   clk1.clk
+		.address     (done_sram_s1_address),                      //     s1.address
+		.clken       (done_sram_s1_clken),                        //       .clken
+		.chipselect  (done_sram_s1_chipselect),                   //       .chipselect
+		.write       (done_sram_s1_write),                        //       .write
+		.readdata    (done_sram_s1_readdata),                     //       .readdata
+		.writedata   (done_sram_s1_writedata),                    //       .writedata
+		.reset       (rst_controller_reset_out_reset),            // reset1.reset
+		.reset_req   (rst_controller_reset_out_reset_req),        //       .reset_req
+		.address2    (mm_interconnect_0_done_sram_s2_address),    //     s2.address
+		.chipselect2 (mm_interconnect_0_done_sram_s2_chipselect), //       .chipselect
+		.clken2      (mm_interconnect_0_done_sram_s2_clken),      //       .clken
+		.write2      (mm_interconnect_0_done_sram_s2_write),      //       .write
+		.readdata2   (mm_interconnect_0_done_sram_s2_readdata),   //       .readdata
+		.writedata2  (mm_interconnect_0_done_sram_s2_writedata),  //       .writedata
+		.clk2        (system_pll_sys_clk_clk),                    //   clk2.clk
+		.reset2      (rst_controller_001_reset_out_reset),        // reset2.reset
+		.reset_req2  (rst_controller_001_reset_out_reset_req),    //       .reset_req
+		.freeze      (1'b0)                                       // (terminated)
 	);
 
 	Computer_System_inst_sram inst_sram (
@@ -1178,6 +1212,12 @@ module Computer_System (
 		.System_PLL_sys_clk_clk                                                (system_pll_sys_clk_clk),                    //                                              System_PLL_sys_clk.clk
 		.ARM_A9_HPS_h2f_axi_master_agent_clk_reset_reset_bridge_in_reset_reset (rst_controller_002_reset_out_reset),        // ARM_A9_HPS_h2f_axi_master_agent_clk_reset_reset_bridge_in_reset.reset
 		.inst_sram_reset2_reset_bridge_in_reset_reset                          (rst_controller_001_reset_out_reset),        //                          inst_sram_reset2_reset_bridge_in_reset.reset
+		.done_sram_s2_address                                                  (mm_interconnect_0_done_sram_s2_address),    //                                                    done_sram_s2.address
+		.done_sram_s2_write                                                    (mm_interconnect_0_done_sram_s2_write),      //                                                                .write
+		.done_sram_s2_readdata                                                 (mm_interconnect_0_done_sram_s2_readdata),   //                                                                .readdata
+		.done_sram_s2_writedata                                                (mm_interconnect_0_done_sram_s2_writedata),  //                                                                .writedata
+		.done_sram_s2_chipselect                                               (mm_interconnect_0_done_sram_s2_chipselect), //                                                                .chipselect
+		.done_sram_s2_clken                                                    (mm_interconnect_0_done_sram_s2_clken),      //                                                                .clken
 		.inst_sram_s2_address                                                  (mm_interconnect_0_inst_sram_s2_address),    //                                                    inst_sram_s2.address
 		.inst_sram_s2_write                                                    (mm_interconnect_0_inst_sram_s2_write),      //                                                                .write
 		.inst_sram_s2_readdata                                                 (mm_interconnect_0_inst_sram_s2_readdata),   //                                                                .readdata

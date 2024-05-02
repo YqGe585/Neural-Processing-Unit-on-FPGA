@@ -6,9 +6,10 @@
    <connections preferredWidth="175" />
    <irq preferredWidth="47" />
    <inputclock preferredWidth="132" />
+   <description preferredWidth="254" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
- <window width="1674" height="1040" x="104" y="0" />
+ <library expandedCategories="Project,Library" />
+ <window width="1399" height="811" x="222" y="103" />
  <generation block_symbol_file="0" />
 </preferences>

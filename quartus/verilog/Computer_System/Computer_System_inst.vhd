@@ -223,7 +223,13 @@
 			sram_9_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_9_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
 			system_pll_ref_clk_clk          : in    std_logic                      := 'X';             -- clk
-			system_pll_ref_reset_reset      : in    std_logic                      := 'X'              -- reset
+			system_pll_ref_reset_reset      : in    std_logic                      := 'X';             -- reset
+			done_sram_s1_address            : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
+			done_sram_s1_clken              : in    std_logic                      := 'X';             -- clken
+			done_sram_s1_chipselect         : in    std_logic                      := 'X';             -- chipselect
+			done_sram_s1_write              : in    std_logic                      := 'X';             -- write
+			done_sram_s1_readdata           : out   std_logic_vector(7 downto 0);                      -- readdata
+			done_sram_s1_writedata          : in    std_logic_vector(7 downto 0)   := (others => 'X')  -- writedata
 		);
 	end component Computer_System;
 
@@ -452,6 +458,12 @@
 			sram_9_s1_writedata             => CONNECTED_TO_sram_9_s1_writedata,             --                     .writedata
 			sram_9_s1_byteenable            => CONNECTED_TO_sram_9_s1_byteenable,            --                     .byteenable
 			system_pll_ref_clk_clk          => CONNECTED_TO_system_pll_ref_clk_clk,          --   system_pll_ref_clk.clk
-			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset       -- system_pll_ref_reset.reset
+			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset,      -- system_pll_ref_reset.reset
+			done_sram_s1_address            => CONNECTED_TO_done_sram_s1_address,            --         done_sram_s1.address
+			done_sram_s1_clken              => CONNECTED_TO_done_sram_s1_clken,              --                     .clken
+			done_sram_s1_chipselect         => CONNECTED_TO_done_sram_s1_chipselect,         --                     .chipselect
+			done_sram_s1_write              => CONNECTED_TO_done_sram_s1_write,              --                     .write
+			done_sram_s1_readdata           => CONNECTED_TO_done_sram_s1_readdata,           --                     .readdata
+			done_sram_s1_writedata          => CONNECTED_TO_done_sram_s1_writedata           --                     .writedata
 		);
 
