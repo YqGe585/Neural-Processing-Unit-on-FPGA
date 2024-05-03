@@ -1,5 +1,11 @@
 	component Computer_System is
 		port (
+			done_sram_s1_address            : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
+			done_sram_s1_clken              : in    std_logic                      := 'X';             -- clken
+			done_sram_s1_chipselect         : in    std_logic                      := 'X';             -- chipselect
+			done_sram_s1_write              : in    std_logic                      := 'X';             -- write
+			done_sram_s1_readdata           : out   std_logic_vector(7 downto 0);                      -- readdata
+			done_sram_s1_writedata          : in    std_logic_vector(7 downto 0)   := (others => 'X'); -- writedata
 			hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                         -- hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0   : out   std_logic;                                         -- hps_io_emac1_inst_TXD0
 			hps_io_hps_io_emac1_inst_TXD1   : out   std_logic;                                         -- hps_io_emac1_inst_TXD1
@@ -224,17 +230,23 @@
 			sram_9_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
 			system_pll_ref_clk_clk          : in    std_logic                      := 'X';             -- clk
 			system_pll_ref_reset_reset      : in    std_logic                      := 'X';             -- reset
-			done_sram_s1_address            : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
-			done_sram_s1_clken              : in    std_logic                      := 'X';             -- clken
-			done_sram_s1_chipselect         : in    std_logic                      := 'X';             -- chipselect
-			done_sram_s1_write              : in    std_logic                      := 'X';             -- write
-			done_sram_s1_readdata           : out   std_logic_vector(7 downto 0);                      -- readdata
-			done_sram_s1_writedata          : in    std_logic_vector(7 downto 0)   := (others => 'X')  -- writedata
+			inst_valid_s1_address           : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
+			inst_valid_s1_clken             : in    std_logic                      := 'X';             -- clken
+			inst_valid_s1_chipselect        : in    std_logic                      := 'X';             -- chipselect
+			inst_valid_s1_write             : in    std_logic                      := 'X';             -- write
+			inst_valid_s1_readdata          : out   std_logic_vector(7 downto 0);                      -- readdata
+			inst_valid_s1_writedata         : in    std_logic_vector(7 downto 0)   := (others => 'X')  -- writedata
 		);
 	end component Computer_System;
 
 	u0 : component Computer_System
 		port map (
+			done_sram_s1_address            => CONNECTED_TO_done_sram_s1_address,            --         done_sram_s1.address
+			done_sram_s1_clken              => CONNECTED_TO_done_sram_s1_clken,              --                     .clken
+			done_sram_s1_chipselect         => CONNECTED_TO_done_sram_s1_chipselect,         --                     .chipselect
+			done_sram_s1_write              => CONNECTED_TO_done_sram_s1_write,              --                     .write
+			done_sram_s1_readdata           => CONNECTED_TO_done_sram_s1_readdata,           --                     .readdata
+			done_sram_s1_writedata          => CONNECTED_TO_done_sram_s1_writedata,          --                     .writedata
 			hps_io_hps_io_emac1_inst_TX_CLK => CONNECTED_TO_hps_io_hps_io_emac1_inst_TX_CLK, --               hps_io.hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0   => CONNECTED_TO_hps_io_hps_io_emac1_inst_TXD0,   --                     .hps_io_emac1_inst_TXD0
 			hps_io_hps_io_emac1_inst_TXD1   => CONNECTED_TO_hps_io_hps_io_emac1_inst_TXD1,   --                     .hps_io_emac1_inst_TXD1
@@ -459,11 +471,11 @@
 			sram_9_s1_byteenable            => CONNECTED_TO_sram_9_s1_byteenable,            --                     .byteenable
 			system_pll_ref_clk_clk          => CONNECTED_TO_system_pll_ref_clk_clk,          --   system_pll_ref_clk.clk
 			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset,      -- system_pll_ref_reset.reset
-			done_sram_s1_address            => CONNECTED_TO_done_sram_s1_address,            --         done_sram_s1.address
-			done_sram_s1_clken              => CONNECTED_TO_done_sram_s1_clken,              --                     .clken
-			done_sram_s1_chipselect         => CONNECTED_TO_done_sram_s1_chipselect,         --                     .chipselect
-			done_sram_s1_write              => CONNECTED_TO_done_sram_s1_write,              --                     .write
-			done_sram_s1_readdata           => CONNECTED_TO_done_sram_s1_readdata,           --                     .readdata
-			done_sram_s1_writedata          => CONNECTED_TO_done_sram_s1_writedata           --                     .writedata
+			inst_valid_s1_address           => CONNECTED_TO_inst_valid_s1_address,           --        inst_valid_s1.address
+			inst_valid_s1_clken             => CONNECTED_TO_inst_valid_s1_clken,             --                     .clken
+			inst_valid_s1_chipselect        => CONNECTED_TO_inst_valid_s1_chipselect,        --                     .chipselect
+			inst_valid_s1_write             => CONNECTED_TO_inst_valid_s1_write,             --                     .write
+			inst_valid_s1_readdata          => CONNECTED_TO_inst_valid_s1_readdata,          --                     .readdata
+			inst_valid_s1_writedata         => CONNECTED_TO_inst_valid_s1_writedata          --                     .writedata
 		);
 

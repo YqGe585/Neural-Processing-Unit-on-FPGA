@@ -1,4 +1,10 @@
 	Computer_System u0 (
+		.done_sram_s1_address            (<connected-to-done_sram_s1_address>),            //         done_sram_s1.address
+		.done_sram_s1_clken              (<connected-to-done_sram_s1_clken>),              //                     .clken
+		.done_sram_s1_chipselect         (<connected-to-done_sram_s1_chipselect>),         //                     .chipselect
+		.done_sram_s1_write              (<connected-to-done_sram_s1_write>),              //                     .write
+		.done_sram_s1_readdata           (<connected-to-done_sram_s1_readdata>),           //                     .readdata
+		.done_sram_s1_writedata          (<connected-to-done_sram_s1_writedata>),          //                     .writedata
 		.hps_io_hps_io_emac1_inst_TX_CLK (<connected-to-hps_io_hps_io_emac1_inst_TX_CLK>), //               hps_io.hps_io_emac1_inst_TX_CLK
 		.hps_io_hps_io_emac1_inst_TXD0   (<connected-to-hps_io_hps_io_emac1_inst_TXD0>),   //                     .hps_io_emac1_inst_TXD0
 		.hps_io_hps_io_emac1_inst_TXD1   (<connected-to-hps_io_hps_io_emac1_inst_TXD1>),   //                     .hps_io_emac1_inst_TXD1
@@ -223,11 +229,11 @@
 		.sram_9_s1_byteenable            (<connected-to-sram_9_s1_byteenable>),            //                     .byteenable
 		.system_pll_ref_clk_clk          (<connected-to-system_pll_ref_clk_clk>),          //   system_pll_ref_clk.clk
 		.system_pll_ref_reset_reset      (<connected-to-system_pll_ref_reset_reset>),      // system_pll_ref_reset.reset
-		.done_sram_s1_address            (<connected-to-done_sram_s1_address>),            //         done_sram_s1.address
-		.done_sram_s1_clken              (<connected-to-done_sram_s1_clken>),              //                     .clken
-		.done_sram_s1_chipselect         (<connected-to-done_sram_s1_chipselect>),         //                     .chipselect
-		.done_sram_s1_write              (<connected-to-done_sram_s1_write>),              //                     .write
-		.done_sram_s1_readdata           (<connected-to-done_sram_s1_readdata>),           //                     .readdata
-		.done_sram_s1_writedata          (<connected-to-done_sram_s1_writedata>)           //                     .writedata
+		.inst_valid_s1_address           (<connected-to-inst_valid_s1_address>),           //        inst_valid_s1.address
+		.inst_valid_s1_clken             (<connected-to-inst_valid_s1_clken>),             //                     .clken
+		.inst_valid_s1_chipselect        (<connected-to-inst_valid_s1_chipselect>),        //                     .chipselect
+		.inst_valid_s1_write             (<connected-to-inst_valid_s1_write>),             //                     .write
+		.inst_valid_s1_readdata          (<connected-to-inst_valid_s1_readdata>),          //                     .readdata
+		.inst_valid_s1_writedata         (<connected-to-inst_valid_s1_writedata>)          //                     .writedata
 	);
 

@@ -1,5 +1,11 @@
 
 module Computer_System (
+	done_sram_s1_address,
+	done_sram_s1_clken,
+	done_sram_s1_chipselect,
+	done_sram_s1_write,
+	done_sram_s1_readdata,
+	done_sram_s1_writedata,
 	hps_io_hps_io_emac1_inst_TX_CLK,
 	hps_io_hps_io_emac1_inst_TXD0,
 	hps_io_hps_io_emac1_inst_TXD1,
@@ -224,13 +230,19 @@ module Computer_System (
 	sram_9_s1_byteenable,
 	system_pll_ref_clk_clk,
 	system_pll_ref_reset_reset,
-	done_sram_s1_address,
-	done_sram_s1_clken,
-	done_sram_s1_chipselect,
-	done_sram_s1_write,
-	done_sram_s1_readdata,
-	done_sram_s1_writedata);	
+	inst_valid_s1_address,
+	inst_valid_s1_clken,
+	inst_valid_s1_chipselect,
+	inst_valid_s1_write,
+	inst_valid_s1_readdata,
+	inst_valid_s1_writedata);	
 
+	input	[8:0]	done_sram_s1_address;
+	input		done_sram_s1_clken;
+	input		done_sram_s1_chipselect;
+	input		done_sram_s1_write;
+	output	[7:0]	done_sram_s1_readdata;
+	input	[7:0]	done_sram_s1_writedata;
 	output		hps_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_io_hps_io_emac1_inst_TXD0;
 	output		hps_io_hps_io_emac1_inst_TXD1;
@@ -455,10 +467,10 @@ module Computer_System (
 	input	[1:0]	sram_9_s1_byteenable;
 	input		system_pll_ref_clk_clk;
 	input		system_pll_ref_reset_reset;
-	input	[8:0]	done_sram_s1_address;
-	input		done_sram_s1_clken;
-	input		done_sram_s1_chipselect;
-	input		done_sram_s1_write;
-	output	[7:0]	done_sram_s1_readdata;
-	input	[7:0]	done_sram_s1_writedata;
+	input	[8:0]	inst_valid_s1_address;
+	input		inst_valid_s1_clken;
+	input		inst_valid_s1_chipselect;
+	input		inst_valid_s1_write;
+	output	[7:0]	inst_valid_s1_readdata;
+	input	[7:0]	inst_valid_s1_writedata;
 endmodule

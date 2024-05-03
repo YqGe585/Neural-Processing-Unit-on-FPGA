@@ -374,20 +374,20 @@ HexDigit Digit3(HEX3, hex3_hex0[15:12]);
 
 wire [127:0] inst_sram_readdata ;
 reg [127:0] inst_sram_writedata;
-reg [8:0] inst_sram_address = 9'd0; 
+reg [8:0] inst_sram_address; 
 reg inst_sram_write = 0;
 wire inst_sram_clken = 1'b1;
 wire inst_sram_chipselect = 1'b1;
 
-wire [15:0] sram_readdata [19:0];
-wire [15:0] sram_writedata [19:0];
-wire [11:0] sram_address [19:0]; 
-wire [19:0] sram_write; 
+wire [15:0] sram_readdata [19:0] /*synthesis keep*/;
+wire [15:0] sram_writedata [19:0] /*synthesis keep*/;
+wire [11:0] sram_address [19:0] /*synthesis keep*/; 
+wire [19:0] sram_write /*synthesis keep*/; 
 wire [19:0] sram_clken = 20'hFFFFF;
 wire [19:0] sram_chipselect = 20'hFFFFF;
 
-wire [127:0] inst_done_sram_readdata ;
-reg [127:0] inst_done_sram_writedata ;
+wire [8:0] inst_done_sram_readdata ;
+reg [8:0] inst_done_sram_writedata ;
 reg [8:0] inst_done_sram_address = 9'd0; 
 reg inst_done_sram_write = 0;
 wire inst_done_sram_clken = 1'b1;
@@ -498,7 +498,7 @@ end
 
     always @(posedge CLOCK_50) begin
         if(reset) begin
-            inst_D <= 0;
+            inst_D <= 128'd0;
             inst_sram_address <= 9'b0;
         end
         else begin
@@ -549,7 +549,7 @@ end
     // end
 
     // assign inst_D = inst_sram_readdata;
-    integer i0;
+//    integer i0;
 
     always @(*) begin
         src1_sram_num = SRAM_NUM - (inst_D[111:104]>>1);
@@ -570,18 +570,86 @@ end
             src2_row_D <= 5'd0;
             src2_col_D <= 5'd0;
             sel_D <= 4'b0000;
-            sel_address_mux_D[src1_sram_num_D] <= 5'd31;
-            sel_address_mux_D[src2_sram_num_D] <= 5'd31;
-            sel_address_mux_D[dest_sram_num_D] <= 5'd31;
-            sel_writedata_mux_D[src1_sram_num] <= 5'd31;
-            sel_writedata_mux_D[src2_sram_num] <= 5'd31;
-            sel_writedata_mux_D[dest_sram_num] <= 5'd31;
-            sel_write_en_mux_D[src1_sram_num] <= 5'd31;
-            sel_write_en_mux_D[src2_sram_num] <= 5'd31;
-            sel_write_en_mux_D[dest_sram_num] <= 5'd31;
-            for (i0 = 0; i0 < 20; i0 = i0 + 1) begin
-                sel_readdata_mux_D[i0] <= 5'd0;
-            end
+            sel_address_mux_D[0] <= 5'd31;
+            sel_address_mux_D[1] <= 5'd31;
+            sel_address_mux_D[2] <= 5'd31;
+				sel_address_mux_D[3] <= 5'd31;
+            sel_address_mux_D[4] <= 5'd31;
+            sel_address_mux_D[5] <= 5'd31;
+				sel_address_mux_D[6] <= 5'd31;
+            sel_address_mux_D[7] <= 5'd31;
+            sel_address_mux_D[8] <= 5'd31;
+				sel_address_mux_D[9] <= 5'd31;
+            sel_address_mux_D[10] <= 5'd31;
+            sel_address_mux_D[11] <= 5'd31;
+				sel_address_mux_D[12] <= 5'd31;
+            sel_address_mux_D[13] <= 5'd31;
+            sel_address_mux_D[14] <= 5'd31;
+				sel_address_mux_D[15] <= 5'd31;
+            sel_address_mux_D[16] <= 5'd31;
+            sel_address_mux_D[17] <= 5'd31;
+				sel_address_mux_D[18] <= 5'd31;
+            sel_address_mux_D[19] <= 5'd31;
+            sel_writedata_mux_D[0] <= 5'd31;
+            sel_writedata_mux_D[1] <= 5'd31;
+            sel_writedata_mux_D[2] <= 5'd31;
+				sel_writedata_mux_D[3] <= 5'd31;
+            sel_writedata_mux_D[4] <= 5'd31;
+            sel_writedata_mux_D[5] <= 5'd31;
+				sel_writedata_mux_D[6] <= 5'd31;
+            sel_writedata_mux_D[7] <= 5'd31;
+            sel_writedata_mux_D[8] <= 5'd31;
+				sel_writedata_mux_D[9] <= 5'd31;
+            sel_writedata_mux_D[10] <= 5'd31;
+            sel_writedata_mux_D[11] <= 5'd31;
+				sel_writedata_mux_D[12] <= 5'd31;
+            sel_writedata_mux_D[13] <= 5'd31;
+            sel_writedata_mux_D[14] <= 5'd31;
+				sel_writedata_mux_D[15] <= 5'd31;
+            sel_writedata_mux_D[16] <= 5'd31;
+            sel_writedata_mux_D[17] <= 5'd31;
+				sel_writedata_mux_D[18] <= 5'd31;
+            sel_writedata_mux_D[19] <= 5'd31;
+            sel_write_en_mux_D[0] <= 5'd31;
+            sel_write_en_mux_D[1] <= 5'd31;
+            sel_write_en_mux_D[2] <= 5'd31;
+				sel_write_en_mux_D[3] <= 5'd31;
+            sel_write_en_mux_D[4] <= 5'd31;
+            sel_write_en_mux_D[5] <= 5'd31;
+				sel_write_en_mux_D[6] <= 5'd31;
+            sel_write_en_mux_D[7] <= 5'd31;
+            sel_write_en_mux_D[8] <= 5'd31;
+				sel_write_en_mux_D[9] <= 5'd31;
+            sel_write_en_mux_D[10] <= 5'd31;
+            sel_write_en_mux_D[11] <= 5'd31;
+				sel_write_en_mux_D[12] <= 5'd31;
+            sel_write_en_mux_D[13] <= 5'd31;
+            sel_write_en_mux_D[14] <= 5'd31;
+				sel_write_en_mux_D[15] <= 5'd31;
+            sel_write_en_mux_D[16] <= 5'd31;
+            sel_write_en_mux_D[17] <= 5'd31;
+				sel_write_en_mux_D[18] <= 5'd31;
+            sel_write_en_mux_D[19] <= 5'd31;
+				sel_readdata_mux_D[0] <= 5'd31;
+            sel_readdata_mux_D[1] <= 5'd31;
+				sel_readdata_mux_D[2] <= 5'd31;
+            sel_readdata_mux_D[3] <= 5'd31;
+				sel_readdata_mux_D[4] <= 5'd31;
+            sel_readdata_mux_D[5] <= 5'd31;
+				sel_readdata_mux_D[6] <= 5'd31;
+            sel_readdata_mux_D[7] <= 5'd31;
+				sel_readdata_mux_D[8] <= 5'd31;
+            sel_readdata_mux_D[9] <= 5'd31;
+				sel_readdata_mux_D[10] <= 5'd31;
+            sel_readdata_mux_D[11] <= 5'd31;
+				sel_readdata_mux_D[12] <= 5'd31;
+            sel_readdata_mux_D[13] <= 5'd31;
+				sel_readdata_mux_D[14] <= 5'd31;
+            sel_readdata_mux_D[15] <= 5'd31;
+				sel_readdata_mux_D[16] <= 5'd31;
+            sel_readdata_mux_D[17] <= 5'd31;
+				sel_readdata_mux_D[18] <= 5'd31;
+            sel_readdata_mux_D[19] <= 5'd31;
         end
         else begin
             case(inst_D[127:124])
@@ -718,10 +786,18 @@ end
     generate
         for (j = 0; j < 20; j = j + 1) begin : pipeline_register_I
             always @(posedge CLOCK_50) begin
-                sel_address_mux_I[j]<= sel_address_mux_D[j];
-                sel_writedata_mux_I[j]<= sel_writedata_mux_D[j];
-                sel_write_en_mux_I[j]<= sel_write_en_mux_D[j];
-                sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
+					if(reset)begin
+						 sel_address_mux_I[j]<= 5'd0;
+						 sel_writedata_mux_I[j]<= 5'd0;
+						 sel_write_en_mux_I[j]<= 5'd0;
+						 sel_readdata_mux_I[j]<= 5'd0;
+					end
+					else begin
+						 sel_address_mux_I[j]<= sel_address_mux_D[j];
+						 sel_writedata_mux_I[j]<= sel_writedata_mux_D[j];
+						 sel_write_en_mux_I[j]<= sel_write_en_mux_D[j];
+						 sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
+					end
             end
         end
     endgenerate
@@ -760,6 +836,21 @@ end
 	 if (reset) begin
 		   add_start_I <= 0;
          pool_start_I <= 0;
+			add_src1_start_address <= 0;
+			add_src2_start_address <= 0;
+			add_dest_start_address <= 0;
+			add_src1_row_size <= 0;
+         add_src1_col_size <= 0;
+         add_src2_row_size <= 0;
+         add_src2_col_size <= 0;
+			add_start_I <= 0;
+         pool_start_I <= 0;
+         pool_src1_start_address <= 0;
+         pool_dest_start_address <= 0;
+         pool_src1_row_size <= 0;
+         pool_src1_col_size <= 0;
+         pool_src2_row_size <= 0;
+         pool_src2_col_size <= 0;
 	 end
 	 else begin
         case(sel_D)
@@ -862,10 +953,18 @@ end
     generate
         for (m = 0; m < 20; m = m + 1) begin : pipeline_register_E
             always @(posedge CLOCK_50) begin
-                sel_address_mux_E[m]<= sel_address_mux_I[m];
-                sel_writedata_mux_E[m]<= sel_writedata_mux_I[m];
-                sel_write_en_mux_E[m]<= sel_write_en_mux_I[m];
-                sel_readdata_mux_E[m]<= sel_readdata_mux_I[m];
+					if(reset) begin
+						 sel_address_mux_E[m]<= 0;
+						 sel_writedata_mux_E[m]<= 0;
+						 sel_write_en_mux_E[m]<= 0;
+						 sel_readdata_mux_E[m]<= 0;
+					end
+					else begin
+						 sel_address_mux_E[m]<= sel_address_mux_I[m];
+						 sel_writedata_mux_E[m]<= sel_writedata_mux_I[m];
+						 sel_write_en_mux_E[m]<= sel_write_en_mux_I[m];
+						 sel_readdata_mux_E[m]<= sel_readdata_mux_I[m];
+					end
             end
         end
     endgenerate
@@ -1077,7 +1176,7 @@ end
     always @(posedge CLOCK_50) begin
         if(reset) begin
             inst_done_sram_address <= 9'd0;
-            inst_done_sram_writedata <= 8'b01111111;
+            inst_done_sram_writedata <= 8'b00000000;
             inst_done_sram_write <=0;
         end
         else begin

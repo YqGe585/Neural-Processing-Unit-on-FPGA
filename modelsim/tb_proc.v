@@ -24,7 +24,7 @@ module tb_proc;
     end
 
     initial begin
-        reset = 1;
+        // reset = 1;
         #50;
         reset = 0;
     end

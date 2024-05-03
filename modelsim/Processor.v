@@ -15,8 +15,8 @@ module NPU(
     reg [8:0] inst_sram_address = 9'd0; 
     reg inst_sram_write = 0;
 
-    wire [127:0] inst_done_sram_readdata ;
-    reg [127:0] inst_done_sram_writedata ;
+    wire [8:0] inst_done_sram_readdata ;
+    reg [8:0] inst_done_sram_writedata ;
     reg [8:0] inst_done_sram_address = 9'd0; 
     reg inst_done_sram_write = 0;
     
@@ -182,7 +182,6 @@ module NPU(
     // end
 
     // assign inst_D = inst_sram_readdata;
-    integer i0;
 
     always @(*) begin
         src1_sram_num = SRAM_NUM - (inst_D[111:104]>>1);
@@ -212,9 +211,7 @@ module NPU(
             sel_write_en_mux_D[src1_sram_num] <= 5'd31;
             sel_write_en_mux_D[src2_sram_num] <= 5'd31;
             sel_write_en_mux_D[dest_sram_num] <= 5'd31;
-            for (i0 = 0; i0 < 20; i0 = i0 + 1) begin
-                sel_readdata_mux_D[i0] <= 5'd0;
-            end
+            
         end
         else begin
             case(inst_D[127:124])
