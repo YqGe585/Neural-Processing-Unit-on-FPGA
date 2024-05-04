@@ -3,9 +3,9 @@ module matrix_relu(
     input reset,
     input start,
     output reg done,
-    input wire [14:0] src1_start_address,
-    input wire [14:0] src2_start_address,
-    output reg [14:0] src1_address,
+    input wire [11:0] src1_start_address,
+    input wire [11:0] src2_start_address,
+    output reg [11:0] src1_address,
     input wire signed [15:0] src1_readdata,
     output wire src1_write_en,
    // output reg [14:0] src2_address,
@@ -15,8 +15,8 @@ module matrix_relu(
     input wire [5:0] src1_col_size,
     input wire [5:0] src2_row_size,
     input wire [5:0] src2_col_size,
-    input wire [14:0] dest_start_address,
-    output reg [14:0] dest_address,
+    input wire [11:0] dest_start_address,
+    output reg [11:0] dest_address,
     output reg signed [15:0] dest_writedata,
     output reg dest_write_en
 );

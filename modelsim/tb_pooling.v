@@ -4,12 +4,12 @@ module matrix_maxpool_tb;
 
     // Inputs
     reg clk;
-    reg clk_300;
+    reg clk_250;
     reg reset;
     reg start;
     reg [11:0] src1_start_address;
-    wire [15:0] src1_data;
-    wire [15:0] src1_write_data;
+    wire signed [15:0] src1_data;
+    wire signed [15:0] src1_write_data;
     reg [5:0] src1_row_size;
     reg [5:0] src1_col_size;
     reg [5:0] src2_row_size;
@@ -18,10 +18,10 @@ module matrix_maxpool_tb;
 
     // Outputs
     wire done;
-    wire [11:0] src1_address;
+    wire [14:0] src1_address;
     wire src1_write_en;
-    wire [11:0] dest_address;
-    wire [15:0] dest_data;
+    wire [14:0] dest_address;
+    wire signed [15:0] dest_data;
     wire dest_write_en;
 
     // Instantiate the Unit Under Test (UUT)
@@ -45,7 +45,7 @@ module matrix_maxpool_tb;
     );
 
     M10K_sram src1(
-        .clk(clk_300),
+        .clk(clk_250),
         .we(src1_write_en),
         .q(src1_data),
         .d(src1_write_data),
@@ -54,7 +54,7 @@ module matrix_maxpool_tb;
 
 
     M10K_sram dest(
-        .clk(clk_300),
+        .clk(clk_250),
         .we(dest_write_en),
         .q(),
         .d(dest_data),
@@ -64,12 +64,12 @@ module matrix_maxpool_tb;
     // Clock generation
     initial begin
         clk = 0;
-        forever #60 clk = ~clk;  // 50MHz clock
+        forever #10 clk = ~clk;  // 50MHz clock
     end
 
     initial begin
-        clk_300 = 0;
-        forever #10 clk_300 = ~clk_300;  // 300MHz clock
+        clk_250 = 0;
+        forever #2 clk_250 = ~clk_250;  // 300MHz clock
     end
 
     // Initial Conditions and Test Sequence
@@ -77,12 +77,12 @@ module matrix_maxpool_tb;
         // Initialize Inputs
         reset = 1;
         start = 0;
-        src1_start_address = 15'd128;
+        src1_start_address = 15'd0;
         src1_row_size = 6'd8;  // Example size 32x32 matrix
         src1_col_size = 6'd8;
         src2_row_size = 6'd2;
         src2_col_size = 6'd2;
-        dest_start_address = 15'd256;
+        dest_start_address = 15'd0;
 
         // Wait for global reset to finish
         #600;

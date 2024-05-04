@@ -68,6 +68,12 @@
 		.inst_sram_s1_readdata           (<connected-to-inst_sram_s1_readdata>),           //                     .readdata
 		.inst_sram_s1_writedata          (<connected-to-inst_sram_s1_writedata>),          //                     .writedata
 		.inst_sram_s1_byteenable         (<connected-to-inst_sram_s1_byteenable>),         //                     .byteenable
+		.inst_valid_s1_address           (<connected-to-inst_valid_s1_address>),           //        inst_valid_s1.address
+		.inst_valid_s1_clken             (<connected-to-inst_valid_s1_clken>),             //                     .clken
+		.inst_valid_s1_chipselect        (<connected-to-inst_valid_s1_chipselect>),        //                     .chipselect
+		.inst_valid_s1_write             (<connected-to-inst_valid_s1_write>),             //                     .write
+		.inst_valid_s1_readdata          (<connected-to-inst_valid_s1_readdata>),          //                     .readdata
+		.inst_valid_s1_writedata         (<connected-to-inst_valid_s1_writedata>),         //                     .writedata
 		.memory_mem_a                    (<connected-to-memory_mem_a>),                    //               memory.mem_a
 		.memory_mem_ba                   (<connected-to-memory_mem_ba>),                   //                     .mem_ba
 		.memory_mem_ck                   (<connected-to-memory_mem_ck>),                   //                     .mem_ck
@@ -228,12 +234,6 @@
 		.sram_9_s1_writedata             (<connected-to-sram_9_s1_writedata>),             //                     .writedata
 		.sram_9_s1_byteenable            (<connected-to-sram_9_s1_byteenable>),            //                     .byteenable
 		.system_pll_ref_clk_clk          (<connected-to-system_pll_ref_clk_clk>),          //   system_pll_ref_clk.clk
-		.system_pll_ref_reset_reset      (<connected-to-system_pll_ref_reset_reset>),      // system_pll_ref_reset.reset
-		.inst_valid_s1_address           (<connected-to-inst_valid_s1_address>),           //        inst_valid_s1.address
-		.inst_valid_s1_clken             (<connected-to-inst_valid_s1_clken>),             //                     .clken
-		.inst_valid_s1_chipselect        (<connected-to-inst_valid_s1_chipselect>),        //                     .chipselect
-		.inst_valid_s1_write             (<connected-to-inst_valid_s1_write>),             //                     .write
-		.inst_valid_s1_readdata          (<connected-to-inst_valid_s1_readdata>),          //                     .readdata
-		.inst_valid_s1_writedata         (<connected-to-inst_valid_s1_writedata>)          //                     .writedata
+		.system_pll_ref_reset_reset      (<connected-to-system_pll_ref_reset_reset>)       // system_pll_ref_reset.reset
 	);
 

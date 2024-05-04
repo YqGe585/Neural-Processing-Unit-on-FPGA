@@ -69,6 +69,12 @@
 			inst_sram_s1_readdata           : out   std_logic_vector(127 downto 0);                    -- readdata
 			inst_sram_s1_writedata          : in    std_logic_vector(127 downto 0) := (others => 'X'); -- writedata
 			inst_sram_s1_byteenable         : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- byteenable
+			inst_valid_s1_address           : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
+			inst_valid_s1_clken             : in    std_logic                      := 'X';             -- clken
+			inst_valid_s1_chipselect        : in    std_logic                      := 'X';             -- chipselect
+			inst_valid_s1_write             : in    std_logic                      := 'X';             -- write
+			inst_valid_s1_readdata          : out   std_logic_vector(7 downto 0);                      -- readdata
+			inst_valid_s1_writedata         : in    std_logic_vector(7 downto 0)   := (others => 'X'); -- writedata
 			memory_mem_a                    : out   std_logic_vector(14 downto 0);                     -- mem_a
 			memory_mem_ba                   : out   std_logic_vector(2 downto 0);                      -- mem_ba
 			memory_mem_ck                   : out   std_logic;                                         -- mem_ck
@@ -229,13 +235,7 @@
 			sram_9_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_9_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
 			system_pll_ref_clk_clk          : in    std_logic                      := 'X';             -- clk
-			system_pll_ref_reset_reset      : in    std_logic                      := 'X';             -- reset
-			inst_valid_s1_address           : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
-			inst_valid_s1_clken             : in    std_logic                      := 'X';             -- clken
-			inst_valid_s1_chipselect        : in    std_logic                      := 'X';             -- chipselect
-			inst_valid_s1_write             : in    std_logic                      := 'X';             -- write
-			inst_valid_s1_readdata          : out   std_logic_vector(7 downto 0);                      -- readdata
-			inst_valid_s1_writedata         : in    std_logic_vector(7 downto 0)   := (others => 'X')  -- writedata
+			system_pll_ref_reset_reset      : in    std_logic                      := 'X'              -- reset
 		);
 	end component Computer_System;
 
@@ -310,6 +310,12 @@
 			inst_sram_s1_readdata           => CONNECTED_TO_inst_sram_s1_readdata,           --                     .readdata
 			inst_sram_s1_writedata          => CONNECTED_TO_inst_sram_s1_writedata,          --                     .writedata
 			inst_sram_s1_byteenable         => CONNECTED_TO_inst_sram_s1_byteenable,         --                     .byteenable
+			inst_valid_s1_address           => CONNECTED_TO_inst_valid_s1_address,           --        inst_valid_s1.address
+			inst_valid_s1_clken             => CONNECTED_TO_inst_valid_s1_clken,             --                     .clken
+			inst_valid_s1_chipselect        => CONNECTED_TO_inst_valid_s1_chipselect,        --                     .chipselect
+			inst_valid_s1_write             => CONNECTED_TO_inst_valid_s1_write,             --                     .write
+			inst_valid_s1_readdata          => CONNECTED_TO_inst_valid_s1_readdata,          --                     .readdata
+			inst_valid_s1_writedata         => CONNECTED_TO_inst_valid_s1_writedata,         --                     .writedata
 			memory_mem_a                    => CONNECTED_TO_memory_mem_a,                    --               memory.mem_a
 			memory_mem_ba                   => CONNECTED_TO_memory_mem_ba,                   --                     .mem_ba
 			memory_mem_ck                   => CONNECTED_TO_memory_mem_ck,                   --                     .mem_ck
@@ -470,12 +476,6 @@
 			sram_9_s1_writedata             => CONNECTED_TO_sram_9_s1_writedata,             --                     .writedata
 			sram_9_s1_byteenable            => CONNECTED_TO_sram_9_s1_byteenable,            --                     .byteenable
 			system_pll_ref_clk_clk          => CONNECTED_TO_system_pll_ref_clk_clk,          --   system_pll_ref_clk.clk
-			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset,      -- system_pll_ref_reset.reset
-			inst_valid_s1_address           => CONNECTED_TO_inst_valid_s1_address,           --        inst_valid_s1.address
-			inst_valid_s1_clken             => CONNECTED_TO_inst_valid_s1_clken,             --                     .clken
-			inst_valid_s1_chipselect        => CONNECTED_TO_inst_valid_s1_chipselect,        --                     .chipselect
-			inst_valid_s1_write             => CONNECTED_TO_inst_valid_s1_write,             --                     .write
-			inst_valid_s1_readdata          => CONNECTED_TO_inst_valid_s1_readdata,          --                     .readdata
-			inst_valid_s1_writedata         => CONNECTED_TO_inst_valid_s1_writedata          --                     .writedata
+			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset       -- system_pll_ref_reset.reset
 		);
 

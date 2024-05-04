@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/yg585/Desktop/lab3/Multiprocessor-Drum-Synthesis/modelsim
 vdemux1to16
-Z0 !s110 1714694883
+Z0 !s110 1714787453
 !i10b 1
 !s100 7K>6z1Plk;Y??h@gd^Xf]2
 I<iZhJBRml94=8hhghhfEm2
@@ -23,12 +23,34 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1714694883.000000
+Z5 !s108 1714787453.000000
 !s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/demux1to16.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/demux1to16.v|
 !i113 1
 Z6 o-work work
 Z7 tCvgOpt 0
+vfloatMuilt
+R0
+!i10b 1
+!s100 ZgNUH35Z9PmG[_fQah?d=1
+InHGTbgGHll1327EU;S?j50
+R1
+R2
+w1714764980
+8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/FP16_MULT.v
+FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/FP16_MULT.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/FP16_MULT.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/FP16_MULT.v|
+!i113 1
+R6
+R7
+nfloat@muilt
 vM10K_inst_done_sram
 R0
 !i10b 1
@@ -54,11 +76,11 @@ n@m10@k_inst_done_sram
 vM10K_inst_sram
 R0
 !i10b 1
-!s100 6bPfgbFZf8=l;dITWG@=g2
-IK9NYVEAa>Jz7H^D3mD37:0
+!s100 R=DN3TOTj@mT5Yzden08:2
+IE18GBYFDk[Szlf`SIP4`d0
 R1
 R2
-w1714618747
+w1714776303
 8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/inst_sram.v
 FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/inst_sram.v
 L0 3
@@ -99,20 +121,20 @@ vM10K_sram
 R0
 !i10b 1
 !s100 R:f4iH9b]LSK22Kgl=@U[2
-IoOUO3WjF?aVP:@B9[462O1
+IIMgIf`V31MLz61UPiL63z0
 R1
 R2
-R3
-8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
-FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+w1714776278
+8C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\sram.v
+FC:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\sram.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v|
+!s107 C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\sram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\sram.v|
 !i113 1
 R6
 R7
@@ -162,11 +184,11 @@ R7
 vmatrix_dot
 R0
 !i10b 1
-!s100 c7VbRj?i[[@lDH@81khRm0
-I_BkK<C>S`F<nci5nLG3MN0
+!s100 :QnK_H]LPcbho@J]NS4kB0
+I7CU0VZ57fVLU4SMD5U8cX3
 R1
 R2
-R3
+w1714787447
 8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/DOT.v
 FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/DOT.v
 L0 1
@@ -180,14 +202,35 @@ R5
 !i113 1
 R6
 R7
+vmatrix_dot_tb
+R0
+!i10b 1
+!s100 VimSeNUige:k>Q4QKJ6`i2
+I_g4=1;0I_fI:Eh8GWKn5R3
+R1
+R2
+w1714784897
+8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v
+FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v|
+!i113 1
+R6
+R7
 vmatrix_maxpool
 R0
 !i10b 1
-!s100 fTUh5Fgn<Wh;iPoFfBXJ]1
-I^eZiaAFj4aemPJPd[i7QX1
+!s100 nIZKNCBACU4cKNTk1Mn_22
+I9[hS=O:POe9kfPQJKTjLV0
 R1
 R2
-w1714601764
+w1714778226
 8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
 FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
 L0 1
@@ -204,21 +247,21 @@ R7
 vmatrix_maxpool_tb
 R0
 !i10b 1
-!s100 8Hd[1FOm@WO<9m4KUlc0k3
-IPmCncebZ973eR2Ej=C>Fa2
+!s100 nREc6YEaaANOfdnld6AKM0
+IQU2hdCgfinbXI_m<DkD==0
 R1
 R2
-R3
-8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v
-FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v
+w1714777773
+8C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\tb_pooling.v
+FC:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\tb_pooling.v
 L0 3
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v|
+!s107 C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\tb_pooling.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\yg585\Desktop\Neural-Processing-Unit-on-FPGA\modelsim\tb_pooling.v|
 !i113 1
 R6
 R7
@@ -261,6 +304,48 @@ r1
 R5
 !s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_MULT.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_MULT.v|
+!i113 1
+R6
+R7
+vmatrix_relu
+R0
+!i10b 1
+!s100 0e9JAWBjE5dUEHS1QlGBW1
+IUa0PXV7CeB;VCX9YC2<eC0
+R1
+R2
+w1714777211
+8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v|
+!i113 1
+R6
+R7
+vmatrix_relu_tb
+R0
+!i10b 1
+!s100 ?T3BahHP3K1O?1U8`O7Om0
+IHXEI5i<fBZc5gbHQW5>;e1
+R1
+R2
+w1714774174
+8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v
+FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v|
 !i113 1
 R6
 R7
@@ -309,11 +394,11 @@ R7
 vNPU
 R0
 !i10b 1
-!s100 VmdfZK^BmRIz_f@U:M68J1
-IiRYRaOnL5BOQ3m_RBmj]a1
+!s100 ghX2^QZ6UdhO]BYNATZYk2
+INV>D]54fKG79:G0Qc5O_L0
 R1
 R2
-w1714686602
+w1714776797
 8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v
 FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v
 L0 1
@@ -349,6 +434,28 @@ R5
 !i113 1
 R6
 R7
+vtb_floatMuilt
+R0
+!i10b 1
+!s100 >mlD6JMLVHAJX<e<7O5h90
+IB7;ZBAfin[E421b>DzmiQ1
+R1
+R2
+w1714765157
+8C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v
+FC:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v|
+!i113 1
+R6
+R7
+ntb_float@muilt
 vtb_proc
 R0
 !i10b 1
@@ -364,7 +471,7 @@ R4
 r1
 !s85 0
 31
-R5
+!s108 1714787452.000000
 !s107 C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_proc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_proc.v|
 !i113 1

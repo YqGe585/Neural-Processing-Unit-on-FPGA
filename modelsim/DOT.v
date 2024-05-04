@@ -3,67 +3,128 @@ module matrix_dot(
     input reset,
     input start,
     output reg done,
-    input [11:0] src1_start_address,
-    input [11:0] src2_start_address,
+    input wire [11:0] src1_start_address,
+    input wire [11:0] src2_start_address,
     output reg [11:0] src1_address,
-    input [15:0] src1_readdata,
+    input wire [15:0] src1_readdata,
     output reg [11:0] src2_address,
-    input [15:0] src2_readdata,
-    input [5:0] src1_row_size,
-    input [5:0] src1_col_size,
-    input [5:0] src2_row_size,
-    input [5:0] src2_col_size,
-    input [11:0] dest_start_address,
+    input wire [15:0] src2_readdata,
+    input wire [5:0] src1_row_size,
+    input wire [5:0] src1_col_size,
+    input wire [5:0] src2_row_size,
+    input wire [5:0] src2_col_size,
+    input wire [11:0] dest_start_address,
     output reg [11:0] dest_address,
-    output reg [15:0] dest_writedata,
+    output wire [15:0] dest_writedata,
     output reg dest_write_en
 );
 
+    // States
+    localparam IDLE = 0,
+               CALC = 1,
+               WRITE = 2,
+               DONE = 3;
+
+    // State register
+    reg [2:0] state, next_state;
+
+    // Intermediate data and address registers
+    wire [15:0] product;
     reg [5:0] i, j, k;
     reg [15:0] sum;
-    reg calculating;
 
-    always @(posedge clk) begin
+    assign dest_writedata = sum;
+    // State machine transitions
+    always @(posedge clk, posedge reset) begin
         if (reset) begin
-            done <= 0;
-            dest_write_en <= 0;
-            i <= 0;
-            j <= 0;
-            k <= 0;
-            sum <= 0;
-            calculating <= 0;
-        end else if (start && !calculating) begin
-            // Start the matrix multiplication process
-            calculating <= 1;
-            i <= 0;
-            j <= 0;
-            k <= 0;
-            sum <= 0;
-        end else if (calculating) begin
-            if (i < src1_row_size && j < src2_col_size) begin
-                if (k < src1_col_size) begin
-                    // Calculate addresses for source matrices
-                    src1_address <= src1_start_address + (i * src1_col_size + k);
-                    src2_address <= src2_start_address + (k * src2_col_size + j);
-                    sum <= sum + src1_readdata * src2_readdata;
-                    k <= k + 1;
-                end else begin
-                    // Write the result to the destination matrix
-                    dest_address <= dest_start_address + (i * src2_col_size + j);
-                    dest_writedata <= sum;
-                    dest_write_en <= 1;
-                    sum <= 0;
-                    k <= 0;
-                    j <= j + 1;
-                    if (j == src2_col_size) begin
-                        j <= 0;
-                        i <= i + 1;
-                    end
-                end
-            end else begin
-                done <= 1;
-                calculating <= 0;
-            end
+            state <= IDLE;
+        end else begin
+            state <= next_state;
         end
     end
+
+    always @(*) begin
+        case(state)
+            IDLE: begin
+                done = 0;
+                if (start)
+                    next_state = CALC;
+                else
+                    next_state = IDLE;
+                    done = 1;
+            end
+            CALC: begin
+                done = 0;
+                if  ( j == src1_row_size-1) begin
+                    next_state = WRITE;
+                end
+                else begin
+                    next_state = CALC;
+                end
+            end
+            WRITE: begin
+                done = 0;
+                if  ( k == src1_col_size) begin
+                    next_state = DONE;
+                end
+                else begin
+                    next_state = CALC;
+                end
+            end
+            DONE: begin
+                next_state = IDLE;
+                done = 1;
+            end
+            default: begin
+                next_state = IDLE;
+                done = 1;
+            end
+
+        endcase
+    end
+
+    always @(posedge clk) begin
+        case(state)
+            IDLE: begin
+                dest_write_en <= 0;
+                i <= 1;
+                j <= 0;
+                sum <= 0;
+                src1_address <= src1_start_address;
+                src2_address <= src2_start_address;
+                dest_address <= dest_start_address;
+                k<=0;
+            end
+            CALC: begin
+                src1_address <= src1_address + 1;
+                src2_address <= src2_address + src2_row_size;
+                sum <= sum + product;
+                j<=j+1;
+                if(j==src1_row_size-1) begin
+                    dest_write_en <= 1;
+                    k<=k+1;
+                end
+                else begin
+                    dest_write_en <= 0;
+                end
+            end
+            WRITE: begin
+                src2_address <= src2_start_address+i;
+                src1_address <= src1_start_address+;
+                i<=i+1;
+                j<=0;
+                dest_write_en <= 0;
+            end
+            DONE: begin
+                k<=0;
+            end
+        endcase
+    end
+
+    signed_mult mul(
+        .a(src1_readdata),
+        .b(src2_readdata),
+        .out(product)
+    );
+
 endmodule

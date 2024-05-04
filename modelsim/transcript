@@ -1,139 +1,94 @@
-# Compile of tb_proc.v was successful.
-# Compile of ADD.v was successful.
-# Compile of demux1to16.v was successful.
-# Compile of DOT.v was successful.
-# Compile of fixed_point_mult.v was successful.
-# Compile of inst_sram.v was successful.
-# Compile of MULT.v was successful.
-# Compile of mux8to1.v was successful.
-# Compile of mux24to1.v was successful.
-# Compile of pooling.v was successful.
-# Compile of Processor.v was successful.
-# Compile of sram.v was successful.
-# Compile of tb_ADD.v was successful.
-# Compile of tb_MULT.v was successful.
-# Compile of tb_pooling.v was successful.
-# Compile of done_sram.v was successful.
-# 16 compiles, 0 failed with no errors.
-vsim work.tb_proc
-# vsim work.tb_proc 
-# Start time: 17:48:27 on May 02,2024
-# Loading work.tb_proc
-# Loading work.NPU
-# Loading work.M10K_inst_sram
-# Loading work.M10K_inst_done_sram
+vsim work.matrix_addition_tb
+# vsim work.matrix_addition_tb 
+# Start time: 14:17:12 on May 03,2024
+# Loading work.matrix_addition_tb
 # Loading work.matrix_addition
-# Loading work.matrix_maxpool
-# Loading work.mux24to1
 # Loading work.M10K_sram
-# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (8) does not match connection size (128) for port 'q'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
-# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (8) does not match connection size (128) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src2_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(8).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'src2_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(20).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (12) does not match connection size (15) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(33): [PCDPC] - Port size (16) does not match connection size (1) for port 'dest_writedata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v(23).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/ADD.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(59): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(67): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_ADD.v(75): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_addition_tb/dest File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position end  sim:/matrix_addition_tb/uut/clk
+add wave -position end  sim:/matrix_addition_tb/uut/reset
+add wave -position end  sim:/matrix_addition_tb/uut/start
+add wave -position end  sim:/matrix_addition_tb/uut/done
+add wave -position end  sim:/matrix_addition_tb/uut/src1_start_address
+add wave -position end  sim:/matrix_addition_tb/uut/src2_start_address
+add wave -position end  sim:/matrix_addition_tb/uut/src1_address
+add wave -position end  sim:/matrix_addition_tb/uut/src1_readdata
+add wave -position end  sim:/matrix_addition_tb/uut/src1_writedata
+add wave -position end  sim:/matrix_addition_tb/uut/src1_write_en
+add wave -position end  sim:/matrix_addition_tb/uut/src2_address
+add wave -position end  sim:/matrix_addition_tb/uut/src2_readdata
+add wave -position end  sim:/matrix_addition_tb/uut/src2_writedata
+add wave -position end  sim:/matrix_addition_tb/uut/src2_write_en
+add wave -position end  sim:/matrix_addition_tb/uut/src1_row_size
+add wave -position end  sim:/matrix_addition_tb/uut/src1_col_size
+add wave -position end  sim:/matrix_addition_tb/uut/src2_row_size
+add wave -position end  sim:/matrix_addition_tb/uut/src2_col_size
+add wave -position end  sim:/matrix_addition_tb/uut/dest_start_address
+add wave -position end  sim:/matrix_addition_tb/uut/dest_address
+add wave -position end  sim:/matrix_addition_tb/uut/dest_readdata
+add wave -position end  sim:/matrix_addition_tb/uut/dest_writedata
+add wave -position end  sim:/matrix_addition_tb/uut/dest_write_en
+add wave -position end  sim:/matrix_addition_tb/uut/row_count
+add wave -position end  sim:/matrix_addition_tb/uut/col_count
+add wave -position end  sim:/matrix_addition_tb/uut/state
+run 10us
+vsim work.matrix_maxpool_tb
+# End time: 15:13:10 on May 03,2024, Elapsed time: 0:55:58
+# Errors: 0, Warnings: 10
+# vsim work.matrix_maxpool_tb 
+# Start time: 15:13:10 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
 add wave -position insertpoint  \
-sim:/tb_proc/npu/SRAM_NUM \
-sim:/tb_proc/npu/CLOCK_50 \
-sim:/tb_proc/npu/CLOCK_250 \
-sim:/tb_proc/npu/reset \
-sim:/tb_proc/npu/sram_readdata \
-sim:/tb_proc/npu/sram_writedata \
-sim:/tb_proc/npu/sram_address \
-sim:/tb_proc/npu/sram_write \
-sim:/tb_proc/npu/inst_sram_readdata \
-sim:/tb_proc/npu/inst_sram_writedata \
-sim:/tb_proc/npu/inst_sram_address \
-sim:/tb_proc/npu/inst_sram_write \
-sim:/tb_proc/npu/inst_done_sram_readdata \
-sim:/tb_proc/npu/inst_done_sram_writedata \
-sim:/tb_proc/npu/inst_done_sram_address \
-sim:/tb_proc/npu/inst_done_sram_write \
-sim:/tb_proc/npu/add_src1_address \
-sim:/tb_proc/npu/add_src2_address \
-sim:/tb_proc/npu/add_dest_address \
-sim:/tb_proc/npu/add_src1_start_address \
-sim:/tb_proc/npu/add_src2_start_address \
-sim:/tb_proc/npu/add_dest_start_address \
-sim:/tb_proc/npu/add_dest_readdata \
-sim:/tb_proc/npu/add_src1_readdata \
-sim:/tb_proc/npu/add_src2_readdata \
-sim:/tb_proc/npu/add_dest_writedata \
-sim:/tb_proc/npu/add_src1_writedata \
-sim:/tb_proc/npu/add_src2_writedata \
-sim:/tb_proc/npu/add_src1_row_size \
-sim:/tb_proc/npu/add_src1_col_size \
-sim:/tb_proc/npu/add_src2_row_size \
-sim:/tb_proc/npu/add_src2_col_size \
-sim:/tb_proc/npu/add_src1_write_en \
-sim:/tb_proc/npu/add_src2_write_en \
-sim:/tb_proc/npu/add_dest_write_en \
-sim:/tb_proc/npu/add_start \
-sim:/tb_proc/npu/add_done \
-sim:/tb_proc/npu/pool_src1_address \
-sim:/tb_proc/npu/pool_src2_address \
-sim:/tb_proc/npu/pool_dest_address \
-sim:/tb_proc/npu/pool_src1_start_address \
-sim:/tb_proc/npu/pool_src2_start_address \
-sim:/tb_proc/npu/pool_dest_start_address \
-sim:/tb_proc/npu/pool_dest_readdata \
-sim:/tb_proc/npu/pool_src1_readdata \
-sim:/tb_proc/npu/pool_src2_readdata \
-sim:/tb_proc/npu/pool_dest_writedata \
-sim:/tb_proc/npu/pool_src1_writedata \
-sim:/tb_proc/npu/pool_src2_writedata \
-sim:/tb_proc/npu/pool_src1_row_size \
-sim:/tb_proc/npu/pool_src1_col_size \
-sim:/tb_proc/npu/pool_src2_row_size \
-sim:/tb_proc/npu/pool_src2_col_size \
-sim:/tb_proc/npu/pool_src1_write_en \
-sim:/tb_proc/npu/pool_src2_write_en \
-sim:/tb_proc/npu/pool_dest_write_en \
-sim:/tb_proc/npu/pool_start \
-sim:/tb_proc/npu/pool_done \
-sim:/tb_proc/npu/inst_D \
-sim:/tb_proc/npu/src1_address_D \
-sim:/tb_proc/npu/src2_address_D \
-sim:/tb_proc/npu/dest_address_D \
-sim:/tb_proc/npu/src1_sram_num_D \
-sim:/tb_proc/npu/src2_sram_num_D \
-sim:/tb_proc/npu/dest_sram_num_D \
-sim:/tb_proc/npu/src1_row_D \
-sim:/tb_proc/npu/src1_col_D \
-sim:/tb_proc/npu/src2_row_D \
-sim:/tb_proc/npu/src2_col_D \
-sim:/tb_proc/npu/sel_D \
-sim:/tb_proc/npu/sel_address_mux_D \
-sim:/tb_proc/npu/sel_writedata_mux_D \
-sim:/tb_proc/npu/sel_write_en_mux_D \
-sim:/tb_proc/npu/sel_readdata_mux_D \
-sim:/tb_proc/npu/src1_sram_num \
-sim:/tb_proc/npu/src2_sram_num \
-sim:/tb_proc/npu/dest_sram_num \
-sim:/tb_proc/npu/src1_address_I \
-sim:/tb_proc/npu/src2_address_I \
-sim:/tb_proc/npu/dest_address_I \
-sim:/tb_proc/npu/src1_sram_num_I \
-sim:/tb_proc/npu/src2_sram_num_I \
-sim:/tb_proc/npu/dest_sram_num_I \
-sim:/tb_proc/npu/src1_row_I \
-sim:/tb_proc/npu/src1_col_I \
-sim:/tb_proc/npu/src2_row_I \
-sim:/tb_proc/npu/src2_col_I \
-sim:/tb_proc/npu/sel_I \
-sim:/tb_proc/npu/add_start_I \
-sim:/tb_proc/npu/pool_start_I \
-sim:/tb_proc/npu/sel_address_mux_I \
-sim:/tb_proc/npu/sel_writedata_mux_I \
-sim:/tb_proc/npu/sel_write_en_mux_I \
-sim:/tb_proc/npu/sel_readdata_mux_I \
-sim:/tb_proc/npu/add_start_E \
-sim:/tb_proc/npu/pool_start_E \
-sim:/tb_proc/npu/sel_address_mux_E \
-sim:/tb_proc/npu/sel_writedata_mux_E \
-sim:/tb_proc/npu/sel_write_en_mux_E \
-sim:/tb_proc/npu/sel_readdata_mux_E \
-sim:/tb_proc/npu/add_done_prev \
-sim:/tb_proc/npu/pool_done_prev
+sim:/matrix_maxpool_tb/uut/clk \
+sim:/matrix_maxpool_tb/uut/reset \
+sim:/matrix_maxpool_tb/uut/start \
+sim:/matrix_maxpool_tb/uut/done \
+sim:/matrix_maxpool_tb/uut/src1_start_address \
+sim:/matrix_maxpool_tb/uut/src1_address \
+sim:/matrix_maxpool_tb/uut/src1_readdata \
+sim:/matrix_maxpool_tb/uut/src1_write_en \
+sim:/matrix_maxpool_tb/uut/src1_row_size \
+sim:/matrix_maxpool_tb/uut/src1_col_size \
+sim:/matrix_maxpool_tb/uut/src2_row_size \
+sim:/matrix_maxpool_tb/uut/src2_col_size \
+sim:/matrix_maxpool_tb/uut/dest_start_address \
+sim:/matrix_maxpool_tb/uut/dest_address \
+sim:/matrix_maxpool_tb/uut/dest_writedata \
+sim:/matrix_maxpool_tb/uut/dest_write_en \
+sim:/matrix_maxpool_tb/uut/row_count \
+sim:/matrix_maxpool_tb/uut/col_count \
+sim:/matrix_maxpool_tb/uut/row_index \
+sim:/matrix_maxpool_tb/uut/col_index \
+sim:/matrix_maxpool_tb/uut/max_pool \
+sim:/matrix_maxpool_tb/uut/state \
+sim:/matrix_maxpool_tb/uut/val
 run 100us
+# Test completed. Final address and data: 100, 5786
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(107)
+#    Time: 11700 ns  Iteration: 0  Instance: /matrix_maxpool_tb
+# 1
+# Break in Module matrix_maxpool_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v line 107
 # Compile of tb_proc.v was successful.
 # Compile of ADD.v was successful.
 # Compile of demux1to16.v was successful.
@@ -150,24 +105,643 @@ run 100us
 # Compile of tb_MULT.v was successful.
 # Compile of tb_pooling.v was successful.
 # Compile of done_sram.v was successful.
-# 16 compiles, 0 failed with no errors.
-vsim work.tb_proc
-# End time: 20:08:06 on May 02,2024, Elapsed time: 2:19:39
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.tb_floatMuilt
+# End time: 15:38:18 on May 03,2024, Elapsed time: 0:25:08
+# Errors: 0, Warnings: 0
+# vsim work.tb_floatMuilt 
+# Start time: 15:38:19 on May 03,2024
+# Loading work.tb_floatMuilt
+# Loading work.floatMuilt
+run 1us
+# ** Note: $stop    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v(25)
+#    Time: 160 ps  Iteration: 0  Instance: /tb_floatMuilt
+# Break in Module tb_floatMuilt at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v line 25
+restart
+add wave -position insertpoint  \
+sim:/tb_floatMuilt/inst_floatMuilt/floatA \
+sim:/tb_floatMuilt/inst_floatMuilt/floatB \
+sim:/tb_floatMuilt/inst_floatMuilt/product \
+sim:/tb_floatMuilt/inst_floatMuilt/sign \
+sim:/tb_floatMuilt/inst_floatMuilt/exponent \
+sim:/tb_floatMuilt/inst_floatMuilt/mantissa \
+sim:/tb_floatMuilt/inst_floatMuilt/fractionA \
+sim:/tb_floatMuilt/inst_floatMuilt/fractionB \
+sim:/tb_floatMuilt/inst_floatMuilt/fraction
+run 1us
+# ** Note: $stop    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v(25)
+#    Time: 160 ps  Iteration: 0  Instance: /tb_floatMuilt
+# Break in Module tb_floatMuilt at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v line 25
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.tb_floatMuilt
+# End time: 15:39:32 on May 03,2024, Elapsed time: 0:01:13
+# Errors: 0, Warnings: 0
+# vsim work.tb_floatMuilt 
+# Start time: 15:39:32 on May 03,2024
+# Loading work.tb_floatMuilt
+# Loading work.floatMuilt
+add wave -position insertpoint  \
+sim:/tb_floatMuilt/inst_floatMuilt/floatA \
+sim:/tb_floatMuilt/inst_floatMuilt/floatB \
+sim:/tb_floatMuilt/inst_floatMuilt/product \
+sim:/tb_floatMuilt/inst_floatMuilt/sign \
+sim:/tb_floatMuilt/inst_floatMuilt/exponent \
+sim:/tb_floatMuilt/inst_floatMuilt/mantissa \
+sim:/tb_floatMuilt/inst_floatMuilt/fractionA \
+sim:/tb_floatMuilt/inst_floatMuilt/fractionB \
+sim:/tb_floatMuilt/inst_floatMuilt/fraction
+run 100ns
+run 300ns
+# ** Note: $stop    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v(27)
+#    Time: 160 ns  Iteration: 0  Instance: /tb_floatMuilt
+# Break in Module tb_floatMuilt at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_FP16_MULT.v line 27
+vsim work.matrix_maxpool_tb
+# End time: 17:46:22 on May 03,2024, Elapsed time: 2:06:50
+# Errors: 0, Warnings: 0
+# vsim work.matrix_maxpool_tb 
+# Start time: 17:46:22 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.matrix_maxpool_tb
+# End time: 17:47:13 on May 03,2024, Elapsed time: 0:00:51
+# Errors: 0, Warnings: 0
+# vsim work.matrix_maxpool_tb 
+# Start time: 17:47:13 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
+add wave -position insertpoint  \
+sim:/matrix_maxpool_tb/uut/clk \
+sim:/matrix_maxpool_tb/uut/reset \
+sim:/matrix_maxpool_tb/uut/start \
+sim:/matrix_maxpool_tb/uut/done \
+sim:/matrix_maxpool_tb/uut/src1_start_address \
+sim:/matrix_maxpool_tb/uut/src1_address \
+sim:/matrix_maxpool_tb/uut/src1_readdata \
+sim:/matrix_maxpool_tb/uut/src1_write_en \
+sim:/matrix_maxpool_tb/uut/src1_row_size \
+sim:/matrix_maxpool_tb/uut/src1_col_size \
+sim:/matrix_maxpool_tb/uut/src2_row_size \
+sim:/matrix_maxpool_tb/uut/src2_col_size \
+sim:/matrix_maxpool_tb/uut/dest_start_address \
+sim:/matrix_maxpool_tb/uut/dest_address \
+sim:/matrix_maxpool_tb/uut/dest_writedata \
+sim:/matrix_maxpool_tb/uut/dest_write_en \
+sim:/matrix_maxpool_tb/uut/row_count \
+sim:/matrix_maxpool_tb/uut/col_count \
+sim:/matrix_maxpool_tb/uut/row_index \
+sim:/matrix_maxpool_tb/uut/col_index \
+sim:/matrix_maxpool_tb/uut/max_pool \
+sim:/matrix_maxpool_tb/uut/state \
+sim:/matrix_maxpool_tb/uut/val
+run 1us
+run 100us
+# Test completed. Final address and data: 100, 00bf
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(107)
+#    Time: 11700 ns  Iteration: 0  Instance: /matrix_maxpool_tb
+# 1
+# Break in Module matrix_maxpool_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v line 107
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.matrix_maxpool_tb
+# End time: 17:49:31 on May 03,2024, Elapsed time: 0:02:18
+# Errors: 0, Warnings: 0
+# vsim work.matrix_maxpool_tb 
+# Start time: 17:49:31 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_source1_sram
+add wave -position insertpoint  \
+sim:/matrix_maxpool_tb/clk \
+sim:/matrix_maxpool_tb/clk_250 \
+sim:/matrix_maxpool_tb/reset \
+sim:/matrix_maxpool_tb/start \
+sim:/matrix_maxpool_tb/src1_start_address \
+sim:/matrix_maxpool_tb/src1_data \
+sim:/matrix_maxpool_tb/src1_write_data \
+sim:/matrix_maxpool_tb/src1_row_size \
+sim:/matrix_maxpool_tb/src1_col_size \
+sim:/matrix_maxpool_tb/src2_row_size \
+sim:/matrix_maxpool_tb/src2_col_size \
+sim:/matrix_maxpool_tb/dest_start_address \
+sim:/matrix_maxpool_tb/done \
+sim:/matrix_maxpool_tb/src1_address \
+sim:/matrix_maxpool_tb/src1_write_en \
+sim:/matrix_maxpool_tb/dest_address \
+sim:/matrix_maxpool_tb/dest_data \
+sim:/matrix_maxpool_tb/dest_write_en
+run 1us
+run 100us
+# Test completed. Final address and data: 0100, 5786
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(107)
+#    Time: 3450 ns  Iteration: 0  Instance: /matrix_maxpool_tb
+# 1
+# Break in Module matrix_maxpool_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v line 107
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# 18 compiles, 0 failed with no errors.
+vsim work.matrix_maxpool_tb
+# End time: 17:52:31 on May 03,2024, Elapsed time: 0:03:00
+# Errors: 0, Warnings: 0
+# vsim work.matrix_maxpool_tb 
+# Start time: 17:52:31 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(47): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(56): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/dest File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_maxpool_tb/clk \
+sim:/matrix_maxpool_tb/clk_250 \
+sim:/matrix_maxpool_tb/reset \
+sim:/matrix_maxpool_tb/start \
+sim:/matrix_maxpool_tb/src1_start_address \
+sim:/matrix_maxpool_tb/src1_data \
+sim:/matrix_maxpool_tb/src1_write_data \
+sim:/matrix_maxpool_tb/src1_row_size \
+sim:/matrix_maxpool_tb/src1_col_size \
+sim:/matrix_maxpool_tb/src2_row_size \
+sim:/matrix_maxpool_tb/src2_col_size \
+sim:/matrix_maxpool_tb/dest_start_address \
+sim:/matrix_maxpool_tb/done \
+sim:/matrix_maxpool_tb/src1_address \
+sim:/matrix_maxpool_tb/src1_write_en \
+sim:/matrix_maxpool_tb/dest_address \
+sim:/matrix_maxpool_tb/dest_data \
+sim:/matrix_maxpool_tb/dest_write_en
+run 100us
+# Test completed. Final address and data: 0100, 00bf
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(107)
+#    Time: 3450 ns  Iteration: 0  Instance: /matrix_maxpool_tb
+# 1
+# Break in Module matrix_maxpool_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v line 107
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.matrix_relu_tb
+# End time: 18:05:40 on May 03,2024, Elapsed time: 0:13:09
 # Errors: 0, Warnings: 2
+# vsim work.matrix_relu_tb 
+# Start time: 18:05:40 on May 03,2024
+# Loading work.matrix_relu_tb
+# Loading work.matrix_relu
+# Loading work.M10K_source1_sram
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Missing connection for port 'src2_start_address'.
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(56): [PCDPC] - Port size (15) does not match connection size (12) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/src1 File: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(73): [PCDPC] - Port size (15) does not match connection size (12) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/dest File: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v
+# Compile of sram.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.matrix_relu_tb
+# End time: 18:08:01 on May 03,2024, Elapsed time: 0:02:21
+# Errors: 0, Warnings: 5
+# vsim work.matrix_relu_tb 
+# Start time: 18:08:01 on May 03,2024
+# Loading work.matrix_relu_tb
+# Loading work.matrix_relu
+# Loading work.M10K_source1_sram
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Missing connection for port 'src2_start_address'.
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(56): [PCDPC] - Port size (15) does not match connection size (12) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/src1 File: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(73): [PCDPC] - Port size (15) does not match connection size (12) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/dest File: C:/Users/yg585/Desktop/NPU/modelsim/source1_sram.v
+add wave -position insertpoint  \
+sim:/matrix_relu_tb/uut/clk \
+sim:/matrix_relu_tb/uut/reset \
+sim:/matrix_relu_tb/uut/start \
+sim:/matrix_relu_tb/uut/done \
+sim:/matrix_relu_tb/uut/src1_start_address \
+sim:/matrix_relu_tb/uut/src2_start_address \
+sim:/matrix_relu_tb/uut/src1_address \
+sim:/matrix_relu_tb/uut/src1_readdata \
+sim:/matrix_relu_tb/uut/src1_write_en \
+sim:/matrix_relu_tb/uut/src1_row_size \
+sim:/matrix_relu_tb/uut/src1_col_size \
+sim:/matrix_relu_tb/uut/src2_row_size \
+sim:/matrix_relu_tb/uut/src2_col_size \
+sim:/matrix_relu_tb/uut/dest_start_address \
+sim:/matrix_relu_tb/uut/dest_address \
+sim:/matrix_relu_tb/uut/dest_writedata \
+sim:/matrix_relu_tb/uut/dest_write_en \
+sim:/matrix_relu_tb/uut/row_count \
+sim:/matrix_relu_tb/uut/col_count \
+sim:/matrix_relu_tb/uut/state
+run 100us
+# Test completed. Final address and data: 080, xxxx
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(125)
+#    Time: 32820 ns  Iteration: 0  Instance: /matrix_relu_tb
+# 1
+# Break in Module matrix_relu_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v line 125
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.matrix_relu_tb
+# End time: 18:09:51 on May 03,2024, Elapsed time: 0:01:50
+# Errors: 0, Warnings: 5
+# vsim work.matrix_relu_tb 
+# Start time: 18:09:51 on May 03,2024
+# Loading work.matrix_relu_tb
+# Loading work.matrix_relu
+# Loading work.M10K_sram
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Missing connection for port 'src2_start_address'.
+add wave -position insertpoint  \
+sim:/matrix_relu_tb/uut/clk \
+sim:/matrix_relu_tb/uut/reset \
+sim:/matrix_relu_tb/uut/start \
+sim:/matrix_relu_tb/uut/done \
+sim:/matrix_relu_tb/uut/src1_start_address \
+sim:/matrix_relu_tb/uut/src2_start_address \
+sim:/matrix_relu_tb/uut/src1_address \
+sim:/matrix_relu_tb/uut/src1_readdata \
+sim:/matrix_relu_tb/uut/src1_write_en \
+sim:/matrix_relu_tb/uut/src1_row_size \
+sim:/matrix_relu_tb/uut/src1_col_size \
+sim:/matrix_relu_tb/uut/src2_row_size \
+sim:/matrix_relu_tb/uut/src2_col_size \
+sim:/matrix_relu_tb/uut/dest_start_address \
+sim:/matrix_relu_tb/uut/dest_address \
+sim:/matrix_relu_tb/uut/dest_writedata \
+sim:/matrix_relu_tb/uut/dest_write_en \
+sim:/matrix_relu_tb/uut/row_count \
+sim:/matrix_relu_tb/uut/col_count \
+sim:/matrix_relu_tb/uut/state
+run 100us
+# Test completed. Final address and data: 080, 013f
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(117)
+#    Time: 32820 ns  Iteration: 0  Instance: /matrix_relu_tb
+# 1
+# Break in Module matrix_relu_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v line 117
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.matrix_relu_tb
+# End time: 18:10:53 on May 03,2024, Elapsed time: 0:01:02
+# Errors: 0, Warnings: 3
+# vsim work.matrix_relu_tb 
+# Start time: 18:10:53 on May 03,2024
+# Loading work.matrix_relu_tb
+# Loading work.matrix_relu
+# Loading work.M10K_sram
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_relu_tb/uut File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(33): [TFMPC] - Missing connection for port 'src2_start_address'.
+add wave -position insertpoint  \
+sim:/matrix_relu_tb/uut/clk \
+sim:/matrix_relu_tb/uut/reset \
+sim:/matrix_relu_tb/uut/start \
+sim:/matrix_relu_tb/uut/done \
+sim:/matrix_relu_tb/uut/src1_start_address \
+sim:/matrix_relu_tb/uut/src2_start_address \
+sim:/matrix_relu_tb/uut/src1_address \
+sim:/matrix_relu_tb/uut/src1_readdata \
+sim:/matrix_relu_tb/uut/src1_write_en \
+sim:/matrix_relu_tb/uut/src1_row_size \
+sim:/matrix_relu_tb/uut/src1_col_size \
+sim:/matrix_relu_tb/uut/src2_row_size \
+sim:/matrix_relu_tb/uut/src2_col_size \
+sim:/matrix_relu_tb/uut/dest_start_address \
+sim:/matrix_relu_tb/uut/dest_address \
+sim:/matrix_relu_tb/uut/dest_writedata \
+sim:/matrix_relu_tb/uut/dest_write_en \
+sim:/matrix_relu_tb/uut/row_count \
+sim:/matrix_relu_tb/uut/col_count \
+sim:/matrix_relu_tb/uut/state
+run 100us
+# Test completed. Final address and data: 080, 00b7
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v(117)
+#    Time: 32820 ns  Iteration: 0  Instance: /matrix_relu_tb
+# 1
+# Break in Module matrix_relu_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_relu.v line 117
+vsim work.matrix_maxpool_tb
+# End time: 18:29:04 on May 03,2024, Elapsed time: 0:18:11
+# Errors: 0, Warnings: 3
+# vsim work.matrix_maxpool_tb 
+# Start time: 18:29:04 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(47): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(56): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/dest File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_maxpool_tb/clk \
+sim:/matrix_maxpool_tb/clk_250 \
+sim:/matrix_maxpool_tb/reset \
+sim:/matrix_maxpool_tb/start \
+sim:/matrix_maxpool_tb/src1_start_address \
+sim:/matrix_maxpool_tb/src1_data \
+sim:/matrix_maxpool_tb/src1_write_data \
+sim:/matrix_maxpool_tb/src1_row_size \
+sim:/matrix_maxpool_tb/src1_col_size \
+sim:/matrix_maxpool_tb/src2_row_size \
+sim:/matrix_maxpool_tb/src2_col_size \
+sim:/matrix_maxpool_tb/dest_start_address \
+sim:/matrix_maxpool_tb/done \
+sim:/matrix_maxpool_tb/src1_address \
+sim:/matrix_maxpool_tb/src1_write_en \
+sim:/matrix_maxpool_tb/dest_address \
+sim:/matrix_maxpool_tb/dest_data \
+sim:/matrix_maxpool_tb/dest_write_en
+run 100us
+# Test completed. Final address and data: 0100, fff7
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(107)
+#    Time: 3450 ns  Iteration: 0  Instance: /matrix_maxpool_tb
+# 1
+# Break in Module matrix_maxpool_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v line 107
+vsim work.matrix_maxpool_tb
+# End time: 18:34:57 on May 03,2024, Elapsed time: 0:05:53
+# Errors: 0, Warnings: 2
+# vsim work.matrix_maxpool_tb 
+# Start time: 18:34:57 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(47): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(56): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/dest File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.matrix_maxpool_tb
+# End time: 18:35:08 on May 03,2024, Elapsed time: 0:00:11
+# Errors: 0, Warnings: 2
+# vsim work.matrix_maxpool_tb 
+# Start time: 18:35:08 on May 03,2024
+# Loading work.matrix_maxpool_tb
+# Loading work.matrix_maxpool
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(47): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(56): [PCDPC] - Port size (12) does not match connection size (15) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_maxpool_tb/dest File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_maxpool_tb/clk \
+sim:/matrix_maxpool_tb/clk_250 \
+sim:/matrix_maxpool_tb/reset \
+sim:/matrix_maxpool_tb/start \
+sim:/matrix_maxpool_tb/src1_start_address \
+sim:/matrix_maxpool_tb/src1_data \
+sim:/matrix_maxpool_tb/src1_write_data \
+sim:/matrix_maxpool_tb/src1_row_size \
+sim:/matrix_maxpool_tb/src1_col_size \
+sim:/matrix_maxpool_tb/src2_row_size \
+sim:/matrix_maxpool_tb/src2_col_size \
+sim:/matrix_maxpool_tb/dest_start_address \
+sim:/matrix_maxpool_tb/done \
+sim:/matrix_maxpool_tb/src1_address \
+sim:/matrix_maxpool_tb/src1_write_en \
+sim:/matrix_maxpool_tb/dest_address \
+sim:/matrix_maxpool_tb/dest_data \
+sim:/matrix_maxpool_tb/dest_write_en
+run 100u
+# Invalid time value: 100u
+run 100us
+# Test completed. Final address and data: 0000, 003f
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v(107)
+#    Time: 3450 ns  Iteration: 0  Instance: /matrix_maxpool_tb
+# 1
+# Break in Module matrix_maxpool_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_pooling.v line 107
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+quit -sim
+# End time: 18:39:07 on May 03,2024, Elapsed time: 0:03:59
+# Errors: 4, Warnings: 3
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.tb_proc
 # vsim work.tb_proc 
-# Start time: 20:08:06 on May 02,2024
+# Start time: 18:45:31 on May 03,2024
 # Loading work.tb_proc
 # Loading work.NPU
 # Loading work.M10K_inst_sram
 # Loading work.M10K_inst_done_sram
 # Loading work.matrix_addition
 # Loading work.matrix_maxpool
+# Loading work.matrix_relu
 # Loading work.mux24to1
 # Loading work.M10K_sram
 # ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (8) does not match connection size (9) for port 'q'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(2).
 #    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
 # ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (8) does not match connection size (9) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(3).
 #    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
 add wave -position insertpoint  \
 sim:/tb_proc/npu/SRAM_NUM \
 sim:/tb_proc/npu/CLOCK_50 \
@@ -227,6 +801,27 @@ sim:/tb_proc/npu/pool_src2_write_en \
 sim:/tb_proc/npu/pool_dest_write_en \
 sim:/tb_proc/npu/pool_start \
 sim:/tb_proc/npu/pool_done \
+sim:/tb_proc/npu/relu_src1_address \
+sim:/tb_proc/npu/relu_src2_address \
+sim:/tb_proc/npu/relu_dest_address \
+sim:/tb_proc/npu/relu_src1_start_address \
+sim:/tb_proc/npu/relu_src2_start_address \
+sim:/tb_proc/npu/relu_dest_start_address \
+sim:/tb_proc/npu/relu_dest_readdata \
+sim:/tb_proc/npu/relu_src1_readdata \
+sim:/tb_proc/npu/relu_src2_readdata \
+sim:/tb_proc/npu/relu_dest_writedata \
+sim:/tb_proc/npu/relu_src1_writedata \
+sim:/tb_proc/npu/relu_src2_writedata \
+sim:/tb_proc/npu/relu_src1_row_size \
+sim:/tb_proc/npu/relu_src1_col_size \
+sim:/tb_proc/npu/relu_src2_row_size \
+sim:/tb_proc/npu/relu_src2_col_size \
+sim:/tb_proc/npu/relu_src1_write_en \
+sim:/tb_proc/npu/relu_src2_write_en \
+sim:/tb_proc/npu/relu_dest_write_en \
+sim:/tb_proc/npu/relu_start \
+sim:/tb_proc/npu/relu_done \
 sim:/tb_proc/npu/inst_D \
 sim:/tb_proc/npu/src1_address_D \
 sim:/tb_proc/npu/src2_address_D \
@@ -259,18 +854,1733 @@ sim:/tb_proc/npu/src2_col_I \
 sim:/tb_proc/npu/sel_I \
 sim:/tb_proc/npu/add_start_I \
 sim:/tb_proc/npu/pool_start_I \
+sim:/tb_proc/npu/relu_start_I \
 sim:/tb_proc/npu/sel_address_mux_I \
 sim:/tb_proc/npu/sel_writedata_mux_I \
 sim:/tb_proc/npu/sel_write_en_mux_I \
 sim:/tb_proc/npu/sel_readdata_mux_I \
 sim:/tb_proc/npu/add_start_E \
 sim:/tb_proc/npu/pool_start_E \
+sim:/tb_proc/npu/relu_start_E \
 sim:/tb_proc/npu/sel_address_mux_E \
 sim:/tb_proc/npu/sel_writedata_mux_E \
 sim:/tb_proc/npu/sel_write_en_mux_E \
 sim:/tb_proc/npu/sel_readdata_mux_E \
 sim:/tb_proc/npu/add_done_prev \
-sim:/tb_proc/npu/pool_done_prev
+sim:/tb_proc/npu/pool_done_prev \
+sim:/tb_proc/npu/relu_done_prev
 run 100us
-# End time: 22:46:38 on May 02,2024, Elapsed time: 2:38:32
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.tb_proc
+# End time: 18:49:33 on May 03,2024, Elapsed time: 0:04:02
+# Errors: 0, Warnings: 9
+# vsim work.tb_proc 
+# Start time: 18:49:33 on May 03,2024
+# Loading work.tb_proc
+# Loading work.NPU
+# Loading work.M10K_inst_sram
+# Loading work.M10K_inst_done_sram
+# Loading work.matrix_addition
+# Loading work.matrix_maxpool
+# Loading work.matrix_relu
+# Loading work.mux24to1
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (9) does not match connection size (8) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
+add wave -position insertpoint  \
+sim:/tb_proc/npu/SRAM_NUM \
+sim:/tb_proc/npu/CLOCK_50 \
+sim:/tb_proc/npu/CLOCK_250 \
+sim:/tb_proc/npu/reset \
+sim:/tb_proc/npu/sram_readdata \
+sim:/tb_proc/npu/sram_writedata \
+sim:/tb_proc/npu/sram_address \
+sim:/tb_proc/npu/sram_write \
+sim:/tb_proc/npu/inst_sram_readdata \
+sim:/tb_proc/npu/inst_sram_writedata \
+sim:/tb_proc/npu/inst_sram_address \
+sim:/tb_proc/npu/inst_sram_write \
+sim:/tb_proc/npu/inst_done_sram_readdata \
+sim:/tb_proc/npu/inst_done_sram_writedata \
+sim:/tb_proc/npu/inst_done_sram_address \
+sim:/tb_proc/npu/inst_done_sram_write \
+sim:/tb_proc/npu/add_src1_address \
+sim:/tb_proc/npu/add_src2_address \
+sim:/tb_proc/npu/add_dest_address \
+sim:/tb_proc/npu/add_src1_start_address \
+sim:/tb_proc/npu/add_src2_start_address \
+sim:/tb_proc/npu/add_dest_start_address \
+sim:/tb_proc/npu/add_dest_readdata \
+sim:/tb_proc/npu/add_src1_readdata \
+sim:/tb_proc/npu/add_src2_readdata \
+sim:/tb_proc/npu/add_dest_writedata \
+sim:/tb_proc/npu/add_src1_writedata \
+sim:/tb_proc/npu/add_src2_writedata \
+sim:/tb_proc/npu/add_src1_row_size \
+sim:/tb_proc/npu/add_src1_col_size \
+sim:/tb_proc/npu/add_src2_row_size \
+sim:/tb_proc/npu/add_src2_col_size \
+sim:/tb_proc/npu/add_src1_write_en \
+sim:/tb_proc/npu/add_src2_write_en \
+sim:/tb_proc/npu/add_dest_write_en \
+sim:/tb_proc/npu/add_start \
+sim:/tb_proc/npu/add_done \
+sim:/tb_proc/npu/pool_src1_address \
+sim:/tb_proc/npu/pool_src2_address \
+sim:/tb_proc/npu/pool_dest_address \
+sim:/tb_proc/npu/pool_src1_start_address \
+sim:/tb_proc/npu/pool_src2_start_address \
+sim:/tb_proc/npu/pool_dest_start_address \
+sim:/tb_proc/npu/pool_dest_readdata \
+sim:/tb_proc/npu/pool_src1_readdata \
+sim:/tb_proc/npu/pool_src2_readdata \
+sim:/tb_proc/npu/pool_dest_writedata \
+sim:/tb_proc/npu/pool_src1_writedata \
+sim:/tb_proc/npu/pool_src2_writedata \
+sim:/tb_proc/npu/pool_src1_row_size \
+sim:/tb_proc/npu/pool_src1_col_size \
+sim:/tb_proc/npu/pool_src2_row_size \
+sim:/tb_proc/npu/pool_src2_col_size \
+sim:/tb_proc/npu/pool_src1_write_en \
+sim:/tb_proc/npu/pool_src2_write_en \
+sim:/tb_proc/npu/pool_dest_write_en \
+sim:/tb_proc/npu/pool_start \
+sim:/tb_proc/npu/pool_done \
+sim:/tb_proc/npu/relu_src1_address \
+sim:/tb_proc/npu/relu_src2_address \
+sim:/tb_proc/npu/relu_dest_address \
+sim:/tb_proc/npu/relu_src1_start_address \
+sim:/tb_proc/npu/relu_src2_start_address \
+sim:/tb_proc/npu/relu_dest_start_address \
+sim:/tb_proc/npu/relu_dest_readdata \
+sim:/tb_proc/npu/relu_src1_readdata \
+sim:/tb_proc/npu/relu_src2_readdata \
+sim:/tb_proc/npu/relu_dest_writedata \
+sim:/tb_proc/npu/relu_src1_writedata \
+sim:/tb_proc/npu/relu_src2_writedata \
+sim:/tb_proc/npu/relu_src1_row_size \
+sim:/tb_proc/npu/relu_src1_col_size \
+sim:/tb_proc/npu/relu_src2_row_size \
+sim:/tb_proc/npu/relu_src2_col_size \
+sim:/tb_proc/npu/relu_src1_write_en \
+sim:/tb_proc/npu/relu_src2_write_en \
+sim:/tb_proc/npu/relu_dest_write_en \
+sim:/tb_proc/npu/relu_start \
+sim:/tb_proc/npu/relu_done \
+sim:/tb_proc/npu/inst_D \
+sim:/tb_proc/npu/src1_address_D \
+sim:/tb_proc/npu/src2_address_D \
+sim:/tb_proc/npu/dest_address_D \
+sim:/tb_proc/npu/src1_sram_num_D \
+sim:/tb_proc/npu/src2_sram_num_D \
+sim:/tb_proc/npu/dest_sram_num_D \
+sim:/tb_proc/npu/src1_row_D \
+sim:/tb_proc/npu/src1_col_D \
+sim:/tb_proc/npu/src2_row_D \
+sim:/tb_proc/npu/src2_col_D \
+sim:/tb_proc/npu/sel_D \
+sim:/tb_proc/npu/sel_address_mux_D \
+sim:/tb_proc/npu/sel_writedata_mux_D \
+sim:/tb_proc/npu/sel_write_en_mux_D \
+sim:/tb_proc/npu/sel_readdata_mux_D \
+sim:/tb_proc/npu/src1_sram_num \
+sim:/tb_proc/npu/src2_sram_num \
+sim:/tb_proc/npu/dest_sram_num \
+sim:/tb_proc/npu/src1_address_I \
+sim:/tb_proc/npu/src2_address_I \
+sim:/tb_proc/npu/dest_address_I \
+sim:/tb_proc/npu/src1_sram_num_I \
+sim:/tb_proc/npu/src2_sram_num_I \
+sim:/tb_proc/npu/dest_sram_num_I \
+sim:/tb_proc/npu/src1_row_I \
+sim:/tb_proc/npu/src1_col_I \
+sim:/tb_proc/npu/src2_row_I \
+sim:/tb_proc/npu/src2_col_I \
+sim:/tb_proc/npu/sel_I \
+sim:/tb_proc/npu/add_start_I \
+sim:/tb_proc/npu/pool_start_I \
+sim:/tb_proc/npu/relu_start_I \
+sim:/tb_proc/npu/sel_address_mux_I \
+sim:/tb_proc/npu/sel_writedata_mux_I \
+sim:/tb_proc/npu/sel_write_en_mux_I \
+sim:/tb_proc/npu/sel_readdata_mux_I \
+sim:/tb_proc/npu/add_start_E \
+sim:/tb_proc/npu/pool_start_E \
+sim:/tb_proc/npu/relu_start_E \
+sim:/tb_proc/npu/sel_address_mux_E \
+sim:/tb_proc/npu/sel_writedata_mux_E \
+sim:/tb_proc/npu/sel_write_en_mux_E \
+sim:/tb_proc/npu/sel_readdata_mux_E \
+sim:/tb_proc/npu/add_done_prev \
+sim:/tb_proc/npu/pool_done_prev \
+sim:/tb_proc/npu/relu_done_prev
+run 100us
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.tb_proc
+# End time: 18:51:41 on May 03,2024, Elapsed time: 0:02:08
+# Errors: 0, Warnings: 8
+# vsim work.tb_proc 
+# Start time: 18:51:41 on May 03,2024
+# Loading work.tb_proc
+# Loading work.NPU
+# Loading work.M10K_inst_sram
+# Loading work.M10K_inst_done_sram
+# Loading work.matrix_addition
+# Loading work.matrix_maxpool
+# Loading work.matrix_relu
+# Loading work.mux24to1
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (9) does not match connection size (8) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
+add wave -position insertpoint  \
+sim:/tb_proc/npu/SRAM_NUM \
+sim:/tb_proc/npu/CLOCK_50 \
+sim:/tb_proc/npu/CLOCK_250 \
+sim:/tb_proc/npu/reset \
+sim:/tb_proc/npu/sram_readdata \
+sim:/tb_proc/npu/sram_writedata \
+sim:/tb_proc/npu/sram_address \
+sim:/tb_proc/npu/sram_write \
+sim:/tb_proc/npu/inst_sram_readdata \
+sim:/tb_proc/npu/inst_sram_writedata \
+sim:/tb_proc/npu/inst_sram_address \
+sim:/tb_proc/npu/inst_sram_write \
+sim:/tb_proc/npu/inst_done_sram_readdata \
+sim:/tb_proc/npu/inst_done_sram_writedata \
+sim:/tb_proc/npu/inst_done_sram_address \
+sim:/tb_proc/npu/inst_done_sram_write \
+sim:/tb_proc/npu/add_src1_address \
+sim:/tb_proc/npu/add_src2_address \
+sim:/tb_proc/npu/add_dest_address \
+sim:/tb_proc/npu/add_src1_start_address \
+sim:/tb_proc/npu/add_src2_start_address \
+sim:/tb_proc/npu/add_dest_start_address \
+sim:/tb_proc/npu/add_dest_readdata \
+sim:/tb_proc/npu/add_src1_readdata \
+sim:/tb_proc/npu/add_src2_readdata \
+sim:/tb_proc/npu/add_dest_writedata \
+sim:/tb_proc/npu/add_src1_writedata \
+sim:/tb_proc/npu/add_src2_writedata \
+sim:/tb_proc/npu/add_src1_row_size \
+sim:/tb_proc/npu/add_src1_col_size \
+sim:/tb_proc/npu/add_src2_row_size \
+sim:/tb_proc/npu/add_src2_col_size \
+sim:/tb_proc/npu/add_src1_write_en \
+sim:/tb_proc/npu/add_src2_write_en \
+sim:/tb_proc/npu/add_dest_write_en \
+sim:/tb_proc/npu/add_start \
+sim:/tb_proc/npu/add_done \
+sim:/tb_proc/npu/pool_src1_address \
+sim:/tb_proc/npu/pool_src2_address \
+sim:/tb_proc/npu/pool_dest_address \
+sim:/tb_proc/npu/pool_src1_start_address \
+sim:/tb_proc/npu/pool_src2_start_address \
+sim:/tb_proc/npu/pool_dest_start_address \
+sim:/tb_proc/npu/pool_dest_readdata \
+sim:/tb_proc/npu/pool_src1_readdata \
+sim:/tb_proc/npu/pool_src2_readdata \
+sim:/tb_proc/npu/pool_dest_writedata \
+sim:/tb_proc/npu/pool_src1_writedata \
+sim:/tb_proc/npu/pool_src2_writedata \
+sim:/tb_proc/npu/pool_src1_row_size \
+sim:/tb_proc/npu/pool_src1_col_size \
+sim:/tb_proc/npu/pool_src2_row_size \
+sim:/tb_proc/npu/pool_src2_col_size \
+sim:/tb_proc/npu/pool_src1_write_en \
+sim:/tb_proc/npu/pool_src2_write_en \
+sim:/tb_proc/npu/pool_dest_write_en \
+sim:/tb_proc/npu/pool_start \
+sim:/tb_proc/npu/pool_done \
+sim:/tb_proc/npu/relu_src1_address \
+sim:/tb_proc/npu/relu_src2_address \
+sim:/tb_proc/npu/relu_dest_address \
+sim:/tb_proc/npu/relu_src1_start_address \
+sim:/tb_proc/npu/relu_src2_start_address \
+sim:/tb_proc/npu/relu_dest_start_address \
+sim:/tb_proc/npu/relu_dest_readdata \
+sim:/tb_proc/npu/relu_src1_readdata \
+sim:/tb_proc/npu/relu_src2_readdata \
+sim:/tb_proc/npu/relu_dest_writedata \
+sim:/tb_proc/npu/relu_src1_writedata \
+sim:/tb_proc/npu/relu_src2_writedata \
+sim:/tb_proc/npu/relu_src1_row_size \
+sim:/tb_proc/npu/relu_src1_col_size \
+sim:/tb_proc/npu/relu_src2_row_size \
+sim:/tb_proc/npu/relu_src2_col_size \
+sim:/tb_proc/npu/relu_src1_write_en \
+sim:/tb_proc/npu/relu_src2_write_en \
+sim:/tb_proc/npu/relu_dest_write_en \
+sim:/tb_proc/npu/relu_start \
+sim:/tb_proc/npu/relu_done \
+sim:/tb_proc/npu/inst_D \
+sim:/tb_proc/npu/src1_address_D \
+sim:/tb_proc/npu/src2_address_D \
+sim:/tb_proc/npu/dest_address_D \
+sim:/tb_proc/npu/src1_sram_num_D \
+sim:/tb_proc/npu/src2_sram_num_D \
+sim:/tb_proc/npu/dest_sram_num_D \
+sim:/tb_proc/npu/src1_row_D \
+sim:/tb_proc/npu/src1_col_D \
+sim:/tb_proc/npu/src2_row_D \
+sim:/tb_proc/npu/src2_col_D \
+sim:/tb_proc/npu/sel_D \
+sim:/tb_proc/npu/sel_address_mux_D \
+sim:/tb_proc/npu/sel_writedata_mux_D \
+sim:/tb_proc/npu/sel_write_en_mux_D \
+sim:/tb_proc/npu/sel_readdata_mux_D \
+sim:/tb_proc/npu/src1_sram_num \
+sim:/tb_proc/npu/src2_sram_num \
+sim:/tb_proc/npu/dest_sram_num \
+sim:/tb_proc/npu/src1_address_I \
+sim:/tb_proc/npu/src2_address_I \
+sim:/tb_proc/npu/dest_address_I \
+sim:/tb_proc/npu/src1_sram_num_I \
+sim:/tb_proc/npu/src2_sram_num_I \
+sim:/tb_proc/npu/dest_sram_num_I \
+sim:/tb_proc/npu/src1_row_I \
+sim:/tb_proc/npu/src1_col_I \
+sim:/tb_proc/npu/src2_row_I \
+sim:/tb_proc/npu/src2_col_I \
+sim:/tb_proc/npu/sel_I \
+sim:/tb_proc/npu/add_start_I \
+sim:/tb_proc/npu/pool_start_I \
+sim:/tb_proc/npu/relu_start_I \
+sim:/tb_proc/npu/sel_address_mux_I \
+sim:/tb_proc/npu/sel_writedata_mux_I \
+sim:/tb_proc/npu/sel_write_en_mux_I \
+sim:/tb_proc/npu/sel_readdata_mux_I \
+sim:/tb_proc/npu/add_start_E \
+sim:/tb_proc/npu/pool_start_E \
+sim:/tb_proc/npu/relu_start_E \
+sim:/tb_proc/npu/sel_address_mux_E \
+sim:/tb_proc/npu/sel_writedata_mux_E \
+sim:/tb_proc/npu/sel_write_en_mux_E \
+sim:/tb_proc/npu/sel_readdata_mux_E \
+sim:/tb_proc/npu/add_done_prev \
+sim:/tb_proc/npu/pool_done_prev \
+sim:/tb_proc/npu/relu_done_prev
+run 100us
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.tb_proc
+# End time: 18:57:14 on May 03,2024, Elapsed time: 0:05:33
+# Errors: 0, Warnings: 8
+# vsim work.tb_proc 
+# Start time: 18:57:14 on May 03,2024
+# Loading work.tb_proc
+# Loading work.NPU
+# Loading work.M10K_inst_sram
+# Loading work.M10K_inst_done_sram
+# Loading work.matrix_addition
+# Loading work.matrix_maxpool
+# Loading work.matrix_relu
+# Loading work.mux24to1
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (9) does not match connection size (8) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [PCDPC] - Port size (12) does not match connection size (16) for port 'src1_readdata'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
+add wave -position insertpoint  \
+sim:/tb_proc/npu/SRAM_NUM \
+sim:/tb_proc/npu/CLOCK_50 \
+sim:/tb_proc/npu/CLOCK_250 \
+sim:/tb_proc/npu/reset \
+sim:/tb_proc/npu/sram_readdata \
+sim:/tb_proc/npu/sram_writedata \
+sim:/tb_proc/npu/sram_address \
+sim:/tb_proc/npu/sram_write \
+sim:/tb_proc/npu/inst_sram_readdata \
+sim:/tb_proc/npu/inst_sram_writedata \
+sim:/tb_proc/npu/inst_sram_address \
+sim:/tb_proc/npu/inst_sram_write \
+sim:/tb_proc/npu/inst_done_sram_readdata \
+sim:/tb_proc/npu/inst_done_sram_writedata \
+sim:/tb_proc/npu/inst_done_sram_address \
+sim:/tb_proc/npu/inst_done_sram_write \
+sim:/tb_proc/npu/add_src1_address \
+sim:/tb_proc/npu/add_src2_address \
+sim:/tb_proc/npu/add_dest_address \
+sim:/tb_proc/npu/add_src1_start_address \
+sim:/tb_proc/npu/add_src2_start_address \
+sim:/tb_proc/npu/add_dest_start_address \
+sim:/tb_proc/npu/add_dest_readdata \
+sim:/tb_proc/npu/add_src1_readdata \
+sim:/tb_proc/npu/add_src2_readdata \
+sim:/tb_proc/npu/add_dest_writedata \
+sim:/tb_proc/npu/add_src1_writedata \
+sim:/tb_proc/npu/add_src2_writedata \
+sim:/tb_proc/npu/add_src1_row_size \
+sim:/tb_proc/npu/add_src1_col_size \
+sim:/tb_proc/npu/add_src2_row_size \
+sim:/tb_proc/npu/add_src2_col_size \
+sim:/tb_proc/npu/add_src1_write_en \
+sim:/tb_proc/npu/add_src2_write_en \
+sim:/tb_proc/npu/add_dest_write_en \
+sim:/tb_proc/npu/add_start \
+sim:/tb_proc/npu/add_done \
+sim:/tb_proc/npu/pool_src1_address \
+sim:/tb_proc/npu/pool_src2_address \
+sim:/tb_proc/npu/pool_dest_address \
+sim:/tb_proc/npu/pool_src1_start_address \
+sim:/tb_proc/npu/pool_src2_start_address \
+sim:/tb_proc/npu/pool_dest_start_address \
+sim:/tb_proc/npu/pool_dest_readdata \
+sim:/tb_proc/npu/pool_src1_readdata \
+sim:/tb_proc/npu/pool_src2_readdata \
+sim:/tb_proc/npu/pool_dest_writedata \
+sim:/tb_proc/npu/pool_src1_writedata \
+sim:/tb_proc/npu/pool_src2_writedata \
+sim:/tb_proc/npu/pool_src1_row_size \
+sim:/tb_proc/npu/pool_src1_col_size \
+sim:/tb_proc/npu/pool_src2_row_size \
+sim:/tb_proc/npu/pool_src2_col_size \
+sim:/tb_proc/npu/pool_src1_write_en \
+sim:/tb_proc/npu/pool_src2_write_en \
+sim:/tb_proc/npu/pool_dest_write_en \
+sim:/tb_proc/npu/pool_start \
+sim:/tb_proc/npu/pool_done \
+sim:/tb_proc/npu/relu_src1_address \
+sim:/tb_proc/npu/relu_src2_address \
+sim:/tb_proc/npu/relu_dest_address \
+sim:/tb_proc/npu/relu_src1_start_address \
+sim:/tb_proc/npu/relu_src2_start_address \
+sim:/tb_proc/npu/relu_dest_start_address \
+sim:/tb_proc/npu/relu_dest_readdata \
+sim:/tb_proc/npu/relu_src1_readdata \
+sim:/tb_proc/npu/relu_src2_readdata \
+sim:/tb_proc/npu/relu_dest_writedata \
+sim:/tb_proc/npu/relu_src1_writedata \
+sim:/tb_proc/npu/relu_src2_writedata \
+sim:/tb_proc/npu/relu_src1_row_size \
+sim:/tb_proc/npu/relu_src1_col_size \
+sim:/tb_proc/npu/relu_src2_row_size \
+sim:/tb_proc/npu/relu_src2_col_size \
+sim:/tb_proc/npu/relu_src1_write_en \
+sim:/tb_proc/npu/relu_src2_write_en \
+sim:/tb_proc/npu/relu_dest_write_en \
+sim:/tb_proc/npu/relu_start \
+sim:/tb_proc/npu/relu_done \
+sim:/tb_proc/npu/inst_D \
+sim:/tb_proc/npu/src1_address_D \
+sim:/tb_proc/npu/src2_address_D \
+sim:/tb_proc/npu/dest_address_D \
+sim:/tb_proc/npu/src1_sram_num_D \
+sim:/tb_proc/npu/src2_sram_num_D \
+sim:/tb_proc/npu/dest_sram_num_D \
+sim:/tb_proc/npu/src1_row_D \
+sim:/tb_proc/npu/src1_col_D \
+sim:/tb_proc/npu/src2_row_D \
+sim:/tb_proc/npu/src2_col_D \
+sim:/tb_proc/npu/sel_D \
+sim:/tb_proc/npu/sel_address_mux_D \
+sim:/tb_proc/npu/sel_writedata_mux_D \
+sim:/tb_proc/npu/sel_write_en_mux_D \
+sim:/tb_proc/npu/sel_readdata_mux_D \
+sim:/tb_proc/npu/src1_sram_num \
+sim:/tb_proc/npu/src2_sram_num \
+sim:/tb_proc/npu/dest_sram_num \
+sim:/tb_proc/npu/src1_address_I \
+sim:/tb_proc/npu/src2_address_I \
+sim:/tb_proc/npu/dest_address_I \
+sim:/tb_proc/npu/src1_sram_num_I \
+sim:/tb_proc/npu/src2_sram_num_I \
+sim:/tb_proc/npu/dest_sram_num_I \
+sim:/tb_proc/npu/src1_row_I \
+sim:/tb_proc/npu/src1_col_I \
+sim:/tb_proc/npu/src2_row_I \
+sim:/tb_proc/npu/src2_col_I \
+sim:/tb_proc/npu/sel_I \
+sim:/tb_proc/npu/add_start_I \
+sim:/tb_proc/npu/pool_start_I \
+sim:/tb_proc/npu/relu_start_I \
+sim:/tb_proc/npu/sel_address_mux_I \
+sim:/tb_proc/npu/sel_writedata_mux_I \
+sim:/tb_proc/npu/sel_write_en_mux_I \
+sim:/tb_proc/npu/sel_readdata_mux_I \
+sim:/tb_proc/npu/add_start_E \
+sim:/tb_proc/npu/pool_start_E \
+sim:/tb_proc/npu/relu_start_E \
+sim:/tb_proc/npu/sel_address_mux_E \
+sim:/tb_proc/npu/sel_writedata_mux_E \
+sim:/tb_proc/npu/sel_write_en_mux_E \
+sim:/tb_proc/npu/sel_readdata_mux_E \
+sim:/tb_proc/npu/add_done_prev \
+sim:/tb_proc/npu/pool_done_prev \
+sim:/tb_proc/npu/relu_done_prev
+run 100us
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.tb_proc
+# End time: 19:00:37 on May 03,2024, Elapsed time: 0:03:23
+# Errors: 0, Warnings: 8
+# vsim work.tb_proc 
+# Start time: 19:00:37 on May 03,2024
+# Loading work.tb_proc
+# Loading work.NPU
+# Loading work.M10K_inst_sram
+# Loading work.M10K_inst_done_sram
+# Loading work.matrix_addition
+# Loading work.matrix_maxpool
+# Loading work.matrix_relu
+# Loading work.mux24to1
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (9) does not match connection size (8) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
+run 100us
+add wave -position insertpoint  \
+sim:/tb_proc/npu/SRAM_NUM \
+sim:/tb_proc/npu/CLOCK_50 \
+sim:/tb_proc/npu/CLOCK_250 \
+sim:/tb_proc/npu/reset \
+sim:/tb_proc/npu/sram_readdata \
+sim:/tb_proc/npu/sram_writedata \
+sim:/tb_proc/npu/sram_address \
+sim:/tb_proc/npu/sram_write \
+sim:/tb_proc/npu/inst_sram_readdata \
+sim:/tb_proc/npu/inst_sram_writedata \
+sim:/tb_proc/npu/inst_sram_address \
+sim:/tb_proc/npu/inst_sram_write \
+sim:/tb_proc/npu/inst_done_sram_readdata \
+sim:/tb_proc/npu/inst_done_sram_writedata \
+sim:/tb_proc/npu/inst_done_sram_address \
+sim:/tb_proc/npu/inst_done_sram_write \
+sim:/tb_proc/npu/add_src1_address \
+sim:/tb_proc/npu/add_src2_address \
+sim:/tb_proc/npu/add_dest_address \
+sim:/tb_proc/npu/add_src1_start_address \
+sim:/tb_proc/npu/add_src2_start_address \
+sim:/tb_proc/npu/add_dest_start_address \
+sim:/tb_proc/npu/add_dest_readdata \
+sim:/tb_proc/npu/add_src1_readdata \
+sim:/tb_proc/npu/add_src2_readdata \
+sim:/tb_proc/npu/add_dest_writedata \
+sim:/tb_proc/npu/add_src1_writedata \
+sim:/tb_proc/npu/add_src2_writedata \
+sim:/tb_proc/npu/add_src1_row_size \
+sim:/tb_proc/npu/add_src1_col_size \
+sim:/tb_proc/npu/add_src2_row_size \
+sim:/tb_proc/npu/add_src2_col_size \
+sim:/tb_proc/npu/add_src1_write_en \
+sim:/tb_proc/npu/add_src2_write_en \
+sim:/tb_proc/npu/add_dest_write_en \
+sim:/tb_proc/npu/add_start \
+sim:/tb_proc/npu/add_done \
+sim:/tb_proc/npu/pool_src1_address \
+sim:/tb_proc/npu/pool_src2_address \
+sim:/tb_proc/npu/pool_dest_address \
+sim:/tb_proc/npu/pool_src1_start_address \
+sim:/tb_proc/npu/pool_src2_start_address \
+sim:/tb_proc/npu/pool_dest_start_address \
+sim:/tb_proc/npu/pool_dest_readdata \
+sim:/tb_proc/npu/pool_src1_readdata \
+sim:/tb_proc/npu/pool_src2_readdata \
+sim:/tb_proc/npu/pool_dest_writedata \
+sim:/tb_proc/npu/pool_src1_writedata \
+sim:/tb_proc/npu/pool_src2_writedata \
+sim:/tb_proc/npu/pool_src1_row_size \
+sim:/tb_proc/npu/pool_src1_col_size \
+sim:/tb_proc/npu/pool_src2_row_size \
+sim:/tb_proc/npu/pool_src2_col_size \
+sim:/tb_proc/npu/pool_src1_write_en \
+sim:/tb_proc/npu/pool_src2_write_en \
+sim:/tb_proc/npu/pool_dest_write_en \
+sim:/tb_proc/npu/pool_start \
+sim:/tb_proc/npu/pool_done \
+sim:/tb_proc/npu/relu_src1_address \
+sim:/tb_proc/npu/relu_src2_address \
+sim:/tb_proc/npu/relu_dest_address \
+sim:/tb_proc/npu/relu_src1_start_address \
+sim:/tb_proc/npu/relu_src2_start_address \
+sim:/tb_proc/npu/relu_dest_start_address \
+sim:/tb_proc/npu/relu_dest_readdata \
+sim:/tb_proc/npu/relu_src1_readdata \
+sim:/tb_proc/npu/relu_src2_readdata \
+sim:/tb_proc/npu/relu_dest_writedata \
+sim:/tb_proc/npu/relu_src1_writedata \
+sim:/tb_proc/npu/relu_src2_writedata \
+sim:/tb_proc/npu/relu_src1_row_size \
+sim:/tb_proc/npu/relu_src1_col_size \
+sim:/tb_proc/npu/relu_src2_row_size \
+sim:/tb_proc/npu/relu_src2_col_size \
+sim:/tb_proc/npu/relu_src1_write_en \
+sim:/tb_proc/npu/relu_src2_write_en \
+sim:/tb_proc/npu/relu_dest_write_en \
+sim:/tb_proc/npu/relu_start \
+sim:/tb_proc/npu/relu_done \
+sim:/tb_proc/npu/inst_D \
+sim:/tb_proc/npu/src1_address_D \
+sim:/tb_proc/npu/src2_address_D \
+sim:/tb_proc/npu/dest_address_D \
+sim:/tb_proc/npu/src1_sram_num_D \
+sim:/tb_proc/npu/src2_sram_num_D \
+sim:/tb_proc/npu/dest_sram_num_D \
+sim:/tb_proc/npu/src1_row_D \
+sim:/tb_proc/npu/src1_col_D \
+sim:/tb_proc/npu/src2_row_D \
+sim:/tb_proc/npu/src2_col_D \
+sim:/tb_proc/npu/sel_D \
+sim:/tb_proc/npu/sel_address_mux_D \
+sim:/tb_proc/npu/sel_writedata_mux_D \
+sim:/tb_proc/npu/sel_write_en_mux_D \
+sim:/tb_proc/npu/sel_readdata_mux_D \
+sim:/tb_proc/npu/src1_sram_num \
+sim:/tb_proc/npu/src2_sram_num \
+sim:/tb_proc/npu/dest_sram_num \
+sim:/tb_proc/npu/src1_address_I \
+sim:/tb_proc/npu/src2_address_I \
+sim:/tb_proc/npu/dest_address_I \
+sim:/tb_proc/npu/src1_sram_num_I \
+sim:/tb_proc/npu/src2_sram_num_I \
+sim:/tb_proc/npu/dest_sram_num_I \
+sim:/tb_proc/npu/src1_row_I \
+sim:/tb_proc/npu/src1_col_I \
+sim:/tb_proc/npu/src2_row_I \
+sim:/tb_proc/npu/src2_col_I \
+sim:/tb_proc/npu/sel_I \
+sim:/tb_proc/npu/add_start_I \
+sim:/tb_proc/npu/pool_start_I \
+sim:/tb_proc/npu/relu_start_I \
+sim:/tb_proc/npu/sel_address_mux_I \
+sim:/tb_proc/npu/sel_writedata_mux_I \
+sim:/tb_proc/npu/sel_write_en_mux_I \
+sim:/tb_proc/npu/sel_readdata_mux_I \
+sim:/tb_proc/npu/add_start_E \
+sim:/tb_proc/npu/pool_start_E \
+sim:/tb_proc/npu/relu_start_E \
+sim:/tb_proc/npu/sel_address_mux_E \
+sim:/tb_proc/npu/sel_writedata_mux_E \
+sim:/tb_proc/npu/sel_write_en_mux_E \
+sim:/tb_proc/npu/sel_readdata_mux_E \
+sim:/tb_proc/npu/add_done_prev \
+sim:/tb_proc/npu/pool_done_prev \
+sim:/tb_proc/npu/relu_done_prev
+restart
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (9) does not match connection size (8) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'src1_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_start_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(106): [PCDPC] - Port size (15) does not match connection size (12) for port 'dest_address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_pooling_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/pooling.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
+run 100us
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim work.tb_proc
+# End time: 19:09:47 on May 03,2024, Elapsed time: 0:09:10
+# Errors: 0, Warnings: 14
+# vsim work.tb_proc 
+# Start time: 19:09:47 on May 03,2024
+# Loading work.tb_proc
+# Loading work.NPU
+# Loading work.M10K_inst_sram
+# Loading work.M10K_inst_done_sram
+# Loading work.matrix_addition
+# Loading work.matrix_maxpool
+# Loading work.matrix_relu
+# Loading work.mux24to1
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(31): [PCDPC] - Port size (9) does not match connection size (8) for port 'address'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/inst_done_sram File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/done_sram.v
+# ** Warning: (vsim-3017) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Too few port connections. Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_proc/npu/matrix_relu_instance File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Relu.v
+# ** Warning: (vsim-3722) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/Processor.v(138): [TFMPC] - Missing connection for port 'src2_start_address'.
+add wave -position insertpoint  \
+sim:/tb_proc/npu/SRAM_NUM \
+sim:/tb_proc/npu/CLOCK_50 \
+sim:/tb_proc/npu/CLOCK_250 \
+sim:/tb_proc/npu/reset \
+sim:/tb_proc/npu/sram_readdata \
+sim:/tb_proc/npu/sram_writedata \
+sim:/tb_proc/npu/sram_address \
+sim:/tb_proc/npu/sram_write \
+sim:/tb_proc/npu/inst_sram_readdata \
+sim:/tb_proc/npu/inst_sram_writedata \
+sim:/tb_proc/npu/inst_sram_address \
+sim:/tb_proc/npu/inst_sram_write \
+sim:/tb_proc/npu/inst_done_sram_readdata \
+sim:/tb_proc/npu/inst_done_sram_writedata \
+sim:/tb_proc/npu/inst_done_sram_address \
+sim:/tb_proc/npu/inst_done_sram_write \
+sim:/tb_proc/npu/add_src1_address \
+sim:/tb_proc/npu/add_src2_address \
+sim:/tb_proc/npu/add_dest_address \
+sim:/tb_proc/npu/add_src1_start_address \
+sim:/tb_proc/npu/add_src2_start_address \
+sim:/tb_proc/npu/add_dest_start_address \
+sim:/tb_proc/npu/add_dest_readdata \
+sim:/tb_proc/npu/add_src1_readdata \
+sim:/tb_proc/npu/add_src2_readdata \
+sim:/tb_proc/npu/add_dest_writedata \
+sim:/tb_proc/npu/add_src1_writedata \
+sim:/tb_proc/npu/add_src2_writedata \
+sim:/tb_proc/npu/add_src1_row_size \
+sim:/tb_proc/npu/add_src1_col_size \
+sim:/tb_proc/npu/add_src2_row_size \
+sim:/tb_proc/npu/add_src2_col_size \
+sim:/tb_proc/npu/add_src1_write_en \
+sim:/tb_proc/npu/add_src2_write_en \
+sim:/tb_proc/npu/add_dest_write_en \
+sim:/tb_proc/npu/add_start \
+sim:/tb_proc/npu/add_done \
+sim:/tb_proc/npu/pool_src1_address \
+sim:/tb_proc/npu/pool_src2_address \
+sim:/tb_proc/npu/pool_dest_address \
+sim:/tb_proc/npu/pool_src1_start_address \
+sim:/tb_proc/npu/pool_src2_start_address \
+sim:/tb_proc/npu/pool_dest_start_address \
+sim:/tb_proc/npu/pool_dest_readdata \
+sim:/tb_proc/npu/pool_src1_readdata \
+sim:/tb_proc/npu/pool_src2_readdata \
+sim:/tb_proc/npu/pool_dest_writedata \
+sim:/tb_proc/npu/pool_src1_writedata \
+sim:/tb_proc/npu/pool_src2_writedata \
+sim:/tb_proc/npu/pool_src1_row_size \
+sim:/tb_proc/npu/pool_src1_col_size \
+sim:/tb_proc/npu/pool_src2_row_size \
+sim:/tb_proc/npu/pool_src2_col_size \
+sim:/tb_proc/npu/pool_src1_write_en \
+sim:/tb_proc/npu/pool_src2_write_en \
+sim:/tb_proc/npu/pool_dest_write_en \
+sim:/tb_proc/npu/pool_start \
+sim:/tb_proc/npu/pool_done \
+sim:/tb_proc/npu/relu_src1_address \
+sim:/tb_proc/npu/relu_src2_address \
+sim:/tb_proc/npu/relu_dest_address \
+sim:/tb_proc/npu/relu_src1_start_address \
+sim:/tb_proc/npu/relu_src2_start_address \
+sim:/tb_proc/npu/relu_dest_start_address \
+sim:/tb_proc/npu/relu_dest_readdata \
+sim:/tb_proc/npu/relu_src1_readdata \
+sim:/tb_proc/npu/relu_src2_readdata \
+sim:/tb_proc/npu/relu_dest_writedata \
+sim:/tb_proc/npu/relu_src1_writedata \
+sim:/tb_proc/npu/relu_src2_writedata \
+sim:/tb_proc/npu/relu_src1_row_size \
+sim:/tb_proc/npu/relu_src1_col_size \
+sim:/tb_proc/npu/relu_src2_row_size \
+sim:/tb_proc/npu/relu_src2_col_size \
+sim:/tb_proc/npu/relu_src1_write_en \
+sim:/tb_proc/npu/relu_src2_write_en \
+sim:/tb_proc/npu/relu_dest_write_en \
+sim:/tb_proc/npu/relu_start \
+sim:/tb_proc/npu/relu_done \
+sim:/tb_proc/npu/inst_D \
+sim:/tb_proc/npu/src1_address_D \
+sim:/tb_proc/npu/src2_address_D \
+sim:/tb_proc/npu/dest_address_D \
+sim:/tb_proc/npu/src1_sram_num_D \
+sim:/tb_proc/npu/src2_sram_num_D \
+sim:/tb_proc/npu/dest_sram_num_D \
+sim:/tb_proc/npu/src1_row_D \
+sim:/tb_proc/npu/src1_col_D \
+sim:/tb_proc/npu/src2_row_D \
+sim:/tb_proc/npu/src2_col_D \
+sim:/tb_proc/npu/sel_D \
+sim:/tb_proc/npu/sel_address_mux_D \
+sim:/tb_proc/npu/sel_writedata_mux_D \
+sim:/tb_proc/npu/sel_write_en_mux_D \
+sim:/tb_proc/npu/sel_readdata_mux_D \
+sim:/tb_proc/npu/src1_sram_num \
+sim:/tb_proc/npu/src2_sram_num \
+sim:/tb_proc/npu/dest_sram_num \
+sim:/tb_proc/npu/src1_address_I \
+sim:/tb_proc/npu/src2_address_I \
+sim:/tb_proc/npu/dest_address_I \
+sim:/tb_proc/npu/src1_sram_num_I \
+sim:/tb_proc/npu/src2_sram_num_I \
+sim:/tb_proc/npu/dest_sram_num_I \
+sim:/tb_proc/npu/src1_row_I \
+sim:/tb_proc/npu/src1_col_I \
+sim:/tb_proc/npu/src2_row_I \
+sim:/tb_proc/npu/src2_col_I \
+sim:/tb_proc/npu/sel_I \
+sim:/tb_proc/npu/add_start_I \
+sim:/tb_proc/npu/pool_start_I \
+sim:/tb_proc/npu/relu_start_I \
+sim:/tb_proc/npu/sel_address_mux_I \
+sim:/tb_proc/npu/sel_writedata_mux_I \
+sim:/tb_proc/npu/sel_write_en_mux_I \
+sim:/tb_proc/npu/sel_readdata_mux_I \
+sim:/tb_proc/npu/add_start_E \
+sim:/tb_proc/npu/pool_start_E \
+sim:/tb_proc/npu/relu_start_E \
+sim:/tb_proc/npu/sel_address_mux_E \
+sim:/tb_proc/npu/sel_writedata_mux_E \
+sim:/tb_proc/npu/sel_write_en_mux_E \
+sim:/tb_proc/npu/sel_readdata_mux_E \
+sim:/tb_proc/npu/add_done_prev \
+sim:/tb_proc/npu/pool_done_prev \
+sim:/tb_proc/npu/relu_done_prev
+run 100us
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v failed with 2 errors.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v failed with 1 errors.
+# 21 compiles, 2 failed with 3 errors.
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v failed with 1 errors.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v failed with 1 errors.
+# 21 compiles, 2 failed with 2 errors.
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v failed with 1 errors.
+# 21 compiles, 1 failed with 1 error.
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v failed with 1 errors.
+# 21 compiles, 1 failed with 1 error.
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:00:04 on May 03,2024, Elapsed time: 1:50:17
+# Errors: 0, Warnings: 3
+# vsim work.matrix_dot_tb 
+# Start time: 21:00:04 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/DOT.v(108): Illegal output or inout port connection for port 'out'.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/uut/mul File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/fixed_point_mult.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): Illegal output or inout port connection for port 'q'.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Error (suppressible): (vsim-3053) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): Illegal output or inout port connection for port 'q'.
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# Error loading design
+# End time: 21:00:05 on May 03,2024, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 2
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v failed with 2 errors.
+# 21 compiles, 1 failed with 2 errors.
+# Compile of MULT.v was successful.
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# vsim work.matrix_dot_tb 
+# Start time: 21:01:56 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/clk \
+sim:/matrix_dot_tb/clk_300 \
+sim:/matrix_dot_tb/dot_reset \
+sim:/matrix_dot_tb/dot_start \
+sim:/matrix_dot_tb/dot_src1_start_address \
+sim:/matrix_dot_tb/dot_src2_start_address \
+sim:/matrix_dot_tb/dot_src1_readdata \
+sim:/matrix_dot_tb/dot_src2_readdata \
+sim:/matrix_dot_tb/dot_src1_row_size \
+sim:/matrix_dot_tb/dot_src1_col_size \
+sim:/matrix_dot_tb/dot_src2_row_size \
+sim:/matrix_dot_tb/dot_src2_col_size \
+sim:/matrix_dot_tb/dot_dest_start_address \
+sim:/matrix_dot_tb/dot_done \
+sim:/matrix_dot_tb/dot_src1_address \
+sim:/matrix_dot_tb/dot_src2_address \
+sim:/matrix_dot_tb/dot_dest_address \
+sim:/matrix_dot_tb/dot_dest_writedata \
+sim:/matrix_dot_tb/dot_dest_write_en \
+sim:/matrix_dot_tb/dot_clk \
+sim:/matrix_dot_tb/dot_src1_write_en \
+sim:/matrix_dot_tb/dot_src1_write_data \
+sim:/matrix_dot_tb/dot_src2_write_en \
+sim:/matrix_dot_tb/dot_src2_write_data
+run 100us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:02:51 on May 03,2024, Elapsed time: 0:00:55
+# Errors: 0, Warnings: 2
+# vsim work.matrix_dot_tb 
+# Start time: 21:02:51 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/clk \
+sim:/matrix_dot_tb/clk_300 \
+sim:/matrix_dot_tb/dot_reset \
+sim:/matrix_dot_tb/dot_start \
+sim:/matrix_dot_tb/dot_src1_start_address \
+sim:/matrix_dot_tb/dot_src2_start_address \
+sim:/matrix_dot_tb/dot_src1_readdata \
+sim:/matrix_dot_tb/dot_src2_readdata \
+sim:/matrix_dot_tb/dot_src1_row_size \
+sim:/matrix_dot_tb/dot_src1_col_size \
+sim:/matrix_dot_tb/dot_src2_row_size \
+sim:/matrix_dot_tb/dot_src2_col_size \
+sim:/matrix_dot_tb/dot_dest_start_address \
+sim:/matrix_dot_tb/dot_done \
+sim:/matrix_dot_tb/dot_src1_address \
+sim:/matrix_dot_tb/dot_src2_address \
+sim:/matrix_dot_tb/dot_dest_address \
+sim:/matrix_dot_tb/dot_dest_writedata \
+sim:/matrix_dot_tb/dot_dest_write_en \
+sim:/matrix_dot_tb/dot_src1_write_en \
+sim:/matrix_dot_tb/dot_src1_write_data \
+sim:/matrix_dot_tb/dot_src2_write_en \
+sim:/matrix_dot_tb/dot_src2_write_data
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+restart
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:08:30 on May 03,2024, Elapsed time: 0:05:39
+# Errors: 0, Warnings: 4
+# vsim work.matrix_dot_tb 
+# Start time: 21:08:30 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+view -new wave
+# -new not supported on PE
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/sum
+restart
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:15:19 on May 03,2024, Elapsed time: 0:06:49
+# Errors: 1, Warnings: 4
+# vsim work.matrix_dot_tb 
+# Start time: 21:15:19 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/k \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+# Load canceled
+vsim work.matrix_dot_tb
+# End time: 21:18:28 on May 03,2024, Elapsed time: 0:03:09
+# Errors: 1, Warnings: 2
+# vsim work.matrix_dot_tb 
+# Start time: 21:18:28 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/k \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:32:36 on May 03,2024, Elapsed time: 0:14:08
+# Errors: 0, Warnings: 2
+# vsim work.matrix_dot_tb 
+# Start time: 21:32:36 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/k \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:46:28 on May 03,2024, Elapsed time: 0:13:52
+# Errors: 0, Warnings: 2
+# vsim work.matrix_dot_tb 
+# Start time: 21:46:28 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/WRITE \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/k \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:49:52 on May 03,2024, Elapsed time: 0:03:24
+# Errors: 0, Warnings: 2
+# vsim work.matrix_dot_tb 
+# Start time: 21:49:52 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/WRITE \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/k \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# Compile of tb_proc.v was successful.
+# Compile of ADD.v was successful.
+# Compile of demux1to16.v was successful.
+# Compile of DOT.v was successful.
+# Compile of fixed_point_mult.v was successful.
+# Compile of inst_sram.v was successful.
+# Compile of MULT.v was successful.
+# Compile of mux8to1.v was successful.
+# Compile of mux24to1.v was successful.
+# Compile of pooling.v was successful.
+# Compile of Processor.v was successful.
+# Compile of sram.v was successful.
+# Compile of tb_ADD.v was successful.
+# Compile of tb_MULT.v was successful.
+# Compile of tb_pooling.v was successful.
+# Compile of done_sram.v was successful.
+# Compile of tb_FP16_MULT.v was successful.
+# Compile of FP16_MULT.v was successful.
+# Compile of tb_relu.v was successful.
+# Compile of Relu.v was successful.
+# Compile of tb_dot.v was successful.
+# 21 compiles, 0 failed with no errors.
+vsim work.matrix_dot_tb
+# End time: 21:50:56 on May 03,2024, Elapsed time: 0:01:04
+# Errors: 0, Warnings: 2
+# vsim work.matrix_dot_tb 
+# Start time: 21:50:56 on May 03,2024
+# Loading work.matrix_dot_tb
+# Loading work.matrix_dot
+# Loading work.signed_mult
+# Loading work.M10K_sram
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(50): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src1 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+# ** Warning: (vsim-3015) C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(58): [PCDPC] - Port size (16) does not match connection size (1) for port 'd'. The port definition is at: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /matrix_dot_tb/src2 File: C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/sram.v
+add wave -position insertpoint  \
+sim:/matrix_dot_tb/uut/IDLE \
+sim:/matrix_dot_tb/uut/CALC \
+sim:/matrix_dot_tb/uut/WRITE \
+sim:/matrix_dot_tb/uut/DONE \
+sim:/matrix_dot_tb/uut/clk \
+sim:/matrix_dot_tb/uut/reset \
+sim:/matrix_dot_tb/uut/start \
+sim:/matrix_dot_tb/uut/done \
+sim:/matrix_dot_tb/uut/src1_start_address \
+sim:/matrix_dot_tb/uut/src2_start_address \
+sim:/matrix_dot_tb/uut/src1_address \
+sim:/matrix_dot_tb/uut/src1_readdata \
+sim:/matrix_dot_tb/uut/src2_address \
+sim:/matrix_dot_tb/uut/src2_readdata \
+sim:/matrix_dot_tb/uut/src1_row_size \
+sim:/matrix_dot_tb/uut/src1_col_size \
+sim:/matrix_dot_tb/uut/src2_row_size \
+sim:/matrix_dot_tb/uut/src2_col_size \
+sim:/matrix_dot_tb/uut/dest_start_address \
+sim:/matrix_dot_tb/uut/dest_address \
+sim:/matrix_dot_tb/uut/dest_writedata \
+sim:/matrix_dot_tb/uut/dest_write_en \
+sim:/matrix_dot_tb/uut/state \
+sim:/matrix_dot_tb/uut/next_state \
+sim:/matrix_dot_tb/uut/product \
+sim:/matrix_dot_tb/uut/i \
+sim:/matrix_dot_tb/uut/j \
+sim:/matrix_dot_tb/uut/k \
+sim:/matrix_dot_tb/uut/sum
+run 1us
+# ** Note: $finish    : C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v(108)
+#    Time: 630 ns  Iteration: 0  Instance: /matrix_dot_tb
+# 1
+# Break in Module matrix_dot_tb at C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/modelsim/tb_dot.v line 108
+# End time: 22:06:09 on May 03,2024, Elapsed time: 0:15:13
 # Errors: 0, Warnings: 2

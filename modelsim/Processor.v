@@ -15,9 +15,9 @@ module NPU(
     reg [8:0] inst_sram_address = 9'd0; 
     reg inst_sram_write = 0;
 
-    wire [8:0] inst_done_sram_readdata ;
-    reg [8:0] inst_done_sram_writedata ;
-    reg [8:0] inst_done_sram_address = 9'd0; 
+    wire [7:0] inst_done_sram_readdata ;
+    reg [7:0] inst_done_sram_writedata ;
+    reg [7:0] inst_done_sram_address = 9'd0; 
     reg inst_done_sram_write = 0;
     
     M10K_inst_sram inst_sram(
@@ -122,6 +122,38 @@ module NPU(
         .dest_write_en(pool_dest_write_en)
     );
 
+    // relu module
+    wire [11:0] relu_src1_address, relu_src2_address, relu_dest_address;
+    reg [11:0] relu_src1_start_address, relu_src2_start_address, relu_dest_start_address;
+    wire [15:0] relu_dest_readdata; 
+    wire [15:0] relu_src1_readdata;
+    wire [15:0] relu_src2_readdata ;
+    wire [15:0] relu_dest_writedata, relu_src1_writedata, relu_src2_writedata ;
+    reg [5:0] relu_src1_row_size;
+    reg [5:0] relu_src1_col_size;
+    reg [5:0] relu_src2_row_size;
+    reg [5:0] relu_src2_col_size;
+    wire relu_src1_write_en, relu_src2_write_en, relu_dest_write_en;
+    wire relu_start,relu_done;
+    matrix_relu matrix_relu_instance (
+        .clk(CLOCK_50),
+        .reset(reset),
+        .start(relu_start),
+        .done(relu_done),
+        .src1_start_address(relu_src1_start_address),
+        .src1_address(relu_src1_address),
+        .src1_readdata(relu_src1_readdata),
+        .src1_write_en(relu_src1_write_en),
+        .src1_row_size(relu_src1_row_size),
+        .src1_col_size(relu_src1_col_size),
+        .src2_row_size(relu_src2_row_size),
+        .src2_col_size(relu_src2_col_size),
+        .dest_start_address(relu_dest_start_address),
+        .dest_address(relu_dest_address),
+        .dest_writedata(relu_dest_writedata),
+        .dest_write_en(relu_dest_write_en)
+    );
+
     // Single Fetch Signle Issue Superscalar Out of Order Processor starts here
 
     //---------------------------------------------------
@@ -131,13 +163,13 @@ module NPU(
 
     always @(posedge CLOCK_50) begin
         if(reset) begin
-            inst_D <= 0;
+            inst_D <= 128'd0;
             inst_sram_address <= 9'b0;
         end
         else begin
-            if(inst_sram_readdata == 128'd0) begin
+            if(inst_sram_readdata[127:124] == 4'd0) begin
                 inst_sram_address <= inst_sram_address;
-                inst_D <= 9'b0;
+                inst_D <= 128'd0;
             end
             else begin
                 inst_sram_address <= inst_sram_address + 1;
@@ -182,6 +214,7 @@ module NPU(
     // end
 
     // assign inst_D = inst_sram_readdata;
+//    integer i0;
 
     always @(*) begin
         src1_sram_num = SRAM_NUM - (inst_D[111:104]>>1);
@@ -202,16 +235,86 @@ module NPU(
             src2_row_D <= 5'd0;
             src2_col_D <= 5'd0;
             sel_D <= 4'b0000;
-            sel_address_mux_D[src1_sram_num_D] <= 5'd31;
-            sel_address_mux_D[src2_sram_num_D] <= 5'd31;
-            sel_address_mux_D[dest_sram_num_D] <= 5'd31;
-            sel_writedata_mux_D[src1_sram_num] <= 5'd31;
-            sel_writedata_mux_D[src2_sram_num] <= 5'd31;
-            sel_writedata_mux_D[dest_sram_num] <= 5'd31;
-            sel_write_en_mux_D[src1_sram_num] <= 5'd31;
-            sel_write_en_mux_D[src2_sram_num] <= 5'd31;
-            sel_write_en_mux_D[dest_sram_num] <= 5'd31;
-            
+            sel_address_mux_D[0] <= 5'd31;
+            sel_address_mux_D[1] <= 5'd31;
+            sel_address_mux_D[2] <= 5'd31;
+				sel_address_mux_D[3] <= 5'd31;
+            sel_address_mux_D[4] <= 5'd31;
+            sel_address_mux_D[5] <= 5'd31;
+				sel_address_mux_D[6] <= 5'd31;
+            sel_address_mux_D[7] <= 5'd31;
+            sel_address_mux_D[8] <= 5'd31;
+				sel_address_mux_D[9] <= 5'd31;
+            sel_address_mux_D[10] <= 5'd31;
+            sel_address_mux_D[11] <= 5'd31;
+				sel_address_mux_D[12] <= 5'd31;
+            sel_address_mux_D[13] <= 5'd31;
+            sel_address_mux_D[14] <= 5'd31;
+				sel_address_mux_D[15] <= 5'd31;
+            sel_address_mux_D[16] <= 5'd31;
+            sel_address_mux_D[17] <= 5'd31;
+				sel_address_mux_D[18] <= 5'd31;
+            sel_address_mux_D[19] <= 5'd31;
+            sel_writedata_mux_D[0] <= 5'd31;
+            sel_writedata_mux_D[1] <= 5'd31;
+            sel_writedata_mux_D[2] <= 5'd31;
+				sel_writedata_mux_D[3] <= 5'd31;
+            sel_writedata_mux_D[4] <= 5'd31;
+            sel_writedata_mux_D[5] <= 5'd31;
+				sel_writedata_mux_D[6] <= 5'd31;
+            sel_writedata_mux_D[7] <= 5'd31;
+            sel_writedata_mux_D[8] <= 5'd31;
+				sel_writedata_mux_D[9] <= 5'd31;
+            sel_writedata_mux_D[10] <= 5'd31;
+            sel_writedata_mux_D[11] <= 5'd31;
+				sel_writedata_mux_D[12] <= 5'd31;
+            sel_writedata_mux_D[13] <= 5'd31;
+            sel_writedata_mux_D[14] <= 5'd31;
+				sel_writedata_mux_D[15] <= 5'd31;
+            sel_writedata_mux_D[16] <= 5'd31;
+            sel_writedata_mux_D[17] <= 5'd31;
+				sel_writedata_mux_D[18] <= 5'd31;
+            sel_writedata_mux_D[19] <= 5'd31;
+            sel_write_en_mux_D[0] <= 5'd31;
+            sel_write_en_mux_D[1] <= 5'd31;
+            sel_write_en_mux_D[2] <= 5'd31;
+				sel_write_en_mux_D[3] <= 5'd31;
+            sel_write_en_mux_D[4] <= 5'd31;
+            sel_write_en_mux_D[5] <= 5'd31;
+				sel_write_en_mux_D[6] <= 5'd31;
+            sel_write_en_mux_D[7] <= 5'd31;
+            sel_write_en_mux_D[8] <= 5'd31;
+				sel_write_en_mux_D[9] <= 5'd31;
+            sel_write_en_mux_D[10] <= 5'd31;
+            sel_write_en_mux_D[11] <= 5'd31;
+				sel_write_en_mux_D[12] <= 5'd31;
+            sel_write_en_mux_D[13] <= 5'd31;
+            sel_write_en_mux_D[14] <= 5'd31;
+				sel_write_en_mux_D[15] <= 5'd31;
+            sel_write_en_mux_D[16] <= 5'd31;
+            sel_write_en_mux_D[17] <= 5'd31;
+				sel_write_en_mux_D[18] <= 5'd31;
+            sel_write_en_mux_D[19] <= 5'd31;
+				sel_readdata_mux_D[0] <= 5'd31;
+            sel_readdata_mux_D[1] <= 5'd31;
+				sel_readdata_mux_D[2] <= 5'd31;
+            sel_readdata_mux_D[3] <= 5'd31;
+				sel_readdata_mux_D[4] <= 5'd31;
+            sel_readdata_mux_D[5] <= 5'd31;
+				sel_readdata_mux_D[6] <= 5'd31;
+            sel_readdata_mux_D[7] <= 5'd31;
+				sel_readdata_mux_D[8] <= 5'd31;
+            sel_readdata_mux_D[9] <= 5'd31;
+				sel_readdata_mux_D[10] <= 5'd31;
+            sel_readdata_mux_D[11] <= 5'd31;
+				sel_readdata_mux_D[12] <= 5'd31;
+            sel_readdata_mux_D[13] <= 5'd31;
+				sel_readdata_mux_D[14] <= 5'd31;
+            sel_readdata_mux_D[15] <= 5'd31;
+				sel_readdata_mux_D[16] <= 5'd31;
+            sel_readdata_mux_D[17] <= 5'd31;
+				sel_readdata_mux_D[18] <= 5'd31;
+            sel_readdata_mux_D[19] <= 5'd31;
         end
         else begin
             case(inst_D[127:124])
@@ -298,9 +401,17 @@ module NPU(
                     src1_col_D <= inst_D[18:10];
                     src2_row_D <= inst_D[9:5];
                     src2_col_D <= inst_D[4:0];
-                    sel_address_mux_D[src1_sram_num] <= 5'd0;
-                    sel_address_mux_D[src2_sram_num] <= 5'd1;
-                    sel_address_mux_D[dest_sram_num] <= 5'd2;
+                    sel_D <= 4'b1010;
+                    sel_address_mux_D[src1_sram_num] <= 5'd8;
+                    // sel_address_mux_D[src2_sram_num] <= 5'd7;
+                    sel_address_mux_D[dest_sram_num] <= 5'd9;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd8;
+                    // sel_writedata_mux_D[src2_sram_num] <= 5'd7;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd9;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd8;
+                    // sel_write_en_mux_D[src2_sram_num] <= 5'd7;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd9;
+                    sel_readdata_mux_D[5] <= src1_sram_num;
                 end
                 default: begin 
                     src1_address_D <= 12'd0;
@@ -338,6 +449,7 @@ module NPU(
     reg [3:0] sel_I;
     reg add_start_I;
     reg pool_start_I;
+    reg relu_start_I;
     reg [4:0] sel_address_mux_I[19:0];
     reg [4:0] sel_writedata_mux_I[19:0];
     reg [4:0] sel_write_en_mux_I[19:0];
@@ -348,10 +460,18 @@ module NPU(
     generate
         for (j = 0; j < 20; j = j + 1) begin : pipeline_register_I
             always @(posedge CLOCK_50) begin
-                sel_address_mux_I[j]<= sel_address_mux_D[j];
-                sel_writedata_mux_I[j]<= sel_writedata_mux_D[j];
-                sel_write_en_mux_I[j]<= sel_write_en_mux_D[j];
-                sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
+					if(reset)begin
+						 sel_address_mux_I[j]<= 5'd0;
+						 sel_writedata_mux_I[j]<= 5'd0;
+						 sel_write_en_mux_I[j]<= 5'd0;
+						 sel_readdata_mux_I[j]<= 5'd0;
+					end
+					else begin
+						 sel_address_mux_I[j]<= sel_address_mux_D[j];
+						 sel_writedata_mux_I[j]<= sel_writedata_mux_D[j];
+						 sel_write_en_mux_I[j]<= sel_write_en_mux_D[j];
+						 sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
+					end
             end
         end
     endgenerate
@@ -389,13 +509,36 @@ module NPU(
     always @(posedge CLOCK_50) begin
 	 if (reset) begin
 		   add_start_I <= 0;
+			add_src1_start_address <= 0;
+			add_src2_start_address <= 0;
+			add_dest_start_address <= 0;
+			add_src1_row_size <= 0;
+         add_src1_col_size <= 0;
+         add_src2_row_size <= 0;
+         add_src2_col_size <= 0;
+
          pool_start_I <= 0;
+         pool_src1_start_address <= 0;
+         pool_dest_start_address <= 0;
+         pool_src1_row_size <= 0;
+         pool_src1_col_size <= 0;
+         pool_src2_row_size <= 0;
+         pool_src2_col_size <= 0;
+
+         relu_start_I <= 0;
+         relu_src1_start_address <= 0;
+         relu_dest_start_address <= 0;
+         relu_src1_row_size <= 0;
+         relu_src1_col_size <= 0;
+         relu_src2_row_size <= 0;
+         relu_src2_col_size <= 0;
 	 end
 	 else begin
         case(sel_D)
             4'b0001:begin // issue add
                 add_start_I <= 1;
                 pool_start_I <= 0;
+                relu_start_I <= 0;
                 add_src1_start_address <= src1_address_D;
                 add_src2_start_address <= src2_address_D;
                 add_dest_start_address <= dest_address_D;
@@ -424,6 +567,7 @@ module NPU(
             4'b1000: begin
                 add_start_I <= 0;
                 pool_start_I <= 1;
+                relu_start_I <= 0;
                 pool_src1_start_address <= src1_address_D;
                 // pool_src2_start_address <= src2_address_D;
                 pool_dest_start_address <= dest_address_D;
@@ -434,31 +578,23 @@ module NPU(
                 pool_src2_col_size <= src2_col_D;
             end
 
+            4'b1010: begin
+                add_start_I <= 0;
+                pool_start_I <= 0;
+                relu_start_I <= 1;
+                relu_src1_start_address <= src1_address_D;
+                relu_dest_start_address <= dest_address_D;
+
+                relu_src1_row_size <= src1_row_D;
+                relu_src1_col_size <= src1_col_D;
+                relu_src2_row_size <= src2_row_D;
+                relu_src2_col_size <= src2_col_D;
+            end
+
             default: begin
                 add_start_I <= 0;
                 pool_start_I <= 0;
-                // add_src1_start_address <= 11'd0;
-                // add_src2_start_address <= 11'd0;
-
-                // add_src1_address <= 11'd0;
-                // add_src1_readdata <= 16'd0;
-                // add_src1_writedata <= 16'd0;
-                // add_src1_write_en <= 0;
-
-                // add_src2_address <= 11'd0;
-                // add_src2_readdata <= 16'd0;
-                // add_src2_writedata <= 16'd0;
-                // add_src2_write_en <= 0;
-
-                // add_src1_row_size <= 5'd0;
-                // add_src1_col_size <= 5'd0;
-                // add_src2_row_size <= 5'd0;
-                // add_src2_col_size <= 5'd0;
-
-                // add_dest_address <= 11'd0;
-                // add_dest_readdata <= 16'd0;
-                // add_dest_writedata <= 16'd0;
-                // add_dest_write_en <= 0;
+                relu_start_I <= 0;
             end
         endcase
 	 end
@@ -469,6 +605,7 @@ module NPU(
     //---------------------------------------------------
     reg add_start_E;
     reg pool_start_E;
+    reg relu_start_E;
     reg [4:0] sel_address_mux_E[19:0];
     reg [4:0] sel_writedata_mux_E[19:0];
     reg [4:0] sel_write_en_mux_E[19:0];
@@ -476,15 +613,18 @@ module NPU(
 
     assign add_start = add_start_E;
     assign pool_start = pool_start_E;
+    assign relu_start = relu_start_E;
     
     always @(posedge CLOCK_50) begin
         if(reset)begin
             add_start_E <=0;
             pool_start_E <=0;
+            relu_start_E <=0;
         end
         else begin
             add_start_E<=add_start_I;
             pool_start_E<=pool_start_I;
+            relu_start_E<=relu_start_I;
         end
     end
 
@@ -492,10 +632,18 @@ module NPU(
     generate
         for (m = 0; m < 20; m = m + 1) begin : pipeline_register_E
             always @(posedge CLOCK_50) begin
-                sel_address_mux_E[m]<= sel_address_mux_I[m];
-                sel_writedata_mux_E[m]<= sel_writedata_mux_I[m];
-                sel_write_en_mux_E[m]<= sel_write_en_mux_I[m];
-                sel_readdata_mux_E[m]<= sel_readdata_mux_I[m];
+					if(reset) begin
+						 sel_address_mux_E[m]<= 0;
+						 sel_writedata_mux_E[m]<= 0;
+						 sel_write_en_mux_E[m]<= 0;
+						 sel_readdata_mux_E[m]<= 0;
+					end
+					else begin
+						 sel_address_mux_E[m]<= sel_address_mux_I[m];
+						 sel_writedata_mux_E[m]<= sel_writedata_mux_I[m];
+						 sel_write_en_mux_E[m]<= sel_write_en_mux_I[m];
+						 sel_readdata_mux_E[m]<= sel_readdata_mux_I[m];
+					end
             end
         end
     endgenerate
@@ -512,8 +660,8 @@ module NPU(
                 .in5(),
                 .in6(pool_src1_address),
                 .in7(pool_dest_address),
-                .in8(),
-                .in9(),
+                .in8(relu_src1_address),
+                .in9(relu_dest_address),
                 .in10(),
                 .in11(),
                 .in12(),
@@ -530,7 +678,7 @@ module NPU(
                 .in23(),
                 .sel(sel_address_mux_I[i]),
                 .out(sram_address[i]),
-					 .reset(reset)
+				.reset(reset)
             );
 
             mux24to1 #(.DATA_WIDTH(16)) writedata_mux(
@@ -542,8 +690,8 @@ module NPU(
                 .in5(),
                 .in6(pool_src1_writedata),
                 .in7(pool_dest_writedata),
-                .in8(),
-                .in9(),
+                .in8(relu_src1_writedata),
+                .in9(relu_dest_writedata),
                 .in10(),
                 .in11(),
                 .in12(),
@@ -560,7 +708,7 @@ module NPU(
                 .in23(),
                 .sel(sel_writedata_mux_I[i]),
                 .out(sram_writedata[i]),
-					 .reset(reset)
+				.reset(reset)
             );
 
             mux24to1 #(.DATA_WIDTH(1)) write_en_mux(
@@ -572,8 +720,8 @@ module NPU(
                 .in5(),
                 .in6(pool_src1_write_en),
                 .in7(pool_dest_write_en),
-                .in8(),
-                .in9(),
+                .in8(relu_src1_write_en),
+                .in9(relu_dest_write_en),
                 .in10(),
                 .in11(),
                 .in12(),
@@ -590,7 +738,7 @@ module NPU(
                 .in23(),
                 .sel(sel_write_en_mux_I[i]),
                 .out(sram_write[i]),
-					 .reset(reset)
+				.reset(reset)
             );
 
         end
@@ -683,31 +831,64 @@ module NPU(
         .in23(),
         .sel(sel_readdata_mux_I[4]),
         .out(pool_src1_readdata),
+		  .reset(reset)
+    );
+
+    mux24to1 #(.DATA_WIDTH(16)) relu_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(sram_readdata[12]),
+        .in13(sram_readdata[13]),
+        .in14(sram_readdata[14]),
+        .in15(sram_readdata[15]),
+        .in16(sram_readdata[16]),
+        .in17(sram_readdata[17]),
+        .in18(sram_readdata[18]),
+        .in19(sram_readdata[19]),
+        .in20(),
+        .in21(),
+        .in22(),
+        .in23(),
+        .sel(sel_readdata_mux_I[5]),
+        .out(relu_src1_readdata),
 		.reset(reset)
     );
 
-    //---------------------------------------------------
+	 //---------------------------------------------------
     // Commit
     //---------------------------------------------------
-
-    reg add_done_prev;
+	 
+	reg add_done_prev;
     reg pool_done_prev;
+    reg relu_done_prev;
 
     always @ (posedge CLOCK_50) begin
         if(reset) begin
             add_done_prev <= 0;
             pool_done_prev <= 0;
+            relu_done_prev <= 0;
         end
         else begin
             add_done_prev <= add_done;
             pool_done_prev <= pool_done;
+            relu_done_prev <= relu_done;
         end
     end
 
     always @(posedge CLOCK_50) begin
         if(reset) begin
             inst_done_sram_address <= 9'd0;
-            inst_done_sram_writedata <= 8'b11111111;
+            inst_done_sram_writedata <= 8'b00000000;
             inst_done_sram_write <=0;
         end
         else begin
@@ -721,15 +902,15 @@ module NPU(
                 inst_done_sram_writedata <= 8'b11111111;
                 inst_done_sram_write <=1;
             end
+            else if(~relu_done_prev && relu_done)begin
+                inst_done_sram_address <= 9'd3;
+                inst_done_sram_writedata <= 8'b11111111;
+                inst_done_sram_write <=1;
+            end
             else begin
                 inst_done_sram_write <=0;
             end
             
         end
     end
-
-
-
-
-
 endmodule

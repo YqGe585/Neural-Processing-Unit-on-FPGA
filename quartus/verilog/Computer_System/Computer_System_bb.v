@@ -69,6 +69,12 @@ module Computer_System (
 	inst_sram_s1_readdata,
 	inst_sram_s1_writedata,
 	inst_sram_s1_byteenable,
+	inst_valid_s1_address,
+	inst_valid_s1_clken,
+	inst_valid_s1_chipselect,
+	inst_valid_s1_write,
+	inst_valid_s1_readdata,
+	inst_valid_s1_writedata,
 	memory_mem_a,
 	memory_mem_ba,
 	memory_mem_ck,
@@ -229,13 +235,7 @@ module Computer_System (
 	sram_9_s1_writedata,
 	sram_9_s1_byteenable,
 	system_pll_ref_clk_clk,
-	system_pll_ref_reset_reset,
-	inst_valid_s1_address,
-	inst_valid_s1_clken,
-	inst_valid_s1_chipselect,
-	inst_valid_s1_write,
-	inst_valid_s1_readdata,
-	inst_valid_s1_writedata);	
+	system_pll_ref_reset_reset);	
 
 	input	[8:0]	done_sram_s1_address;
 	input		done_sram_s1_clken;
@@ -306,6 +306,12 @@ module Computer_System (
 	output	[127:0]	inst_sram_s1_readdata;
 	input	[127:0]	inst_sram_s1_writedata;
 	input	[15:0]	inst_sram_s1_byteenable;
+	input	[8:0]	inst_valid_s1_address;
+	input		inst_valid_s1_clken;
+	input		inst_valid_s1_chipselect;
+	input		inst_valid_s1_write;
+	output	[7:0]	inst_valid_s1_readdata;
+	input	[7:0]	inst_valid_s1_writedata;
 	output	[14:0]	memory_mem_a;
 	output	[2:0]	memory_mem_ba;
 	output		memory_mem_ck;
@@ -467,10 +473,4 @@ module Computer_System (
 	input	[1:0]	sram_9_s1_byteenable;
 	input		system_pll_ref_clk_clk;
 	input		system_pll_ref_reset_reset;
-	input	[8:0]	inst_valid_s1_address;
-	input		inst_valid_s1_clken;
-	input		inst_valid_s1_chipselect;
-	input		inst_valid_s1_write;
-	output	[7:0]	inst_valid_s1_readdata;
-	input	[7:0]	inst_valid_s1_writedata;
 endmodule

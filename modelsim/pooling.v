@@ -28,6 +28,7 @@ module matrix_maxpool(
 
     always @(posedge clk) begin
     if(reset) begin
+
         state <= 2'd2;
         row_count<=0;
         col_count<=0;
@@ -49,34 +50,34 @@ module matrix_maxpool(
                 if(row_count < src2_row_size-1) begin
                     src1_address <= src1_address + 1;
                     row_count <= row_count+1;
-                    if (src1_readdata > max_pool)
-                      max_pool <= src1_readdata;
+                    if ($signed(src1_readdata) > $signed(max_pool))
+                      max_pool <= $signed(src1_readdata);
                     dest_write_en <= 0;
                 end
                 else if (col_count < src2_col_size-1) begin
                     src1_address <= src1_address + 1;
                     col_count <= col_count+1;
                     row_count <= 0;
-                    if (src1_readdata > max_pool)
-                      max_pool <= src1_readdata;
+                    if ($signed(src1_readdata) > $signed(max_pool))
+                      max_pool <= $signed(src1_readdata);
                     dest_write_en <= 0;
                 end
                 else begin
                     dest_write_en <= 0;
-                    if (src1_readdata > max_pool)
-                      max_pool <= src1_readdata;              
+                    if ($signed(src1_readdata) > $signed(max_pool))
+                      max_pool <= $signed(src1_readdata);              
                     state <= 2'd3;
                 end
             end
             2'd3: begin
                       src1_address <= src1_address + 1;
-                      dest_writedata <= max_pool;
+                      dest_writedata <= $signed(max_pool);
                       dest_write_en <= 1;
                       dest_address <= dest_address + 1;
                       val <= val + 1;
                       row_count <= 0;
                       col_count <= 0;
-                      max_pool <=0;
+                      max_pool <=-32768;
                    
  
                     if(val == ((src1_col_size/src2_col_size)*(src1_col_size/src2_col_size)))
