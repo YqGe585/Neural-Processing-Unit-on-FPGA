@@ -7,20 +7,20 @@ module matrix_maxpool_tb;
     reg clk_250;
     reg reset;
     reg start;
-    reg [11:0] src1_start_address;
+    reg [13:0] src1_start_address;
     wire signed [15:0] src1_data;
     wire signed [15:0] src1_write_data;
     reg [5:0] src1_row_size;
     reg [5:0] src1_col_size;
     reg [5:0] src2_row_size;
     reg [5:0] src2_col_size;
-    reg [11:0] dest_start_address;
+    reg [13:0] dest_start_address;
 
     // Outputs
     wire done;
-    wire [14:0] src1_address;
+    wire [13:0] src1_address;
     wire src1_write_en;
-    wire [14:0] dest_address;
+    wire [13:0] dest_address;
     wire signed [15:0] dest_data;
     wire dest_write_en;
 

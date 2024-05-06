@@ -3,18 +3,20 @@ module matrix_dot(
     input reset,
     input start,
     output reg done,
-    input wire [11:0] src1_start_address,
-    input wire [11:0] src2_start_address,
-    output reg [11:0] src1_address,
+    input wire [13:0] src1_start_address,
+    input wire [13:0] src2_start_address,
+    output reg [13:0] src1_address,
     input wire [15:0] src1_readdata,
-    output reg [11:0] src2_address,
+    output wire src1_write_en,
+    output reg [13:0] src2_address,
     input wire [15:0] src2_readdata,
-    input wire [5:0] src1_row_size,
-    input wire [5:0] src1_col_size,
-    input wire [5:0] src2_row_size,
+    output wire src2_write_en,
+    input wire [11:0] src1_row_size,
+    input wire [7:0] src1_col_size,
+    input wire [7:0] src2_row_size,
     input wire [5:0] src2_col_size,
-    input wire [11:0] dest_start_address,
-    output reg [11:0] dest_address,
+    input wire [13:0] dest_start_address,
+    output reg [13:0] dest_address,
     output wire [15:0] dest_writedata,
     output reg dest_write_en
 );
@@ -28,9 +30,12 @@ module matrix_dot(
     // State register
     reg [2:0] state, next_state;
 
+    assign src1_write_en = 0;
+    assign src2_write_en = 0;
+
     // Intermediate data and address registers
     wire [15:0] product;
-    reg [5:0] i, j, k;
+    reg [12:0] i, j, k;
     reg [15:0] sum;
 
     assign dest_writedata = sum;
@@ -46,12 +51,14 @@ module matrix_dot(
     always @(*) begin
         case(state)
             IDLE: begin
-                done = 0;
-                if (start)
+                if (start) begin
                     next_state = CALC;
-                else
+                    done = 0;
+                end
+                else begin
                     next_state = IDLE;
                     done = 1;
+                end
             end
             CALC: begin
                 done = 0;
@@ -64,7 +71,7 @@ module matrix_dot(
             end
             WRITE: begin
                 done = 0;
-                if  ( k == src1_col_size) begin
+                if  (k == src1_col_size)  begin // counter k indicate done.
                     next_state = DONE;
                 end
                 else begin
@@ -96,27 +103,59 @@ module matrix_dot(
                 k<=0;
             end
             CALC: begin
-                src1_address <= src1_address + 1;
-                src2_address <= src2_address + src2_row_size;
+                if(j<src1_row_size-1) begin // next element
+                    src1_address <= src1_address + 1;
+                    src2_address <= src2_address + src2_row_size;
+                end
                 sum <= sum + product;
                 j<=j+1;
-                if(j==src1_row_size-1) begin
+                if(j==src1_row_size-1) begin // write in the next cycle
                     dest_write_en <= 1;
-                    k<=k+1;
                 end
                 else begin
                     dest_write_en <= 0;
                 end
+
+                if  (( i == src2_row_size ) && ( j == src1_row_size-1))  begin // counter increment
+                    k <= k+1;
+                end
             end
             WRITE: begin
-                src2_address <= src2_start_address+i;
-                src1_address <= src1_start_address+;
-                i<=i+1;
+                if(i == src2_row_size) begin
+                    src2_address <= src2_start_address; // reset src2_address
+                end
+                else begin
+                    src2_address <= src2_start_address+i;
+                end
+                
+
+                if(i == src2_row_size) begin 
+                    src1_address <= src1_address + 1;
+                end
+                else begin
+                    src1_address <= src1_address - src1_row_size + 1; // reset src1_address
+                end
+
+                if(i < src2_row_size ) begin
+                    i<=i+1;
+                end
+                else begin
+                    i<=1;
+                end
+
+                dest_address <= dest_address + 1; // dest_address increment
+                sum <= 0;
                 j<=0;
                 dest_write_en <= 0;
             end
             DONE: begin
                 k<=0;
+                i<=0;
+                j<=0;
+                dest_address <= dest_start_address;
+                src1_address <= src1_start_address;
+                src2_address <= src2_start_address;
+                dest_write_en <= 0;
             end
         endcase
     end

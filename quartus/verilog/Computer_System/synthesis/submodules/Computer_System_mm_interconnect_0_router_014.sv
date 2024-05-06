@@ -1,13 +1,13 @@
-// (C) 2001-2015 Altera Corporation. All rights reserved.
-// Your use of Altera Corporation's design tools, logic functions and other 
+// (C) 2001-2018 Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
-// files any of the foregoing (including device programming or simulation 
+// files from any of the foregoing (including device programming or simulation 
 // files), and any associated documentation or information are expressly subject 
-// to the terms and conditions of the Altera Program License Subscription 
-// Agreement, Altera MegaCore Function License Agreement, or other applicable 
+// to the terms and conditions of the Intel Program License Subscription 
+// Agreement, Intel FPGA IP License Agreement, or other applicable 
 // license agreement, including, without limitation, that your use is for the 
-// sole purpose of programming logic devices manufactured by Altera and sold by 
-// Altera or its authorized distributors.  Please refer to the applicable 
+// sole purpose of programming logic devices manufactured by Intel and sold by 
+// Intel or its authorized distributors.  Please refer to the applicable 
 // agreement for further details.
 
 
@@ -24,10 +24,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/15.0/ip/merlin/altera_merlin_router/altera_merlin_router.sv.terp#1 $
+// $Id: //acds/rel/18.1std/ip/merlin/altera_merlin_router/altera_merlin_router.sv.terp#1 $
 // $Revision: #1 $
-// $Date: 2015/02/08 $
-// $Author: swbranch $
+// $Date: 2018/07/18 $
+// $Author: psgswbuild $
 
 // -------------------------------------------------------
 // Merlin Router
@@ -47,23 +47,23 @@ module Computer_System_mm_interconnect_0_router_014_default_decode
      parameter DEFAULT_CHANNEL = -1,
                DEFAULT_WR_CHANNEL = 0,
                DEFAULT_RD_CHANNEL = 1,
-               DEFAULT_DESTID = 1 
+               DEFAULT_DESTID = 0 
    )
-  (output [112 - 107 : 0] default_destination_id,
-   output [38-1 : 0] default_wr_channel,
-   output [38-1 : 0] default_rd_channel,
-   output [38-1 : 0] default_src_channel
+  (output [79 - 76 : 0] default_destination_id,
+   output [13-1 : 0] default_wr_channel,
+   output [13-1 : 0] default_rd_channel,
+   output [13-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[112 - 107 : 0];
+    DEFAULT_DESTID[79 - 76 : 0];
 
   generate
     if (DEFAULT_CHANNEL == -1) begin : no_default_channel_assignment
       assign default_src_channel = '0;
     end
     else begin : default_channel_assignment
-      assign default_src_channel = 38'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 13'b1 << DEFAULT_CHANNEL;
     end
   endgenerate
 
@@ -73,8 +73,8 @@ module Computer_System_mm_interconnect_0_router_014_default_decode
       assign default_rd_channel = '0;
     end
     else begin : default_rw_channel_assignment
-      assign default_wr_channel = 38'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 38'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 13'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 13'b1 << DEFAULT_RD_CHANNEL;
     end
   endgenerate
 
@@ -93,7 +93,7 @@ module Computer_System_mm_interconnect_0_router_014
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [137-1 : 0]    sink_data,
+    input  [104-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -102,8 +102,8 @@ module Computer_System_mm_interconnect_0_router_014
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [137-1    : 0] src_data,
-    output reg [38-1 : 0] src_channel,
+    output reg [104-1    : 0] src_data,
+    output reg [13-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -112,18 +112,18 @@ module Computer_System_mm_interconnect_0_router_014
     // -------------------------------------------------------
     // Local parameters and variables
     // -------------------------------------------------------
-    localparam PKT_ADDR_H = 67;
-    localparam PKT_ADDR_L = 36;
-    localparam PKT_DEST_ID_H = 112;
-    localparam PKT_DEST_ID_L = 107;
-    localparam PKT_PROTECTION_H = 127;
-    localparam PKT_PROTECTION_L = 125;
-    localparam ST_DATA_W = 137;
-    localparam ST_CHANNEL_W = 38;
+    localparam PKT_ADDR_H = 38;
+    localparam PKT_ADDR_L = 9;
+    localparam PKT_DEST_ID_H = 79;
+    localparam PKT_DEST_ID_L = 76;
+    localparam PKT_PROTECTION_H = 94;
+    localparam PKT_PROTECTION_L = 92;
+    localparam ST_DATA_W = 104;
+    localparam ST_CHANNEL_W = 13;
     localparam DECODER_TYPE = 1;
 
-    localparam PKT_TRANS_WRITE = 70;
-    localparam PKT_TRANS_READ  = 71;
+    localparam PKT_TRANS_WRITE = 41;
+    localparam PKT_TRANS_READ  = 42;
 
     localparam PKT_ADDR_W = PKT_ADDR_H-PKT_ADDR_L + 1;
     localparam PKT_DEST_ID_W = PKT_DEST_ID_H-PKT_DEST_ID_L + 1;
@@ -158,8 +158,8 @@ module Computer_System_mm_interconnect_0_router_014
     assign src_valid         = sink_valid;
     assign src_startofpacket = sink_startofpacket;
     assign src_endofpacket   = sink_endofpacket;
-    wire [38-1 : 0] default_rd_channel;
-    wire [38-1 : 0] default_wr_channel;
+    wire [13-1 : 0] default_rd_channel;
+    wire [13-1 : 0] default_wr_channel;
 
 
 
@@ -192,24 +192,12 @@ module Computer_System_mm_interconnect_0_router_014
 
 
 
-        if (destid == 1  && write_transaction) begin
-            src_channel = 38'b00001;
+        if (destid == 0  && write_transaction) begin
+            src_channel = 13'b01;
         end
 
-        if (destid == 1  && read_transaction) begin
-            src_channel = 38'b00010;
-        end
-
-        if (destid == 5 ) begin
-            src_channel = 38'b00100;
-        end
-
-        if (destid == 3 ) begin
-            src_channel = 38'b01000;
-        end
-
-        if (destid == 2 ) begin
-            src_channel = 38'b10000;
+        if (destid == 0  && read_transaction) begin
+            src_channel = 13'b10;
         end
 
 

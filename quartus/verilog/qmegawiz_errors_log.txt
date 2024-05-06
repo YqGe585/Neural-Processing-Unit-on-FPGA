@@ -1,0 +1,6 @@
+
+
+C:/Users/yg585/Desktop/Neural-Processing-Unit-on-FPGA/quartus/verilog/pll1.v
+
+May 05 07PM:00:42>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

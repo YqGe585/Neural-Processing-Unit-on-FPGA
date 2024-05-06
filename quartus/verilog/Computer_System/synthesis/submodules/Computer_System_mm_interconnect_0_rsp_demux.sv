@@ -28,8 +28,8 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         Computer_System_mm_interconnect_0_rsp_demux
-//   ST_DATA_W:           241
-//   ST_CHANNEL_W:        23
+//   ST_DATA_W:           239
+//   ST_CHANNEL_W:        11
 //   NUM_OUTPUTS:         2
 //   VALID_WIDTH:         1
 // ------------------------------------------
@@ -46,8 +46,8 @@ module Computer_System_mm_interconnect_0_rsp_demux
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [241-1    : 0]   sink_data, // ST_DATA_W=241
-    input  [23-1 : 0]   sink_channel, // ST_CHANNEL_W=23
+    input  [239-1    : 0]   sink_data, // ST_DATA_W=239
+    input  [11-1 : 0]   sink_channel, // ST_CHANNEL_W=11
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -56,15 +56,15 @@ module Computer_System_mm_interconnect_0_rsp_demux
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [241-1    : 0] src0_data, // ST_DATA_W=241
-    output reg [23-1 : 0] src0_channel, // ST_CHANNEL_W=23
+    output reg [239-1    : 0] src0_data, // ST_DATA_W=239
+    output reg [11-1 : 0] src0_channel, // ST_CHANNEL_W=11
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
 
     output reg                      src1_valid,
-    output reg [241-1    : 0] src1_data, // ST_DATA_W=241
-    output reg [23-1 : 0] src1_channel, // ST_CHANNEL_W=23
+    output reg [239-1    : 0] src1_data, // ST_DATA_W=239
+    output reg [11-1 : 0] src1_channel, // ST_CHANNEL_W=11
     output reg                      src1_startofpacket,
     output reg                      src1_endofpacket,
     input                           src1_ready,
@@ -109,7 +109,7 @@ module Computer_System_mm_interconnect_0_rsp_demux
     assign ready_vector[0] = src0_ready;
     assign ready_vector[1] = src1_ready;
 
-    assign sink_ready = |(sink_channel & {{21{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & {{9{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 

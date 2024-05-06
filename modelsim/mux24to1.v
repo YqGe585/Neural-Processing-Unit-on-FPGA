@@ -27,7 +27,7 @@ module mux24to1 #(
     input wire [DATA_WIDTH-1:0] in23,
     input wire [4:0] sel,
     output reg [DATA_WIDTH-1:0] out,
-	 input wire reset
+	input wire reset
 );
 
 always @(*) begin

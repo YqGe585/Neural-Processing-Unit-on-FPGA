@@ -7,21 +7,21 @@ module matrix_dot_tb();
     reg clk_300;
     reg dot_reset;
     reg dot_start;
-    reg [11:0] dot_src1_start_address;
-    reg [11:0] dot_src2_start_address;
+    reg [13:0] dot_src1_start_address;
+    reg [13:0] dot_src2_start_address;
     wire [15:0] dot_src1_readdata;
     wire [15:0] dot_src2_readdata;
-    reg [5:0] dot_src1_row_size;
-    reg [5:0] dot_src1_col_size;
-    reg [5:0] dot_src2_row_size;
+    reg [11:0] dot_src1_row_size;
+    reg [7:0] dot_src1_col_size;
+    reg [7:0] dot_src2_row_size;
     reg [5:0] dot_src2_col_size;
-    reg [11:0] dot_dest_start_address;
+    reg [13:0] dot_dest_start_address;
 
     // Output signals
     wire dot_done;
-    wire [11:0] dot_src1_address;
-    wire [11:0] dot_src2_address;
-    wire [11:0] dot_dest_address;
+    wire [13:0] dot_src1_address;
+    wire [13:0] dot_src2_address;
+    wire [13:0] dot_dest_address;
     wire [15:0] dot_dest_writedata;
     wire dot_dest_write_en;
 
@@ -51,7 +51,7 @@ module matrix_dot_tb();
         .clk(clk_300),
         .we(dot_src1_write_en),
         .q(dot_src1_readdata),
-        .d(dot_src1_write_data),
+        .d(dot_src1_writedata),
         .address(dot_src1_address)
     );
 
@@ -59,7 +59,7 @@ module matrix_dot_tb();
         .clk(clk_300),
         .we(dot_src2_write_en),
         .q(dot_src2_readdata),
-        .d(dot_src2_write_data),
+        .d(dot_src2_writedata),
         .address(dot_src2_address)
     );
 
@@ -89,10 +89,10 @@ module matrix_dot_tb();
         dot_start = 0;
         dot_src1_start_address = 0;
         dot_src2_start_address = 0;
-        dot_src1_row_size = 3;
-        dot_src1_col_size = 2;
-        dot_src2_row_size = 2;
-        dot_src2_col_size = 3;
+        dot_src1_row_size = 507;
+        dot_src1_col_size = 10;
+        dot_src2_row_size = 1;
+        dot_src2_col_size = 10;
         dot_dest_start_address = 12'h0;
 
         // Wait for global reset
@@ -105,7 +105,7 @@ module matrix_dot_tb();
 
         // Complete
         #500;
-        $finish;
+        // $finish;
     end
 
 endmodule

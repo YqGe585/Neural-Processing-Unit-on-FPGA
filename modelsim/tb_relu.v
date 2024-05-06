@@ -7,7 +7,7 @@ module matrix_relu_tb;
     reg clk_300;
     reg reset;
     reg start;
-    reg [11:0] src1_start_address;
+    reg [13:0] src1_start_address;
 //  reg [14:0] src2_start_address;
     wire signed [15:0] src1_data;
 //  wire [15:0] src2_data;
@@ -17,15 +17,15 @@ module matrix_relu_tb;
     reg [5:0] src1_col_size;
     reg [5:0] src2_row_size;
     reg [5:0] src2_col_size;
-    reg [11:0] dest_start_address;
+    reg [13:0] dest_start_address;
 
     // Outputs
     wire done;
-    wire [11:0] src1_address;
+    wire [13:0] src1_address;
 //    wire [14:0] src2_address;
     wire src1_write_en;
 //    wire src2_write_en;
-    wire [11:0] dest_address;
+    wire [13:0] dest_address;
     wire [15:0] dest_data;
     wire dest_write_en;
 

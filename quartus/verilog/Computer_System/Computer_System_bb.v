@@ -69,12 +69,6 @@ module Computer_System (
 	inst_sram_s1_readdata,
 	inst_sram_s1_writedata,
 	inst_sram_s1_byteenable,
-	inst_valid_s1_address,
-	inst_valid_s1_clken,
-	inst_valid_s1_chipselect,
-	inst_valid_s1_write,
-	inst_valid_s1_readdata,
-	inst_valid_s1_writedata,
 	memory_mem_a,
 	memory_mem_ba,
 	memory_mem_ck,
@@ -101,76 +95,6 @@ module Computer_System (
 	sram_0_s1_readdata,
 	sram_0_s1_writedata,
 	sram_0_s1_byteenable,
-	sram_10_s1_address,
-	sram_10_s1_clken,
-	sram_10_s1_chipselect,
-	sram_10_s1_write,
-	sram_10_s1_readdata,
-	sram_10_s1_writedata,
-	sram_10_s1_byteenable,
-	sram_11_s1_address,
-	sram_11_s1_clken,
-	sram_11_s1_chipselect,
-	sram_11_s1_write,
-	sram_11_s1_readdata,
-	sram_11_s1_writedata,
-	sram_11_s1_byteenable,
-	sram_12_s1_address,
-	sram_12_s1_clken,
-	sram_12_s1_chipselect,
-	sram_12_s1_write,
-	sram_12_s1_readdata,
-	sram_12_s1_writedata,
-	sram_12_s1_byteenable,
-	sram_13_s1_address,
-	sram_13_s1_clken,
-	sram_13_s1_chipselect,
-	sram_13_s1_write,
-	sram_13_s1_readdata,
-	sram_13_s1_writedata,
-	sram_13_s1_byteenable,
-	sram_14_s1_address,
-	sram_14_s1_clken,
-	sram_14_s1_chipselect,
-	sram_14_s1_write,
-	sram_14_s1_readdata,
-	sram_14_s1_writedata,
-	sram_14_s1_byteenable,
-	sram_15_s1_address,
-	sram_15_s1_clken,
-	sram_15_s1_chipselect,
-	sram_15_s1_write,
-	sram_15_s1_readdata,
-	sram_15_s1_writedata,
-	sram_15_s1_byteenable,
-	sram_16_s1_address,
-	sram_16_s1_clken,
-	sram_16_s1_chipselect,
-	sram_16_s1_write,
-	sram_16_s1_readdata,
-	sram_16_s1_writedata,
-	sram_16_s1_byteenable,
-	sram_17_s1_address,
-	sram_17_s1_clken,
-	sram_17_s1_chipselect,
-	sram_17_s1_write,
-	sram_17_s1_readdata,
-	sram_17_s1_writedata,
-	sram_17_s1_byteenable,
-	sram_18_s1_address,
-	sram_18_s1_clken,
-	sram_18_s1_chipselect,
-	sram_18_s1_write,
-	sram_18_s1_readdata,
-	sram_18_s1_writedata,
-	sram_18_s1_byteenable,
-	sram_19_s1_address,
-	sram_19_s1_clken,
-	sram_19_s1_chipselect,
-	sram_19_s1_write,
-	sram_19_s1_readdata,
-	sram_19_s1_writedata,
-	sram_19_s1_byteenable,
 	sram_1_s1_address,
 	sram_1_s1_clken,
 	sram_1_s1_chipselect,
@@ -227,13 +151,6 @@ module Computer_System (
 	sram_8_s1_readdata,
 	sram_8_s1_writedata,
 	sram_8_s1_byteenable,
-	sram_9_s1_address,
-	sram_9_s1_clken,
-	sram_9_s1_chipselect,
-	sram_9_s1_write,
-	sram_9_s1_readdata,
-	sram_9_s1_writedata,
-	sram_9_s1_byteenable,
 	system_pll_ref_clk_clk,
 	system_pll_ref_reset_reset);	
 
@@ -299,19 +216,13 @@ module Computer_System (
 	inout		hps_io_hps_io_gpio_inst_GPIO53;
 	inout		hps_io_hps_io_gpio_inst_GPIO54;
 	inout		hps_io_hps_io_gpio_inst_GPIO61;
-	input	[7:0]	inst_sram_s1_address;
+	input	[8:0]	inst_sram_s1_address;
 	input		inst_sram_s1_clken;
 	input		inst_sram_s1_chipselect;
 	input		inst_sram_s1_write;
 	output	[127:0]	inst_sram_s1_readdata;
 	input	[127:0]	inst_sram_s1_writedata;
 	input	[15:0]	inst_sram_s1_byteenable;
-	input	[8:0]	inst_valid_s1_address;
-	input		inst_valid_s1_clken;
-	input		inst_valid_s1_chipselect;
-	input		inst_valid_s1_write;
-	output	[7:0]	inst_valid_s1_readdata;
-	input	[7:0]	inst_valid_s1_writedata;
 	output	[14:0]	memory_mem_a;
 	output	[2:0]	memory_mem_ba;
 	output		memory_mem_ck;
@@ -331,146 +242,69 @@ module Computer_System (
 	input		pll_0_refclk_clk;
 	input		pll_0_reset_reset;
 	output		sdram_clk_clk;
-	input	[11:0]	sram_0_s1_address;
+	input	[13:0]	sram_0_s1_address;
 	input		sram_0_s1_clken;
 	input		sram_0_s1_chipselect;
 	input		sram_0_s1_write;
 	output	[15:0]	sram_0_s1_readdata;
 	input	[15:0]	sram_0_s1_writedata;
 	input	[1:0]	sram_0_s1_byteenable;
-	input	[11:0]	sram_10_s1_address;
-	input		sram_10_s1_clken;
-	input		sram_10_s1_chipselect;
-	input		sram_10_s1_write;
-	output	[15:0]	sram_10_s1_readdata;
-	input	[15:0]	sram_10_s1_writedata;
-	input	[1:0]	sram_10_s1_byteenable;
-	input	[11:0]	sram_11_s1_address;
-	input		sram_11_s1_clken;
-	input		sram_11_s1_chipselect;
-	input		sram_11_s1_write;
-	output	[15:0]	sram_11_s1_readdata;
-	input	[15:0]	sram_11_s1_writedata;
-	input	[1:0]	sram_11_s1_byteenable;
-	input	[11:0]	sram_12_s1_address;
-	input		sram_12_s1_clken;
-	input		sram_12_s1_chipselect;
-	input		sram_12_s1_write;
-	output	[15:0]	sram_12_s1_readdata;
-	input	[15:0]	sram_12_s1_writedata;
-	input	[1:0]	sram_12_s1_byteenable;
-	input	[11:0]	sram_13_s1_address;
-	input		sram_13_s1_clken;
-	input		sram_13_s1_chipselect;
-	input		sram_13_s1_write;
-	output	[15:0]	sram_13_s1_readdata;
-	input	[15:0]	sram_13_s1_writedata;
-	input	[1:0]	sram_13_s1_byteenable;
-	input	[11:0]	sram_14_s1_address;
-	input		sram_14_s1_clken;
-	input		sram_14_s1_chipselect;
-	input		sram_14_s1_write;
-	output	[15:0]	sram_14_s1_readdata;
-	input	[15:0]	sram_14_s1_writedata;
-	input	[1:0]	sram_14_s1_byteenable;
-	input	[11:0]	sram_15_s1_address;
-	input		sram_15_s1_clken;
-	input		sram_15_s1_chipselect;
-	input		sram_15_s1_write;
-	output	[15:0]	sram_15_s1_readdata;
-	input	[15:0]	sram_15_s1_writedata;
-	input	[1:0]	sram_15_s1_byteenable;
-	input	[11:0]	sram_16_s1_address;
-	input		sram_16_s1_clken;
-	input		sram_16_s1_chipselect;
-	input		sram_16_s1_write;
-	output	[15:0]	sram_16_s1_readdata;
-	input	[15:0]	sram_16_s1_writedata;
-	input	[1:0]	sram_16_s1_byteenable;
-	input	[11:0]	sram_17_s1_address;
-	input		sram_17_s1_clken;
-	input		sram_17_s1_chipselect;
-	input		sram_17_s1_write;
-	output	[15:0]	sram_17_s1_readdata;
-	input	[15:0]	sram_17_s1_writedata;
-	input	[1:0]	sram_17_s1_byteenable;
-	input	[11:0]	sram_18_s1_address;
-	input		sram_18_s1_clken;
-	input		sram_18_s1_chipselect;
-	input		sram_18_s1_write;
-	output	[15:0]	sram_18_s1_readdata;
-	input	[15:0]	sram_18_s1_writedata;
-	input	[1:0]	sram_18_s1_byteenable;
-	input	[11:0]	sram_19_s1_address;
-	input		sram_19_s1_clken;
-	input		sram_19_s1_chipselect;
-	input		sram_19_s1_write;
-	output	[15:0]	sram_19_s1_readdata;
-	input	[15:0]	sram_19_s1_writedata;
-	input	[1:0]	sram_19_s1_byteenable;
-	input	[11:0]	sram_1_s1_address;
+	input	[13:0]	sram_1_s1_address;
 	input		sram_1_s1_clken;
 	input		sram_1_s1_chipselect;
 	input		sram_1_s1_write;
 	output	[15:0]	sram_1_s1_readdata;
 	input	[15:0]	sram_1_s1_writedata;
 	input	[1:0]	sram_1_s1_byteenable;
-	input	[11:0]	sram_2_s1_address;
+	input	[13:0]	sram_2_s1_address;
 	input		sram_2_s1_clken;
 	input		sram_2_s1_chipselect;
 	input		sram_2_s1_write;
 	output	[15:0]	sram_2_s1_readdata;
 	input	[15:0]	sram_2_s1_writedata;
 	input	[1:0]	sram_2_s1_byteenable;
-	input	[11:0]	sram_3_s1_address;
+	input	[13:0]	sram_3_s1_address;
 	input		sram_3_s1_clken;
 	input		sram_3_s1_chipselect;
 	input		sram_3_s1_write;
 	output	[15:0]	sram_3_s1_readdata;
 	input	[15:0]	sram_3_s1_writedata;
 	input	[1:0]	sram_3_s1_byteenable;
-	input	[11:0]	sram_4_s1_address;
+	input	[13:0]	sram_4_s1_address;
 	input		sram_4_s1_clken;
 	input		sram_4_s1_chipselect;
 	input		sram_4_s1_write;
 	output	[15:0]	sram_4_s1_readdata;
 	input	[15:0]	sram_4_s1_writedata;
 	input	[1:0]	sram_4_s1_byteenable;
-	input	[11:0]	sram_5_s1_address;
+	input	[13:0]	sram_5_s1_address;
 	input		sram_5_s1_clken;
 	input		sram_5_s1_chipselect;
 	input		sram_5_s1_write;
 	output	[15:0]	sram_5_s1_readdata;
 	input	[15:0]	sram_5_s1_writedata;
 	input	[1:0]	sram_5_s1_byteenable;
-	input	[11:0]	sram_6_s1_address;
+	input	[13:0]	sram_6_s1_address;
 	input		sram_6_s1_clken;
 	input		sram_6_s1_chipselect;
 	input		sram_6_s1_write;
 	output	[15:0]	sram_6_s1_readdata;
 	input	[15:0]	sram_6_s1_writedata;
 	input	[1:0]	sram_6_s1_byteenable;
-	input	[11:0]	sram_7_s1_address;
+	input	[13:0]	sram_7_s1_address;
 	input		sram_7_s1_clken;
 	input		sram_7_s1_chipselect;
 	input		sram_7_s1_write;
 	output	[15:0]	sram_7_s1_readdata;
 	input	[15:0]	sram_7_s1_writedata;
 	input	[1:0]	sram_7_s1_byteenable;
-	input	[11:0]	sram_8_s1_address;
+	input	[13:0]	sram_8_s1_address;
 	input		sram_8_s1_clken;
 	input		sram_8_s1_chipselect;
 	input		sram_8_s1_write;
 	output	[15:0]	sram_8_s1_readdata;
 	input	[15:0]	sram_8_s1_writedata;
 	input	[1:0]	sram_8_s1_byteenable;
-	input	[11:0]	sram_9_s1_address;
-	input		sram_9_s1_clken;
-	input		sram_9_s1_chipselect;
-	input		sram_9_s1_write;
-	output	[15:0]	sram_9_s1_readdata;
-	input	[15:0]	sram_9_s1_writedata;
-	input	[1:0]	sram_9_s1_byteenable;
 	input		system_pll_ref_clk_clk;
 	input		system_pll_ref_reset_reset;
 endmodule

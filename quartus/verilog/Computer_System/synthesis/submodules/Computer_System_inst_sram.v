@@ -51,8 +51,8 @@ module Computer_System_inst_sram (
 
   output  [127: 0] readdata;
   output  [127: 0] readdata2;
-  input   [  7: 0] address;
-  input   [  7: 0] address2;
+  input   [  8: 0] address;
+  input   [  8: 0] address2;
   input   [ 15: 0] byteenable;
   input   [ 15: 0] byteenable2;
   input            chipselect;
@@ -106,20 +106,20 @@ wire             wren2;
            the_altsyncram.indata_reg_b = "CLOCK1",
            the_altsyncram.init_file = INIT_FILE,
            the_altsyncram.lpm_type = "altsyncram",
-           the_altsyncram.maximum_depth = 256,
-           the_altsyncram.numwords_a = 256,
-           the_altsyncram.numwords_b = 256,
+           the_altsyncram.maximum_depth = 512,
+           the_altsyncram.numwords_a = 512,
+           the_altsyncram.numwords_b = 512,
            the_altsyncram.operation_mode = "BIDIR_DUAL_PORT",
            the_altsyncram.outdata_reg_a = "UNREGISTERED",
            the_altsyncram.outdata_reg_b = "UNREGISTERED",
-           the_altsyncram.ram_block_type = "M10K",
+           the_altsyncram.ram_block_type = "AUTO",
            the_altsyncram.read_during_write_mode_mixed_ports = "DONT_CARE",
            the_altsyncram.width_a = 128,
            the_altsyncram.width_b = 128,
            the_altsyncram.width_byteena_a = 16,
            the_altsyncram.width_byteena_b = 16,
-           the_altsyncram.widthad_a = 8,
-           the_altsyncram.widthad_b = 8,
+           the_altsyncram.widthad_a = 9,
+           the_altsyncram.widthad_b = 9,
            the_altsyncram.wrcontrol_wraddress_reg_b = "CLOCK1";
 
   //s1, which is an e_avalon_slave

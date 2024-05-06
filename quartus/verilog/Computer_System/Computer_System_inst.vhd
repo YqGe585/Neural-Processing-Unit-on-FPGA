@@ -62,19 +62,13 @@
 			hps_io_hps_io_gpio_inst_GPIO53  : inout std_logic                      := 'X';             -- hps_io_gpio_inst_GPIO53
 			hps_io_hps_io_gpio_inst_GPIO54  : inout std_logic                      := 'X';             -- hps_io_gpio_inst_GPIO54
 			hps_io_hps_io_gpio_inst_GPIO61  : inout std_logic                      := 'X';             -- hps_io_gpio_inst_GPIO61
-			inst_sram_s1_address            : in    std_logic_vector(7 downto 0)   := (others => 'X'); -- address
+			inst_sram_s1_address            : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
 			inst_sram_s1_clken              : in    std_logic                      := 'X';             -- clken
 			inst_sram_s1_chipselect         : in    std_logic                      := 'X';             -- chipselect
 			inst_sram_s1_write              : in    std_logic                      := 'X';             -- write
 			inst_sram_s1_readdata           : out   std_logic_vector(127 downto 0);                    -- readdata
 			inst_sram_s1_writedata          : in    std_logic_vector(127 downto 0) := (others => 'X'); -- writedata
 			inst_sram_s1_byteenable         : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- byteenable
-			inst_valid_s1_address           : in    std_logic_vector(8 downto 0)   := (others => 'X'); -- address
-			inst_valid_s1_clken             : in    std_logic                      := 'X';             -- clken
-			inst_valid_s1_chipselect        : in    std_logic                      := 'X';             -- chipselect
-			inst_valid_s1_write             : in    std_logic                      := 'X';             -- write
-			inst_valid_s1_readdata          : out   std_logic_vector(7 downto 0);                      -- readdata
-			inst_valid_s1_writedata         : in    std_logic_vector(7 downto 0)   := (others => 'X'); -- writedata
 			memory_mem_a                    : out   std_logic_vector(14 downto 0);                     -- mem_a
 			memory_mem_ba                   : out   std_logic_vector(2 downto 0);                      -- mem_ba
 			memory_mem_ck                   : out   std_logic;                                         -- mem_ck
@@ -94,146 +88,69 @@
 			pll_0_refclk_clk                : in    std_logic                      := 'X';             -- clk
 			pll_0_reset_reset               : in    std_logic                      := 'X';             -- reset
 			sdram_clk_clk                   : out   std_logic;                                         -- clk
-			sram_0_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_0_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_0_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_0_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_0_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_0_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_0_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_0_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_10_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_10_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_10_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_10_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_10_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_10_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_10_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_11_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_11_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_11_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_11_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_11_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_11_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_11_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_12_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_12_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_12_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_12_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_12_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_12_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_12_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_13_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_13_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_13_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_13_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_13_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_13_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_13_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_14_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_14_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_14_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_14_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_14_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_14_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_14_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_15_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_15_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_15_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_15_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_15_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_15_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_15_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_16_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_16_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_16_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_16_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_16_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_16_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_16_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_17_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_17_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_17_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_17_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_17_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_17_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_17_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_18_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_18_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_18_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_18_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_18_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_18_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_18_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_19_s1_address              : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_19_s1_clken                : in    std_logic                      := 'X';             -- clken
-			sram_19_s1_chipselect           : in    std_logic                      := 'X';             -- chipselect
-			sram_19_s1_write                : in    std_logic                      := 'X';             -- write
-			sram_19_s1_readdata             : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_19_s1_writedata            : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_19_s1_byteenable           : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_1_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_1_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_1_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_1_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_1_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_1_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_1_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_1_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_2_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_2_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_2_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_2_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_2_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_2_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_2_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_2_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_3_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_3_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_3_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_3_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_3_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_3_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_3_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_3_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_4_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_4_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_4_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_4_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_4_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_4_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_4_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_4_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_5_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_5_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_5_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_5_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_5_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_5_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_5_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_5_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_6_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_6_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_6_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_6_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_6_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_6_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_6_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_6_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_7_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_7_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_7_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_7_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_7_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_7_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_7_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_7_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_8_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
+			sram_8_s1_address               : in    std_logic_vector(13 downto 0)  := (others => 'X'); -- address
 			sram_8_s1_clken                 : in    std_logic                      := 'X';             -- clken
 			sram_8_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
 			sram_8_s1_write                 : in    std_logic                      := 'X';             -- write
 			sram_8_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
 			sram_8_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
 			sram_8_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
-			sram_9_s1_address               : in    std_logic_vector(11 downto 0)  := (others => 'X'); -- address
-			sram_9_s1_clken                 : in    std_logic                      := 'X';             -- clken
-			sram_9_s1_chipselect            : in    std_logic                      := 'X';             -- chipselect
-			sram_9_s1_write                 : in    std_logic                      := 'X';             -- write
-			sram_9_s1_readdata              : out   std_logic_vector(15 downto 0);                     -- readdata
-			sram_9_s1_writedata             : in    std_logic_vector(15 downto 0)  := (others => 'X'); -- writedata
-			sram_9_s1_byteenable            : in    std_logic_vector(1 downto 0)   := (others => 'X'); -- byteenable
 			system_pll_ref_clk_clk          : in    std_logic                      := 'X';             -- clk
 			system_pll_ref_reset_reset      : in    std_logic                      := 'X'              -- reset
 		);
@@ -310,12 +227,6 @@
 			inst_sram_s1_readdata           => CONNECTED_TO_inst_sram_s1_readdata,           --                     .readdata
 			inst_sram_s1_writedata          => CONNECTED_TO_inst_sram_s1_writedata,          --                     .writedata
 			inst_sram_s1_byteenable         => CONNECTED_TO_inst_sram_s1_byteenable,         --                     .byteenable
-			inst_valid_s1_address           => CONNECTED_TO_inst_valid_s1_address,           --        inst_valid_s1.address
-			inst_valid_s1_clken             => CONNECTED_TO_inst_valid_s1_clken,             --                     .clken
-			inst_valid_s1_chipselect        => CONNECTED_TO_inst_valid_s1_chipselect,        --                     .chipselect
-			inst_valid_s1_write             => CONNECTED_TO_inst_valid_s1_write,             --                     .write
-			inst_valid_s1_readdata          => CONNECTED_TO_inst_valid_s1_readdata,          --                     .readdata
-			inst_valid_s1_writedata         => CONNECTED_TO_inst_valid_s1_writedata,         --                     .writedata
 			memory_mem_a                    => CONNECTED_TO_memory_mem_a,                    --               memory.mem_a
 			memory_mem_ba                   => CONNECTED_TO_memory_mem_ba,                   --                     .mem_ba
 			memory_mem_ck                   => CONNECTED_TO_memory_mem_ck,                   --                     .mem_ck
@@ -342,76 +253,6 @@
 			sram_0_s1_readdata              => CONNECTED_TO_sram_0_s1_readdata,              --                     .readdata
 			sram_0_s1_writedata             => CONNECTED_TO_sram_0_s1_writedata,             --                     .writedata
 			sram_0_s1_byteenable            => CONNECTED_TO_sram_0_s1_byteenable,            --                     .byteenable
-			sram_10_s1_address              => CONNECTED_TO_sram_10_s1_address,              --           sram_10_s1.address
-			sram_10_s1_clken                => CONNECTED_TO_sram_10_s1_clken,                --                     .clken
-			sram_10_s1_chipselect           => CONNECTED_TO_sram_10_s1_chipselect,           --                     .chipselect
-			sram_10_s1_write                => CONNECTED_TO_sram_10_s1_write,                --                     .write
-			sram_10_s1_readdata             => CONNECTED_TO_sram_10_s1_readdata,             --                     .readdata
-			sram_10_s1_writedata            => CONNECTED_TO_sram_10_s1_writedata,            --                     .writedata
-			sram_10_s1_byteenable           => CONNECTED_TO_sram_10_s1_byteenable,           --                     .byteenable
-			sram_11_s1_address              => CONNECTED_TO_sram_11_s1_address,              --           sram_11_s1.address
-			sram_11_s1_clken                => CONNECTED_TO_sram_11_s1_clken,                --                     .clken
-			sram_11_s1_chipselect           => CONNECTED_TO_sram_11_s1_chipselect,           --                     .chipselect
-			sram_11_s1_write                => CONNECTED_TO_sram_11_s1_write,                --                     .write
-			sram_11_s1_readdata             => CONNECTED_TO_sram_11_s1_readdata,             --                     .readdata
-			sram_11_s1_writedata            => CONNECTED_TO_sram_11_s1_writedata,            --                     .writedata
-			sram_11_s1_byteenable           => CONNECTED_TO_sram_11_s1_byteenable,           --                     .byteenable
-			sram_12_s1_address              => CONNECTED_TO_sram_12_s1_address,              --           sram_12_s1.address
-			sram_12_s1_clken                => CONNECTED_TO_sram_12_s1_clken,                --                     .clken
-			sram_12_s1_chipselect           => CONNECTED_TO_sram_12_s1_chipselect,           --                     .chipselect
-			sram_12_s1_write                => CONNECTED_TO_sram_12_s1_write,                --                     .write
-			sram_12_s1_readdata             => CONNECTED_TO_sram_12_s1_readdata,             --                     .readdata
-			sram_12_s1_writedata            => CONNECTED_TO_sram_12_s1_writedata,            --                     .writedata
-			sram_12_s1_byteenable           => CONNECTED_TO_sram_12_s1_byteenable,           --                     .byteenable
-			sram_13_s1_address              => CONNECTED_TO_sram_13_s1_address,              --           sram_13_s1.address
-			sram_13_s1_clken                => CONNECTED_TO_sram_13_s1_clken,                --                     .clken
-			sram_13_s1_chipselect           => CONNECTED_TO_sram_13_s1_chipselect,           --                     .chipselect
-			sram_13_s1_write                => CONNECTED_TO_sram_13_s1_write,                --                     .write
-			sram_13_s1_readdata             => CONNECTED_TO_sram_13_s1_readdata,             --                     .readdata
-			sram_13_s1_writedata            => CONNECTED_TO_sram_13_s1_writedata,            --                     .writedata
-			sram_13_s1_byteenable           => CONNECTED_TO_sram_13_s1_byteenable,           --                     .byteenable
-			sram_14_s1_address              => CONNECTED_TO_sram_14_s1_address,              --           sram_14_s1.address
-			sram_14_s1_clken                => CONNECTED_TO_sram_14_s1_clken,                --                     .clken
-			sram_14_s1_chipselect           => CONNECTED_TO_sram_14_s1_chipselect,           --                     .chipselect
-			sram_14_s1_write                => CONNECTED_TO_sram_14_s1_write,                --                     .write
-			sram_14_s1_readdata             => CONNECTED_TO_sram_14_s1_readdata,             --                     .readdata
-			sram_14_s1_writedata            => CONNECTED_TO_sram_14_s1_writedata,            --                     .writedata
-			sram_14_s1_byteenable           => CONNECTED_TO_sram_14_s1_byteenable,           --                     .byteenable
-			sram_15_s1_address              => CONNECTED_TO_sram_15_s1_address,              --           sram_15_s1.address
-			sram_15_s1_clken                => CONNECTED_TO_sram_15_s1_clken,                --                     .clken
-			sram_15_s1_chipselect           => CONNECTED_TO_sram_15_s1_chipselect,           --                     .chipselect
-			sram_15_s1_write                => CONNECTED_TO_sram_15_s1_write,                --                     .write
-			sram_15_s1_readdata             => CONNECTED_TO_sram_15_s1_readdata,             --                     .readdata
-			sram_15_s1_writedata            => CONNECTED_TO_sram_15_s1_writedata,            --                     .writedata
-			sram_15_s1_byteenable           => CONNECTED_TO_sram_15_s1_byteenable,           --                     .byteenable
-			sram_16_s1_address              => CONNECTED_TO_sram_16_s1_address,              --           sram_16_s1.address
-			sram_16_s1_clken                => CONNECTED_TO_sram_16_s1_clken,                --                     .clken
-			sram_16_s1_chipselect           => CONNECTED_TO_sram_16_s1_chipselect,           --                     .chipselect
-			sram_16_s1_write                => CONNECTED_TO_sram_16_s1_write,                --                     .write
-			sram_16_s1_readdata             => CONNECTED_TO_sram_16_s1_readdata,             --                     .readdata
-			sram_16_s1_writedata            => CONNECTED_TO_sram_16_s1_writedata,            --                     .writedata
-			sram_16_s1_byteenable           => CONNECTED_TO_sram_16_s1_byteenable,           --                     .byteenable
-			sram_17_s1_address              => CONNECTED_TO_sram_17_s1_address,              --           sram_17_s1.address
-			sram_17_s1_clken                => CONNECTED_TO_sram_17_s1_clken,                --                     .clken
-			sram_17_s1_chipselect           => CONNECTED_TO_sram_17_s1_chipselect,           --                     .chipselect
-			sram_17_s1_write                => CONNECTED_TO_sram_17_s1_write,                --                     .write
-			sram_17_s1_readdata             => CONNECTED_TO_sram_17_s1_readdata,             --                     .readdata
-			sram_17_s1_writedata            => CONNECTED_TO_sram_17_s1_writedata,            --                     .writedata
-			sram_17_s1_byteenable           => CONNECTED_TO_sram_17_s1_byteenable,           --                     .byteenable
-			sram_18_s1_address              => CONNECTED_TO_sram_18_s1_address,              --           sram_18_s1.address
-			sram_18_s1_clken                => CONNECTED_TO_sram_18_s1_clken,                --                     .clken
-			sram_18_s1_chipselect           => CONNECTED_TO_sram_18_s1_chipselect,           --                     .chipselect
-			sram_18_s1_write                => CONNECTED_TO_sram_18_s1_write,                --                     .write
-			sram_18_s1_readdata             => CONNECTED_TO_sram_18_s1_readdata,             --                     .readdata
-			sram_18_s1_writedata            => CONNECTED_TO_sram_18_s1_writedata,            --                     .writedata
-			sram_18_s1_byteenable           => CONNECTED_TO_sram_18_s1_byteenable,           --                     .byteenable
-			sram_19_s1_address              => CONNECTED_TO_sram_19_s1_address,              --           sram_19_s1.address
-			sram_19_s1_clken                => CONNECTED_TO_sram_19_s1_clken,                --                     .clken
-			sram_19_s1_chipselect           => CONNECTED_TO_sram_19_s1_chipselect,           --                     .chipselect
-			sram_19_s1_write                => CONNECTED_TO_sram_19_s1_write,                --                     .write
-			sram_19_s1_readdata             => CONNECTED_TO_sram_19_s1_readdata,             --                     .readdata
-			sram_19_s1_writedata            => CONNECTED_TO_sram_19_s1_writedata,            --                     .writedata
-			sram_19_s1_byteenable           => CONNECTED_TO_sram_19_s1_byteenable,           --                     .byteenable
 			sram_1_s1_address               => CONNECTED_TO_sram_1_s1_address,               --            sram_1_s1.address
 			sram_1_s1_clken                 => CONNECTED_TO_sram_1_s1_clken,                 --                     .clken
 			sram_1_s1_chipselect            => CONNECTED_TO_sram_1_s1_chipselect,            --                     .chipselect
@@ -468,13 +309,6 @@
 			sram_8_s1_readdata              => CONNECTED_TO_sram_8_s1_readdata,              --                     .readdata
 			sram_8_s1_writedata             => CONNECTED_TO_sram_8_s1_writedata,             --                     .writedata
 			sram_8_s1_byteenable            => CONNECTED_TO_sram_8_s1_byteenable,            --                     .byteenable
-			sram_9_s1_address               => CONNECTED_TO_sram_9_s1_address,               --            sram_9_s1.address
-			sram_9_s1_clken                 => CONNECTED_TO_sram_9_s1_clken,                 --                     .clken
-			sram_9_s1_chipselect            => CONNECTED_TO_sram_9_s1_chipselect,            --                     .chipselect
-			sram_9_s1_write                 => CONNECTED_TO_sram_9_s1_write,                 --                     .write
-			sram_9_s1_readdata              => CONNECTED_TO_sram_9_s1_readdata,              --                     .readdata
-			sram_9_s1_writedata             => CONNECTED_TO_sram_9_s1_writedata,             --                     .writedata
-			sram_9_s1_byteenable            => CONNECTED_TO_sram_9_s1_byteenable,            --                     .byteenable
 			system_pll_ref_clk_clk          => CONNECTED_TO_system_pll_ref_clk_clk,          --   system_pll_ref_clk.clk
 			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset       -- system_pll_ref_reset.reset
 		);

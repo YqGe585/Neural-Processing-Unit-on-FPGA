@@ -1,4 +1,4 @@
-module floatMuilt 
+module floatMult 
 (
 	input wire [15:0] floatA,
 	input wire [15:0] floatB,
