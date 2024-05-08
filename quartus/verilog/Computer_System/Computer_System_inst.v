@@ -94,6 +94,20 @@
 		.sram_0_s1_readdata              (<connected-to-sram_0_s1_readdata>),              //                     .readdata
 		.sram_0_s1_writedata             (<connected-to-sram_0_s1_writedata>),             //                     .writedata
 		.sram_0_s1_byteenable            (<connected-to-sram_0_s1_byteenable>),            //                     .byteenable
+		.sram_10_s1_address              (<connected-to-sram_10_s1_address>),              //           sram_10_s1.address
+		.sram_10_s1_clken                (<connected-to-sram_10_s1_clken>),                //                     .clken
+		.sram_10_s1_chipselect           (<connected-to-sram_10_s1_chipselect>),           //                     .chipselect
+		.sram_10_s1_write                (<connected-to-sram_10_s1_write>),                //                     .write
+		.sram_10_s1_readdata             (<connected-to-sram_10_s1_readdata>),             //                     .readdata
+		.sram_10_s1_writedata            (<connected-to-sram_10_s1_writedata>),            //                     .writedata
+		.sram_10_s1_byteenable           (<connected-to-sram_10_s1_byteenable>),           //                     .byteenable
+		.sram_11_s1_address              (<connected-to-sram_11_s1_address>),              //           sram_11_s1.address
+		.sram_11_s1_clken                (<connected-to-sram_11_s1_clken>),                //                     .clken
+		.sram_11_s1_chipselect           (<connected-to-sram_11_s1_chipselect>),           //                     .chipselect
+		.sram_11_s1_write                (<connected-to-sram_11_s1_write>),                //                     .write
+		.sram_11_s1_readdata             (<connected-to-sram_11_s1_readdata>),             //                     .readdata
+		.sram_11_s1_writedata            (<connected-to-sram_11_s1_writedata>),            //                     .writedata
+		.sram_11_s1_byteenable           (<connected-to-sram_11_s1_byteenable>),           //                     .byteenable
 		.sram_1_s1_address               (<connected-to-sram_1_s1_address>),               //            sram_1_s1.address
 		.sram_1_s1_clken                 (<connected-to-sram_1_s1_clken>),                 //                     .clken
 		.sram_1_s1_chipselect            (<connected-to-sram_1_s1_chipselect>),            //                     .chipselect
@@ -150,6 +164,13 @@
 		.sram_8_s1_readdata              (<connected-to-sram_8_s1_readdata>),              //                     .readdata
 		.sram_8_s1_writedata             (<connected-to-sram_8_s1_writedata>),             //                     .writedata
 		.sram_8_s1_byteenable            (<connected-to-sram_8_s1_byteenable>),            //                     .byteenable
+		.sram_9_s1_address               (<connected-to-sram_9_s1_address>),               //            sram_9_s1.address
+		.sram_9_s1_clken                 (<connected-to-sram_9_s1_clken>),                 //                     .clken
+		.sram_9_s1_chipselect            (<connected-to-sram_9_s1_chipselect>),            //                     .chipselect
+		.sram_9_s1_write                 (<connected-to-sram_9_s1_write>),                 //                     .write
+		.sram_9_s1_readdata              (<connected-to-sram_9_s1_readdata>),              //                     .readdata
+		.sram_9_s1_writedata             (<connected-to-sram_9_s1_writedata>),             //                     .writedata
+		.sram_9_s1_byteenable            (<connected-to-sram_9_s1_byteenable>),            //                     .byteenable
 		.system_pll_ref_clk_clk          (<connected-to-system_pll_ref_clk_clk>),          //   system_pll_ref_clk.clk
 		.system_pll_ref_reset_reset      (<connected-to-system_pll_ref_reset_reset>)       // system_pll_ref_reset.reset
 	);

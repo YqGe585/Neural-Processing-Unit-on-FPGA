@@ -95,6 +95,20 @@ module Computer_System (
 	sram_0_s1_readdata,
 	sram_0_s1_writedata,
 	sram_0_s1_byteenable,
+	sram_10_s1_address,
+	sram_10_s1_clken,
+	sram_10_s1_chipselect,
+	sram_10_s1_write,
+	sram_10_s1_readdata,
+	sram_10_s1_writedata,
+	sram_10_s1_byteenable,
+	sram_11_s1_address,
+	sram_11_s1_clken,
+	sram_11_s1_chipselect,
+	sram_11_s1_write,
+	sram_11_s1_readdata,
+	sram_11_s1_writedata,
+	sram_11_s1_byteenable,
 	sram_1_s1_address,
 	sram_1_s1_clken,
 	sram_1_s1_chipselect,
@@ -151,6 +165,13 @@ module Computer_System (
 	sram_8_s1_readdata,
 	sram_8_s1_writedata,
 	sram_8_s1_byteenable,
+	sram_9_s1_address,
+	sram_9_s1_clken,
+	sram_9_s1_chipselect,
+	sram_9_s1_write,
+	sram_9_s1_readdata,
+	sram_9_s1_writedata,
+	sram_9_s1_byteenable,
 	system_pll_ref_clk_clk,
 	system_pll_ref_reset_reset);	
 
@@ -249,6 +270,20 @@ module Computer_System (
 	output	[15:0]	sram_0_s1_readdata;
 	input	[15:0]	sram_0_s1_writedata;
 	input	[1:0]	sram_0_s1_byteenable;
+	input	[13:0]	sram_10_s1_address;
+	input		sram_10_s1_clken;
+	input		sram_10_s1_chipselect;
+	input		sram_10_s1_write;
+	output	[15:0]	sram_10_s1_readdata;
+	input	[15:0]	sram_10_s1_writedata;
+	input	[1:0]	sram_10_s1_byteenable;
+	input	[13:0]	sram_11_s1_address;
+	input		sram_11_s1_clken;
+	input		sram_11_s1_chipselect;
+	input		sram_11_s1_write;
+	output	[15:0]	sram_11_s1_readdata;
+	input	[15:0]	sram_11_s1_writedata;
+	input	[1:0]	sram_11_s1_byteenable;
 	input	[13:0]	sram_1_s1_address;
 	input		sram_1_s1_clken;
 	input		sram_1_s1_chipselect;
@@ -305,6 +340,13 @@ module Computer_System (
 	output	[15:0]	sram_8_s1_readdata;
 	input	[15:0]	sram_8_s1_writedata;
 	input	[1:0]	sram_8_s1_byteenable;
+	input	[13:0]	sram_9_s1_address;
+	input		sram_9_s1_clken;
+	input		sram_9_s1_chipselect;
+	input		sram_9_s1_write;
+	output	[15:0]	sram_9_s1_readdata;
+	input	[15:0]	sram_9_s1_writedata;
+	input	[1:0]	sram_9_s1_byteenable;
 	input		system_pll_ref_clk_clk;
 	input		system_pll_ref_reset_reset;
 endmodule

@@ -163,6 +163,11 @@
    }
    element sram_11.s2
    {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "0";
@@ -378,8 +383,8 @@
    type="clock"
    dir="start" />
  <interface name="sram_0_s1" internal="sram_0.s1" type="avalon" dir="end" />
- <interface name="sram_10_s1" internal="sram_10.s1" />
- <interface name="sram_11_s1" internal="sram_11.s1" />
+ <interface name="sram_10_s1" internal="sram_10.s1" type="avalon" dir="end" />
+ <interface name="sram_11_s1" internal="sram_11.s1" type="avalon" dir="end" />
  <interface name="sram_12_s1" internal="sram_12.s1" />
  <interface name="sram_13_s1" internal="sram_13.s1" />
  <interface name="sram_14_s1" internal="sram_14.s1" />
@@ -391,7 +396,7 @@
  <interface name="sram_6_s1" internal="sram_6.s1" type="avalon" dir="end" />
  <interface name="sram_7_s1" internal="sram_7.s1" type="avalon" dir="end" />
  <interface name="sram_8_s1" internal="sram_8.s1" type="avalon" dir="end" />
- <interface name="sram_9_s1" internal="sram_9.s1" />
+ <interface name="sram_9_s1" internal="sram_9.s1" type="avalon" dir="end" />
  <interface
    name="system_pll_ref_clk"
    internal="System_PLL.ref_clk"
@@ -1283,9 +1288,9 @@
    name="sram_10"
    kind="altera_avalon_onchip_memory2"
    version="18.1"
-   enabled="0">
+   enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName">Computer_System_sram_10</parameter>
+  <parameter name="autoInitializationFileName">$${FILENAME}_sram_10</parameter>
   <parameter name="blockType" value="AUTO" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="16" />
@@ -1315,9 +1320,9 @@
    name="sram_11"
    kind="altera_avalon_onchip_memory2"
    version="18.1"
-   enabled="0">
+   enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName">Computer_System_sram_11</parameter>
+  <parameter name="autoInitializationFileName">$${FILENAME}_sram_11</parameter>
   <parameter name="blockType" value="AUTO" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="16" />
@@ -1667,9 +1672,9 @@
    name="sram_9"
    kind="altera_avalon_onchip_memory2"
    version="18.1"
-   enabled="0">
+   enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName">Computer_System_sram_9</parameter>
+  <parameter name="autoInitializationFileName" value="$${FILENAME}_sram_9" />
   <parameter name="blockType" value="AUTO" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="16" />
@@ -1789,33 +1794,6 @@
    kind="avalon"
    version="18.1"
    start="ARM_A9_HPS.h2f_axi_master"
-   end="sram_9.s2">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00010000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_axi_master"
-   end="sram_10.s2">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x8000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_axi_master"
-   end="sram_11.s2">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_axi_master"
    end="sram_12.s2">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
@@ -1849,6 +1827,33 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_axi_master"
+   end="sram_9.s2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00010000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_axi_master"
+   end="sram_10.s2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x8000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_axi_master"
+   end="sram_11.s2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
    kind="clock"
    version="18.1"
    start="pll_0.outclk0"
@@ -1862,9 +1867,6 @@
  <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_6.clk1" />
  <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_7.clk1" />
  <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_8.clk1" />
- <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_9.clk1" />
- <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_10.clk1" />
- <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_11.clk1" />
  <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_12.clk1" />
  <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_13.clk1" />
  <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_14.clk1" />
@@ -1873,6 +1875,9 @@
    version="18.1"
    start="pll_0.outclk0"
    end="done_sram.clk1" />
+ <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_9.clk1" />
+ <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_10.clk1" />
+ <connection kind="clock" version="18.1" start="pll_0.outclk0" end="sram_11.clk1" />
  <connection
    kind="clock"
    version="18.1"
@@ -1927,21 +1932,6 @@
    kind="clock"
    version="18.1"
    start="System_PLL.sys_clk"
-   end="sram_9.clk2" />
- <connection
-   kind="clock"
-   version="18.1"
-   start="System_PLL.sys_clk"
-   end="sram_10.clk2" />
- <connection
-   kind="clock"
-   version="18.1"
-   start="System_PLL.sys_clk"
-   end="sram_11.clk2" />
- <connection
-   kind="clock"
-   version="18.1"
-   start="System_PLL.sys_clk"
    end="sram_12.clk2" />
  <connection
    kind="clock"
@@ -1958,6 +1948,21 @@
    version="18.1"
    start="System_PLL.sys_clk"
    end="done_sram.clk2" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="System_PLL.sys_clk"
+   end="sram_9.clk2" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="System_PLL.sys_clk"
+   end="sram_10.clk2" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="System_PLL.sys_clk"
+   end="sram_11.clk2" />
  <connection
    kind="clock"
    version="18.1"
@@ -2027,21 +2032,6 @@
    kind="reset"
    version="18.1"
    start="ARM_A9_HPS.h2f_reset"
-   end="sram_9.reset1" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="sram_10.reset1" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="sram_11.reset1" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_reset"
    end="sram_12.reset1" />
  <connection
    kind="reset"
@@ -2058,6 +2048,21 @@
    version="18.1"
    start="ARM_A9_HPS.h2f_reset"
    end="done_sram.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="sram_9.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="sram_10.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="sram_11.reset1" />
  <connection
    kind="reset"
    version="18.1"
@@ -2112,21 +2117,6 @@
    kind="reset"
    version="18.1"
    start="ARM_A9_HPS.h2f_reset"
-   end="sram_9.reset2" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="sram_10.reset2" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_reset"
-   end="sram_11.reset2" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="ARM_A9_HPS.h2f_reset"
    end="sram_12.reset2" />
  <connection
    kind="reset"
@@ -2143,6 +2133,21 @@
    version="18.1"
    start="ARM_A9_HPS.h2f_reset"
    end="done_sram.reset2" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="sram_9.reset2" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="sram_10.reset2" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_reset"
+   end="sram_11.reset2" />
  <connection
    kind="reset"
    version="18.1"
@@ -2197,21 +2202,6 @@
    kind="reset"
    version="18.1"
    start="System_PLL.reset_source"
-   end="sram_9.reset1" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="System_PLL.reset_source"
-   end="sram_10.reset1" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="System_PLL.reset_source"
-   end="sram_11.reset1" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="System_PLL.reset_source"
    end="sram_12.reset1" />
  <connection
    kind="reset"
@@ -2228,6 +2218,21 @@
    version="18.1"
    start="System_PLL.reset_source"
    end="done_sram.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="sram_9.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="sram_10.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="sram_11.reset1" />
  <connection
    kind="reset"
    version="18.1"
@@ -2282,21 +2287,6 @@
    kind="reset"
    version="18.1"
    start="System_PLL.reset_source"
-   end="sram_9.reset2" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="System_PLL.reset_source"
-   end="sram_10.reset2" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="System_PLL.reset_source"
-   end="sram_11.reset2" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="System_PLL.reset_source"
    end="sram_12.reset2" />
  <connection
    kind="reset"
@@ -2313,6 +2303,21 @@
    version="18.1"
    start="System_PLL.reset_source"
    end="done_sram.reset2" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="sram_9.reset2" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="sram_10.reset2" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="sram_11.reset2" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

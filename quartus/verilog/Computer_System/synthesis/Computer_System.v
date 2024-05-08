@@ -99,6 +99,20 @@ module Computer_System (
 		output wire [15:0]  sram_0_s1_readdata,              //                     .readdata
 		input  wire [15:0]  sram_0_s1_writedata,             //                     .writedata
 		input  wire [1:0]   sram_0_s1_byteenable,            //                     .byteenable
+		input  wire [13:0]  sram_10_s1_address,              //           sram_10_s1.address
+		input  wire         sram_10_s1_clken,                //                     .clken
+		input  wire         sram_10_s1_chipselect,           //                     .chipselect
+		input  wire         sram_10_s1_write,                //                     .write
+		output wire [15:0]  sram_10_s1_readdata,             //                     .readdata
+		input  wire [15:0]  sram_10_s1_writedata,            //                     .writedata
+		input  wire [1:0]   sram_10_s1_byteenable,           //                     .byteenable
+		input  wire [13:0]  sram_11_s1_address,              //           sram_11_s1.address
+		input  wire         sram_11_s1_clken,                //                     .clken
+		input  wire         sram_11_s1_chipselect,           //                     .chipselect
+		input  wire         sram_11_s1_write,                //                     .write
+		output wire [15:0]  sram_11_s1_readdata,             //                     .readdata
+		input  wire [15:0]  sram_11_s1_writedata,            //                     .writedata
+		input  wire [1:0]   sram_11_s1_byteenable,           //                     .byteenable
 		input  wire [13:0]  sram_1_s1_address,               //            sram_1_s1.address
 		input  wire         sram_1_s1_clken,                 //                     .clken
 		input  wire         sram_1_s1_chipselect,            //                     .chipselect
@@ -155,12 +169,19 @@ module Computer_System (
 		output wire [15:0]  sram_8_s1_readdata,              //                     .readdata
 		input  wire [15:0]  sram_8_s1_writedata,             //                     .writedata
 		input  wire [1:0]   sram_8_s1_byteenable,            //                     .byteenable
+		input  wire [13:0]  sram_9_s1_address,               //            sram_9_s1.address
+		input  wire         sram_9_s1_clken,                 //                     .clken
+		input  wire         sram_9_s1_chipselect,            //                     .chipselect
+		input  wire         sram_9_s1_write,                 //                     .write
+		output wire [15:0]  sram_9_s1_readdata,              //                     .readdata
+		input  wire [15:0]  sram_9_s1_writedata,             //                     .writedata
+		input  wire [1:0]   sram_9_s1_byteenable,            //                     .byteenable
 		input  wire         system_pll_ref_clk_clk,          //   system_pll_ref_clk.clk
 		input  wire         system_pll_ref_reset_reset       // system_pll_ref_reset.reset
 	);
 
-	wire          pll_0_outclk0_clk;                         // pll_0:outclk_0 -> [done_sram:clk, inst_sram:clk, rst_controller:clk, sram_0:clk, sram_1:clk, sram_2:clk, sram_3:clk, sram_4:clk, sram_5:clk, sram_6:clk, sram_7:clk, sram_8:clk]
-	wire          system_pll_sys_clk_clk;                    // System_PLL:sys_clk_clk -> [ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, done_sram:clk2, inst_sram:clk2, mm_interconnect_0:System_PLL_sys_clk_clk, rst_controller_001:clk, rst_controller_002:clk, sram_0:clk2, sram_1:clk2, sram_2:clk2, sram_3:clk2, sram_4:clk2, sram_5:clk2, sram_6:clk2, sram_7:clk2, sram_8:clk2]
+	wire          pll_0_outclk0_clk;                         // pll_0:outclk_0 -> [done_sram:clk, inst_sram:clk, rst_controller:clk, sram_0:clk, sram_10:clk, sram_11:clk, sram_1:clk, sram_2:clk, sram_3:clk, sram_4:clk, sram_5:clk, sram_6:clk, sram_7:clk, sram_8:clk, sram_9:clk]
+	wire          system_pll_sys_clk_clk;                    // System_PLL:sys_clk_clk -> [ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, done_sram:clk2, inst_sram:clk2, mm_interconnect_0:System_PLL_sys_clk_clk, rst_controller_001:clk, rst_controller_002:clk, sram_0:clk2, sram_10:clk2, sram_11:clk2, sram_1:clk2, sram_2:clk2, sram_3:clk2, sram_4:clk2, sram_5:clk2, sram_6:clk2, sram_7:clk2, sram_8:clk2, sram_9:clk2]
 	wire    [1:0] arm_a9_hps_h2f_axi_master_awburst;         // ARM_A9_HPS:h2f_AWBURST -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_awburst
 	wire    [3:0] arm_a9_hps_h2f_axi_master_arlen;           // ARM_A9_HPS:h2f_ARLEN -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_arlen
 	wire   [15:0] arm_a9_hps_h2f_axi_master_wstrb;           // ARM_A9_HPS:h2f_WSTRB -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_wstrb
@@ -273,14 +294,35 @@ module Computer_System (
 	wire          mm_interconnect_0_done_sram_s2_write;      // mm_interconnect_0:done_sram_s2_write -> done_sram:write2
 	wire    [7:0] mm_interconnect_0_done_sram_s2_writedata;  // mm_interconnect_0:done_sram_s2_writedata -> done_sram:writedata2
 	wire          mm_interconnect_0_done_sram_s2_clken;      // mm_interconnect_0:done_sram_s2_clken -> done_sram:clken2
+	wire          mm_interconnect_0_sram_9_s2_chipselect;    // mm_interconnect_0:sram_9_s2_chipselect -> sram_9:chipselect2
+	wire   [15:0] mm_interconnect_0_sram_9_s2_readdata;      // sram_9:readdata2 -> mm_interconnect_0:sram_9_s2_readdata
+	wire   [13:0] mm_interconnect_0_sram_9_s2_address;       // mm_interconnect_0:sram_9_s2_address -> sram_9:address2
+	wire    [1:0] mm_interconnect_0_sram_9_s2_byteenable;    // mm_interconnect_0:sram_9_s2_byteenable -> sram_9:byteenable2
+	wire          mm_interconnect_0_sram_9_s2_write;         // mm_interconnect_0:sram_9_s2_write -> sram_9:write2
+	wire   [15:0] mm_interconnect_0_sram_9_s2_writedata;     // mm_interconnect_0:sram_9_s2_writedata -> sram_9:writedata2
+	wire          mm_interconnect_0_sram_9_s2_clken;         // mm_interconnect_0:sram_9_s2_clken -> sram_9:clken2
+	wire          mm_interconnect_0_sram_10_s2_chipselect;   // mm_interconnect_0:sram_10_s2_chipselect -> sram_10:chipselect2
+	wire   [15:0] mm_interconnect_0_sram_10_s2_readdata;     // sram_10:readdata2 -> mm_interconnect_0:sram_10_s2_readdata
+	wire   [13:0] mm_interconnect_0_sram_10_s2_address;      // mm_interconnect_0:sram_10_s2_address -> sram_10:address2
+	wire    [1:0] mm_interconnect_0_sram_10_s2_byteenable;   // mm_interconnect_0:sram_10_s2_byteenable -> sram_10:byteenable2
+	wire          mm_interconnect_0_sram_10_s2_write;        // mm_interconnect_0:sram_10_s2_write -> sram_10:write2
+	wire   [15:0] mm_interconnect_0_sram_10_s2_writedata;    // mm_interconnect_0:sram_10_s2_writedata -> sram_10:writedata2
+	wire          mm_interconnect_0_sram_10_s2_clken;        // mm_interconnect_0:sram_10_s2_clken -> sram_10:clken2
+	wire          mm_interconnect_0_sram_11_s2_chipselect;   // mm_interconnect_0:sram_11_s2_chipselect -> sram_11:chipselect2
+	wire   [15:0] mm_interconnect_0_sram_11_s2_readdata;     // sram_11:readdata2 -> mm_interconnect_0:sram_11_s2_readdata
+	wire   [13:0] mm_interconnect_0_sram_11_s2_address;      // mm_interconnect_0:sram_11_s2_address -> sram_11:address2
+	wire    [1:0] mm_interconnect_0_sram_11_s2_byteenable;   // mm_interconnect_0:sram_11_s2_byteenable -> sram_11:byteenable2
+	wire          mm_interconnect_0_sram_11_s2_write;        // mm_interconnect_0:sram_11_s2_write -> sram_11:write2
+	wire   [15:0] mm_interconnect_0_sram_11_s2_writedata;    // mm_interconnect_0:sram_11_s2_writedata -> sram_11:writedata2
+	wire          mm_interconnect_0_sram_11_s2_clken;        // mm_interconnect_0:sram_11_s2_clken -> sram_11:clken2
 	wire   [31:0] arm_a9_hps_f2h_irq0_irq;                   // irq_mapper:sender_irq -> ARM_A9_HPS:f2h_irq_p0
 	wire   [31:0] arm_a9_hps_f2h_irq1_irq;                   // irq_mapper_001:sender_irq -> ARM_A9_HPS:f2h_irq_p1
-	wire          rst_controller_reset_out_reset;            // rst_controller:reset_out -> [done_sram:reset, inst_sram:reset, sram_0:reset, sram_1:reset, sram_2:reset, sram_3:reset, sram_4:reset, sram_5:reset, sram_6:reset, sram_7:reset, sram_8:reset]
-	wire          rst_controller_reset_out_reset_req;        // rst_controller:reset_req -> [done_sram:reset_req, inst_sram:reset_req, sram_0:reset_req, sram_1:reset_req, sram_2:reset_req, sram_3:reset_req, sram_4:reset_req, sram_5:reset_req, sram_6:reset_req, sram_7:reset_req, sram_8:reset_req]
+	wire          rst_controller_reset_out_reset;            // rst_controller:reset_out -> [done_sram:reset, inst_sram:reset, sram_0:reset, sram_10:reset, sram_11:reset, sram_1:reset, sram_2:reset, sram_3:reset, sram_4:reset, sram_5:reset, sram_6:reset, sram_7:reset, sram_8:reset, sram_9:reset]
+	wire          rst_controller_reset_out_reset_req;        // rst_controller:reset_req -> [done_sram:reset_req, inst_sram:reset_req, sram_0:reset_req, sram_10:reset_req, sram_11:reset_req, sram_1:reset_req, sram_2:reset_req, sram_3:reset_req, sram_4:reset_req, sram_5:reset_req, sram_6:reset_req, sram_7:reset_req, sram_8:reset_req, sram_9:reset_req]
 	wire          arm_a9_hps_h2f_reset_reset;                // ARM_A9_HPS:h2f_rst_n -> [rst_controller:reset_in0, rst_controller_001:reset_in0, rst_controller_002:reset_in0]
 	wire          system_pll_reset_source_reset;             // System_PLL:reset_source_reset -> [rst_controller:reset_in1, rst_controller_001:reset_in1]
-	wire          rst_controller_001_reset_out_reset;        // rst_controller_001:reset_out -> [done_sram:reset2, inst_sram:reset2, mm_interconnect_0:inst_sram_reset2_reset_bridge_in_reset_reset, sram_0:reset2, sram_1:reset2, sram_2:reset2, sram_3:reset2, sram_4:reset2, sram_5:reset2, sram_6:reset2, sram_7:reset2, sram_8:reset2]
-	wire          rst_controller_001_reset_out_reset_req;    // rst_controller_001:reset_req -> [done_sram:reset_req2, inst_sram:reset_req2, sram_0:reset_req2, sram_1:reset_req2, sram_2:reset_req2, sram_3:reset_req2, sram_4:reset_req2, sram_5:reset_req2, sram_6:reset_req2, sram_7:reset_req2, sram_8:reset_req2]
+	wire          rst_controller_001_reset_out_reset;        // rst_controller_001:reset_out -> [done_sram:reset2, inst_sram:reset2, mm_interconnect_0:inst_sram_reset2_reset_bridge_in_reset_reset, sram_0:reset2, sram_10:reset2, sram_11:reset2, sram_1:reset2, sram_2:reset2, sram_3:reset2, sram_4:reset2, sram_5:reset2, sram_6:reset2, sram_7:reset2, sram_8:reset2, sram_9:reset2]
+	wire          rst_controller_001_reset_out_reset_req;    // rst_controller_001:reset_req -> [done_sram:reset_req2, inst_sram:reset_req2, sram_0:reset_req2, sram_10:reset_req2, sram_11:reset_req2, sram_1:reset_req2, sram_2:reset_req2, sram_3:reset_req2, sram_4:reset_req2, sram_5:reset_req2, sram_6:reset_req2, sram_7:reset_req2, sram_8:reset_req2, sram_9:reset_req2]
 	wire          rst_controller_002_reset_out_reset;        // rst_controller_002:reset_out -> mm_interconnect_0:ARM_A9_HPS_h2f_axi_master_agent_clk_reset_reset_bridge_in_reset_reset
 
 	Computer_System_ARM_A9_HPS #(
@@ -586,6 +628,54 @@ module Computer_System (
 		.freeze      (1'b0)                                    // (terminated)
 	);
 
+	Computer_System_sram_10 sram_10 (
+		.clk         (pll_0_outclk0_clk),                       //   clk1.clk
+		.address     (sram_10_s1_address),                      //     s1.address
+		.clken       (sram_10_s1_clken),                        //       .clken
+		.chipselect  (sram_10_s1_chipselect),                   //       .chipselect
+		.write       (sram_10_s1_write),                        //       .write
+		.readdata    (sram_10_s1_readdata),                     //       .readdata
+		.writedata   (sram_10_s1_writedata),                    //       .writedata
+		.byteenable  (sram_10_s1_byteenable),                   //       .byteenable
+		.reset       (rst_controller_reset_out_reset),          // reset1.reset
+		.reset_req   (rst_controller_reset_out_reset_req),      //       .reset_req
+		.address2    (mm_interconnect_0_sram_10_s2_address),    //     s2.address
+		.chipselect2 (mm_interconnect_0_sram_10_s2_chipselect), //       .chipselect
+		.clken2      (mm_interconnect_0_sram_10_s2_clken),      //       .clken
+		.write2      (mm_interconnect_0_sram_10_s2_write),      //       .write
+		.readdata2   (mm_interconnect_0_sram_10_s2_readdata),   //       .readdata
+		.writedata2  (mm_interconnect_0_sram_10_s2_writedata),  //       .writedata
+		.byteenable2 (mm_interconnect_0_sram_10_s2_byteenable), //       .byteenable
+		.clk2        (system_pll_sys_clk_clk),                  //   clk2.clk
+		.reset2      (rst_controller_001_reset_out_reset),      // reset2.reset
+		.reset_req2  (rst_controller_001_reset_out_reset_req),  //       .reset_req
+		.freeze      (1'b0)                                     // (terminated)
+	);
+
+	Computer_System_sram_11 sram_11 (
+		.clk         (pll_0_outclk0_clk),                       //   clk1.clk
+		.address     (sram_11_s1_address),                      //     s1.address
+		.clken       (sram_11_s1_clken),                        //       .clken
+		.chipselect  (sram_11_s1_chipselect),                   //       .chipselect
+		.write       (sram_11_s1_write),                        //       .write
+		.readdata    (sram_11_s1_readdata),                     //       .readdata
+		.writedata   (sram_11_s1_writedata),                    //       .writedata
+		.byteenable  (sram_11_s1_byteenable),                   //       .byteenable
+		.reset       (rst_controller_reset_out_reset),          // reset1.reset
+		.reset_req   (rst_controller_reset_out_reset_req),      //       .reset_req
+		.address2    (mm_interconnect_0_sram_11_s2_address),    //     s2.address
+		.chipselect2 (mm_interconnect_0_sram_11_s2_chipselect), //       .chipselect
+		.clken2      (mm_interconnect_0_sram_11_s2_clken),      //       .clken
+		.write2      (mm_interconnect_0_sram_11_s2_write),      //       .write
+		.readdata2   (mm_interconnect_0_sram_11_s2_readdata),   //       .readdata
+		.writedata2  (mm_interconnect_0_sram_11_s2_writedata),  //       .writedata
+		.byteenable2 (mm_interconnect_0_sram_11_s2_byteenable), //       .byteenable
+		.clk2        (system_pll_sys_clk_clk),                  //   clk2.clk
+		.reset2      (rst_controller_001_reset_out_reset),      // reset2.reset
+		.reset_req2  (rst_controller_001_reset_out_reset_req),  //       .reset_req
+		.freeze      (1'b0)                                     // (terminated)
+	);
+
 	Computer_System_sram_2 sram_2 (
 		.clk         (pll_0_outclk0_clk),                      //   clk1.clk
 		.address     (sram_2_s1_address),                      //     s1.address
@@ -754,6 +844,30 @@ module Computer_System (
 		.freeze      (1'b0)                                    // (terminated)
 	);
 
+	Computer_System_sram_9 sram_9 (
+		.clk         (pll_0_outclk0_clk),                      //   clk1.clk
+		.address     (sram_9_s1_address),                      //     s1.address
+		.clken       (sram_9_s1_clken),                        //       .clken
+		.chipselect  (sram_9_s1_chipselect),                   //       .chipselect
+		.write       (sram_9_s1_write),                        //       .write
+		.readdata    (sram_9_s1_readdata),                     //       .readdata
+		.writedata   (sram_9_s1_writedata),                    //       .writedata
+		.byteenable  (sram_9_s1_byteenable),                   //       .byteenable
+		.reset       (rst_controller_reset_out_reset),         // reset1.reset
+		.reset_req   (rst_controller_reset_out_reset_req),     //       .reset_req
+		.address2    (mm_interconnect_0_sram_9_s2_address),    //     s2.address
+		.chipselect2 (mm_interconnect_0_sram_9_s2_chipselect), //       .chipselect
+		.clken2      (mm_interconnect_0_sram_9_s2_clken),      //       .clken
+		.write2      (mm_interconnect_0_sram_9_s2_write),      //       .write
+		.readdata2   (mm_interconnect_0_sram_9_s2_readdata),   //       .readdata
+		.writedata2  (mm_interconnect_0_sram_9_s2_writedata),  //       .writedata
+		.byteenable2 (mm_interconnect_0_sram_9_s2_byteenable), //       .byteenable
+		.clk2        (system_pll_sys_clk_clk),                 //   clk2.clk
+		.reset2      (rst_controller_001_reset_out_reset),     // reset2.reset
+		.reset_req2  (rst_controller_001_reset_out_reset_req), //       .reset_req
+		.freeze      (1'b0)                                    // (terminated)
+	);
+
 	Computer_System_mm_interconnect_0 mm_interconnect_0 (
 		.ARM_A9_HPS_h2f_axi_master_awid                                        (arm_a9_hps_h2f_axi_master_awid),            //                                       ARM_A9_HPS_h2f_axi_master.awid
 		.ARM_A9_HPS_h2f_axi_master_awaddr                                      (arm_a9_hps_h2f_axi_master_awaddr),          //                                                                .awaddr
@@ -821,6 +935,20 @@ module Computer_System (
 		.sram_1_s2_byteenable                                                  (mm_interconnect_0_sram_1_s2_byteenable),    //                                                                .byteenable
 		.sram_1_s2_chipselect                                                  (mm_interconnect_0_sram_1_s2_chipselect),    //                                                                .chipselect
 		.sram_1_s2_clken                                                       (mm_interconnect_0_sram_1_s2_clken),         //                                                                .clken
+		.sram_10_s2_address                                                    (mm_interconnect_0_sram_10_s2_address),      //                                                      sram_10_s2.address
+		.sram_10_s2_write                                                      (mm_interconnect_0_sram_10_s2_write),        //                                                                .write
+		.sram_10_s2_readdata                                                   (mm_interconnect_0_sram_10_s2_readdata),     //                                                                .readdata
+		.sram_10_s2_writedata                                                  (mm_interconnect_0_sram_10_s2_writedata),    //                                                                .writedata
+		.sram_10_s2_byteenable                                                 (mm_interconnect_0_sram_10_s2_byteenable),   //                                                                .byteenable
+		.sram_10_s2_chipselect                                                 (mm_interconnect_0_sram_10_s2_chipselect),   //                                                                .chipselect
+		.sram_10_s2_clken                                                      (mm_interconnect_0_sram_10_s2_clken),        //                                                                .clken
+		.sram_11_s2_address                                                    (mm_interconnect_0_sram_11_s2_address),      //                                                      sram_11_s2.address
+		.sram_11_s2_write                                                      (mm_interconnect_0_sram_11_s2_write),        //                                                                .write
+		.sram_11_s2_readdata                                                   (mm_interconnect_0_sram_11_s2_readdata),     //                                                                .readdata
+		.sram_11_s2_writedata                                                  (mm_interconnect_0_sram_11_s2_writedata),    //                                                                .writedata
+		.sram_11_s2_byteenable                                                 (mm_interconnect_0_sram_11_s2_byteenable),   //                                                                .byteenable
+		.sram_11_s2_chipselect                                                 (mm_interconnect_0_sram_11_s2_chipselect),   //                                                                .chipselect
+		.sram_11_s2_clken                                                      (mm_interconnect_0_sram_11_s2_clken),        //                                                                .clken
 		.sram_2_s2_address                                                     (mm_interconnect_0_sram_2_s2_address),       //                                                       sram_2_s2.address
 		.sram_2_s2_write                                                       (mm_interconnect_0_sram_2_s2_write),         //                                                                .write
 		.sram_2_s2_readdata                                                    (mm_interconnect_0_sram_2_s2_readdata),      //                                                                .readdata
@@ -869,7 +997,14 @@ module Computer_System (
 		.sram_8_s2_writedata                                                   (mm_interconnect_0_sram_8_s2_writedata),     //                                                                .writedata
 		.sram_8_s2_byteenable                                                  (mm_interconnect_0_sram_8_s2_byteenable),    //                                                                .byteenable
 		.sram_8_s2_chipselect                                                  (mm_interconnect_0_sram_8_s2_chipselect),    //                                                                .chipselect
-		.sram_8_s2_clken                                                       (mm_interconnect_0_sram_8_s2_clken)          //                                                                .clken
+		.sram_8_s2_clken                                                       (mm_interconnect_0_sram_8_s2_clken),         //                                                                .clken
+		.sram_9_s2_address                                                     (mm_interconnect_0_sram_9_s2_address),       //                                                       sram_9_s2.address
+		.sram_9_s2_write                                                       (mm_interconnect_0_sram_9_s2_write),         //                                                                .write
+		.sram_9_s2_readdata                                                    (mm_interconnect_0_sram_9_s2_readdata),      //                                                                .readdata
+		.sram_9_s2_writedata                                                   (mm_interconnect_0_sram_9_s2_writedata),     //                                                                .writedata
+		.sram_9_s2_byteenable                                                  (mm_interconnect_0_sram_9_s2_byteenable),    //                                                                .byteenable
+		.sram_9_s2_chipselect                                                  (mm_interconnect_0_sram_9_s2_chipselect),    //                                                                .chipselect
+		.sram_9_s2_clken                                                       (mm_interconnect_0_sram_9_s2_clken)          //                                                                .clken
 	);
 
 	Computer_System_irq_mapper irq_mapper (

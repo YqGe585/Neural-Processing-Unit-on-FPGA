@@ -372,6 +372,9 @@ HexDigit Digit1(HEX1, hex3_hex0[7:4]);
 HexDigit Digit2(HEX2, hex3_hex0[11:8]);
 HexDigit Digit3(HEX3, hex3_hex0[15:12]);
 
+wire CLOCK_25;
+wire CLOCK_100;
+
 
 parameter SRAM_NUM = 5'd12;
 
@@ -434,7 +437,9 @@ end
     reg [5:0] add_src2_row_size;
     reg [5:0] add_src2_col_size;
     wire add_src1_write_en, add_src2_write_en, add_dest_write_en;
-    wire add_start,add_done;
+    wire add_start;
+    wire add_done;
+
 
     matrix_addition matrix_add_instance (
         .clk(CLOCK_25),
@@ -460,6 +465,128 @@ end
         .dest_readdata(add_dest_readdata),
         .dest_writedata(add_dest_writedata),
         .dest_write_en(add_dest_write_en)
+    );
+
+
+    
+    // conv1 module
+    wire [13:0] conv1_src1_address, conv1_src2_address, conv1_dest_address;
+    reg [13:0] conv1_src1_start_address, conv1_src2_start_address, conv1_dest_start_address;
+    wire [15:0] conv1_dest_readdata; 
+    wire [15:0] conv1_src1_readdata;
+    wire [15:0] conv1_src2_readdata ;
+    wire [15:0] conv1_dest_writedata, conv1_src1_writedata, conv1_src2_writedata ;
+    reg [9:0] conv1_src1_row_size;
+    reg [9:0] conv1_src1_col_size;
+    reg [5:0] conv1_src2_row_size;
+    reg [5:0] conv1_src2_col_size;
+    wire conv1_src1_write_en, conv1_src2_write_en, conv1_dest_write_en;
+    wire conv1_start,conv1_done;
+
+    matrix_conv conv1_instance (
+        .clk(CLOCK_25),
+        .reset(reset),
+        .start(conv1_start),
+        .done(conv1_done),
+        .src1_start_address(conv1_src1_start_address),
+        .src2_start_address(conv1_src2_start_address),
+        .src1_address(conv1_src1_address),
+        .src1_readdata(conv1_src1_readdata),
+        .src1_writedata(conv1_src1_writedata),
+        .src1_write_en(conv1_src1_write_en),
+        .src2_address(conv1_src2_address),
+        .src2_readdata(conv1_src2_readdata),
+        .src2_writedata(conv1_src2_writedata),
+        .src2_write_en(conv1_src2_write_en),
+        .src1_row_size(conv1_src1_row_size),
+        .src1_col_size(conv1_src1_col_size),
+        .src2_row_size(conv1_src2_row_size),
+        .src2_col_size(conv1_src2_col_size),
+        .dest_start_address(conv1_dest_start_address),
+        .dest_address(conv1_dest_address),
+        .dest_readdata(),
+        .dest_writedata(conv1_dest_writedata),
+        .dest_write_en(conv1_dest_write_en)
+    );
+
+    // conv2 module
+    wire [13:0] conv2_src1_address, conv2_src2_address, conv2_dest_address;
+    reg [13:0] conv2_src1_start_address, conv2_src2_start_address, conv2_dest_start_address;
+    wire [15:0] conv2_dest_readdata; 
+    wire [15:0] conv2_src1_readdata;
+    wire [15:0] conv2_src2_readdata ;
+    wire [15:0] conv2_dest_writedata, conv2_src1_writedata, conv2_src2_writedata ;
+    reg [9:0] conv2_src1_row_size;
+    reg [9:0] conv2_src1_col_size;
+    reg [5:0] conv2_src2_row_size;
+    reg [5:0] conv2_src2_col_size;
+    wire conv2_src1_write_en, conv2_src2_write_en, conv2_dest_write_en;
+    wire conv2_start,conv2_done;
+
+    matrix_conv conv2_instance (
+        .clk(CLOCK_25),
+        .reset(reset),
+        .start(conv2_start),
+        .done(conv2_done),
+        .src1_start_address(conv2_src1_start_address),
+        .src2_start_address(conv2_src2_start_address),
+        .src1_address(conv2_src1_address),
+        .src1_readdata(conv2_src1_readdata),
+        .src1_writedata(conv2_src1_writedata),
+        .src1_write_en(conv2_src1_write_en),
+        .src2_address(conv2_src2_address),
+        .src2_readdata(conv2_src2_readdata),
+        .src2_writedata(conv2_src2_writedata),
+        .src2_write_en(conv2_src2_write_en),
+        .src1_row_size(conv2_src1_row_size),
+        .src1_col_size(conv2_src1_col_size),
+        .src2_row_size(conv2_src2_row_size),
+        .src2_col_size(conv2_src2_col_size),
+        .dest_start_address(conv2_dest_start_address),
+        .dest_address(conv2_dest_address),
+        .dest_readdata(),
+        .dest_writedata(conv2_dest_writedata),
+        .dest_write_en(conv2_dest_write_en)
+    );
+
+    // conv3 module
+    wire [13:0] conv3_src1_address, conv3_src2_address, conv3_dest_address;
+    reg [13:0] conv3_src1_start_address, conv3_src2_start_address, conv3_dest_start_address;
+    wire [15:0] conv3_dest_readdata; 
+    wire [15:0] conv3_src1_readdata;
+    wire [15:0] conv3_src2_readdata ;
+    wire [15:0] conv3_dest_writedata, conv3_src1_writedata, conv3_src2_writedata ;
+    reg [9:0] conv3_src1_row_size;
+    reg [9:0] conv3_src1_col_size;
+    reg [5:0] conv3_src2_row_size;
+    reg [5:0] conv3_src2_col_size;
+    wire conv3_src1_write_en, conv3_src2_write_en, conv3_dest_write_en;
+    wire conv3_start,conv3_done;
+
+    matrix_conv conv3_instance (
+        .clk(CLOCK_25),
+        .reset(reset),
+        .start(conv3_start),
+        .done(conv3_done),
+        .src1_start_address(conv3_src1_start_address),
+        .src2_start_address(conv3_src2_start_address),
+        .src1_address(conv3_src1_address),
+        .src1_readdata(conv3_src1_readdata),
+        .src1_writedata(conv3_src1_writedata),
+        .src1_write_en(conv3_src1_write_en),
+        .src2_address(conv3_src2_address),
+        .src2_readdata(conv3_src2_readdata),
+        .src2_writedata(conv3_src2_writedata),
+        .src2_write_en(conv3_src2_write_en),
+        .src1_row_size(conv3_src1_row_size),
+        .src1_col_size(conv3_src1_col_size),
+        .src2_row_size(conv3_src2_row_size),
+        .src2_col_size(conv3_src2_col_size),
+        .dest_start_address(conv3_dest_start_address),
+        .dest_address(conv3_dest_address),
+        .dest_readdata(),
+        .dest_writedata(conv3_dest_writedata),
+        .dest_write_en(conv3_dest_write_en)
     );
 
     // pooling module
@@ -510,7 +637,7 @@ end
     wire relu_start,relu_done;
 
     matrix_relu matrix_relu_instance (
-        .clk(CLOCK_50),
+        .clk(CLOCK_25),
         .reset(reset),
         .start(relu_start),
         .done(relu_done),
@@ -564,6 +691,94 @@ end
         .dest_write_en(dot_dest_write_en)
     );
 
+
+
+    // sub module
+    wire [13:0] sub_src1_address, sub_src2_address, sub_dest_address;
+    reg [13:0] sub_src1_start_address, sub_src2_start_address, sub_dest_start_address;
+    wire [15:0] sub_dest_readdata; 
+    wire [15:0] sub_src1_readdata;
+    wire [15:0] sub_src2_readdata ;
+    wire [15:0] sub_dest_writedata, sub_src1_writedata, sub_src2_writedata ;
+    reg [9:0] sub_src1_row_size;
+    reg [9:0] sub_src1_col_size;
+    reg [5:0] sub_src2_row_size;
+    reg [5:0] sub_src2_col_size;
+    wire sub_src1_write_en, sub_src2_write_en, sub_dest_write_en;
+    wire sub_start;
+    wire sub_done;
+
+
+    matrix_subtraction matrix_sum_instance (
+        .clk(CLOCK_25),
+        .reset(reset),
+        .start(sub_start),
+        .done(sub_done),
+        .src1_start_address(sub_src1_start_address),
+        .src2_start_address(sub_src2_start_address),
+        .src1_address(sub_src1_address),
+        .src1_readdata(sub_src1_readdata),
+        .src1_writedata(sub_src1_writedata),
+        .src1_write_en(sub_src1_write_en),
+        .src2_address(sub_src2_address),
+        .src2_readdata(sub_src2_readdata),
+        .src2_writedata(sub_src2_writedata),
+        .src2_write_en(sub_src2_write_en),
+        .src1_row_size(sub_src1_row_size),
+        .src1_col_size(sub_src1_col_size),
+        .src2_row_size(sub_src2_row_size),
+        .src2_col_size(sub_src2_col_size),
+        .dest_start_address(sub_dest_start_address),
+        .dest_address(sub_dest_address),
+        .dest_readdata(sub_dest_readdata),
+        .dest_writedata(sub_dest_writedata),
+        .dest_write_en(sub_dest_write_en)
+    );
+
+
+
+    // element mult module
+    wire [13:0] mul_src1_address, mul_src2_address, mul_dest_address;
+    reg [13:0] mul_src1_start_address, mul_src2_start_address, mul_dest_start_address;
+    wire [15:0] mul_dest_readdata; 
+    wire [15:0] mul_src1_readdata;
+    wire [15:0] mul_src2_readdata ;
+    wire [15:0] mul_dest_writedata, mul_src1_writedata, mul_src2_writedata ;
+    reg [9:0] mul_src1_row_size;
+    reg [9:0] mul_src1_col_size;
+    reg [5:0] mul_src2_row_size;
+    reg [5:0] mul_src2_col_size;
+    wire mul_src1_write_en, mul_src2_write_en, mul_dest_write_en;
+    wire mul_start;
+    wire mul_done;
+
+
+    matrix_element_mult matrix_mul_instance (
+        .clk(CLOCK_25),
+        .reset(reset),
+        .start(mul_start),
+        .done(mul_done),
+        .src1_start_address(mul_src1_start_address),
+        .src2_start_address(mul_src2_start_address),
+        .src1_address(mul_src1_address),
+        .src1_readdata(mul_src1_readdata),
+        .src1_writedata(mul_src1_writedata),
+        .src1_write_en(mul_src1_write_en),
+        .src2_address(mul_src2_address),
+        .src2_readdata(mul_src2_readdata),
+        .src2_writedata(mul_src2_writedata),
+        .src2_write_en(mul_src2_write_en),
+        .src1_row_size(mul_src1_row_size),
+        .src1_col_size(mul_src1_col_size),
+        .src2_row_size(mul_src2_row_size),
+        .src2_col_size(mul_src2_col_size),
+        .dest_start_address(mul_dest_start_address),
+        .dest_address(mul_dest_address),
+        .dest_readdata(mul_dest_readdata),
+        .dest_writedata(mul_dest_writedata),
+        .dest_write_en(mul_dest_write_en)
+    );
+
     // Single Fetch Signle Issue Superscalar Out of Order Processor starts here
 
     //---------------------------------------------------
@@ -571,7 +786,7 @@ end
     //---------------------------------------------------
     reg [127:0] inst_D ;
 
-    always @(posedge CLOCK_25) begin
+    always @(posedge CLOCK_100) begin
         if(reset) begin
             inst_D <= 128'd0;
             inst_sram_address <= 9'b0;
@@ -606,7 +821,7 @@ end
     reg [4:0] sel_address_mux_D[SRAM_NUM-1:0];
     reg [4:0] sel_writedata_mux_D[SRAM_NUM-1:0];
     reg [4:0] sel_write_en_mux_D[SRAM_NUM-1:0];
-    reg [3:0] sel_readdata_mux_D[SRAM_NUM-1:0];
+    reg [3:0] sel_readdata_mux_D[15:0];
     // reg [4:0] sel_add_src1_readdata_mux_D;
     // reg [4:0] sel_add_src2_readdata_mux_D;
 
@@ -636,7 +851,7 @@ end
         dest_sram_num = SRAM_NUM - 1 - (inst_D[47:40]>>3);
     end
 
-    always @(posedge CLOCK_25) begin
+    always @(posedge CLOCK_100) begin
         if(reset) begin
             src1_address_D <= 14'd0;
             src2_address_D <= 14'd0;
@@ -652,39 +867,39 @@ end
             sel_address_mux_D[0] <= 5'd31;
             sel_address_mux_D[1] <= 5'd31;
             sel_address_mux_D[2] <= 5'd31;
-				sel_address_mux_D[3] <= 5'd31;
+			sel_address_mux_D[3] <= 5'd31;
             sel_address_mux_D[4] <= 5'd31;
             sel_address_mux_D[5] <= 5'd31;
-				sel_address_mux_D[6] <= 5'd31;
+			sel_address_mux_D[6] <= 5'd31;
             sel_address_mux_D[7] <= 5'd31;
             sel_address_mux_D[8] <= 5'd31;
-				sel_address_mux_D[9] <= 5'd31;
+			sel_address_mux_D[9] <= 5'd31;
             sel_address_mux_D[10] <= 5'd31;
             sel_address_mux_D[11] <= 5'd31;
 
             sel_writedata_mux_D[0] <= 5'd31;
             sel_writedata_mux_D[1] <= 5'd31;
             sel_writedata_mux_D[2] <= 5'd31;
-				sel_writedata_mux_D[3] <= 5'd31;
+			sel_writedata_mux_D[3] <= 5'd31;
             sel_writedata_mux_D[4] <= 5'd31;
             sel_writedata_mux_D[5] <= 5'd31;
-				sel_writedata_mux_D[6] <= 5'd31;
+			sel_writedata_mux_D[6] <= 5'd31;
             sel_writedata_mux_D[7] <= 5'd31;
             sel_writedata_mux_D[8] <= 5'd31;
-				sel_writedata_mux_D[9] <= 5'd31;
+			sel_writedata_mux_D[9] <= 5'd31;
             sel_writedata_mux_D[10] <= 5'd31;
             sel_writedata_mux_D[11] <= 5'd31;
 
             sel_write_en_mux_D[0] <= 5'd31;
             sel_write_en_mux_D[1] <= 5'd31;
             sel_write_en_mux_D[2] <= 5'd31;
-				sel_write_en_mux_D[3] <= 5'd31;
+			sel_write_en_mux_D[3] <= 5'd31;
             sel_write_en_mux_D[4] <= 5'd31;
             sel_write_en_mux_D[5] <= 5'd31;
-				sel_write_en_mux_D[6] <= 5'd31;
+			sel_write_en_mux_D[6] <= 5'd31;
             sel_write_en_mux_D[7] <= 5'd31;
             sel_write_en_mux_D[8] <= 5'd31;
-				sel_write_en_mux_D[9] <= 5'd31;
+			sel_write_en_mux_D[9] <= 5'd31;
             sel_write_en_mux_D[10] <= 5'd31;
             sel_write_en_mux_D[11] <= 5'd31;
 
@@ -700,14 +915,18 @@ end
             sel_readdata_mux_D[9] <= 4'd15;
 			sel_readdata_mux_D[10] <= 4'd15;
             sel_readdata_mux_D[11] <= 4'd15;
+            sel_readdata_mux_D[12] <= 4'd15;
+            sel_readdata_mux_D[13] <= 4'd15;
+			sel_readdata_mux_D[14] <= 4'd15;
+            sel_readdata_mux_D[15] <= 4'd15;
 
         end
         else begin
             case(inst_D[127:124])
                 4'b0001: begin // add
-                    src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[71:60];
-                    dest_address_D <= inst_D[37:28];
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -732,9 +951,9 @@ end
                     sel_readdata_mux_D[1] <= src2_sram_num;
                 end
                 4'b0111: begin // conv
-                    src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[71:60];
-                    dest_address_D <= inst_D[37:28];
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -745,14 +964,23 @@ end
                     dot_src1_row_D <= 12'd0;
                     dot_src1_col_D <= 8'd0;
                     dot_src2_row_D <= 8'd0;
-                    sel_address_mux_D[src1_sram_num] <= 5'd0;
-                    sel_address_mux_D[2] <= src1_sram_num;
-                    sel_address_mux_D[3] <= src2_sram_num;
+                    sel_D <= 4'b0111;
+                    sel_address_mux_D[src1_sram_num] <= 5'd3;
+                    sel_address_mux_D[src2_sram_num] <= 5'd4;
+                    sel_address_mux_D[dest_sram_num] <= 5'd5;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd3;
+                    sel_writedata_mux_D[src2_sram_num] <= 5'd4;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd5;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd3;
+                    sel_write_en_mux_D[src2_sram_num] <= 5'd4;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd5;
+                    sel_readdata_mux_D[2] <= src1_sram_num;
+                    sel_readdata_mux_D[3] <= src2_sram_num;
                 end
                 4'b1000: begin // pool
-                    src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[71:60];
-                    dest_address_D <= inst_D[37:28];
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -777,9 +1005,9 @@ end
                     // sel_readdata_mux_D[5] <= src2_sram_num;
                 end
                 4'b1010: begin // Relu
-                    src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[71:60];
-                    dest_address_D <= inst_D[37:28];
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -803,9 +1031,9 @@ end
                     sel_readdata_mux_D[5] <= src1_sram_num;
                 end
                 4'b0110: begin // Dot
-                    src1_address_D <= inst_D[103:92];
-                    src2_address_D <= inst_D[71:60];
-                    dest_address_D <= inst_D[37:28];
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
                     src1_sram_num_D <= src1_sram_num;
                     src2_sram_num_D <= src2_sram_num;
                     dest_sram_num_D <= dest_sram_num;
@@ -828,6 +1056,114 @@ end
                     sel_write_en_mux_D[dest_sram_num] <= 5'd12;
                     sel_readdata_mux_D[6] <= src1_sram_num;
                     sel_readdata_mux_D[7] <= src2_sram_num;
+                end
+                4'b0010: begin // sub
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= 5'd0;
+                    src2_col_D <= 5'd0;
+                    dot_src1_row_D <= 12'd0;
+                    dot_src1_col_D <= 8'd0;
+                    dot_src2_row_D <= 8'd0;
+                    sel_D <= 4'b0010;
+                    sel_address_mux_D[src1_sram_num] <= 5'd13;
+                    sel_address_mux_D[src2_sram_num] <= 5'd14;
+                    sel_address_mux_D[dest_sram_num] <= 5'd15;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd13;
+                    sel_writedata_mux_D[src2_sram_num] <= 5'd14;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd15;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd13;
+                    sel_write_en_mux_D[src2_sram_num] <= 5'd14;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd15;
+                    sel_readdata_mux_D[8] <= src1_sram_num;
+                    sel_readdata_mux_D[9] <= src2_sram_num;
+                end
+                4'b0011: begin // mult
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= 5'd0;
+                    src2_col_D <= 5'd0;
+                    dot_src1_row_D <= 12'd0;
+                    dot_src1_col_D <= 8'd0;
+                    dot_src2_row_D <= 8'd0;
+                    sel_D <= 4'b0011;
+                    sel_address_mux_D[src1_sram_num] <= 5'd16;
+                    sel_address_mux_D[src2_sram_num] <= 5'd17;
+                    sel_address_mux_D[dest_sram_num] <= 5'd18;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd16;
+                    sel_writedata_mux_D[src2_sram_num] <= 5'd17;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd18;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd16;
+                    sel_write_en_mux_D[src2_sram_num] <= 5'd17;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd18;
+                    sel_readdata_mux_D[10] <= src1_sram_num;
+                    sel_readdata_mux_D[11] <= src2_sram_num;
+                end
+                4'b1001: begin // conv2
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= inst_D[9:5];
+                    src2_col_D <= inst_D[4:0];
+                    dot_src1_row_D <= 12'd0;
+                    dot_src1_col_D <= 8'd0;
+                    dot_src2_row_D <= 8'd0;
+                    sel_D <= 4'b1001;
+                    sel_address_mux_D[src1_sram_num] <= 5'd19;
+                    sel_address_mux_D[src2_sram_num] <= 5'd20;
+                    sel_address_mux_D[dest_sram_num] <= 5'd21;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd19;
+                    sel_writedata_mux_D[src2_sram_num] <= 5'd20;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd21;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd19;
+                    sel_write_en_mux_D[src2_sram_num] <= 5'd20;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd21;
+                    sel_readdata_mux_D[12] <= src1_sram_num;
+                    sel_readdata_mux_D[13] <= src2_sram_num;
+                end
+                4'b1011: begin // conv3
+                    src1_address_D <= inst_D[105:92];
+                    src2_address_D <= inst_D[73:60];
+                    dest_address_D <= inst_D[41:28];
+                    src1_sram_num_D <= src1_sram_num;
+                    src2_sram_num_D <= src2_sram_num;
+                    dest_sram_num_D <= dest_sram_num;
+                    src1_row_D <= inst_D[27:19];
+                    src1_col_D <= inst_D[18:10];
+                    src2_row_D <= inst_D[9:5];
+                    src2_col_D <= inst_D[4:0];
+                    dot_src1_row_D <= 12'd0;
+                    dot_src1_col_D <= 8'd0;
+                    dot_src2_row_D <= 8'd0;
+                    sel_D <= 4'b1011;
+                    sel_address_mux_D[src1_sram_num] <= 5'd22;
+                    sel_address_mux_D[src2_sram_num] <= 5'd23;
+                    sel_address_mux_D[dest_sram_num] <= 5'd24;
+                    sel_writedata_mux_D[src1_sram_num] <= 5'd22;
+                    sel_writedata_mux_D[src2_sram_num] <= 5'd23;
+                    sel_writedata_mux_D[dest_sram_num] <= 5'd24;
+                    sel_write_en_mux_D[src1_sram_num] <= 5'd22;
+                    sel_write_en_mux_D[src2_sram_num] <= 5'd23;
+                    sel_write_en_mux_D[dest_sram_num] <= 5'd24;
+                    sel_readdata_mux_D[14] <= src1_sram_num;
+                    sel_readdata_mux_D[15] <= src2_sram_num;
                 end
                 default: begin 
                     src1_address_D <= 14'd0;
@@ -867,29 +1203,47 @@ end
     reg [4:0] src2_col_I;
     reg [3:0] sel_I;
     reg add_start_I;
+    reg conv1_start_I;
+    reg conv2_start_I;
+    reg conv3_start_I;
     reg pool_start_I;
     reg relu_start_I;
     reg dot_start_I;
+    reg sub_start_I;
+    reg mul_start_I;
     reg [4:0] sel_address_mux_I[SRAM_NUM-1:0];
     reg [4:0] sel_writedata_mux_I[SRAM_NUM-1:0];
     reg [4:0] sel_write_en_mux_I[SRAM_NUM-1:0];
-    reg [3:0] sel_readdata_mux_I[SRAM_NUM-1:0];
+    reg [3:0] sel_readdata_mux_I[15:0];
 
 
     genvar j;
     generate
         for (j = 0; j < SRAM_NUM; j = j + 1) begin : pipeline_register_I
-            always @(posedge CLOCK_25) begin
+            always @(posedge CLOCK_100) begin
 					if(reset)begin
 						 sel_address_mux_I[j]<= 5'd0;
 						 sel_writedata_mux_I[j]<= 5'd0;
 						 sel_write_en_mux_I[j]<= 5'd0;
-						 sel_readdata_mux_I[j]<= 4'd0;
+						//  sel_readdata_mux_I[j]<= 4'd0;
 					end
 					else begin
 						 sel_address_mux_I[j]<= sel_address_mux_D[j];
 						 sel_writedata_mux_I[j]<= sel_writedata_mux_D[j];
 						 sel_write_en_mux_I[j]<= sel_write_en_mux_D[j];
+						//  sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
+					end
+            end
+        end
+    endgenerate
+
+    generate
+        for (j=0; j < 16; j=j+1) begin : pipeline_register_I_sel_readdata_mux_D
+            always @(posedge CLOCK_100) begin
+					if(reset)begin
+						 sel_readdata_mux_I[j]<= 4'd0;
+					end
+					else begin
 						 sel_readdata_mux_I[j]<= sel_readdata_mux_D[j];
 					end
             end
@@ -897,7 +1251,7 @@ end
     endgenerate
 
     //pipeline register
-    always @(posedge CLOCK_25) begin
+    always @(posedge CLOCK_100) begin
         if(reset) begin
             sel_I <= 4'd0;
             src1_address_I <= 14'd0;
@@ -926,7 +1280,7 @@ end
         end
     end
 
-    always @(posedge CLOCK_25) begin
+    always @(posedge CLOCK_100) begin
 	 if (reset) begin
 		 add_start_I <= 0;
 		 add_src1_start_address <= 0;
@@ -936,6 +1290,33 @@ end
          add_src1_col_size <= 0;
          add_src2_row_size <= 0;
          add_src2_col_size <= 0;
+
+         conv1_start_I <= 0;
+		 conv1_src1_start_address <= 0;
+		 conv1_src2_start_address <= 0;
+		 conv1_dest_start_address <= 0;
+		 conv1_src1_row_size <= 0;
+         conv1_src1_col_size <= 0;
+         conv1_src2_row_size <= 0;
+         conv1_src2_col_size <= 0;
+
+         conv2_start_I <= 0;
+		 conv2_src1_start_address <= 0;
+		 conv2_src2_start_address <= 0;
+		 conv2_dest_start_address <= 0;
+		 conv2_src1_row_size <= 0;
+         conv2_src1_col_size <= 0;
+         conv2_src2_row_size <= 0;
+         conv2_src2_col_size <= 0;
+
+         conv3_start_I <= 0;
+		 conv3_src1_start_address <= 0;
+		 conv3_src2_start_address <= 0;
+		 conv3_dest_start_address <= 0;
+		 conv3_src1_row_size <= 0;
+         conv3_src1_col_size <= 0;
+         conv3_src2_row_size <= 0;
+         conv3_src2_col_size <= 0;
 
          pool_start_I <= 0;
          pool_src1_start_address <= 0;
@@ -960,14 +1341,37 @@ end
          dot_src1_col_size <= 0;
          dot_src2_row_size <= 0;
          dot_src2_col_size <= 0;
+
+         sub_start_I <= 0;
+		 sub_src1_start_address <= 0;
+		 sub_src2_start_address <= 0;
+		 sub_dest_start_address <= 0;
+		 sub_src1_row_size <= 0;
+         sub_src1_col_size <= 0;
+         sub_src2_row_size <= 0;
+         sub_src2_col_size <= 0;
+
+         mul_start_I <= 0;
+		 mul_src1_start_address <= 0;
+		 mul_src2_start_address <= 0;
+		 mul_dest_start_address <= 0;
+		 mul_src1_row_size <= 0;
+         mul_src1_col_size <= 0;
+         mul_src2_row_size <= 0;
+         mul_src2_col_size <= 0;
 	 end
 	 else begin
         case(sel_D)
             4'b0001:begin // issue add
                 add_start_I <= 1;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
                 pool_start_I <= 0;
                 relu_start_I <= 0;
                 dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
                 add_src1_start_address <= src1_address_D;
                 add_src2_start_address <= src2_address_D;
                 add_dest_start_address <= dest_address_D;
@@ -993,11 +1397,78 @@ end
                 // add_dest_write_en <= sram_write[dest_sram_num_D];
             
             end 
-            4'b1000: begin
+
+            4'b0111: begin // conv1
                 add_start_I <= 0;
+                conv1_start_I <= 1;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
+                pool_start_I <= 0;
+                relu_start_I <= 0;
+                dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
+                conv1_src1_start_address <= src1_address_D;
+                conv1_src2_start_address <= src2_address_D;
+                conv1_dest_start_address <= dest_address_D;
+
+                conv1_src1_row_size <= src1_row_D;
+                conv1_src1_col_size <= src1_col_D;
+                conv1_src2_row_size <= src2_row_D;
+                conv1_src2_col_size <= src2_col_D;
+            end
+
+            4'b1001: begin // conv2
+                add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 1;
+                conv3_start_I <= 0;
+                pool_start_I <= 0;
+                relu_start_I <= 0;
+                dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
+                conv2_src1_start_address <= src1_address_D;
+                conv2_src2_start_address <= src2_address_D;
+                conv2_dest_start_address <= dest_address_D;
+
+                conv2_src1_row_size <= src1_row_D;
+                conv2_src1_col_size <= src1_col_D;
+                conv2_src2_row_size <= src2_row_D;
+                conv2_src2_col_size <= src2_col_D;
+            end
+
+            4'b1011: begin // conv3
+                add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 1;
+                pool_start_I <= 0;
+                relu_start_I <= 0;
+                dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
+                conv3_src1_start_address <= src1_address_D;
+                conv3_src2_start_address <= src2_address_D;
+                conv3_dest_start_address <= dest_address_D;
+
+                conv3_src1_row_size <= src1_row_D;
+                conv3_src1_col_size <= src1_col_D;
+                conv3_src2_row_size <= src2_row_D;
+                conv3_src2_col_size <= src2_col_D;
+            end
+
+
+            4'b1000: begin  // pool
+                add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
                 pool_start_I <= 1;
                 relu_start_I <= 0;
                 dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
                 pool_src1_start_address <= src1_address_D;
                 // pool_src2_start_address <= src2_address_D;
                 pool_dest_start_address <= dest_address_D;
@@ -1008,11 +1479,16 @@ end
                 pool_src2_col_size <= src2_col_D;
             end
 
-            4'b1010: begin
+            4'b1010: begin  // relu
                 add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
                 pool_start_I <= 0;
                 relu_start_I <= 1;
                 dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
                 relu_src1_start_address <= src1_address_D;
                 relu_dest_start_address <= dest_address_D;
 
@@ -1022,11 +1498,16 @@ end
                 relu_src2_col_size <= src2_col_D;
             end
 
-            4'b0110: begin
+            4'b0110: begin  // dot
                 add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
                 pool_start_I <= 0;
                 relu_start_I <= 0;
                 dot_start_I <= 1;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
                 dot_src1_start_address <= src1_address_D;
                 dot_src2_start_address <= src2_address_D;
                 dot_dest_start_address <= dest_address_D;
@@ -1037,52 +1518,197 @@ end
                 dot_src2_col_size <= dot_src1_row_D;
             end
 
-            default: begin
+            4'b0010:begin // issue sub
                 add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
                 pool_start_I <= 0;
                 relu_start_I <= 0;
                 dot_start_I <= 0;
+                sub_start_I <= 1;
+                mul_start_I <= 0;
+
+                sub_src1_start_address <= src1_address_D;
+                sub_src2_start_address <= src2_address_D;
+                sub_dest_start_address <= dest_address_D;
+
+                sub_src1_row_size <= src1_row_D;
+                sub_src1_col_size <= src1_col_D;
+                sub_src2_row_size <= src2_row_D;
+                sub_src2_col_size <= src2_col_D;
+            
+            end 
+
+            4'b0011:begin // issue mul
+                add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
+                pool_start_I <= 0;
+                relu_start_I <= 0;
+                dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 1;
+
+                mul_src1_start_address <= src1_address_D;
+                mul_src2_start_address <= src2_address_D;
+                mul_dest_start_address <= dest_address_D;
+
+
+                mul_src1_row_size <= src1_row_D;
+                mul_src1_col_size <= src1_col_D;
+                mul_src2_row_size <= src2_row_D;
+                mul_src2_col_size <= src2_col_D;
+
+            end 
+
+            default: begin
+                add_start_I <= 0;
+                conv1_start_I <= 0;
+                conv2_start_I <= 0;
+                conv3_start_I <= 0;
+                pool_start_I <= 0;
+                relu_start_I <= 0;
+                dot_start_I <= 0;
+                sub_start_I <= 0;
+                mul_start_I <= 0;
             end
         endcase
 	 end
     end
 
+
     //---------------------------------------------------
     // execute
     //---------------------------------------------------
-    reg add_start_E;
-    reg pool_start_E;
-    reg relu_start_E;
-    reg dot_start_E;
+    // reg add_start_E;
+    // reg conv1_start_E;
+    // reg pool_start_E;
+    // reg relu_start_E;
+    // reg dot_start_E;
+    // reg sub_start_E;
+    // reg mul_start_E;
     reg [4:0] sel_address_mux_E[SRAM_NUM-1:0];
     reg [4:0] sel_writedata_mux_E[SRAM_NUM-1:0];
     reg [4:0] sel_write_en_mux_E[SRAM_NUM-1:0];
     reg [4:0] sel_readdata_mux_E[SRAM_NUM-1:0];
 
-    assign add_start = add_start_E;
-    assign pool_start = pool_start_E;
-    assign relu_start = relu_start_E;
-    assign dot_start = dot_start_E;
+    reg [15:0] start = 16'd0;
+    reg [15:0] start_E = 16'd0;
+    wire [15:0] done;
+
+    assign add_start = start[0];
+    assign conv1_start = start[1];
+    assign pool_start = start[2];
+    assign relu_start = start[3];
+    assign dot_start = start[4];
+    assign sub_start = start[5];
+    assign mul_start = start[6];
+    assign conv2_start = start[7];
+    assign conv3_start = start[8];
+
+    // assign add_start = add_start_E;
+    // assign conv1_start = conv1_start_E;
+    // assign pool_start = pool_start_E;
+    // assign relu_start = relu_start_E;
+    // assign dot_start = dot_start_E;
+
+    // issue state machine
+
+    localparam IDLE = 1'd0,
+               E_HIGH = 1'd1;
+
+    reg [15:0] state;
+    reg [15:0] next_state;
     
-    always @(posedge CLOCK_25) begin
+
+    genvar i_start;
+    generate
+        for(i_start = 0; i_start < 9; i_start = i_start+1) begin : gen_start
+            always @ (posedge CLOCK_100) begin
+                if(reset) begin
+                    state[i_start] <= IDLE;
+                end
+                else begin
+                    state[i_start] <= next_state[i_start];
+                end
+            end
+
+            always @(*) begin
+                case(state[i_start])
+                    IDLE: begin
+                        if (start_E[i_start] == 1) begin
+                            next_state[i_start] = E_HIGH;
+                        end
+                        else begin
+                            next_state[i_start] = IDLE;
+                        end
+                    end 
+                    E_HIGH: begin
+                        if(done[i_start] == 1) begin
+                            next_state[i_start] = E_HIGH;
+                        end
+                        else begin
+                            next_state[i_start] = IDLE;
+                        end
+                    end
+                    default: next_state[i_start] = IDLE;
+                    // DONE_LOW: begin
+                    //     if(done[i_start]) begin
+                    //         next_state[i_start] = DONE_LOW;
+                    //     end
+                    //     else begin
+                    //         next_state[i_start] = IDLE;
+                    //     end
+                    // end
+                endcase
+            end
+
+            always @(*) begin
+                case(state[i_start])
+                    E_HIGH: begin
+                        start[i_start] = 1;
+                    end
+                    IDLE: begin
+                        start[i_start] = 0;
+                    end
+                    default: start[i_start] = 0;
+                endcase
+            end
+        end
+    endgenerate
+
+    
+    always @(posedge CLOCK_100) begin
         if(reset)begin
-            add_start_E <=0;
-            pool_start_E <=0;
-            relu_start_E <=0;
-            dot_start_E <=0;
+            start_E[0]<=0;
+            start_E[1]<=0;
+            start_E[2]<=0;
+            start_E[3]<=0;
+            start_E[4]<=0;
+            start_E[5]<=0;
+            start_E[6]<=0;
+            start_E[7]<=0;
+            start_E[8]<=0;
         end
         else begin
-            add_start_E<=add_start_I;
-            pool_start_E<=pool_start_I;
-            relu_start_E<=relu_start_I;
-            dot_start_E<=dot_start_I;
+            start_E[0]<=add_start_I;
+            start_E[1]<=conv1_start_I;
+            start_E[2]<=pool_start_I;
+            start_E[3]<=relu_start_I;
+            start_E[4]<=dot_start_I;
+            start_E[5]<=sub_start_I;
+            start_E[6]<=mul_start_I;
+            start_E[7]<=conv2_start_I;
+            start_E[8]<=conv3_start_I;
         end
     end
 
     genvar m;
     generate
         for (m = 0; m < SRAM_NUM; m = m + 1) begin : pipeline_register_E
-            always @(posedge CLOCK_25) begin
+            always @(posedge CLOCK_100) begin
 					if(reset) begin
 						 sel_address_mux_E[m]<= 0;
 						 sel_writedata_mux_E[m]<= 0;
@@ -1101,14 +1727,14 @@ end
 
     genvar i;
     generate
-        for (i = 0; i < SRAM_NUM-1; i = i + 1) begin : mux_gen
-            mux24to1 #(.DATA_WIDTH(14)) address_mux (
+        for (i = 0; i < SRAM_NUM; i = i + 1) begin : mux_gen
+            mux25to1 #(.DATA_WIDTH(14)) address_mux (
                 .in0(add_src1_address),
                 .in1(add_src2_address),
                 .in2(add_dest_address),
-                .in3(),
-                .in4(),
-                .in5(),
+                .in3(conv1_src1_address),
+                .in4(conv1_src2_address),
+                .in5(conv1_dest_address),
                 .in6(pool_src1_address),
                 .in7(pool_dest_address),
                 .in8(relu_src1_address),
@@ -1116,29 +1742,30 @@ end
                 .in10(dot_src1_address),
                 .in11(dot_src2_address),
                 .in12(dot_dest_address),
-                .in13(),
-                .in14(),
-                .in15(),
-                .in16(),
-                .in17(),
-                .in18(),
-                .in19(),
-                .in20(),
-                .in21(),
-                .in22(),
-                .in23(),
+                .in13(sub_src1_address),
+                .in14(sub_src2_address),
+                .in15(sub_dest_address),
+                .in16(mul_src1_address),
+                .in17(mul_src2_address),
+                .in18(mul_dest_address),
+                .in19(conv2_src1_address),
+                .in20(conv2_src2_address),
+                .in21(conv2_dest_address),
+                .in22(conv3_src1_address),
+                .in23(conv3_src2_address),
+                .in24(conv3_dest_address),
                 .sel(sel_address_mux_I[i]),
                 .out(sram_address[i]),
 				.reset(reset)
             );
 
-            mux24to1 #(.DATA_WIDTH(16)) writedata_mux(
+            mux25to1 #(.DATA_WIDTH(16)) writedata_mux(
                 .in0(add_src1_writedata),
                 .in1(add_src2_writedata),
                 .in2(add_dest_writedata),
-                .in3(),
-                .in4(),
-                .in5(),
+                .in3(conv1_src1_writedata),
+                .in4(conv1_src2_writedata),
+                .in5(conv1_dest_writedata),
                 .in6(pool_src1_writedata),
                 .in7(pool_dest_writedata),
                 .in8(relu_src1_writedata),
@@ -1146,29 +1773,30 @@ end
                 .in10(dot_src1_writedata),
                 .in11(dot_src2_writedata),
                 .in12(dot_dest_writedata),
-                .in13(),
-                .in14(),
-                .in15(),
-                .in16(),
-                .in17(),
-                .in18(),
-                .in19(),
-                .in20(),
-                .in21(),
-                .in22(),
-                .in23(),
+                .in13(sub_src1_writedata),
+                .in14(sub_src2_writedata),
+                .in15(sub_dest_writedata),
+                .in16(mul_src1_writedata),
+                .in17(mul_src2_writedata),
+                .in18(mul_dest_writedata),
+                .in19(conv2_src1_writedata),
+                .in20(conv2_src2_writedata),
+                .in21(conv2_dest_writedata),
+                .in22(conv3_src1_writedata),
+                .in23(conv3_src2_writedata),
+                .in24(conv3_dest_writedata),
                 .sel(sel_writedata_mux_I[i]),
                 .out(sram_writedata[i]),
 				.reset(reset)
             );
 
-            mux24to1 #(.DATA_WIDTH(1)) write_en_mux(
+            mux25to1 #(.DATA_WIDTH(1)) write_en_mux(
                 .in0(add_src1_write_en),
                 .in1(add_src2_write_en),
                 .in2(add_dest_write_en),
-                .in3(),
-                .in4(),
-                .in5(),
+                .in3(conv1_src1_write_en),
+                .in4(conv1_src2_write_en),
+                .in5(conv1_dest_write_en),
                 .in6(pool_src1_write_en),
                 .in7(pool_dest_write_en),
                 .in8(relu_src1_write_en),
@@ -1176,17 +1804,18 @@ end
                 .in10(dot_src1_write_en),
                 .in11(dot_src2_write_en),
                 .in12(dot_dest_write_en),
-                .in13(),
-                .in14(),
-                .in15(),
-                .in16(),
-                .in17(),
-                .in18(),
-                .in19(),
-                .in20(),
-                .in21(),
-                .in22(),
-                .in23(),
+                .in13(sub_src1_write_en),
+                .in14(sub_src2_write_en),
+                .in15(sub_dest_write_en),
+                .in16(mul_src1_write_en),
+                .in17(mul_src2_write_en),
+                .in18(mul_dest_write_en),
+                .in19(conv2_src1_write_en),
+                .in20(conv2_src2_write_en),
+                .in21(conv2_dest_write_en),
+                .in22(conv3_src1_write_en),
+                .in23(conv3_src2_write_en),
+                .in24(conv3_dest_write_en),
                 .sel(sel_write_en_mux_I[i]),
                 .out(sram_write[i]),
 				.reset(reset)
@@ -1238,6 +1867,144 @@ end
         .out(add_src2_readdata),
 		  .reset(reset)
     );
+
+
+    mux16to1 #(.DATA_WIDTH(16)) conv1_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[2]),
+        .out(conv1_src1_readdata),
+		  .reset(reset)
+    );
+
+
+    mux16to1 #(.DATA_WIDTH(16)) conv1_src2_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[3]),
+        .out(conv1_src2_readdata),
+		  .reset(reset)
+    );
+
+    mux16to1 #(.DATA_WIDTH(16)) conv2_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[12]),
+        .out(conv2_src1_readdata),
+		  .reset(reset)
+    );
+
+
+    mux16to1 #(.DATA_WIDTH(16)) conv2_src2_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[13]),
+        .out(conv2_src2_readdata),
+		  .reset(reset)
+    );
+
+
+    mux16to1 #(.DATA_WIDTH(16)) conv3_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[14]),
+        .out(conv3_src1_readdata),
+		  .reset(reset)
+    );
+
+
+    mux16to1 #(.DATA_WIDTH(16)) conv3_src2_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[15]),
+        .out(conv3_src2_readdata),
+		  .reset(reset)
+    );
+
 
     mux16to1 #(.DATA_WIDTH(16)) pool_src1_mux(
         .in0(sram_readdata[0]),
@@ -1328,64 +2095,203 @@ end
 		.reset(reset)
     );
 
-	 //---------------------------------------------------
+    
+    mux16to1 #(.DATA_WIDTH(16)) sub_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[8]),
+        .out(sub_src1_readdata),
+		  .reset(reset)
+    );
+
+    mux16to1 #(.DATA_WIDTH(16)) sub_src2_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[9]),
+        .out(sub_src2_readdata),
+		  .reset(reset)
+    );
+
+    mux16to1 #(.DATA_WIDTH(16)) mul_src1_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[10]),
+        .out(mul_src1_readdata),
+		  .reset(reset)
+    );
+
+    mux16to1 #(.DATA_WIDTH(16)) mul_src2_mux(
+        .in0(sram_readdata[0]),
+        .in1(sram_readdata[1]),
+        .in2(sram_readdata[2]),
+        .in3(sram_readdata[3]),
+        .in4(sram_readdata[4]),
+        .in5(sram_readdata[5]),
+        .in6(sram_readdata[6]),
+        .in7(sram_readdata[7]),
+        .in8(sram_readdata[8]),
+        .in9(sram_readdata[9]),
+        .in10(sram_readdata[10]),
+        .in11(sram_readdata[11]),
+        .in12(),
+        .in13(),
+        .in14(),
+        .in15(),
+        .sel(sel_readdata_mux_I[11]),
+        .out(mul_src2_readdata),
+		  .reset(reset)
+    );
+	//---------------------------------------------------
     // Commit
     //---------------------------------------------------
 	 
-	reg add_done_prev;
-    reg pool_done_prev;
-    reg relu_done_prev;
-    reg dot_done_prev;
+	// reg add_done_prev;
+    // reg conv1_done_prev;
+    // reg pool_done_prev;
+    // reg relu_done_prev;
+    // reg dot_done_prev;
 
-    always @ (posedge CLOCK_25) begin
+    
+    reg [15:0] done_prev;
+
+    assign done[0] = add_done;
+    assign done[1] = conv1_done;
+    assign done[2] = pool_done;
+    assign done[3] = relu_done;
+    assign done[4] = dot_done;
+    assign done[5] = sub_done;
+    assign done[6] = mul_done;
+    assign done[7] = conv2_done;
+    assign done[8] = conv3_done;
+
+    genvar i_done;
+    generate
+        for(i_done = 0; i_done<15; i_done= i_done + 1) begin : gen_done_prev
+            always @ (posedge CLOCK_100) begin
+                if(reset) begin
+                    done_prev[i_done] <= 1;
+                end
+                else begin
+                    done_prev[i_done] <= done[i_done];
+                end
+            end
+        end
+    endgenerate
+
+    // always @ (posedge CLOCK_100) begin
+    //     if(reset) begin
+    //         add_done_prev <= 1;
+    //         conv1_done_prev <= 1;
+    //         pool_done_prev <= 1;
+    //         relu_done_prev <= 1;
+    //         dot_done_prev <= 1;
+    //     end
+    //     else begin
+    //         add_done_prev <= add_done;
+    //         conv1_done_prev <= conv1_done;
+    //         pool_done_prev <= pool_done;
+    //         relu_done_prev <= relu_done;
+    //         dot_done_prev <= dot_done;
+    //     end
+    // end
+    reg [15:0] commit_buffer;
+    reg [15:0] write_back_buffer;
+
+
+    genvar i_commit;
+    generate
+        for(i_commit = 0; i_commit < 16; i_commit = i_commit + 1) begin : gen_commit
+            always @(posedge CLOCK_100) begin
+                if(reset) begin
+                    commit_buffer[i_commit] <= 1'b0;
+                end
+                else begin
+                    if(write_back_buffer[i_commit] == 0) begin
+                        if(~done_prev[i_commit] && done[i_commit]) begin
+                            commit_buffer[i_commit] <= 1'b1; 
+                        end
+                    end
+                    else begin
+                        commit_buffer[i_commit] <= 1'b0; 
+                    end
+                    
+                end
+            end
+        end
+    endgenerate
+    
+
+    //---------------------------------------------------
+    // Write Back
+    //---------------------------------------------------
+
+    reg [3:0] write_index;
+    
+
+    always @(posedge CLOCK_100) begin
         if(reset) begin
-            add_done_prev <= 0;
-            pool_done_prev <= 0;
-            relu_done_prev <= 0;
-            dot_done_prev <= 0;
+            write_index <= 4'd0;
         end
         else begin
-            add_done_prev <= add_done;
-            pool_done_prev <= pool_done;
-            relu_done_prev <= relu_done;
-            dot_done_prev <= dot_done;
-        end
-    end
-
-    always @(posedge CLOCK_25) begin
-        if(reset) begin
-            inst_done_sram_address <= 9'd0;
-            inst_done_sram_writedata <= 8'b00000000;
-            inst_done_sram_write <=0;
-        end
-        else begin
-            if(~add_done_prev && add_done) begin
-                inst_done_sram_address <= 9'd0;
+            write_index <= write_index + 1;
+            if(commit_buffer[write_index] == 1) begin
+                inst_done_sram_address <= write_index;
                 inst_done_sram_writedata <= 8'b11111111;
-                inst_done_sram_write <=1;
-            end
-            else if(~pool_done_prev && pool_done)begin
-                inst_done_sram_address <= 9'd2;
-                inst_done_sram_writedata <= 8'b11111111;
-                inst_done_sram_write <=1;
-            end
-            else if(~relu_done_prev && relu_done)begin
-                inst_done_sram_address <= 9'd3;
-                inst_done_sram_writedata <= 8'b11111111;
-                inst_done_sram_write <=1;
-            end
-            else if(~dot_done_prev && dot_done)begin
-                inst_done_sram_address <= 9'd4;
-                inst_done_sram_writedata <= 8'b11111111;
-                inst_done_sram_write <=1;
+                inst_done_sram_write <= 1;
+                write_back_buffer[write_index] <= 1;
             end
             else begin
-                inst_done_sram_write <=0;
+                inst_done_sram_address <= 9'd0;
+                inst_done_sram_writedata <= 8'b11111111;
+                inst_done_sram_write <= 0;
+                write_back_buffer[write_index] <= 0;
             end
             
         end
-    end
-
+    end 
+ 
 	 
 	 
 //	 always @ (posedge CLOCK_25) begin
@@ -1415,6 +2321,12 @@ end
 		.refclk(CLOCK_50),   //  refclk.clk
 		.rst(~KEY[3]),      //   reset.reset
 		.outclk_0(CLOCK_25)  // outclk0.clk
+	);
+	
+	pll_100 pll_100 (
+		.refclk(CLOCK_50),   //  refclk.clk
+		.rst(~KEY[3]),      //   reset.reset
+		.outclk_0(CLOCK_100)  // outclk0.clk
 	);
 
 	
@@ -1516,29 +2428,29 @@ Computer_System The_System (
    .sram_8_s1_writedata   (sram_writedata[8]), // writedata
    .sram_8_s1_byteenable  (2'b11), // byteenable
    
-//   .sram_9_s1_address     (sram_address[9]), // address
-//   .sram_9_s1_clken       (sram_clken[9]), // clken
-//   .sram_9_s1_chipselect  (sram_chipselect[9]), // chipselect
-//   .sram_9_s1_write       (sram_write[9]), // write
-//   .sram_9_s1_readdata    (sram_readdata[9]), // readdata
-//   .sram_9_s1_writedata   (sram_writedata[9]), // writedata
-//   .sram_9_s1_byteenable  (2'b11), // byteenable
-//   
-//   .sram_10_s1_address    (sram_address[10]), // address
-//   .sram_10_s1_clken      (sram_clken[10]), // clken
-//   .sram_10_s1_chipselect (sram_chipselect[10]), // chipselect
-//   .sram_10_s1_write      (sram_write[10]), // write
-//   .sram_10_s1_readdata   (sram_readdata[10]), // readdata
-//   .sram_10_s1_writedata  (sram_writedata[10]), // writedata
-//   .sram_10_s1_byteenable (2'b11), // byteenable
+   .sram_9_s1_address     (sram_address[9]), // address
+   .sram_9_s1_clken       (sram_clken[9]), // clken
+   .sram_9_s1_chipselect  (sram_chipselect[9]), // chipselect
+   .sram_9_s1_write       (sram_write[9]), // write
+   .sram_9_s1_readdata    (sram_readdata[9]), // readdata
+   .sram_9_s1_writedata   (sram_writedata[9]), // writedata
+   .sram_9_s1_byteenable  (2'b11), // byteenable
    
-//   .sram_11_s1_address    (sram_address[11]), // address
-//   .sram_11_s1_clken      (sram_clken[11]), // clken
-//   .sram_11_s1_chipselect (sram_chipselect[11]), // chipselect
-//   .sram_11_s1_write      (sram_write[11]), // write
-//   .sram_11_s1_readdata   (sram_readdata[11]), // readdata
-//   .sram_11_s1_writedata  (sram_writedata[11]), // writedata
-//   .sram_11_s1_byteenable (2'b11), // byteenable
+   .sram_10_s1_address    (sram_address[10]), // address
+   .sram_10_s1_clken      (sram_clken[10]), // clken
+   .sram_10_s1_chipselect (sram_chipselect[10]), // chipselect
+   .sram_10_s1_write      (sram_write[10]), // write
+   .sram_10_s1_readdata   (sram_readdata[10]), // readdata
+   .sram_10_s1_writedata  (sram_writedata[10]), // writedata
+   .sram_10_s1_byteenable (2'b11), // byteenable
+   
+   .sram_11_s1_address    (sram_address[11]), // address
+   .sram_11_s1_clken      (sram_clken[11]), // clken
+   .sram_11_s1_chipselect (sram_chipselect[11]), // chipselect
+   .sram_11_s1_write      (sram_write[11]), // write
+   .sram_11_s1_readdata   (sram_readdata[11]), // readdata
+   .sram_11_s1_writedata  (sram_writedata[11]), // writedata
+   .sram_11_s1_byteenable (2'b11), // byteenable
    
 //   .sram_12_s1_address    (sram_address[12]), // address
 //   .sram_12_s1_clken      (sram_clken[12]), // clken
@@ -1720,906 +2632,1138 @@ endmodule // end top level
 
 
 
-//fixed point multiplier
-module signed_mult (out, a, b);
-	output 	signed  [15:0]	out;
-	input 	signed	[15:0] 	a;
-	input 	signed	[15:0] 	b;
-	wire 	signed	[31:0]	mult_out;
-//	assign mult_out = a * b;
-//	assign out = {mult_out[31], mult_out[28:14]};
-	assign out = a*b;
-endmodule
-
-
-
-
-
-// floatadd module
-module floatAdd (
-	input wire [15:0] floatA,
-	input wire [15:0] floatB,
-	output reg [15:0] sum
-);
- 
-reg sign;
-reg signed [5:0] exponent; //fifth bit is sign
-reg [9:0] mantissa;
-reg [4:0] exponentA, exponentB;
-reg [10:0] fractionA, fractionB, fraction;	//fraction = {1,mantissa}
-reg [7:0] shiftAmount;
-reg cout;
- 
-always @ (floatA or floatB) begin
-	exponentA = floatA[14:10];
-	exponentB = floatB[14:10];
-	fractionA = {1'b1,floatA[9:0]};//将隐藏位表示出来进行计算
-	fractionB = {1'b1,floatB[9:0]}; //同理
-	
-	exponent = exponentA;
- 
-	if (floatA == 0) begin						//special case (floatA = 0)
-		sum = floatB;
-	end else if (floatB == 0) begin					//special case (floatB = 0)
-		sum = floatA;
-	end else if (floatA[14:0] == floatB[14:0] && floatA[15]^floatB[15]==1'b1) begin
-		sum=0;
-	end else begin
-		if (exponentB > exponentA) begin//对阶：将阶数(exponent)化为相同的，小阶化为大阶。好比6.6x10^(6)和8.8x10^(4)相加时，我们会化成6.6x10^(6)和0.088x10^(6)进行运算
-			shiftAmount = exponentB - exponentA;
-			fractionA = fractionA >> (shiftAmount);//要将floatA化为大阶，则尾数要右移，尾数减小
-			exponent = exponentB;
-		end else if (exponentA > exponentB) begin //同理
-			shiftAmount = exponentA - exponentB;
-			fractionB = fractionB >> (shiftAmount);
-			exponent = exponentA;
-		end
-		if (floatA[15] == floatB[15]) begin			//same sign
-			{cout,fraction} = fractionA + fractionB;
-			if (cout == 1'b1) begin//‘相加后的值’的小数点前的第二位如果是1，则要向右移一位，确保小数点前只有一位
-				{cout,fraction} = {cout,fraction} >> 1;
-				exponent = exponent + 1;
-			end
-			sign = floatA[15];
-		end else begin						//different signs
-			if (floatA[15] == 1'b1) begin
-				{cout,fraction} = fractionB - fractionA;//如果B比A小，则相减后得到补码，cout为符号位
-			end else begin
-				{cout,fraction} = fractionA - fractionB;//同理
-			end
-			sign = cout;
-			if (cout == 1'b1) begin
-				fraction = -fraction;//将补码转化为原码
-			end else begin
-			end
-			if (fraction [10] == 0) begin
-				if (fraction[9] == 1'b1) begin//规格化，将隐藏位再次隐藏起来
-					fraction = fraction << 1;
-					exponent = exponent - 1;
-				end else if (fraction[8] == 1'b1) begin
-					fraction = fraction << 2;
-					exponent = exponent - 2;
-				end else if (fraction[7] == 1'b1) begin
-					fraction = fraction << 3;
-					exponent = exponent - 3;
-				end else if (fraction[6] == 1'b1) begin
-					fraction = fraction << 4;
-					exponent = exponent - 4;
-				end else if (fraction[5] == 1'b1) begin
-					fraction = fraction << 5;
-					exponent = exponent - 5;
-				end else if (fraction[4] == 1'b1) begin
-					fraction = fraction << 6;
-					exponent = exponent - 6;
-				end else if (fraction[3] == 1'b1) begin
-					fraction = fraction << 7;
-					exponent = exponent - 7;
-				end else if (fraction[2] == 1'b1) begin
-					fraction = fraction << 8;
-					exponent = exponent - 8;
-				end else if (fraction[1] == 1'b1) begin
-					fraction = fraction << 9;
-					exponent = exponent - 9;
-				end else if (fraction[0] == 1'b1) begin
-					fraction = fraction << 10;
-					exponent = exponent - 10;
-				end 
-			end
-		end
-		mantissa = fraction[9:0];//
-		if(exponent[5]==1'b1) begin //exponent is negative：1.exponent太大了溢出；2.规格化后发现exponent太小了，忽略，直接等于0
-			sum = 16'b0000000000000000;
-		end
-		else begin
-			sum = {sign,exponent[4:0],mantissa};
-		end		
-	end		
-end
- 
-endmodule
-
-
-
-
-
-
-
-// floatmult module
-module floatMult 
-(
-	input wire [15:0] floatA,
-	input wire [15:0] floatB,
-	output reg [15:0] product
-);
-
-reg sign; // 输出的正负标志位
-reg signed [5:0] exponent; // 输出数据的指数，因为有正负所以选择有符号数
-reg [9:0] mantissa; // 输出数据的小数
-reg [10:0] fractionA, fractionB;	//fraction = {1,mantissa} // 计算二进制数据最高位补1
-reg [21:0] fraction; // 相乘结果参数
-
-
-always @ (floatA or floatB) 
-begin
-	if (floatA == 0 || floatB == 0)  // 处理乘数有一个或者两个均为0的情况
-		product = 0;				//  输出为0
-	else 
-	begin
-		sign = floatA[15] ^ floatB[15]; // 异或门判断输出的计算正负
-		exponent = floatA[14:10] + floatB[14:10] - 5'd15 + 5'd2; // 由于借位给fractionA和fractionB需要先补齐两位指数
-	
-		fractionA = {1'b1,floatA[9:0]}; //借位给fractionA
-		fractionB = {1'b1,floatB[9:0]}; //借位给fractionB
-		fraction = fractionA * fractionB; //计算二进制乘法
-		// 找到第一个不为0的数字并对指数进行匹配处理
-		if (fraction[21] == 1'b1) 
-		begin
-			fraction = fraction << 1;
-			exponent = exponent - 1; 
-		end 
-		else if (fraction[20] == 1'b1) 
-		begin
-			fraction = fraction << 2;
-			exponent = exponent - 2;
-		end 
-		else if (fraction[19] == 1'b1) 
-		begin
-			fraction = fraction << 3;
-			exponent = exponent - 3;
-		end 
-		else if (fraction[18] == 1'b1) 
-		begin
-			fraction = fraction << 4;
-			exponent = exponent - 4;
-		end 
-		else if (fraction[17] == 1'b1) 
-		begin
-			fraction = fraction << 5;
-			exponent = exponent - 5;
-		end 
-		else if (fraction[16] == 1'b1) 
-		begin
-			fraction = fraction << 6;
-			exponent = exponent - 6;
-		end 
-		else if (fraction[15] == 1'b1) 
-		begin
-			fraction = fraction << 7;
-			exponent = exponent - 7;
-		end 
-		else if (fraction[14] == 1'b1) 
-		begin
-			fraction = fraction << 8;
-			exponent = exponent - 8;
-		end 
-		else if (fraction[13] == 1'b1) 
-		begin
-			fraction = fraction << 9;
-			exponent = exponent - 9;
-		end 
-		else if (fraction[12] == 1'b0) 
-		begin
-			fraction = fraction << 10;
-			exponent = exponent - 10;
-		end 
-		// 按照半精度浮点数的格式输出
-		mantissa = fraction[21:12];
-		if(exponent[5]==1'b1) begin //太小了输出全0(精度问题)
-			product=16'b0000000000000000;
-		end
-		else begin
-			product = {sign,exponent[4:0],mantissa}; //拼接输出数据
-		end
-	end
-end
-endmodule
-
-
-
-
-
-
-// module mux24to1
-module mux24to1 #(
-    parameter DATA_WIDTH = 12
-)(
-    input wire [DATA_WIDTH-1:0] in0,
-    input wire [DATA_WIDTH-1:0] in1,
-    input wire [DATA_WIDTH-1:0] in2,
-    input wire [DATA_WIDTH-1:0] in3,
-    input wire [DATA_WIDTH-1:0] in4,
-    input wire [DATA_WIDTH-1:0] in5,
-    input wire [DATA_WIDTH-1:0] in6,
-    input wire [DATA_WIDTH-1:0] in7,
-    input wire [DATA_WIDTH-1:0] in8,
-    input wire [DATA_WIDTH-1:0] in9,
-    input wire [DATA_WIDTH-1:0] in10,
-    input wire [DATA_WIDTH-1:0] in11,
-    input wire [DATA_WIDTH-1:0] in12,
-    input wire [DATA_WIDTH-1:0] in13,
-    input wire [DATA_WIDTH-1:0] in14,
-    input wire [DATA_WIDTH-1:0] in15,
-    input wire [DATA_WIDTH-1:0] in16,
-    input wire [DATA_WIDTH-1:0] in17,
-    input wire [DATA_WIDTH-1:0] in18,
-    input wire [DATA_WIDTH-1:0] in19,
-    input wire [DATA_WIDTH-1:0] in20,
-    input wire [DATA_WIDTH-1:0] in21,
-    input wire [DATA_WIDTH-1:0] in22,
-    input wire [DATA_WIDTH-1:0] in23,
-    input wire [4:0] sel,
-    output reg [DATA_WIDTH-1:0] out,
-	input wire reset
-);
-
-always @(*) begin
-    if(reset) begin
-        out = {DATA_WIDTH{1'b0}};
-    end
-    else begin
-        case (sel)
-            5'd0:  out = in0;
-            5'd1:  out = in1;
-            5'd2:  out = in2;
-            5'd3:  out = in3;
-            5'd4:  out = in4;
-            5'd5:  out = in5;
-            5'd6:  out = in6;
-            5'd7:  out = in7;
-            5'd8:  out = in8;
-            5'd9:  out = in9;
-            5'd10: out = in10;
-            5'd11: out = in11;
-            5'd12: out = in12;
-            5'd13: out = in13;
-            5'd14: out = in14;
-            5'd15: out = in15;
-            5'd16: out = in16;
-            5'd17: out = in17;
-            5'd18: out = in18;
-            5'd19: out = in19;
-            5'd20: out = in20;
-            5'd21: out = in21;
-            5'd22: out = in22;
-            5'd23: out = in23;
-            5'd31: out = {DATA_WIDTH{1'b0}};
-            default: out = {DATA_WIDTH{1'b0}};
-        endcase
-    end
-end
-
-endmodule
-
-
-
-
-
-
-// mux16to1
-module mux16to1 #(
-    parameter DATA_WIDTH = 16
-)(
-    input wire [DATA_WIDTH-1:0] in0,
-    input wire [DATA_WIDTH-1:0] in1,
-    input wire [DATA_WIDTH-1:0] in2,
-    input wire [DATA_WIDTH-1:0] in3,
-    input wire [DATA_WIDTH-1:0] in4,
-    input wire [DATA_WIDTH-1:0] in5,
-    input wire [DATA_WIDTH-1:0] in6,
-    input wire [DATA_WIDTH-1:0] in7,
-    input wire [DATA_WIDTH-1:0] in8,
-    input wire [DATA_WIDTH-1:0] in9,
-    input wire [DATA_WIDTH-1:0] in10,
-    input wire [DATA_WIDTH-1:0] in11,
-    input wire [DATA_WIDTH-1:0] in12,
-    input wire [DATA_WIDTH-1:0] in13,
-    input wire [DATA_WIDTH-1:0] in14,
-    input wire [DATA_WIDTH-1:0] in15,
-    input wire [3:0] sel,
-    output reg [DATA_WIDTH-1:0] out,
-	input wire reset
-);
-
-always @(*) begin
-    if(reset) begin
-        out = {DATA_WIDTH{1'b0}};
-    end
-    else begin
-        case (sel)
-            4'd0:  out = in0;
-            4'd1:  out = in1;
-            4'd2:  out = in2;
-            4'd3:  out = in3;
-            4'd4:  out = in4;
-            4'd5:  out = in5;
-            4'd6:  out = in6;
-            4'd7:  out = in7;
-            4'd8:  out = in8;
-            4'd9:  out = in9;
-            4'd10: out = in10;
-            4'd11: out = in11;
-            4'd12: out = in12;
-            4'd13: out = in13;
-            4'd14: out = in14;
-            // 4'd15: out = in15;
-            default: out = {DATA_WIDTH{1'b0}};
-        endcase
-    end
-end
-
-endmodule
-
-
-
-
-
-// module matrix_addition
-module matrix_addition(
-    input clk,
-    input reset,
-    input start,
-    output reg done,
-    input wire [13:0] src1_start_address,
-    input wire [13:0] src2_start_address,
-    output reg [13:0] src1_address,
-    input wire [15:0] src1_readdata,
-    output reg [15:0] src1_writedata,
-    output wire src1_write_en,
-    output reg [13:0] src2_address,
-    input wire [15:0] src2_readdata,
-    output reg [15:0] src2_writedata,
-    output wire src2_write_en,
-    input wire [9:0] src1_row_size,
-    input wire [9:0] src1_col_size,
-    input wire [5:0] src2_row_size,
-    input wire [5:0] src2_col_size,
-    input wire [13:0] dest_start_address,
-    output reg [13:0] dest_address,
-    input wire [15:0] dest_readdata,
-    output reg [15:0] dest_writedata,
-    output reg dest_write_en
-);
-    reg [9:0] row_count;
-    reg [9:0] col_count;
-    
-    assign src1_write_en = 0;
-    assign src2_write_en = 0;
-    reg [1:0] state = 2'd2;
-
-    wire [15:0] sum;
-
-    always @(posedge clk) begin
-        if(reset) begin
-            state <= 2'd2;
-            row_count<=0;
-            col_count<=0;
-            src1_address<=src1_start_address;
-            src2_address<=src2_start_address;
-            dest_address<=dest_start_address;
-            done<=1;
-        end
-        else begin
-            case (state)
-                2'd0: begin
-                    src1_address<=src1_start_address;
-                    src2_address<=src2_start_address;
-                    dest_address<=dest_start_address-1;
-                    state<=2'd1;
-                end 
-                2'd1: begin
-                    if(row_count < src1_row_size-1) begin
-                        src1_address <= src1_address + 1;
-                        src2_address <= src2_address + 1;
-                        row_count <= row_count+1;
-                        dest_address <= dest_address + 1;
-                        // dest_writedata <= src1_readdata + src2_readdata;
-                        dest_writedata <= sum;
-                        dest_write_en <= 1;
-                    end
-                    else if (col_count < src1_col_size-1) begin
-                        src1_address <= src1_address + 1;
-                        src2_address <= src2_address + 1;
-                        col_count <= col_count+1;
-                        row_count <= 0;
-                        dest_address <= dest_address + 1;
-                        dest_writedata <= sum;
-                    end
-                    else begin
-                        dest_address<=dest_address + 1;
-                        dest_writedata <= sum;
-                        state <= 2'd2;
-                    end
-                end
-                2'd2: begin
-                    if(start == 1) begin
-                        state <= 2'd0;
-                        done <= 0;
-                    end
-                    else begin
-                        dest_write_en <= 0;
-                        row_count<=0;
-                        col_count<=0;
-                        src1_address<=src1_start_address;
-                        src2_address<=src2_start_address;
-                        dest_address<=dest_start_address;
-                        done<=1;
-                    end
-                end
-                default: begin
-                    row_count<=0;
-                    col_count<=0;
-                    src1_address<=src1_start_address;
-                    src2_address<=src2_start_address;
-                    dest_address<=dest_start_address;
-                    done<=1;
-                end
-            endcase
-        end
-    end
-
-    floatAdd floatadd (
-    .floatA(src1_readdata),
-    .floatB(src2_readdata),
-    .sum(sum)
-);
-endmodule
-
-
-
-
-
-
-
-
-// module matrix_maxpool
-module matrix_maxpool(
-    input clk,
-    input reset,
-    input start,
-    output reg done,
-    input wire [13:0] src1_start_address,
-    output reg [13:0] src1_address,
-    input wire signed [15:0] src1_readdata,
-    output wire src1_write_en,
-    input wire [9:0] src1_row_size,
-    input wire [9:0] src1_col_size,
-    input wire [5:0] src2_row_size,
-    input wire [5:0] src2_col_size,
-    input wire [13:0] dest_start_address,
-    output reg [13:0] dest_address,
-    output reg signed [15:0] dest_writedata,
-    output reg dest_write_en
-);
-    reg [9:0] row_count;
-    reg [9:0] col_count;
-    reg [9:0] row_index;
-    reg [9:0] col_index;
-    reg signed [15:0] max_pool=0;
-    wire signed [5:0] dim;
-   
-    assign src1_write_en = 0;
-    reg [1:0] state = 2'd2;
-    reg [5:0] val = 1;
-    
-    assign dim = (src1_col_size/src2_col_size);
-
-    always @(posedge clk) begin
-    if(reset) begin
-
-        state <= 2'd2;
-        row_count<=0;
-        col_count<=0;
-        row_index <=0;
-        col_index <= 0;
-        src1_address<=src1_start_address;
-        dest_address<=dest_start_address;
-        done<=1;
-    end
-    else begin
-        case (state)
-            2'd0: begin
-                src1_address<=src1_start_address;
-                dest_address<=dest_start_address-1;
-                max_pool <= 0;
-                state<=2'd1;
-            end
-            2'd1: begin
-                if(row_count < src2_row_size-1) begin
-                    src1_address <= src1_address + 1;
-       
-                    
-                    row_count <= row_count+1;
-                    if ($signed(src1_readdata) > $signed(max_pool))
-                      max_pool <= $signed(src1_readdata);
-                    dest_write_en <= 0;
-                end
-                else if (col_count < src2_col_size-1) begin
-                  //  src1_address <= src1_address + 1;
-                    src1_address <= src1_address + src1_row_size - 1;
-                    col_count <= col_count+1;
-                    row_count <= 0;
-                    if ($signed(src1_readdata) > $signed(max_pool))
-                      max_pool <= $signed(src1_readdata);
-                    dest_write_en <= 0;
-                end
-                else begin
-                    dest_write_en <= 0;
-                    if ($signed(src1_readdata) > $signed(max_pool))
-                      max_pool <= $signed(src1_readdata);              
-                    state <= 2'd3;
-                end
-            end
-            2'd3: begin
-                     // src1_address <= src1_address + 1;
-                      src1_address <= src1_address - src1_row_size - 1 + src2_row_size;
-                      dest_writedata <= $signed(max_pool);
-                      dest_write_en <= 1;
-                      dest_address <= dest_address + 1;
-                      val <= val + 1;
-                      row_count <= 0;
-                      col_count <= 0;
-                      max_pool <=-32768;
-                   
-                    if(val % dim == 0)
-                       src1_address <= src1_address + 1;
-                    else
-                       src1_address <= src1_address - src1_row_size - 1 + src2_row_size;
-
-                   
- 
-                    if(val == (dim*dim))
-                        state <= 2'd2; // Processing complete
-                    else
-                        state <= 2'd1; // Continue processing next block
-                   
-                end            
-           
-           
-            2'd2: begin
-                if(start == 1) begin
-                    state <= 2'd0;
-                    dest_write_en <= 0;
-                    done <= 0;
-                end
-                else begin
-                    dest_write_en <= 0;
-                    row_count<=0;
-                    col_count<=0;
-                    row_index <= 0;
-                    col_index <=0;
-                    src1_address<=src1_start_address;
-                    dest_address<=dest_start_address;
-                    done<=1;
-                end
-            end
-            default: begin
-                row_count<=0;
-                col_count<=0;
-                row_index <= 0;
-                col_index <=0;                
-                src1_address<=src1_start_address;
-                dest_address<=dest_start_address;
-                done<=1;
-            end
-        endcase
-    end
-    end
-endmodule
-
-
-
-
-// Relu module
-module matrix_relu(
-    input clk,
-    input reset,
-    input start,
-    output reg done,
-    input wire [13:0] src1_start_address,
-    input wire [13:0] src2_start_address,
-    output reg [13:0] src1_address,
-    input wire signed [15:0] src1_readdata,
-    output wire src1_write_en,
-   // output reg [14:0] src2_address,
-   // input reg [15:0] src2_data,
-   // output wire src2_write_en,
-    input wire [9:0] src1_row_size,
-    input wire [9:0] src1_col_size,
-    input wire [5:0] src2_row_size,
-    input wire [5:0] src2_col_size,
-    input wire [13:0] dest_start_address,
-    output reg [13:0] dest_address,
-    output reg signed [15:0] dest_writedata,
-    output reg dest_write_en
-);
-    reg [9:0] row_count;
-    reg [9:0] col_count;
-   
-    assign src1_write_en = 0;
-   // assign src2_write_en = 0;
-    reg [1:0] state = 2'd2;
-
-    always @(posedge clk) begin
-    if(reset) begin
-        state <= 2'd2;
-        row_count<=0;
-        col_count<=0;
-        src1_address<=src1_start_address;
-      //  src2_address<=src2_start_address;
-        dest_address<=dest_start_address;
-        done<=1;
-    end
-    else begin
-        case (state)
-            2'd0: begin
-                src1_address<=src1_start_address;
-            //    src2_address<=src2_start_address;
-                dest_address<=dest_start_address-1;
-                state<=2'd1;
-            end
-            2'd1: begin
-                if(row_count < src1_row_size-1) begin
-                    src1_address <= src1_address + 1;
-                //    src2_address <= src2_address + 1;
-                    row_count <= row_count+1;
-                    dest_address <= dest_address + 1;
-                //  dest_data <= src1_data + src2_data;
-                    dest_writedata <= ( $signed(src1_readdata) < 0 ) ? 0 : src1_readdata;
-                    dest_write_en <= 1;
-                end
-                else if (col_count < src1_col_size-1) begin
-                    src1_address <= src1_address + 1;
-                //    src2_address <= src2_address + 1;
-                    col_count <= col_count+1;
-                    row_count <= 0;
-                    dest_address <= dest_address + 1;
-                //  dest_data <= src1_data + src2_data;
-                    dest_writedata <= ( $signed(src1_readdata) < 0 ) ? 0 : src1_readdata;
-                end
-                else begin
-                    dest_address<=dest_address + 1;
-                //  dest_data <= src1_data + src2_data;
-                    dest_writedata <= ( $signed(src1_readdata) < 0 ) ? 0 : src1_readdata;
-                    state <= 2'd2;
-                end
-            end
-            2'd2: begin
-                if(start == 1) begin
-                    state <= 2'd0;
-                    done <= 0;
-                end
-                else begin
-                    dest_write_en <= 0;
-                    row_count<=0;
-                    col_count<=0;
-                    src1_address<=src1_start_address;
-                //  src2_address<=src2_start_address;
-                    dest_address<=dest_start_address;
-                    done<=1;
-                end
-            end
-            default: begin
-                row_count<=0;
-                col_count<=0;
-                src1_address<=src1_start_address;
-            //    src2_address<=src2_start_address;
-                dest_address<=dest_start_address;
-                done<=1;
-            end
-        endcase
-    end
-    end
-endmodule
-
-
-
-
-
-
-
-
-// Matrix_dot Module
-module matrix_dot(
-    input clk,
-    input reset,
-    input start,
-    output reg done,
-    input wire [13:0] src1_start_address,
-    input wire [13:0] src2_start_address,
-    output reg [13:0] src1_address,
-    input wire [15:0] src1_readdata,
-    output wire src1_write_en,
-    output reg [13:0] src2_address,
-    input wire [15:0] src2_readdata,
-    output wire src2_write_en,
-    input wire [11:0] src1_row_size,
-    input wire [7:0] src1_col_size,
-    input wire [7:0] src2_row_size,
-    input wire [5:0] src2_col_size,
-    input wire [13:0] dest_start_address,
-    output reg [13:0] dest_address,
-    output wire [15:0] dest_writedata,
-    output reg dest_write_en
-);
-
-    // States
-    localparam IDLE = 0,
-               CALC = 1,
-               WRITE = 2,
-               DONE = 3;
-
-    // State register
-    reg [2:0] state, next_state;
-
-    assign src1_write_en = 0;
-    assign src2_write_en = 0;
-
-    // Intermediate data and address registers
-    wire [15:0] product;
-    reg [12:0] i, j, k;
-    reg [15:0] sum;
-	 
-	 wire [15:0] sum_plus_product;
-
-    assign dest_writedata = sum;
-    // State machine transitions
-    always @(posedge clk, posedge reset) begin
-        if (reset) begin
-            state <= IDLE;
-        end else begin
-            state <= next_state;
-        end
-    end
-
-    always @(*) begin
-        case(state)
-            IDLE: begin
-                done = 1;
-                if (start)
-                    next_state = CALC;
-                else
-                    next_state = IDLE;
-            end
-            CALC: begin
-                done = 0;
-                if  ( j == src1_row_size-1) begin
-                    next_state = WRITE;
-                end
-                else begin
-                    next_state = CALC;
-                end
-            end
-            WRITE: begin
-                done = 0;
-                if  (k == src1_col_size)  begin // counter k indicate done.
-                    next_state = DONE;
-                end
-                else begin
-                    next_state = CALC;
-                end
-            end
-            DONE: begin
-                next_state = IDLE;
-                done = 1;
-            end
-            default: begin
-                next_state = IDLE;
-                done = 1;
-            end
-
-        endcase
-    end
-
-    always @(posedge clk) begin
-        case(state)
-            IDLE: begin
-                dest_write_en <= 0;
-                i <= 1;
-                j <= 0;
-                sum <= 0;
-                src1_address <= src1_start_address;
-                src2_address <= src2_start_address;
-                dest_address <= dest_start_address;
-                k<=0;
-            end
-            CALC: begin
-                if(j<src1_row_size-1) begin // next element
-                    src1_address <= src1_address + 1;
-                    src2_address <= src2_address + src2_row_size;
-                end
-                sum <= sum_plus_product;
-                j<=j+1;
-                if(j==src1_row_size-1) begin // write in the next cycle
-                    dest_write_en <= 1;
-                end
-                else begin
-                    dest_write_en <= 0;
-                end
-
-                if  (( i == src2_row_size ) && ( j == src1_row_size-1))  begin // counter increment
-                    k <= k+1;
-                end
-            end
-            WRITE: begin
-                if(i == src2_row_size) begin
-                    src2_address <= src2_start_address; // reset src2_address
-                end
-                else begin
-                    src2_address <= src2_start_address+i;
-                end
-                
-
-                if(i == src2_row_size) begin 
-                    src1_address <= src1_address + 1;
-                end
-                else begin
-                    src1_address <= src1_address - src1_row_size + 1; // reset src1_address
-                end
-
-                if(i < src2_row_size ) begin
-                    i<=i+1;
-                end
-                else begin
-                    i<=1;
-                end
-
-                dest_address <= dest_address + 1; // dest_address increment
-                sum <= 0;
-                j<=0;
-                dest_write_en <= 0;
-            end
-            DONE: begin
-                k<=0;
-                i<=0;
-                j<=0;
-                dest_address <= dest_start_address;
-                src1_address <= src1_start_address;
-                src2_address <= src2_start_address;
-                dest_write_en <= 0;
-            end
-        endcase
-    end
-
-//    signed_mult mul(
-//        .a(src1_readdata),
-//        .b(src2_readdata),
-//        .out(product)
+////fixed point multiplier
+//module signed_mult (out, a, b);
+//	output 	signed  [15:0]	out;
+//	input 	signed	[15:0] 	a;
+//	input 	signed	[15:0] 	b;
+//	wire 	signed	[31:0]	mult_out;
+////	assign mult_out = a * b;
+////	assign out = {mult_out[31], mult_out[28:14]};
+//	assign out = a*b;
+//endmodule
+//
+//
+//
+//
+//
+//// floatadd module
+//module floatAdd (
+//	input wire [15:0] floatA,
+//	input wire [15:0] floatB,
+//	output reg [15:0] sum
+//);
+// 
+//reg sign;
+//reg signed [5:0] exponent; //fifth bit is sign
+//reg [9:0] mantissa;
+//reg [4:0] exponentA, exponentB;
+//reg [10:0] fractionA, fractionB, fraction;	//fraction = {1,mantissa}
+//reg [7:0] shiftAmount;
+//reg cout;
+// 
+//always @ (floatA or floatB) begin
+//	exponentA = floatA[14:10];
+//	exponentB = floatB[14:10];
+//	fractionA = {1'b1,floatA[9:0]};//将隐藏位表示出来进行计算
+//	fractionB = {1'b1,floatB[9:0]}; //同理
+//	
+//	exponent = exponentA;
+// 
+//	if (floatA == 0) begin						//special case (floatA = 0)
+//		sum = floatB;
+//	end else if (floatB == 0) begin					//special case (floatB = 0)
+//		sum = floatA;
+//	end else if (floatA[14:0] == floatB[14:0] && floatA[15]^floatB[15]==1'b1) begin
+//		sum=0;
+//	end else begin
+//		if (exponentB > exponentA) begin//对阶：将阶数(exponent)化为相同的，小阶化为大阶。好比6.6x10^(6)和8.8x10^(4)相加时，我们会化成6.6x10^(6)和0.088x10^(6)进行运算
+//			shiftAmount = exponentB - exponentA;
+//			fractionA = fractionA >> (shiftAmount);//要将floatA化为大阶，则尾数要右移，尾数减小
+//			exponent = exponentB;
+//		end else if (exponentA > exponentB) begin //同理
+//			shiftAmount = exponentA - exponentB;
+//			fractionB = fractionB >> (shiftAmount);
+//			exponent = exponentA;
+//		end
+//		if (floatA[15] == floatB[15]) begin			//same sign
+//			{cout,fraction} = fractionA + fractionB;
+//			if (cout == 1'b1) begin//‘相加后的值’的小数点前的第二位如果是1，则要向右移一位，确保小数点前只有一位
+//				{cout,fraction} = {cout,fraction} >> 1;
+//				exponent = exponent + 1;
+//			end
+//			sign = floatA[15];
+//		end else begin						//different signs
+//			if (floatA[15] == 1'b1) begin
+//				{cout,fraction} = fractionB - fractionA;//如果B比A小，则相减后得到补码，cout为符号位
+//			end else begin
+//				{cout,fraction} = fractionA - fractionB;//同理
+//			end
+//			sign = cout;
+//			if (cout == 1'b1) begin
+//				fraction = -fraction;//将补码转化为原码
+//			end else begin
+//			end
+//			if (fraction [10] == 0) begin
+//				if (fraction[9] == 1'b1) begin//规格化，将隐藏位再次隐藏起来
+//					fraction = fraction << 1;
+//					exponent = exponent - 1;
+//				end else if (fraction[8] == 1'b1) begin
+//					fraction = fraction << 2;
+//					exponent = exponent - 2;
+//				end else if (fraction[7] == 1'b1) begin
+//					fraction = fraction << 3;
+//					exponent = exponent - 3;
+//				end else if (fraction[6] == 1'b1) begin
+//					fraction = fraction << 4;
+//					exponent = exponent - 4;
+//				end else if (fraction[5] == 1'b1) begin
+//					fraction = fraction << 5;
+//					exponent = exponent - 5;
+//				end else if (fraction[4] == 1'b1) begin
+//					fraction = fraction << 6;
+//					exponent = exponent - 6;
+//				end else if (fraction[3] == 1'b1) begin
+//					fraction = fraction << 7;
+//					exponent = exponent - 7;
+//				end else if (fraction[2] == 1'b1) begin
+//					fraction = fraction << 8;
+//					exponent = exponent - 8;
+//				end else if (fraction[1] == 1'b1) begin
+//					fraction = fraction << 9;
+//					exponent = exponent - 9;
+//				end else if (fraction[0] == 1'b1) begin
+//					fraction = fraction << 10;
+//					exponent = exponent - 10;
+//				end 
+//			end
+//		end
+//		mantissa = fraction[9:0];//
+//		if(exponent[5]==1'b1) begin //exponent is negative：1.exponent太大了溢出；2.规格化后发现exponent太小了，忽略，直接等于0
+//			sum = 16'b0000000000000000;
+//		end
+//		else begin
+//			sum = {sign,exponent[4:0],mantissa};
+//		end		
+//	end		
+//end
+// 
+//endmodule
+//
+//
+//
+//
+//
+//
+//
+//// floatmult module
+//module floatMult 
+//(
+//	input wire [15:0] floatA,
+//	input wire [15:0] floatB,
+//	output reg [15:0] product
+//);
+//
+//reg sign; // 输出的正负标志位
+//reg signed [5:0] exponent; // 输出数据的指数，因为有正负所以选择有符号数
+//reg [9:0] mantissa; // 输出数据的小数
+//reg [10:0] fractionA, fractionB;	//fraction = {1,mantissa} // 计算二进制数据最高位补1
+//reg [21:0] fraction; // 相乘结果参数
+//
+//
+//always @ (floatA or floatB) 
+//begin
+//	if (floatA == 0 || floatB == 0)  // 处理乘数有一个或者两个均为0的情况
+//		product = 0;				//  输出为0
+//	else 
+//	begin
+//		sign = floatA[15] ^ floatB[15]; // 异或门判断输出的计算正负
+//		exponent = floatA[14:10] + floatB[14:10] - 5'd15 + 5'd2; // 由于借位给fractionA和fractionB需要先补齐两位指数
+//	
+//		fractionA = {1'b1,floatA[9:0]}; //借位给fractionA
+//		fractionB = {1'b1,floatB[9:0]}; //借位给fractionB
+//		fraction = fractionA * fractionB; //计算二进制乘法
+//		// 找到第一个不为0的数字并对指数进行匹配处理
+//		if (fraction[21] == 1'b1) 
+//		begin
+//			fraction = fraction << 1;
+//			exponent = exponent - 1; 
+//		end 
+//		else if (fraction[20] == 1'b1) 
+//		begin
+//			fraction = fraction << 2;
+//			exponent = exponent - 2;
+//		end 
+//		else if (fraction[19] == 1'b1) 
+//		begin
+//			fraction = fraction << 3;
+//			exponent = exponent - 3;
+//		end 
+//		else if (fraction[18] == 1'b1) 
+//		begin
+//			fraction = fraction << 4;
+//			exponent = exponent - 4;
+//		end 
+//		else if (fraction[17] == 1'b1) 
+//		begin
+//			fraction = fraction << 5;
+//			exponent = exponent - 5;
+//		end 
+//		else if (fraction[16] == 1'b1) 
+//		begin
+//			fraction = fraction << 6;
+//			exponent = exponent - 6;
+//		end 
+//		else if (fraction[15] == 1'b1) 
+//		begin
+//			fraction = fraction << 7;
+//			exponent = exponent - 7;
+//		end 
+//		else if (fraction[14] == 1'b1) 
+//		begin
+//			fraction = fraction << 8;
+//			exponent = exponent - 8;
+//		end 
+//		else if (fraction[13] == 1'b1) 
+//		begin
+//			fraction = fraction << 9;
+//			exponent = exponent - 9;
+//		end 
+//		else if (fraction[12] == 1'b0) 
+//		begin
+//			fraction = fraction << 10;
+//			exponent = exponent - 10;
+//		end 
+//		// 按照半精度浮点数的格式输出
+//		mantissa = fraction[21:12];
+//		if(exponent[5]==1'b1) begin //太小了输出全0(精度问题)
+//			product=16'b0000000000000000;
+//		end
+//		else begin
+//			product = {sign,exponent[4:0],mantissa}; //拼接输出数据
+//		end
+//	end
+//end
+//endmodule
+//
+//
+//
+//
+//
+//
+//// module mux24to1
+//module mux24to1 #(
+//    parameter DATA_WIDTH = 12
+//)(
+//    input wire [DATA_WIDTH-1:0] in0,
+//    input wire [DATA_WIDTH-1:0] in1,
+//    input wire [DATA_WIDTH-1:0] in2,
+//    input wire [DATA_WIDTH-1:0] in3,
+//    input wire [DATA_WIDTH-1:0] in4,
+//    input wire [DATA_WIDTH-1:0] in5,
+//    input wire [DATA_WIDTH-1:0] in6,
+//    input wire [DATA_WIDTH-1:0] in7,
+//    input wire [DATA_WIDTH-1:0] in8,
+//    input wire [DATA_WIDTH-1:0] in9,
+//    input wire [DATA_WIDTH-1:0] in10,
+//    input wire [DATA_WIDTH-1:0] in11,
+//    input wire [DATA_WIDTH-1:0] in12,
+//    input wire [DATA_WIDTH-1:0] in13,
+//    input wire [DATA_WIDTH-1:0] in14,
+//    input wire [DATA_WIDTH-1:0] in15,
+//    input wire [DATA_WIDTH-1:0] in16,
+//    input wire [DATA_WIDTH-1:0] in17,
+//    input wire [DATA_WIDTH-1:0] in18,
+//    input wire [DATA_WIDTH-1:0] in19,
+//    input wire [DATA_WIDTH-1:0] in20,
+//    input wire [DATA_WIDTH-1:0] in21,
+//    input wire [DATA_WIDTH-1:0] in22,
+//    input wire [DATA_WIDTH-1:0] in23,
+//    input wire [4:0] sel,
+//    output reg [DATA_WIDTH-1:0] out,
+//	input wire reset
+//);
+//
+//always @(*) begin
+//    if(reset) begin
+//        out = {DATA_WIDTH{1'b0}};
+//    end
+//    else begin
+//        case (sel)
+//            5'd0:  out = in0;
+//            5'd1:  out = in1;
+//            5'd2:  out = in2;
+//            5'd3:  out = in3;
+//            5'd4:  out = in4;
+//            5'd5:  out = in5;
+//            5'd6:  out = in6;
+//            5'd7:  out = in7;
+//            5'd8:  out = in8;
+//            5'd9:  out = in9;
+//            5'd10: out = in10;
+//            5'd11: out = in11;
+//            5'd12: out = in12;
+//            5'd13: out = in13;
+//            5'd14: out = in14;
+//            5'd15: out = in15;
+//            5'd16: out = in16;
+//            5'd17: out = in17;
+//            5'd18: out = in18;
+//            5'd19: out = in19;
+//            5'd20: out = in20;
+//            5'd21: out = in21;
+//            5'd22: out = in22;
+//            5'd23: out = in23;
+//            5'd31: out = {DATA_WIDTH{1'b0}};
+//            default: out = {DATA_WIDTH{1'b0}};
+//        endcase
+//    end
+//end
+//
+//endmodule
+//
+//
+//
+//
+//
+//
+//// mux16to1
+//module mux16to1 #(
+//    parameter DATA_WIDTH = 16
+//)(
+//    input wire [DATA_WIDTH-1:0] in0,
+//    input wire [DATA_WIDTH-1:0] in1,
+//    input wire [DATA_WIDTH-1:0] in2,
+//    input wire [DATA_WIDTH-1:0] in3,
+//    input wire [DATA_WIDTH-1:0] in4,
+//    input wire [DATA_WIDTH-1:0] in5,
+//    input wire [DATA_WIDTH-1:0] in6,
+//    input wire [DATA_WIDTH-1:0] in7,
+//    input wire [DATA_WIDTH-1:0] in8,
+//    input wire [DATA_WIDTH-1:0] in9,
+//    input wire [DATA_WIDTH-1:0] in10,
+//    input wire [DATA_WIDTH-1:0] in11,
+//    input wire [DATA_WIDTH-1:0] in12,
+//    input wire [DATA_WIDTH-1:0] in13,
+//    input wire [DATA_WIDTH-1:0] in14,
+//    input wire [DATA_WIDTH-1:0] in15,
+//    input wire [3:0] sel,
+//    output reg [DATA_WIDTH-1:0] out,
+//	input wire reset
+//);
+//
+//always @(*) begin
+//    if(reset) begin
+//        out = {DATA_WIDTH{1'b0}};
+//    end
+//    else begin
+//        case (sel)
+//            4'd0:  out = in0;
+//            4'd1:  out = in1;
+//            4'd2:  out = in2;
+//            4'd3:  out = in3;
+//            4'd4:  out = in4;
+//            4'd5:  out = in5;
+//            4'd6:  out = in6;
+//            4'd7:  out = in7;
+//            4'd8:  out = in8;
+//            4'd9:  out = in9;
+//            4'd10: out = in10;
+//            4'd11: out = in11;
+//            4'd12: out = in12;
+//            4'd13: out = in13;
+//            4'd14: out = in14;
+//            // 4'd15: out = in15;
+//            default: out = {DATA_WIDTH{1'b0}};
+//        endcase
+//    end
+//end
+//
+//endmodule
+//
+//
+//
+//
+//
+//// module matrix_addition
+//module matrix_addition(
+//    input clk,
+//    input reset,
+//    input start,
+//    output reg done,
+//    input wire [13:0] src1_start_address,
+//    input wire [13:0] src2_start_address,
+//    output reg [13:0] src1_address,
+//    input wire [15:0] src1_readdata,
+//    output wire [15:0] src1_writedata,
+//    output wire src1_write_en,
+//    output reg [13:0] src2_address,
+//    input wire [15:0] src2_readdata,
+//    output wire [15:0] src2_writedata,
+//    output wire src2_write_en,
+//    input wire [9:0] src1_row_size,
+//    input wire [9:0] src1_col_size,
+//    input wire [5:0] src2_row_size,
+//    input wire [5:0] src2_col_size,
+//    input wire [13:0] dest_start_address,
+//    output reg [13:0] dest_address,
+//    input wire [15:0] dest_readdata,
+//    output reg [15:0] dest_writedata,
+//    output reg dest_write_en
+//);
+//    reg [9:0] row_count;
+//    reg [9:0] col_count;
+//    
+//    assign src1_write_en = 0;
+//    assign src2_write_en = 0;
+//    assign src1_writedata = 0;
+//    assign src2_writedata = 0;
+//
+//    reg [1:0] state = 2'd2;
+//
+//    wire [15:0] sum;
+//
+//    always @(posedge clk) begin
+//        if(reset) begin
+//            state <= 2'd2;
+//            row_count<=0;
+//            col_count<=0;
+//            src1_address<=src1_start_address;
+//            src2_address<=src2_start_address;
+//            dest_address<=dest_start_address;
+//            done<=1;
+//        end
+//        else begin
+//            case (state)
+//                2'd0: begin
+//                    src1_address<=src1_start_address;
+//                    src2_address<=src2_start_address;
+//                    dest_address<=dest_start_address-1;
+//                    state<=2'd1;
+//                end 
+//                2'd1: begin
+//                    if(row_count < src1_row_size-1) begin
+//                        src1_address <= src1_address + 1;
+//                        src2_address <= src2_address + 1;
+//                        row_count <= row_count+1;
+//                        dest_address <= dest_address + 1;
+//                        // dest_writedata <= src1_readdata + src2_readdata;
+//                        dest_writedata <= sum;
+//                        dest_write_en <= 1;
+//                    end
+//                    else if (col_count < src1_col_size-1) begin
+//                        src1_address <= src1_address + 1;
+//                        src2_address <= src2_address + 1;
+//                        col_count <= col_count+1;
+//                        row_count <= 0;
+//                        dest_address <= dest_address + 1;
+//                        dest_writedata <= sum;
+//                    end
+//                    else begin
+//                        dest_address<=dest_address + 1;
+//                        dest_writedata <= sum;
+//                        state <= 2'd2;
+//                    end
+//                end
+//                2'd2: begin
+//                    if(start == 1) begin
+//                        state <= 2'd0;
+//                        done <= 0;
+//                    end
+//                    else begin
+//                        dest_write_en <= 0;
+//                        row_count<=0;
+//                        col_count<=0;
+//                        src1_address<=src1_start_address;
+//                        src2_address<=src2_start_address;
+//                        dest_address<=dest_start_address;
+//                        done<=1;
+//                    end
+//                end
+//                default: begin
+//                    row_count<=0;
+//                    col_count<=0;
+//                    src1_address<=src1_start_address;
+//                    src2_address<=src2_start_address;
+//                    dest_address<=dest_start_address;
+//                    done<=1;
+//                end
+//            endcase
+//        end
+//    end
+//
+//    floatAdd floatadd (
+//    .floatA(src1_readdata),
+//    .floatB(src2_readdata),
+//    .sum(sum)
+//);
+//endmodule
+//
+//
+//
+//
+//
+//
+//
+//
+//// module convolution
+//module conv(
+//    input clk,
+//    input reset,
+//    input start,
+//    output reg done,
+//    input wire [13:0] src1_start_address,
+//    input wire [13:0] src2_start_address,
+//    output reg [13:0] src1_address,
+//    input wire [15:0] src1_readdata,
+//    output wire [15:0] src1_writedata,
+//    output wire src1_write_en,
+//    output reg [13:0] src2_address,
+//    input wire [15:0] src2_readdata,
+//    output wire [15:0] src2_writedata,
+//    output wire src2_write_en,
+//    input wire [9:0] src1_row_size, // input matrix
+//    input wire [9:0] src1_col_size,
+//    input wire [5:0] src2_row_size, // kernel
+//    input wire [5:0] src2_col_size,
+//    input wire [13:0] dest_start_address,
+//    output reg [13:0] dest_address,
+//    input wire [15:0] dest_readdata,
+//    output wire [15:0] dest_writedata,
+//    output reg dest_write_en
+//);
+//    // states
+//    localparam IDLE = 3'd0,
+//               READ_KERNEL = 3'd1,
+//               CALC = 3'd2,
+//               SLIDE = 3'd3,
+//               WRITE = 3'd4,
+//               DONE = 3'd5;
+//
+//    reg [9:0] i,j,m,n;
+//
+//    reg [3:0] i_k, j_k;
+//
+//    reg [15:0] kernel [3:0][3:0];
+//    reg [13:0] kernel_address;
+//
+//    reg [2:0] state, next_state;
+//
+//    reg [15:0] sum;
+//    wire [15:0] product;
+//    wire [15:0] sum_plus_product;
+//
+//    assign src1_write_en = 0;
+//    assign src2_write_en = 0;
+//    assign src1_writedata = 0;
+//    assign src2_writedata = 0;
+//
+//    assign dest_writedata = sum;
+//
+//    always @(posedge clk, posedge reset) begin
+//        if (reset) begin
+//            state <= IDLE;
+//        end else begin
+//            state <= next_state;
+//        end
+//    end
+//
+//    always @(*) begin
+//        case(state)
+//            IDLE: begin
+//                done = 1;
+//                if (start) begin
+//                    next_state = READ_KERNEL;
+//                end
+//                else begin
+//                    next_state = IDLE;
+//                end
+//            end
+//
+//            READ_KERNEL: begin
+//                done = 0;
+//                if ( (i_k == src2_col_size-1) && (j_k == src2_row_size-1) ) begin
+//                    next_state = CALC;
+//                    
+//                end
+//                else begin
+//                    next_state = READ_KERNEL;
+//                end
+//            end
+//
+//            CALC: begin
+//                done = 0;
+//                if  (( j == src2_row_size-1) && ( i == src2_col_size-1)) begin
+//                    next_state = WRITE;
+//                end
+//                else begin
+//                    next_state = CALC;
+//                end
+//            end
+//
+//            SLIDE: begin
+//                done = 0;
+//                next_state = CALC;
+//            end
+//
+//            WRITE: begin
+//                done = 0;
+//                if  ((m == (src1_col_size - src2_col_size - 1 + (src2_col_size >> 1))) && (n == (src1_row_size - src2_row_size - 1 + (src2_row_size >> 1)))) begin
+//                    next_state = DONE;
+//                end
+//                else begin
+//                    next_state = SLIDE;
+//                end
+//            end
+//            DONE: begin
+//                next_state = IDLE;
+//                done = 1;
+//            end
+//            default: begin
+//                next_state = IDLE;
+//                done = 1;
+//            end
+//
+//        endcase
+//    end
+//
+//    always @(posedge clk) begin
+//        case(state)
+//            IDLE: begin
+//                dest_write_en <= 0;
+//                i <= 0;
+//                j <= 0;
+//                m <= 0;
+//                n <= 0;
+//                i_k <= 0;
+//                j_k <= 0;
+//                sum <= 0;
+//                src1_address <= src1_start_address;
+//                src2_address <= src2_start_address;
+//                dest_address <= dest_start_address;
+//                kernel_address <= src1_start_address;
+//            end
+//
+//            READ_KERNEL: begin
+//                src2_address <= src2_address+1;
+//                kernel[i_k][j_k] <= src2_readdata;
+//                if(j_k == src2_row_size - 1) begin
+//                    j_k <= 0;
+//                    i_k <= i_k + 1;
+//                end
+//                else begin
+//                    j_k <= j_k + 1;
+//                end
+//            end
+//
+//            CALC: begin
+////                sum <= sum + src1_readdata * kernel[i][j]; // sum
+//                sum <= sum_plus_product;
+//                if(j == src2_row_size - 1 ) begin
+//                    j<=0;
+//                    if(i == src2_row_size - 1) begin
+//                        dest_write_en<=1;
+//                        i<=0;
+//                    end
+//                    else begin
+//                        dest_write_en<=0;
+//                        src1_address <= src1_address + src1_row_size - j; 
+//                        i<=i+1;
+//                    end
+//                end
+//                else begin
+//                    src1_address <= src1_address + 1;
+//                    j<=j+1;
+//                end
+//            end
+//
+//            SLIDE: begin // slide kernel
+//
+//                
+//                if(n == (src1_row_size - src2_row_size - 1 + (src2_row_size >> 1))) begin
+//                    n <= 0;
+//                    m <= m+1;
+//                    kernel_address <= kernel_address + src1_row_size - n;
+//                    src1_address <= kernel_address + src1_row_size - n;
+//                end
+//                else begin
+//                    n <= n+1;
+//                    kernel_address <= kernel_address + 1;
+//                    src1_address <= kernel_address + 1;
+//                end
+//            end
+//            
+//            WRITE: begin
+//                dest_write_en <= 0;
+//                dest_address <= dest_address + 1;
+//                sum <= 0;
+//            end
+//            DONE: begin
+//                i <= 0;
+//                j <= 0;
+//                i <= 0;
+//                j <= 0;
+//                m <= 0;
+//                n <= 0;
+//                dest_address <= dest_start_address;
+//                src1_address <= src1_start_address;
+//                src2_address <= src2_start_address;
+//                dest_write_en <= 0;
+//            end
+//        endcase
+//    end
+//    
+//    floatMult mul(
+//        .floatA(src1_readdata),
+//        .floatB(kernel[i][j]),
+//        .product(product)
 //    );
-
-    floatMult mul(
-        .floatA(src1_readdata),
-        .floatB(src2_readdata),
-        .product(product)
-    );
-	 
-	 floatAdd floatadd (
-    .floatA(sum),
-    .floatB(product),
-    .sum(sum_plus_product)
-	 );
-
-
-endmodule
+//	 
+//	floatAdd floatadd (
+//        .floatA(sum),
+//        .floatB(product),
+//        .sum(sum_plus_product)
+//	);
+//
+//endmodule
+//
+//
+//
+//
+//
+//
+//// module matrix_maxpool
+//module matrix_maxpool(
+//    input clk,
+//    input reset,
+//    input start,
+//    output reg done,
+//    input wire [13:0] src1_start_address,
+//    output reg [13:0] src1_address,
+//    input wire signed [15:0] src1_readdata,
+//    output wire src1_write_en,
+//    input wire [9:0] src1_row_size,
+//    input wire [9:0] src1_col_size,
+//    input wire [5:0] src2_row_size,
+//    input wire [5:0] src2_col_size,
+//    input wire [13:0] dest_start_address,
+//    output reg [13:0] dest_address,
+//    output reg signed [15:0] dest_writedata,
+//    output reg dest_write_en
+//);
+//    reg [5:0] row_count;
+//    reg [5:0] col_count;
+//    reg [5:0] row_index;
+//    reg [5:0] col_index;
+//    reg signed [15:0] max_pool=0;
+//    wire signed [5:0] dim;
+//   
+//    assign src1_write_en = 0;
+//    reg [1:0] state = 2'd2;
+//    reg [5:0] val = 1;
+//    
+//    assign dim = (src1_col_size/src2_col_size);
+//
+//    always @(posedge clk) begin
+//    if(reset) begin
+//
+//        state <= 2'd2;
+//        row_count<=0;
+//        col_count<=0;
+//        row_index <=0;
+//        col_index <= 0;
+//        src1_address<=src1_start_address;
+//        dest_address<=dest_start_address;
+//        done<=1;
+//    end
+//    else begin
+//        case (state)
+//            2'd0: begin
+//                src1_address<=src1_start_address;
+//                dest_address<=dest_start_address-1;
+//                max_pool <= 0;
+//                state<=2'd1;
+//            end
+//            2'd1: begin
+//                if(row_count < src2_row_size-1) begin
+//                    src1_address <= src1_address + 1;
+//       
+//                    
+//                    row_count <= row_count+1;
+//                    if ($signed(src1_readdata) > $signed(max_pool))
+//                      max_pool <= $signed(src1_readdata);
+//                    dest_write_en <= 0;
+//                end
+//                else if (col_count < src2_col_size-1) begin
+//                  //  src1_address <= src1_address + 1;
+//                    src1_address <= src1_address + src1_row_size - 1;
+//                    col_count <= col_count+1;
+//                    row_count <= 0;
+//                    if ($signed(src1_readdata) > $signed(max_pool))
+//                      max_pool <= $signed(src1_readdata);
+//                    dest_write_en <= 0;
+//                end
+//                else begin
+//                    dest_write_en <= 0;
+//                    if ($signed(src1_readdata) > $signed(max_pool))
+//                      max_pool <= $signed(src1_readdata);              
+//                    state <= 2'd3;
+//                end
+//            end
+//            2'd3: begin
+//                     // src1_address <= src1_address + 1;
+//                      src1_address <= src1_address - src1_row_size - 1 + src2_row_size;
+//                      dest_writedata <= $signed(max_pool);
+//                      dest_write_en <= 1;
+//                      dest_address <= dest_address + 1;
+//                      val <= val + 1;
+//                      row_count <= 0;
+//                      col_count <= 0;
+//                      max_pool <=-32768;
+//                   
+//                    if(val % dim == 0)
+//                       src1_address <= src1_address + 1;
+//                    else
+//                       src1_address <= src1_address - src1_row_size - 1 + src2_row_size;
+//
+//                   
+// 
+//                    if(val == (dim*dim))
+//                        state <= 2'd2; // Processing complete
+//                    else
+//                        state <= 2'd1; // Continue processing next block
+//                   
+//                end            
+//           
+//           
+//            2'd2: begin
+//                if(start == 1) begin
+//                    state <= 2'd0;
+//                    dest_write_en <= 0;
+//                    done <= 0;
+//                end
+//                else begin
+//                    dest_write_en <= 0;
+//                    row_count<=0;
+//                    col_count<=0;
+//                    row_index <= 0;
+//                    col_index <=0;
+//                    src1_address<=src1_start_address;
+//                    dest_address<=dest_start_address;
+//                    done<=1;
+//                end
+//            end
+//            default: begin
+//                row_count<=0;
+//                col_count<=0;
+//                row_index <= 0;
+//                col_index <=0;                
+//                src1_address<=src1_start_address;
+//                dest_address<=dest_start_address;
+//                done<=1;
+//            end
+//        endcase
+//    end
+//    end
+//endmodule
+//
+//
+//
+//
+//
+//// Relu module
+//module matrix_relu(
+//    input clk,
+//    input reset,
+//    input start,
+//    output reg done,
+//    input wire [13:0] src1_start_address,
+//    input wire [13:0] src2_start_address,
+//    output reg [13:0] src1_address,
+//    input wire signed [15:0] src1_readdata,
+//    output wire src1_write_en,
+//   // output reg [14:0] src2_address,
+//   // input reg [15:0] src2_data,
+//   // output wire src2_write_en,
+//    input wire [9:0] src1_row_size,
+//    input wire [9:0] src1_col_size,
+//    input wire [5:0] src2_row_size,
+//    input wire [5:0] src2_col_size,
+//    input wire [13:0] dest_start_address,
+//    output reg [13:0] dest_address,
+//    output reg signed [15:0] dest_writedata,
+//    output reg dest_write_en
+//);
+//    reg [9:0] row_count;
+//    reg [9:0] col_count;
+//   
+//    assign src1_write_en = 0;
+//   // assign src2_write_en = 0;
+//    reg [1:0] state = 2'd2;
+//
+//    always @(posedge clk) begin
+//    if(reset) begin
+//        state <= 2'd2;
+//        row_count<=0;
+//        col_count<=0;
+//        src1_address<=src1_start_address;
+//      //  src2_address<=src2_start_address;
+//        dest_address<=dest_start_address;
+//        done<=1;
+//    end
+//    else begin
+//        case (state)
+//            2'd0: begin
+//                src1_address<=src1_start_address;
+//            //    src2_address<=src2_start_address;
+//                dest_address<=dest_start_address-1;
+//                state<=2'd1;
+//            end
+//            2'd1: begin
+//                if(row_count < src1_row_size-1) begin
+//                    src1_address <= src1_address + 1;
+//                //    src2_address <= src2_address + 1;
+//                    row_count <= row_count+1;
+//                    dest_address <= dest_address + 1;
+//                //  dest_data <= src1_data + src2_data;
+//                    dest_writedata <= ( $signed(src1_readdata) < 0 ) ? 0 : src1_readdata;
+//                    dest_write_en <= 1;
+//                end
+//                else if (col_count < src1_col_size-1) begin
+//                    src1_address <= src1_address + 1;
+//                //    src2_address <= src2_address + 1;
+//                    col_count <= col_count+1;
+//                    row_count <= 0;
+//                    dest_address <= dest_address + 1;
+//                //  dest_data <= src1_data + src2_data;
+//                    dest_writedata <= ( $signed(src1_readdata) < 0 ) ? 0 : src1_readdata;
+//                end
+//                else begin
+//                    dest_address<=dest_address + 1;
+//                //  dest_data <= src1_data + src2_data;
+//                    dest_writedata <= ( $signed(src1_readdata) < 0 ) ? 0 : src1_readdata;
+//                    state <= 2'd2;
+//                end
+//            end
+//            2'd2: begin
+//                if(start == 1) begin
+//                    state <= 2'd0;
+//                    done <= 0;
+//                end
+//                else begin
+//                    dest_write_en <= 0;
+//                    row_count<=0;
+//                    col_count<=0;
+//                    src1_address<=src1_start_address;
+//                //  src2_address<=src2_start_address;
+//                    dest_address<=dest_start_address;
+//                    done<=1;
+//                end
+//            end
+//            default: begin
+//                row_count<=0;
+//                col_count<=0;
+//                src1_address<=src1_start_address;
+//            //    src2_address<=src2_start_address;
+//                dest_address<=dest_start_address;
+//                done<=1;
+//            end
+//        endcase
+//    end
+//    end
+//endmodule
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//// Matrix_dot Module
+//module matrix_dot(
+//    input clk,
+//    input reset,
+//    input start,
+//    output reg done,
+//    input wire [13:0] src1_start_address,
+//    input wire [13:0] src2_start_address,
+//    output reg [13:0] src1_address,
+//    input wire [15:0] src1_readdata,
+//    output wire src1_write_en,
+//    output reg [13:0] src2_address,
+//    input wire [15:0] src2_readdata,
+//    output wire src2_write_en,
+//    input wire [11:0] src1_row_size,
+//    input wire [7:0] src1_col_size,
+//    input wire [7:0] src2_row_size,
+//    input wire [5:0] src2_col_size,
+//    input wire [13:0] dest_start_address,
+//    output reg [13:0] dest_address,
+//    output wire [15:0] dest_writedata,
+//    output reg dest_write_en
+//);
+//
+//    // States
+//    localparam IDLE = 0,
+//               CALC = 1,
+//               WRITE = 2,
+//               DONE = 3;
+//
+//    // State register
+//    reg [2:0] state, next_state;
+//
+//    assign src1_write_en = 0;
+//    assign src2_write_en = 0;
+//
+//    // Intermediate data and address registers
+//    wire [15:0] product;
+//    reg [12:0] i, j, k;
+//    reg [15:0] sum;
+//	 
+//	 wire [15:0] sum_plus_product;
+//
+//    assign dest_writedata = sum;
+//    // State machine transitions
+//    always @(posedge clk, posedge reset) begin
+//        if (reset) begin
+//            state <= IDLE;
+//        end else begin
+//            state <= next_state;
+//        end
+//    end
+//
+//    always @(*) begin
+//        case(state)
+//            IDLE: begin
+//                done = 1;
+//                if (start)
+//                    next_state = CALC;
+//                else
+//                    next_state = IDLE;
+//            end
+//            CALC: begin
+//                done = 0;
+//                if  ( j == src1_row_size-1) begin
+//                    next_state = WRITE;
+//                end
+//                else begin
+//                    next_state = CALC;
+//                end
+//            end
+//            WRITE: begin
+//                done = 0;
+//                if  (k == src1_col_size)  begin // counter k indicate done.
+//                    next_state = DONE;
+//                end
+//                else begin
+//                    next_state = CALC;
+//                end
+//            end
+//            DONE: begin
+//                next_state = IDLE;
+//                done = 1;
+//            end
+//            default: begin
+//                next_state = IDLE;
+//                done = 1;
+//            end
+//
+//        endcase
+//    end
+//
+//    always @(posedge clk) begin
+//        case(state)
+//            IDLE: begin
+//                dest_write_en <= 0;
+//                i <= 1;
+//                j <= 0;
+//                sum <= 0;
+//                src1_address <= src1_start_address;
+//                src2_address <= src2_start_address;
+//                dest_address <= dest_start_address;
+//                k<=0;
+//            end
+//            CALC: begin
+//                if(j<src1_row_size-1) begin // next element
+//                    src1_address <= src1_address + 1;
+//                    src2_address <= src2_address + src2_row_size;
+//                end
+//                sum <= sum_plus_product;
+//                j<=j+1;
+//                if(j==src1_row_size-1) begin // write in the next cycle
+//                    dest_write_en <= 1;
+//                end
+//                else begin
+//                    dest_write_en <= 0;
+//                end
+//
+//                if  (( i == src2_row_size ) && ( j == src1_row_size-1))  begin // counter increment
+//                    k <= k+1;
+//                end
+//            end
+//            WRITE: begin
+//                if(i == src2_row_size) begin
+//                    src2_address <= src2_start_address; // reset src2_address
+//                end
+//                else begin
+//                    src2_address <= src2_start_address+i;
+//                end
+//                
+//
+//                if(i == src2_row_size) begin 
+//                    src1_address <= src1_address + 1;
+//                end
+//                else begin
+//                    src1_address <= src1_address - src1_row_size + 1; // reset src1_address
+//                end
+//
+//                if(i < src2_row_size ) begin
+//                    i<=i+1;
+//                end
+//                else begin
+//                    i<=1;
+//                end
+//
+//                dest_address <= dest_address + 1; // dest_address increment
+//                sum <= 0;
+//                j<=0;
+//                dest_write_en <= 0;
+//            end
+//            DONE: begin
+//                k<=0;
+//                i<=0;
+//                j<=0;
+//                dest_address <= dest_start_address;
+//                src1_address <= src1_start_address;
+//                src2_address <= src2_start_address;
+//                dest_write_en <= 0;
+//            end
+//        endcase
+//    end
+//
+////    signed_mult mul(
+////        .a(src1_readdata),
+////        .b(src2_readdata),
+////        .out(product)
+////    );
+//
+//    floatMult mul(
+//        .floatA(src1_readdata),
+//        .floatB(src2_readdata),
+//        .product(product)
+//    );
+//	 
+//	 floatAdd floatadd (
+//		 .floatA(sum),
+//		 .floatB(product),
+//		 .sum(sum_plus_product)
+//	 );
+//
+//
+//endmodule
 
 
 
