@@ -5,26 +5,26 @@ module floatMult
 	output reg [15:0] product
 );
 
-reg sign; // 输出的正负标志位
-reg signed [5:0] exponent; // 输出数据的指数，因为有正负所以选择有符号数
-reg [9:0] mantissa; // 输出数据的小数
-reg [10:0] fractionA, fractionB;	//fraction = {1,mantissa} // 计算二进制数据最高位补1
-reg [21:0] fraction; // 相乘结果参数
+reg sign; 
+reg signed [5:0] exponent; 
+reg [9:0] mantissa;
+reg [10:0] fractionA, fractionB;	
+reg [21:0] fraction;
 
 
 always @ (floatA or floatB) 
 begin
-	if (floatA == 0 || floatB == 0)  // 处理乘数有一个或者两个均为0的情况
-		product = 0;				//  输出为0
+	if (floatA == 0 || floatB == 0)  // have 0
+		product = 0;				//  output 0 
 	else 
 	begin
-		sign = floatA[15] ^ floatB[15]; // 异或门判断输出的计算正负
-		exponent = floatA[14:10] + floatB[14:10] - 5'd15 + 5'd2; // 由于借位给fractionA和fractionB需要先补齐两位指数
+		sign = floatA[15] ^ floatB[15]; // sign bit
+		exponent = floatA[14:10] + floatB[14:10] - 5'd15 + 5'd2; 
 	
-		fractionA = {1'b1,floatA[9:0]}; //借位给fractionA
-		fractionB = {1'b1,floatB[9:0]}; //借位给fractionB
-		fraction = fractionA * fractionB; //计算二进制乘法
-		// 找到第一个不为0的数字并对指数进行匹配处理
+		fractionA = {1'b1,floatA[9:0]}; 
+		fractionB = {1'b1,floatB[9:0]}; 
+		fraction = fractionA * fractionB; 
+		
 		if (fraction[21] == 1'b1) 
 		begin
 			fraction = fraction << 1;
@@ -75,13 +75,13 @@ begin
 			fraction = fraction << 10;
 			exponent = exponent - 10;
 		end 
-		// 按照半精度浮点数的格式输出
+		// FP16 format
 		mantissa = fraction[21:12];
-		if(exponent[5]==1'b1) begin //太小了输出全0(精度问题)
+		if(exponent[5]==1'b1) begin 
 			product=16'b0000000000000000;
 		end
 		else begin
-			product = {sign,exponent[4:0],mantissa}; //拼接输出数据
+			product = {sign,exponent[4:0],mantissa};
 		end
 	end
 end

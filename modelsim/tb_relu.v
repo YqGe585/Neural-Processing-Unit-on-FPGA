@@ -13,8 +13,8 @@ module matrix_relu_tb;
 //  wire [15:0] src2_data;
     wire signed [15:0] src1_write_data;
 //  wire [15:0] src2_write_data;
-    reg [5:0] src1_row_size;
-    reg [5:0] src1_col_size;
+    reg [9:0] src1_row_size;
+    reg [9:0] src1_col_size;
     reg [5:0] src2_row_size;
     reg [5:0] src2_col_size;
     reg [13:0] dest_start_address;
@@ -88,10 +88,10 @@ module matrix_relu_tb;
         start = 0;
         src1_start_address = 12'd128;
     //    src2_start_address = 15'd128;
-        src1_row_size = 16;  // Example size 32x32 matrix
-        src1_col_size = 16;
-        src2_row_size = 16;
-        src2_col_size = 16;
+        src1_row_size = 26;  // Example size 32x32 matrix
+        src1_col_size = 26;
+        src2_row_size = 26;
+        src2_col_size = 26;
         dest_start_address = 12'd128;
 
         // Wait for global reset to finish
@@ -114,7 +114,6 @@ module matrix_relu_tb;
 
         // Finish simulation
         #600;
-        $finish;
     end
 
 endmodule
