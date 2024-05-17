@@ -104,7 +104,6 @@ module matrix_maxpool_tb;
 
         // Finish simulation
         #600;
-        $finish;
     end
 
 endmodule
